@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 	<h1>This is Login Page..</h1>
+	<form action="saveuser" method="post">
+		Email: <input type="text" name="email"> 
+		<br></br>
+		Password: <input type="text" name="password"/> 
+		<br></br>
+		<input type="submit" value="submit"/> 
+		<br></br>
+	</form>
+	<a href="signup">Login</a>
+	<a href="forgetpassword">Forget Password</a>
+	
 </body>
 </html>
