@@ -9,9 +9,9 @@
 <body>
 	<h1>This is Signup Page..</h1>
 	<form action="saveuser" method="post">
-		FirstName: <input type="text" name="firstname"/> 
+		FirstName: <input type="text" name="firstName"/> 
 		<br></br>
-		LastName: <input type="text" name="lastname"/>
+		LastName: <input type="text" name="lastName"/>
 		<br></br>
 		Email: <input type="text" name="email"/> 
 		<br></br>
@@ -21,11 +21,11 @@
 		<br></br>
 		
 		<label>Gender:</label>
-			<input type="radio" id="male" name="gender"/>
+			<input type="radio" id="male" name="gender" value="male"/>
 				<label for="male">Male</label> 
-			<input type="radio" id="female" name="gender"/>
+			<input type="radio" id="female" name="gender" value="female"/>
 				<label for="female">Female</label>
-			<input type="radio" id="other" name="gender"/>
+			<input type="radio" id="other" name="gender" value="other"/>
 				<label for="other">Other</label>
 		<br></br>
 		

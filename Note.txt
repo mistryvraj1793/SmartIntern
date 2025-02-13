@@ -1,0 +1,62 @@
+UserEntity class:
+	-->
+	->In private Integer userId, contactNo;, both userId and contactNo are declared in the same line.
+	->Only userId will be treated as the primary key, and contactNo will be ignored by JPA.
+	->This can cause unexpected behavior when saving/retrieving data.
+	->it will cause an error, because @Id can only be applied to a single primary key field.
+mysql:
+	-->
+	command:use smartintern; or USE smartintern;
+			->Switches the active database to smartintern.
+			->All subsequent queries (e.g., SHOW TABLES;, SELECT * FROM users;) will run within the smartintern database.
+			->If the database does not exist, MySQL will return an error.
+	-->	
+	command:show tables; or SHOW TABLES;
+		->Displays a list of all tables in the currently selected database (smartintern).
+		->If the database is empty, it will return:
+			output:Empty set (0.00 sec)
+		if tables exist:
+			output:	+----------------+
+					| Tables_in_smartintern |
+					+----------------+
+					| users          |
+					| employees      |
+					| projects       |
+					+----------------+	
+				
+	-->
+		Why is AUTO_INCREMENT Missing?
+		->Table Already Created Without AUTO_INCREMENT
+			If the table was created before you added @GeneratedValue(strategy = GenerationType.IDENTITY), MySQL did not update it.
+		->Hibernate Did Not Modify the Column
+			Even if you set @GeneratedValue(strategy = GenerationType.IDENTITY), Hibernate does not change existing tables automatically.
+		->auto_increment do not see in the "Extra" column then 
+		->Hibernate may not have created the column with AUTO_INCREMENT if:
+		->The table already existed before running your Spring Boot app.
+		->The table schema was not updated properly.
+	command:ALTER TABLE users MODIFY COLUMN userId INT AUTO_INCREMENT;
+			->DESC users;
+					->The command DESC users; (short for DESCRIBE users;) 
+				  is used in MySQL to display the structure/schema of the users table. 
+				  It shows details about each column in the table, including its name, 
+				  data type, key constraints, default values, and extra attributes.
+			output: +--------+---------+------+-----+---------+----------------+
+					| Field  | Type    | Null | Key | Default | Extra          |
+					+--------+---------+------+-----+---------+----------------+
+					| userId | int(11) | NO   | PRI | NULL    | auto_increment |
+					+--------+---------+------+-----+---------+----------------+
+			Field->	The name of the column (userId)
+			Type->	Data type of the column (int(11))
+			Null->	Whether the column allows NULL values (NO means it cannot be NULL)
+			Key->	If the column is a Primary Key (PRI), Foreign Key (FOR), or Unique Key (UNI)
+			Default->	The default value for this column (if any)
+			Extra->	Any additional info (e.g., auto_increment means MySQL automatically increases the value for new rows)
+Signup:
+	-->
+		->You are missing the value attribute for each radio button.
+		->By default, when a radio button is selected, it submits its value.
+		->If no value is set, browsers send "on" when the radio button is checked.
+		->If no radio button is selected, the form will not send the gender field at all.
+		->So, in Spring Boot, userEntity.getGender() will return null.
+			->to solve this issue we use value attribute in form tag.
+			
