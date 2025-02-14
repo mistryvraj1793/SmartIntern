@@ -12,11 +12,12 @@
 		<label for="email">Email:</label>
 			<input type="text" id="email" name="email"/>
 			<br></br>
+			
 		<label for="otp">OTP:</label>
 			<input type="text" id="otp" name="otp"/>
 			<br></br>
-		<label for="update">Update Password</label>
-		<input type="submit" id="update" value="update">
+		
+		<input type="submit" value="ResetPassword">
 		<br></br>
 	</form>
 	<a href="signup">Signup</a>

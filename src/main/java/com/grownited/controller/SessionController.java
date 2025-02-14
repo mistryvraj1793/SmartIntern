@@ -33,7 +33,12 @@ public class SessionController {
 		return "ForgetPassword";
 	}
 	@PostMapping("resetpassword")
-	public String updatePassword(){
+	public String resetPassword(){
+		return "UpdatePassword";
+	}
+	@PostMapping("updatepassword")
+	public String updatePassword() {
 		return "Login";
 	}
 }
+

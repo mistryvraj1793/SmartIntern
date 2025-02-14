@@ -32,6 +32,6 @@
 		<input type="submit" value="submit"/>
 		<br></br>
 	</form>
-	<a href="login">Signup</a>
+	<a href="login">Already Signup</a>
 </body>
 </html>

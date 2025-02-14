@@ -17,6 +17,7 @@
 		<br></br>
 	</form>
 	<a href="signup">Login</a>
+	<br></br>
 	<a href="forgetpassword">Forget Password</a>
 	
 </body>
