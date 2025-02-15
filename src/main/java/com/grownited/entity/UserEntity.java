@@ -1,5 +1,8 @@
 package com.grownited.entity;
 
+import java.util.Date;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,12 +18,15 @@ public class UserEntity { // Class names should follow PascalCase
 	private Integer userId;// Corrected: 'Integer' (capital I), not 'integer'
 	private String firstName;
 	private String lastName;
+	@Column(unique = true)//in Spring Boot JPA ensures that a column (e.g., email) cannot have duplicate values at the database level.
 	private String email;
 	private String password;
 	private String contactNum;
 	private String gender;
 	private String bornYear;
 	private String city;
+	private Boolean activate;
+	private Date createdAt;// Represents a timestamp field in the users table.
 	private String role;//students, employees, faculties.
 	
 	public Integer getUserId() {
@@ -76,6 +82,18 @@ public class UserEntity { // Class names should follow PascalCase
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+	public Boolean getActivate() {
+		return activate;
+	}
+	public void setActivate(Boolean activate) {
+		this.activate = activate;
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 	public String getRole() {
 		return role;

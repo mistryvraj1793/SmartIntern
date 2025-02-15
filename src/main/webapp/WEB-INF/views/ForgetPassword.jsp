@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>This is a Forget Password Page..</h1>
-	<form action="resetpassword" method="post">
+	<form action="resetpassword" method="post" autocomplete="on">
 		<label for="email">Email:</label>
 			<input type="text" id="email" name="email"/>
 			<br></br>

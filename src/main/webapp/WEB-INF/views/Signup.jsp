@@ -8,13 +8,16 @@
 </head>
 <body>
 	<h1>This is Signup Page..</h1>
-	<form action="saveuser" method="post">
+	<form action="saveuser" method="post" autocomplete="on">
 		FirstName: <input type="text" name="firstName"/> 
 		<br></br>
+		
 		LastName: <input type="text" name="lastName"/>
 		<br></br>
+		
 		Email: <input type="text" name="email"/> 
 		<br></br>
+		
 		Password: <input type="text" name="password"/> 
 		<br></br>
 		ConfirmPassword: <input type="text" name=Confirmpassword/> 

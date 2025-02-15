@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>This is Login Page..</h1>
-	<form action="saveuser" method="post">
+	<form action="saveuser" method="post" autocomplete="on">
 		Email: <input type="text" name="email"> 
 		<br></br>
 		Password: <input type="text" name="password"/> 

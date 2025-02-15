@@ -1,17 +1,16 @@
 UserEntity class:
-	-->
-	->In private Integer userId, contactNo;, both userId and contactNo are declared in the same line.
-	->Only userId will be treated as the primary key, and contactNo will be ignored by JPA.
-	->This can cause unexpected behavior when saving/retrieving data.
-	->it will cause an error, because @Id can only be applied to a single primary key field.
+	-->Define Variables:
+		->In private Integer userId, contactNo;, both userId and contactNo are declared in the same line.
+		->Only userId will be treated as the primary key, and contactNo will be ignored by JPA.
+		->This can cause unexpected behavior when saving/retrieving data.
+		->it will cause an error, because @Id can only be applied to a single primary key field.
 mysql:
-	-->
-	command:use smartintern; or USE smartintern;
-			->Switches the active database to smartintern.
-			->All subsequent queries (e.g., SHOW TABLES;, SELECT * FROM users;) will run within the smartintern database.
-			->If the database does not exist, MySQL will return an error.
-	-->	
-	command:show tables; or SHOW TABLES;
+	-->command:use smartintern; or USE smartintern;
+		->Switches the active database to smartintern.
+		->All subsequent queries (e.g., SHOW TABLES;, SELECT * FROM users;) will run within the smartintern database.
+		->If the database does not exist, MySQL will return an error.
+	
+	-->command:show tables; or SHOW TABLES;
 		->Displays a list of all tables in the currently selected database (smartintern).
 		->If the database is empty, it will return:
 			output:Empty set (0.00 sec)
@@ -24,8 +23,7 @@ mysql:
 					| projects       |
 					+----------------+	
 				
-	-->
-		Why is AUTO_INCREMENT Missing?
+	-->Why is AUTO_INCREMENT Missing?
 		->Table Already Created Without AUTO_INCREMENT
 			If the table was created before you added @GeneratedValue(strategy = GenerationType.IDENTITY), MySQL did not update it.
 		->Hibernate Did Not Modify the Column
@@ -34,7 +32,8 @@ mysql:
 		->Hibernate may not have created the column with AUTO_INCREMENT if:
 		->The table already existed before running your Spring Boot app.
 		->The table schema was not updated properly.
-	command:ALTER TABLE users MODIFY COLUMN userId INT AUTO_INCREMENT;
+	
+		-->command:ALTER TABLE users MODIFY COLUMN userId INT AUTO_INCREMENT;
 			->DESC users;
 					->The command DESC users; (short for DESCRIBE users;) 
 				  is used in MySQL to display the structure/schema of the users table. 
@@ -52,11 +51,32 @@ mysql:
 			Default->	The default value for this column (if any)
 			Extra->	Any additional info (e.g., auto_increment means MySQL automatically increases the value for new rows)
 Signup:
-	-->
+	-->value attribute:
 		->You are missing the value attribute for each radio button.
 		->By default, when a radio button is selected, it submits its value.
 		->If no value is set, browsers send "on" when the radio button is checked.
 		->If no radio button is selected, the form will not send the gender field at all.
 		->So, in Spring Boot, userEntity.getGender() will return null.
 			->to solve this issue we use value attribute in form tag.
-			
+	
+	-->autocomplete attrubute in html:
+		->The autocomplete attribute in HTML helps browsers understand what kind of data should be autofilled in form fields.
+		->It improves security (for login forms) and user experience (for frequently entered fields).
+		->Use autocomplete="off" for sensitive data and autocomplete="on" for common inputs like email or username.
+
+Repository:
+	-->Repository Annotation:
+		->Without @Repository → Works fine because Spring Boot auto-registers JPA Repositories.
+ 		->With @Repository → Helps in exception translation & clarity, but not mandatory.
+
+SessionController:	
+	-->@Autowired Annotation:
+		->We cannot directly create an object of UserRepository (because it's an interface).
+		->The @Autowired annotation tells Spring Boot to automatically inject an instance of UserRepository.
+		->UserRepository communicates with the database (table: users).
+		->Spring Boot creates the implementation of UserRepository at runtime.
+	
+	-->new Keyword:
+		->The new keyword in Java is used to create an object of a class. It allocates memory for the object in the heap and returns a reference to it.
+
+	

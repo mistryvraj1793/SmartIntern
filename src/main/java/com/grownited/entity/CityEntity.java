@@ -1,0 +1,29 @@
+package com.grownited.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity//create entity or table
+@Table(name="cities")//entity or table name cities 
+public class CityEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer cityId;
+	private String cityName;
+	public Integer getCityId() {
+		return cityId;
+	}
+	public void setCityId(Integer cityId) {
+		this.cityId = cityId;
+	}
+	public String getCityName() {
+		return cityName;
+	}
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+	
+}
