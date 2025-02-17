@@ -13,6 +13,7 @@ public class CityEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cityId;
 	private String cityName;
+	private Integer stateId; //foreign key but we do not set it here
 	public Integer getCityId() {
 		return cityId;
 	}
@@ -24,6 +25,12 @@ public class CityEntity {
 	}
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
+	}
+	public Integer getStateId() {
+		return stateId;
+	}
+	public void setStateId(Integer stateId) {
+		this.stateId = stateId;
 	}
 	
 }

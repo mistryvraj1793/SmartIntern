@@ -79,4 +79,29 @@ SessionController:
 	-->new Keyword:
 		->The new keyword in Java is used to create an object of a class. It allocates memory for the object in the heap and returns a reference to it.
 
-	
+Entity class:
+	-->What is wrapper class? 
+		->A wrapper class in Java is a class that wraps a primitive data type into an object.
+			For example:
+				int → Integer
+				double → Double
+				char → Character	
+			int num = 10;  // Primitive type
+			Integer obj = num;  // Wrapper class (Auto-boxing)
+	-->Why Use Wrapper Classes Instead of Primitive Types? or why we use over the primitive type?
+		->Allows Null Values → Wrapper classes can store null, but primitive types cannot.
+			Integer num = null;  // Allowed
+			int num2 = null;  // ❌ Error! Primitives cannot be null
+		->Collections (List, Map, etc.) Need Objects → Java collections do not support primitive types, only objects.
+			List<Integer> list = new ArrayList<>();  // ✅ Works with Wrapper class
+			List<int> list2 = new ArrayList<>();  // ❌ Error! Primitive types not allowed
+		->Useful for Type Conversions → Wrapper classes provide methods to convert data.
+			String str = "123";
+			int num = Integer.parseInt(str);  // Converts String to int
+		->Supports Object-Oriented Features → Allows usage of methods for operations.
+			Integer num = 10;
+			System.out.println(num.toString());  // ✅ Converts to String
+			
+			
+			
+			
