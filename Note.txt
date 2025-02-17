@@ -1,3 +1,6 @@
+Full Form:
+	-->jsp(java Server Pages)
+	-->jstl(JavaServer Pages Standard Tag Library)
 UserEntity class:
 	-->Define Variables:
 		->In private Integer userId, contactNo;, both userId and contactNo are declared in the same line.
@@ -102,6 +105,42 @@ Entity class:
 			Integer num = 10;
 			System.out.println(num.toString());  // ✅ Converts to String
 			
+Comment:
+	-->Comment Type 	Usage 					Visible in Browser?
+	   <!-- --> (HTML)	Commenting HTML			✅ Yes
+	   <%-- --%> (JSP)	Commenting JSP code		❌ No
+	   // or /* */		Inside Java code in JSP	❌ No
+
+UserController:	   
+-->retrieves all records from the users table and stores them in a List<UserEntity> collection.
+	Part				Explanation
+	List<UserEntity>	A list that holds multiple UserEntity objects.
+	userList			A variable that stores the list of users.
+	repositoryUser		An instance of UserRepository, which interacts with the database.
+	findAll()			A Spring Data JPA method that fetches all records from the database.
+
+	List<UserEntity> userList = repositoryUser.findAll(); //i.e; equivalent SQL Query:SELECT * FROM users;
+		->repositoryUser → Instance of UserRepository, which is a Spring Data JPA Repository.
+		->findAll() → A predefined Spring JPA method that retrieves all records from the users table.
+		->List<UserEntity> → Stores the result as a list of UserEntity objects.
+	
+	model.addAttribute("userList", userList);
+		-> model → Object that carries data from the controller to the view (JSP page).
+		-> .addAttribute("userList", userList) → Stores userList in the model with the name "userList", so it can be accessed in the JSP.
+	
+	Statement									Purpose
+	repositoryUser.findAll()					Fetches all user records from the database.
+	model.addAttribute("userList", userList);	Passes the user list to the JSP page for display.
+		->fetch user data from the database and pass it to the JSP page for display.
+		
+ListUser:
+	-->This JSP snippet dynamically generates an HTML table to display user details stored in the userList variable.
+	
+	<c:forEach items="${userList}" var="m">
+		->JSTL Loop: Iterates over the list of user objects (userList). i.e;The userList variable is passed to JSP.
+																		<c:forEach> iterates over userList, displaying each user's details inside a table.
+		->var="m": Each iteration assigns a UserEntity object from the list to the variable m.
 			
-			
-			
+			->Code Part		Purpose
+			<c:forEach>		Loops through userList to display each user's data.
+			${m.firstName}	Retrieves the firstName of each user.

@@ -21,11 +21,31 @@ public class SessionController {
 	public String signup() {
 		return "Signup";//jsp file name
 	}
+	@PostMapping("saveuser")
+	public String saveUser() {
+		return "Login";
+	}
 	@GetMapping("login")
 	public String login() {
 		return "Login";
 	}
-	@PostMapping("saveuser")
+	@GetMapping("forgetpassword")
+	public String forgetPassword() {
+		return "ForgetPassword";
+	}
+	@PostMapping("resetpassword")
+	public String resetPassword(){
+		return "UpdatePassword";
+	}
+	@PostMapping("updatepassword")
+	public String updatePassword() {
+		return "Login";
+	}
+	@GetMapping("register")
+	public String newRegister() {
+		return "Register";
+	}
+	@PostMapping("saveregister")
 	public String saveUser(UserEntity entityUser) { //UserEntity is a class and userEntity is a object of that class.
 		
 		//read from the jsp input in the browser:
@@ -41,19 +61,8 @@ public class SessionController {
 		entityUser.setActivate(true);
 		//Write into a entity or table:
 		repositoryUser.save(entityUser); //Saves the entityUser object (which represents a user) into the database table users, using .save(entityUser)
-		return "Login";
+		return "Register";
 	}
-	@GetMapping("forgetpassword")
-	public String forgetPassword() {
-		return "ForgetPassword";
-	}
-	@PostMapping("resetpassword")
-	public String resetPassword(){
-		return "UpdatePassword";
-	}
-	@PostMapping("updatepassword")
-	public String updatePassword() {
-		return "Login";
-	}
+
 }
 

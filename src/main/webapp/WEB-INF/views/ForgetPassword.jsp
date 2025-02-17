@@ -17,9 +17,9 @@
 			<input type="text" id="otp" name="otp"/>
 			<br></br>
 		
-		<input type="submit" value="ResetPassword">
+		<input type="submit" value="Reset Password">
 		<br></br>
 	</form>
-	<a href="signup">Signup</a>
+	<a href="signup">Sign Up</a>
 </body>
 </html>

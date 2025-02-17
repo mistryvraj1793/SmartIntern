@@ -13,10 +13,10 @@
 		<br></br>
 		Password: <input type="text" name="password"/> 
 		<br></br>
-		<input type="submit" value="submit"/> 
+		<input type="submit" value="Login"/> 
 		<br></br>
 	</form>
-	<a href="signup">Login</a>
+	<a href="signup">Sign Up</a>
 	<br></br>
 	<a href="forgetpassword">Forget Password</a>
 	

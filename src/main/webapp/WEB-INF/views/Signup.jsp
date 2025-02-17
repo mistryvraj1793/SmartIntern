@@ -20,7 +20,7 @@
 		
 		Password: <input type="text" name="password"/> 
 		<br></br>
-		ConfirmPassword: <input type="text" name=Confirmpassword/> 
+		ConfirmPassword: <input type="text" name=ConfirmPassword/> 
 		<br></br>
 		
 		<label>Gender:</label>
@@ -32,9 +32,9 @@
 				<label for="other">Other</label>
 		<br></br>
 		
-		<input type="submit" value="submit"/>
+		<input type="submit" value="Sign Up"/>
 		<br></br>
 	</form>
-	<a href="login">Already Signup</a>
+	<a href="login">Already have an Account</a>
 </body>
 </html>

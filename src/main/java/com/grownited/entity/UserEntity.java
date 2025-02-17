@@ -24,10 +24,9 @@ public class UserEntity { // Class names should follow PascalCase
 	private String contactNum;
 	private String gender;
 	private String bornYear;
-	private String city;
 	private Boolean activate;
 	private Date createdAt;// Represents a timestamp field in the users table.
-	private String role;//students, employees, faculties.
+	private String role;//according to Me: students, employees, faculties. According to Sir: 1:admin, 2:intern, 3:mentor, 4:hr 
 	
 	public Integer getUserId() {
 		return userId;
@@ -76,12 +75,6 @@ public class UserEntity { // Class names should follow PascalCase
 	}
 	public void setBornYear(String bornYear) {
 		this.bornYear = bornYear;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
 	}
 	public Boolean getActivate() {
 		return activate;

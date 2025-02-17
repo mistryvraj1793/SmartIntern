@@ -9,11 +9,11 @@
 <body>
 	<h2>This is a Update Password Page..</h2>
 	<form action="updatepassword" method="post">
-		New Password:<input type="text" name="newpassword" />
+		New Password:<input type="text" name="newPassword" />
 		<br></br>
-		Confirm Password:<input type="text" name="confirmpassword">
+		Confirm Password:<input type="text" name="confirmPassword">
 		<br></br>
-		<input type="submit" value="UpdatePassword"/>
+		<input type="submit" value="Update Password"/>
 	</form>
 	
 	
