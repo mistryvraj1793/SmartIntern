@@ -13,23 +13,24 @@ import jakarta.persistence.Table;
 public class CompanyEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer comapnyId;
+	private Integer companyId;
 	private String companyName;
-	private String comapanyAddress;
-	private String ComapanyUrl;
-	private Integer contactPersonName;
+	private String address;
+	private String url;
+	private String personName;
 	private String externalGuide;
 	private Integer externalGuideContactNum;
-	private String ComapanyProfileUrl;
+	private String profileUrl;
 	private String anyOtherInfoUrl;
-	private Boolean companyActive;//status 1.active 2.deactive
-	private Date CompanycreatedAt;
+	private Boolean active;//status 1.active 2.deactive
+	private Date createdAt;
 	private Integer userId;//foreign key
-	public Integer getComapnyId() {
-		return comapnyId;
+	
+	public Integer getCompanyId() {
+		return companyId;
 	}
-	public void setComapnyId(Integer comapnyId) {
-		this.comapnyId = comapnyId;
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 	public String getCompanyName() {
 		return companyName;
@@ -37,23 +38,23 @@ public class CompanyEntity {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-	public String getComapanyAddress() {
-		return comapanyAddress;
+	public String getAddress() {
+		return address;
 	}
-	public void setComapanyAddress(String comapanyAddress) {
-		this.comapanyAddress = comapanyAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getComapanyUrl() {
-		return ComapanyUrl;
+	public String getUrl() {
+		return url;
 	}
-	public void setComapanyUrl(String comapanyUrl) {
-		ComapanyUrl = comapanyUrl;
+	public void setUrl(String url) {
+		this.url = url;
 	}
-	public Integer getContactPersonName() {
-		return contactPersonName;
+	public String getPersonName() {
+		return personName;
 	}
-	public void setContactPersonName(Integer contactPersonName) {
-		this.contactPersonName = contactPersonName;
+	public void setPersonName(String personName) {
+		this.personName = personName;
 	}
 	public String getExternalGuide() {
 		return externalGuide;
@@ -67,11 +68,11 @@ public class CompanyEntity {
 	public void setExternalGuideContactNum(Integer externalGuideContactNum) {
 		this.externalGuideContactNum = externalGuideContactNum;
 	}
-	public String getComapanyProfileUrl() {
-		return ComapanyProfileUrl;
+	public String getProfileUrl() {
+		return profileUrl;
 	}
-	public void setComapanyProfileUrl(String comapanyProfileUrl) {
-		ComapanyProfileUrl = comapanyProfileUrl;
+	public void setProfileUrl(String profileUrl) {
+		this.profileUrl = profileUrl;
 	}
 	public String getAnyOtherInfoUrl() {
 		return anyOtherInfoUrl;
@@ -79,17 +80,17 @@ public class CompanyEntity {
 	public void setAnyOtherInfoUrl(String anyOtherInfoUrl) {
 		this.anyOtherInfoUrl = anyOtherInfoUrl;
 	}
-	public Boolean getCompanyActive() {
-		return companyActive;
+	public Boolean getActive() {
+		return active;
 	}
-	public void setCompanyActive(Boolean companyActive) {
-		this.companyActive = companyActive;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
-	public Date getCompanycreatedAt() {
-		return CompanycreatedAt;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
-	public void setCompanycreatedAt(Date companycreatedAt) {
-		CompanycreatedAt = companycreatedAt;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 	public Integer getUserId() {
 		return userId;
@@ -97,5 +98,8 @@ public class CompanyEntity {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
+	
+	
+	
 	
 }
