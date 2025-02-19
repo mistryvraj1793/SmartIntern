@@ -14,15 +14,27 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 <body>
 	<h2>This is ListUser Page..</h2>
 	<table border="2">
-	<c:forEach items="${userList}" var="m">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Contact Number</th>
+			<th>Born Year</th>
+			<th>Gender</th>
+		</tr>
+	<c:forEach items="${userList}" var="u">
+			
 			<tr>
-				<td>${m.firstName}</td>
-				<td>${m.lastName}</td>
-				<td>${m.email}</td>
-				<td>${m.contactNum}</td>
-				<td>${m.bornYear}</td>
+				<td>${u.firstName}</td>
+				<td>${u.lastName}</td>
+				<td>${u.email}</td>
+				<td>${u.contactNum}</td>
+				<td>${u.bornYear}</td>
+				<td>${u.gender}</td>
 			</tr>	
 		</c:forEach>
 	</table>
+	<br>
+	<a href="register">New Register</a>
 </body>
 </html>

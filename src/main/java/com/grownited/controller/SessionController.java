@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
+import com.grownited.service.MailService;
 
 @Controller
 public class SessionController {
-	
+	@Autowired
+	MailService serviceMail;
 	@Autowired
 	UserRepository repositoryUser; //we directly can't create object of a instance (i.e UserRepository).
 	//@GetMapping(value = {"/","signup","SIGNUP"})
@@ -61,7 +63,10 @@ public class SessionController {
 		entityUser.setActivate(true);
 		//Write into a entity or table:
 		repositoryUser.save(entityUser); //Saves the entityUser object (which represents a user) into the database table users, using .save(entityUser)
-		return "Register";
+		
+		// send mail
+		serviceMail.sendWelcomeMail(entityUser.getEmail(), entityUser.getFirstName() );
+		return "redirect:/listuser";
 	}
 
 }

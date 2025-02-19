@@ -144,3 +144,12 @@ ListUser:
 			->Code Part		Purpose
 			<c:forEach>		Loops through userList to display each user's data.
 			${m.firstName}	Retrieves the firstName of each user.
+
+application.properties:
+	-->If you're using Gmail to send emails via Spring Boot, you cannot use your regular password directly. 
+	Instead, you need to generate an App Password from your Google account. Here's how:
+	
+	-->Why Do We Use App Passwords?
+		->Google blocks less secure apps from using your real password.
+		->App passwords bypass 2-Step Verification for specific apps.
+		->It prevents unauthorized access to your Google account.
