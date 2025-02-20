@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,5 +27,26 @@ public class UserController {
 		 //how to sends data from controller to jsp
 		 model.addAttribute("userList", userList);//where "userList" is a DataName and userList is a DataValue
 		 return "ListUser";
+	}
+	
+	@GetMapping("viewuser")
+	public String viewUser(Integer userId, Model model) {
+		System.out.println("id => "+userId);
+		Optional<UserEntity> op = repositoryUser.findById(userId);
+		if(op.isEmpty()) {
+			//not found but we dont consider this case.
+			System.out.println("Not found"); // If user is not found
+		} else {
+			//data found
+			UserEntity user = op.get();
+			//send data to jsp
+			model.addAttribute("user", user); // Pass user data to JSP
+		}
+		return "ViewUser"; // Display ViewUser.jsp
+	}
+	@GetMapping("deleteuser")
+	public String deleteUser(Integer userId) {
+		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
+		return "redirect:/listuser"; // Redirects to the user list page
 	}
 }

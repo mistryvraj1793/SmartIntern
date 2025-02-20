@@ -21,6 +21,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 			<th>Contact Number</th>
 			<th>Born Year</th>
 			<th>Gender</th>
+			<th>Action</td>
 		</tr>
 	<c:forEach items="${userList}" var="u">
 			
@@ -31,6 +32,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 				<td>${u.contactNum}</td>
 				<td>${u.bornYear}</td>
 				<td>${u.gender}</td>
+				<td><a href="viewuser?userId=${u.userId}">View</a>
+					<a href="deleteuser?userId=${u.userId}">Delete</a>
+					<a>Edit</a></td>
 			</tr>	
 		</c:forEach>
 	</table>

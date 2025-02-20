@@ -203,7 +203,33 @@ Password Encryption using Bcrypt:
 			2. Inject Encoder		@Autowired PasswordEncoder encoder;						Allows SessionController to use the encoder.
 			3. Encrypt Password		encoder.encode(entityUser.getPassword())				Hashes the password before storing it.
 			4. Verify Password		encoder.matches(enteredPassword, storedHashedPassword)	Checks if the entered password is correct.	
-			
-			
-			
+
+view and delete from the table users of a particular attribute:
+	-->UserController - Viewing a User:
+		->Receives userId from the URL (viewuser?userId=123).
+		->Tries to find the user in the database (findById(userId)).
+		->If found, sends user details to ViewUser.jsp.
+		->If not found, prints "Not found" but still redirects to the page.		
+	
+	-->ViewUser.jsp - Displaying User Details:
+		->Retrieves user details from model.addAttribute("user", user);
+		
+	-->UserController - Deleting a User:
+		->Receives userId from URL (deleteuser?userId=123).
+		->Deletes the user from the database (deleteById(userId)).
+		->Redirects back to the list user page.		
+	
+	-->ListUser.jsp - Displaying All Users:
+		-->Displays all users from userList (retrieved from the database).
+			->Each row has:
+				->"View" button → Shows user details (viewuser?userId=123).
+				->"Delete" button → Removes user (deleteuser?userId=123).
+				->"Edit" (not implemented yet).	
 				
+	-->Final Summary (Step-by-Step Execution):
+		Step				Action								Description
+		1. View User		Click "View" in ListUser.jsp		Calls viewUser(userId), fetches details, and shows ViewUser.jsp.
+		2. Display User		ViewUser.jsp shows details			Displays first name, email, contact, etc.
+		3. Delete User		Click "Delete" in ListUser.jsp		Calls deleteUser(userId), removes the user from the database, then redirects.
+		4. List Users		Visit ListUser.jsp					Retrieves all users from the database and displays them in a table.
+						

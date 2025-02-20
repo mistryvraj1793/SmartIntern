@@ -15,7 +15,7 @@
 		<br></br>
 		Email:<input type="text" name="email"/>
 		<br></br>
-		Password:<input type="text" name="password">
+		Password:<input type="password" name="password">
 		<br></br>
 		Born Year:<input type="number" name="bornYear"/>
 		<br></br>
@@ -27,5 +27,6 @@
 		<br></br>
 		<input type="submit" value="register"/>
 	</form>
+	<a href="listuser">List User</a>
 </body>
 </html>
