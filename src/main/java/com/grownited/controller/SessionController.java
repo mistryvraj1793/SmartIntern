@@ -4,6 +4,7 @@ package com.grownited.controller;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,10 +16,15 @@ import com.grownited.service.MailService;
 @Controller
 public class SessionController {
 	@Autowired
+	PasswordEncoder encoder;
+	
+	@Autowired
 	MailService serviceMail;
+	
 	@Autowired
 	UserRepository repositoryUser; //we directly can't create object of a instance (i.e UserRepository).
 	//@GetMapping(value = {"/","signup","SIGNUP"})
+	
 	@GetMapping("signup")//url
 	public String signup() {
 		return "Signup";//jsp file name
@@ -61,12 +67,18 @@ public class SessionController {
 		entityUser.setCreatedAt(new Date());//sets createdAt to the current system time.
 		entityUser.setRole("USER");
 		entityUser.setActivate(true);
+		
+		//Password encoder:
+		String encordePassword = encoder.encode(entityUser.getPassword());
+		System.out.println(encordePassword);
+		entityUser.setPassword(encordePassword);
+		
 		//Write into a entity or table:
 		repositoryUser.save(entityUser); //Saves the entityUser object (which represents a user) into the database table users, using .save(entityUser)
 		
 		// send mail
 		serviceMail.sendWelcomeMail(entityUser.getEmail(), entityUser.getFirstName() );
-		return "redirect:/listuser";
+		return "Register";
 	}
 
 }

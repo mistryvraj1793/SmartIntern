@@ -12,8 +12,10 @@ import com.grownited.repository.UserRepository;
 
 @Controller
 public class UserController {
+	
 	@Autowired
 	UserRepository repositoryUser;
+	
 	@GetMapping("listuser")
 	public String listUser(Model model) {
 		//how to sends data from database to Controller:

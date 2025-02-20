@@ -30,7 +30,7 @@ public class CompanyController {
 		entityCompany.setCreatedAt(new Date());
 		entityCompany.setActive(true);
 		
-		//for save the attributes data into table company using object of a Singalton of ComapanyRepository class.
+		//for save the attributes data into table company using object of a Singleton of ComapanyRepository class.
 		repositoryCompany.save(entityCompany);
 		return "Company";
 	}

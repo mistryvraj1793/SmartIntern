@@ -145,11 +145,65 @@ ListUser:
 			<c:forEach>		Loops through userList to display each user's data.
 			${m.firstName}	Retrieves the firstName of each user.
 
-application.properties:
-	-->If you're using Gmail to send emails via Spring Boot, you cannot use your regular password directly. 
-	Instead, you need to generate an App Password from your Google account. Here's how:
+Sending mail to gmail:
+	-->application.properties:
+		-->If you're using Gmail to send emails via Spring Boot, you cannot use your regular password directly. 
+		Instead, you need to generate an App Password from your Google account. Here's how:
+		
+		-->Why Do We Use App Passwords?
+			->Google blocks less secure apps from using your real password.
+			->App passwords bypass 2-Step Verification for specific apps.
+			->It prevents unauthorized access to your Google account.
+		
+		-->configuration for mail service:
+			->This configuration sets up an SMTP server to send emails using Gmail in a Spring application:
+				->SMTP Server Details: Uses Gmail's SMTP server (smtp.gmail.com) on port 587.
+				->Authentication: Requires a valid Gmail username and an App Password (not your regular Gmail password).
+				->Security: Enables authentication and TLS (starttls.enable=true) to secure the email transmission.
+				->This allows the Spring application to send emails securely using Gmail's SMTP server.
+	-->SessionController:
+		-->The serviceMail class should handle email formatting and SMTP configuration.	
 	
-	-->Why Do We Use App Passwords?
-		->Google blocks less secure apps from using your real password.
-		->App passwords bypass 2-Step Verification for specific apps.
-		->It prevents unauthorized access to your Google account.
+	-->MialService:
+		-->JavaMailSender Injection:
+			@Autowired JavaMailSender mailSender;
+			->This allows Spring to handle email sending using SMTP.
+			
+		-->How It Works
+			->When called, this method creates a simple email and sends it using mailSender.send(message).
+			->The user receives a plain text welcome email from mistryvraj1234@gmail.com.
+
+Password Encryption using Bcrypt:
+	-->The Maven dependency provides cryptographic utilities from Spring Security		
+	-->Why Use It?
+		->Securely stores passwords instead of saving them as plain text.
+		->Uses industry-standard encryption algorithms for security.
+	
+	-->Defining the Password Encoder in Application.java
+		-->What does this do?
+			->@Bean annotation makes this method a Spring-managed bean.
+			->BCryptPasswordEncoder is created and returned as a Spring Bean.
+			->This ensures that whenever Spring needs a PasswordEncoder, it will automatically use this instance.
+			
+		-->Injecting PasswordEncoder in SessionController:
+		
+		-->Encoding User Password in saveUser Method:
+			-->Step-by-Step Process:
+				->Get raw password from the entityUser object.
+				->Encrypt the password using encoder.encode(...).
+				->Print the hashed password (for debugging purposes).
+				->Store the encoded password in entityUser.setPassword(...) before saving it to the database.
+		--> Why is Password Encoding Important?
+			->Security Best Practice: Never store raw passwords in the database.
+			->BCrypt is Strong: It automatically handles salting and is resistant to brute-force attacks.
+			->Different Hash Every Time: Even if two users have the same password, the stored hash will be different.
+		-->Final summary:
+			Step					Code													Purpose
+			1. Define Encoder Bean	@Bean PasswordEncoder encoder() {...}					Creates a BCrypt encoder as a Spring bean.
+			2. Inject Encoder		@Autowired PasswordEncoder encoder;						Allows SessionController to use the encoder.
+			3. Encrypt Password		encoder.encode(entityUser.getPassword())				Hashes the password before storing it.
+			4. Verify Password		encoder.matches(enteredPassword, storedHashedPassword)	Checks if the entered password is correct.	
+			
+			
+			
+				

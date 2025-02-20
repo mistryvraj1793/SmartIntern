@@ -14,7 +14,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>SmartIntern</name>
-	<description>This SmartIntern is a bridge between Students, Faculties and Employees</description>
+	<description>This SmartIntern is a bridge between Interns, Faculties and Companyies</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -63,10 +63,11 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
-<dependency>
-    <groupId>org.apache.tomcat.embed</groupId>
-    <artifactId>tomcat-embed-jasper</artifactId>
-</dependency>
+	<dependency>
+	    <groupId>org.apache.tomcat.embed</groupId>
+	    <artifactId>tomcat-embed-jasper</artifactId>
+	</dependency>
+	
 		<!-- for jstl(java standard tag library) provides pre-built JSP tags for 
 		common functionalities like looping, conditionals, and formatting.-->
 		<dependency>
@@ -83,6 +84,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-crypto</artifactId>
+	</dependency>
+
 	</dependencies>
 
 	<build>

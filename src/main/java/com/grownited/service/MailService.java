@@ -13,7 +13,7 @@ public class MailService {
 
 	public void sendWelcomeMail(String email, String firstName) {
 		String subject ="Welcome to SmartIntern";
-		String body ="Hey"+ firstName +", We're excited to have you on board. If you have any questions, feel free to reach out – we’re here to help!";
+		String body ="Hey "+ firstName +", We're excited to have you on board. If you have any questions, feel free to reach out – we’re here to help!";
 		String from ="mistryvraj1234@gmail.com";
 
 		//Logic:
