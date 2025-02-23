@@ -25,7 +25,8 @@
 		<br></br>
 		AnyOtherInfoUrl:<input type="file" name="anyOtherInfoUrl"/>
 		<br></br>
-		<input type="submit" name="Save Company Detail"/>
+		<input type="submit" value="Save Company Detail"/>
 	</form>
+	<a href="listcompany">List Company</a>
 </body>
 </html>

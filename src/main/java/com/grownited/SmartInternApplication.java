@@ -15,6 +15,7 @@ public class SmartInternApplication {
 	
 	@Bean
 	PasswordEncoder encoder() {
-		return new BCryptPasswordEncoder();
+//		return new BCryptPasswordEncoder(5);//Uses default strength (10 rounds).
+		return new BCryptPasswordEncoder(5); //Uses 5 rounds, making it faster but less secure.
 	}
 }

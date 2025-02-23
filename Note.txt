@@ -204,6 +204,16 @@ Password Encryption using Bcrypt:
 			3. Encrypt Password		encoder.encode(entityUser.getPassword())				Hashes the password before storing it.
 			4. Verify Password		encoder.matches(enteredPassword, storedHashedPassword)	Checks if the entered password is correct.	
 
+		-->Difference Between Both BCryptPasswordEncoder
+			Code							Explanation
+			new BCryptPasswordEncoder();	Uses default strength (10 rounds), which is a good balance between security and speed.
+			new BCryptPasswordEncoder(5);	Uses 5 rounds, making it faster but less secure.
+				->Key Points to Note:
+				Higher rounds = More security but slower processing.
+				Lower rounds = Faster but easier to crack.
+				Default (10 rounds) is recommended for a good balance.
+				If security is critical, use 12+ rounds, but it will be slower.
+				
 view and delete from the table users of a particular attribute:
 	-->UserController - Viewing a User:
 		->Receives userId from the URL (viewuser?userId=123).

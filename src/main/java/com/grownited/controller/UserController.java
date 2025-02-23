@@ -36,7 +36,8 @@ public class UserController {
 		if(op.isEmpty()) {
 			//not found but we dont consider this case.
 			System.out.println("Not found"); // If user is not found
-		} else {
+		} 
+		else{
 			//data found
 			UserEntity user = op.get();
 			//send data to jsp
@@ -49,4 +50,14 @@ public class UserController {
 		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
 		return "redirect:/listuser"; // Redirects to the user list page
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

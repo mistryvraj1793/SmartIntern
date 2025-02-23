@@ -18,18 +18,9 @@
 		Email: <input type="text" name="email"/> 
 		<br></br>
 		
-		Password: <input type="text" name="password"/> 
+		Password: <input type="password" name="password"/> 
 		<br></br>
 		ConfirmPassword: <input type="text" name=ConfirmPassword/> 
-		<br></br>
-		
-		<label>Gender:</label>
-			<input type="radio" id="male" name="gender" value="male"/>
-				<label for="male">Male</label> 
-			<input type="radio" id="female" name="gender" value="female"/>
-				<label for="female">Female</label>
-			<input type="radio" id="other" name="gender" value="other"/>
-				<label for="other">Other</label>
 		<br></br>
 		
 		<input type="submit" value="Sign Up"/>

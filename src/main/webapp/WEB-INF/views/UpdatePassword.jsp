@@ -9,9 +9,9 @@
 <body>
 	<h2>This is a Update Password Page..</h2>
 	<form action="updatepassword" method="post">
-		New Password:<input type="text" name="newPassword" />
+		New Password:<input type="password" name="newPassword" />
 		<br></br>
-		Confirm Password:<input type="text" name="confirmPassword">
+		Confirm Password:<input type="password" name="confirmPassword">
 		<br></br>
 		<input type="submit" value="Update Password"/>
 	</form>
