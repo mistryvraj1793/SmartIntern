@@ -27,10 +27,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 				<td>${col.address }</td>
 				<td>${col.city }</td>
 				<td>${col.state }</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>
-				
+				<td><a href="viewcollege?collegeId=${col.collegeId }">View</a> 
+					| <a href="deletecollege?collegeId=${col.collegeId }">Delete</a> 
+					| <a href="#">Edit</a></td>
 			</tr>
 		</c:forEach>		
 	</table>
+	<a href="college">New College</a>
 </body>
 </html>

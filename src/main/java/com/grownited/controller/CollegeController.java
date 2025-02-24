@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,31 @@ public class CollegeController {
 	model.addAttribute("collegeList", collegeList);
 		return "ListCollege";
 	}
-	
+	@GetMapping("viewcollege")
+	public String viewCollege(Integer collegeId, Model model) {
+		//print the collegeId
+		System.out.println("id==> " + collegeId);
+		
+		//fetchs the data from table college into controller in Optional op through repositoryCollege object.
+		Optional<CollegeEntity> op = repositoryCollege.findById(collegeId);
+		if(op.isEmpty()) { //we don't consider this case.
+			System.out.println("Not Found"); 
+		}
+		else { //we will consider this case.
+			//data Found:
+			CollegeEntity college = op.get();
+			
+			//send data into ViewCollege jsp.
+			model.addAttribute("college", college);
+		}
+		return "ViewCollege";
+	}
+	@GetMapping("deletecollege")
+	public String deleteCollege(Integer collegeId) {
+		//delete from table college where collegeId = :collegeId
+		repositoryCollege.deleteById(collegeId); 
+		
+		return "redirect:/listcollege";
+	}
 	
 }

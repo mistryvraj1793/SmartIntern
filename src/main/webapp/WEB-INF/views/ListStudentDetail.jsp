@@ -33,7 +33,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 				<td>${stu.degree}</td>
 				<td>${stu.semester}</td>
 				<td>${stu.tshirtSize}</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>
+				<td><a href="viewstudentdetail?studentDetailId=${stu.studentDetailId }">View</a> 
+				| <a href="deletestudentdetail?studentDetailId=${stu.studentDetailId }">Delete</a> 
+				| <a href="#">Edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>

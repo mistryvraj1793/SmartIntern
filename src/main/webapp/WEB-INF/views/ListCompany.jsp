@@ -35,7 +35,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 				<td>${com.externalGuideContactNum }</td>
 				<td>${com.profileUrl }</td>
 				<td>${com.anyOtherInfoUrl }</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>
+				<td><a href="viewcompany?companyId=${com.companyId }">View</a> 
+				| <a href="deletecompany?companyId=${com.companyId }">Delete</a> 
+				| <a href="#">Edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>

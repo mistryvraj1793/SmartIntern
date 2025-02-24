@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.CollegeEntity;
 import com.grownited.entity.StudentDetailEntity;
 import com.grownited.repository.StudentDetailRepository;
+
 
 @Controller
 public class StudentDetailController {
@@ -41,5 +44,33 @@ public class StudentDetailController {
 		
 		return "ListStudentDetail";
 	}
+	@GetMapping("viewstudentdetail")
+	public String viewStudentDetail(Integer studentDetailId, Model model) {
+		//print the studentDetailId
+		System.out.println("id==> " + studentDetailId);
+		
+		//fetchs the data from table student_detail into controller in Optional op through repositoryStudentDetail object.
+		Optional<StudentDetailEntity> op = repositoryStudentDetail.findById(studentDetailId);
+		if(op.isEmpty()) {
+			System.out.println("Not Found");
+		}
+		else {
+			//data Found:
+			StudentDetailEntity studentDetail = op.get();
+			
+			//send data into ViewStudentDetail jsp.
+			model.addAttribute("studentDetail", studentDetail);
+		}
+		return "ViewStudentDetail";
+	}
+	@GetMapping("deletestudentdetail")
+	public String deleteStudentDetail(Integer studentDetailId) {
+		//delete from table college where collegeId = :collegeId
+		repositoryStudentDetail.deleteById(studentDetailId);
+		
+		return "redirect:/liststudentdetail";
+	}
+	
+	
 	
 }
