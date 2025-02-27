@@ -50,14 +50,5 @@ public class UserController {
 		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
 		return "redirect:/listuser"; // Redirects to the user list page
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

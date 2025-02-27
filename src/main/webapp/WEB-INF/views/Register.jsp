@@ -27,6 +27,8 @@
 		<br></br>
 		<input type="submit" value="register"/>
 	</form>
+	<a href="login">Login</a>
+	<br>
 	<a href="listuser">List User</a>
 </body>
 </html>

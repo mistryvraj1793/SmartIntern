@@ -15,6 +15,8 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class SessionController {
 	@Autowired
@@ -84,24 +86,52 @@ public class SessionController {
 	}
 	
 	@PostMapping("authenticate")
-	public String authenticate(String email, String password,Model model) { //soham@gmail.com   soham //not register
+	public String authenticate(String email, String password,Model model,HttpSession session) { //soham@gmail.com   soham //not register
 		System.out.println(email);
 		System.out.println(password);
 		
 		//users ->email,password
 		Optional<UserEntity> op = repositoryUser.findByEmail(email); //select * from users where email = :email and password = :password
+		
 		if(op.isPresent()) { //isPresent() return a boolean datatype (i.e;either true or false).
-			//email
+			//email (i.e;true)
 			UserEntity dataBaseUser=op.get();
+			System.out.println("Email id is correct");
+			//password (i.e;true)
 			if(encoder.matches(password, dataBaseUser.getPassword())) {
-				return "Register";
+				
+				//using session object to store users information
+				boolean ans = encoder.matches(password, dataBaseUser.getPassword());
+				
+				System.out.println("Password is Correct");
+				if(ans==true) {
+					session.setAttribute(password, dataBaseUser); //session -> user set
+					
+					//checking the role is ADMIN or Not.
+					if(dataBaseUser.getRole().equals("ADMIN")) {
+						System.out.println("It is Admin role");
+						return "AdminDashboard";
+					}
+					else if(dataBaseUser.getRole().equals("USER")) {
+						System.out.println("It is User role");
+						return "Signup";
+					}
+					
+				}
+				else {
+					model.addAttribute("error", "Please contact with Error code #0991");
+					System.out.println("It is not a Admin and User role");
+					return "Register";
+				}
 			}
 		}
 		else {
 			model.addAttribute("error", "Invalid Credentials");//you don't tell to your that your password is incorrect (i.e;either email or password is incorrect).
+			System.out.println("Invalid Email or Password");
+			return "Login";
 		}
+		return "ListUser";
 		
-		return "Login";
 	}
 
 }
