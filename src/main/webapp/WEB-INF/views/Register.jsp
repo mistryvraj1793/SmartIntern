@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>This is Register Page..</h2>
-	<form action="saveregister" method="post" autocomplete="on">
+	<form action="saveuser" method="post" autocomplete="on">
 		First Name:<input type="text" name="firstName"/>
 		<br></br>
 		Last Name:<input type="text" name="lastName"/>

@@ -39,6 +39,6 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 		</c:forEach>
 	</table>
 	<br>
-	<a href="register">New Register</a>
+	<a href="signup">Signup</a>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.grownited.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -21,11 +22,11 @@ public class UserEntity { // Class names should follow PascalCase
 	@Column(unique = true)//in Spring Boot JPA ensures that a column (e.g., email) cannot have duplicate values at the database level.
 	private String email;
 	private String password;
-	private String contactNum;
+	private Integer contactNum;
 	private String gender;
-	private String bornYear;
+	private Integer bornYear;
 	private Boolean activate;
-	private Date createdAt;// Represents a timestamp field in the users table.
+	private LocalDate createdAt;// Represents a timestamp field in the users table.
 	private String role;//according to Me: students, employees, faculties. According to Sir: 1:admin, 2:intern, 3:mentor, 4:hr 
 	
 	public Integer getUserId() {
@@ -58,10 +59,10 @@ public class UserEntity { // Class names should follow PascalCase
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getContactNum() {
+	public Integer getContactNum() {
 		return contactNum;
 	}
-	public void setContactNum(String contactNum) {
+	public void setContactNum(Integer contactNum) {
 		this.contactNum = contactNum;
 	}
 	public String getGender() {
@@ -70,10 +71,10 @@ public class UserEntity { // Class names should follow PascalCase
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getBornYear() {
+	public Integer getBornYear() {
 		return bornYear;
 	}
-	public void setBornYear(String bornYear) {
+	public void setBornYear(Integer bornYear) {
 		this.bornYear = bornYear;
 	}
 	public Boolean getActivate() {
@@ -82,10 +83,10 @@ public class UserEntity { // Class names should follow PascalCase
 	public void setActivate(Boolean activate) {
 		this.activate = activate;
 	}
-	public Date getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 	public String getRole() {

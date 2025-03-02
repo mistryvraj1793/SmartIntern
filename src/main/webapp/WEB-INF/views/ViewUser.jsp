@@ -9,13 +9,14 @@
 <body>
 	<h2>This is View User Page..</h2>
 	
-	FirstName:${user.firstName}<br>
-	LastName:${user.lastName}<br>
-	Email:${user.email}<br>
-	Password:${user.password}<br>
-	ContactNum:${user.contactNum}<br>
-	BornYear:${user.bornYear}<br>
-	Gender:${user.gender}<br>
+	FirstName: ${user.firstName}<br>
+	LastName: ${user.lastName}<br>
+	Email: ${user.email}<br>
+	Password: ${user.password}<br>
+	ContactNum: ${user.contactNum}<br>
+	BornYear: ${user.bornYear}<br>
+	Gender: ${user.gender}<br>
+	Role: ${user.role }<br>
 	<a href="listuser">go to List User</a>
 	
 </body>

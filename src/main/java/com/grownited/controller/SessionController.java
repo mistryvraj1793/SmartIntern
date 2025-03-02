@@ -1,9 +1,11 @@
 
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
+import org.hibernate.type.descriptor.java.LocalDateJavaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -35,7 +37,7 @@ public class SessionController {
 	}
 	@PostMapping("saveuser")
 	public String saveUser() {
-		return "Login";
+		return "Register";
 	}
 	@GetMapping("login")
 	public String login() {
@@ -57,7 +59,7 @@ public class SessionController {
 	public String newRegister() {
 		return "Register";
 	}
-	@PostMapping("saveregister")
+	@PostMapping("savesignup")
 	public String saveUser(UserEntity entityUser) { //UserEntity is a class and userEntity is a object of that class.
 		
 		//read from the jsp input in the browser:
@@ -68,7 +70,7 @@ public class SessionController {
 //		System.out.println(entityUser.getGender());
 		
 		//By-default set as:
-		entityUser.setCreatedAt(new Date());//sets createdAt to the current system time.
+		entityUser.setCreatedAt(LocalDate.now());//sets createdAt to the current system time.
 		entityUser.setRole("USER");
 		entityUser.setActivate(true);
 		
@@ -82,7 +84,7 @@ public class SessionController {
 		
 		// send mail
 		serviceMail.sendWelcomeMail(entityUser.getEmail(), entityUser.getFirstName() );
-		return "Register";
+		return "Signup";
 	}
 	
 	@PostMapping("authenticate")
@@ -105,33 +107,38 @@ public class SessionController {
 				
 				System.out.println("Password is Correct");
 				if(ans==true) {
-					session.setAttribute(password, dataBaseUser); //session -> user set
+					session.setAttribute("user", dataBaseUser); //session -> user set
 					
 					//checking the role is ADMIN or Not.
 					if(dataBaseUser.getRole().equals("ADMIN")) {
 						System.out.println("It is Admin role");
-						return "AdminDashboard";
+						return "redirect:/admindashboard";
 					}
 					else if(dataBaseUser.getRole().equals("USER")) {
 						System.out.println("It is User role");
-						return "Signup";
+						return "redirect:/home";
+					}
+					else {
+						model.addAttribute("error", "Please contact with Error code #0991");
+						System.out.println("It is not a Admin and User role");
+						return "redirect:/login";
 					}
 					
 				}
-				else {
-					model.addAttribute("error", "Please contact with Error code #0991");
-					System.out.println("It is not a Admin and User role");
-					return "Register";
-				}
+			
 			}
 		}
 		else {
 			model.addAttribute("error", "Invalid Credentials");//you don't tell to your that your password is incorrect (i.e;either email or password is incorrect).
 			System.out.println("Invalid Email or Password");
-			return "Login";
+			return "redirect:/signup";
 		}
-		return "ListUser";
-		
+		return "redirect:/ListUser";
+	}
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/login";
 	}
 
 }
