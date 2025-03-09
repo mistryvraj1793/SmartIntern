@@ -20,12 +20,14 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 			<th>Payment Reference</th>
 			<th>Action</th>
 		</tr>
-		<c:forEach items="${internshipApplicationList }" var="intapp">
+		<c:forEach items="${internshipApplicationList }" var="internApp">
 			<tr>
-				<td>${intapp.resumePath }</td>
-				<td>${intapp.coverLetterPath }</td>
-				<td>${intapp.paymentReference }</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>
+				<td>${internApp.resumePath }</td>
+				<td>${internApp.coverLetterPath }</td>
+				<td>${internApp.paymentReference }</td>
+				<td><a href="viewinternshipapplication?applicationId=${internApp.applicationId }">View</a> | 
+				<a href="deleteinternshipapplication?applicationId=${internApp.applicationId }">Delete</a> | 
+				<a href="#">Edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>

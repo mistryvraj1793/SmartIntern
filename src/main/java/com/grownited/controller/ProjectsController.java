@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.ProjectsEntity;
 import com.grownited.repository.ProjectsRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class ProjectsController {
@@ -40,6 +43,28 @@ public class ProjectsController {
 		model.addAttribute("projectsList", projectsList);
 		
 		return "ListProjects";
+	}
+	@GetMapping("viewprojects")
+	public String viewProjects(Integer projectId, Model model) {
+		System.out.println("projectId => "+projectId);
+		Optional<ProjectsEntity> op= repositoryProjects.findById(projectId);
+		if(op.isEmpty()){
+			//Data Not Found:
+			System.out.println("Not Found");
+		}
+		else {
+			//Data Found:
+			ProjectsEntity projects = op.get();
+			
+			//send to jsp
+			model.addAttribute("projects", projects);
+		}
+		return "ViewProjects";
+	}
+	@GetMapping("deleteprojects")
+	public String deleteProjects(Integer projectId) {
+		repositoryProjects.deleteById(projectId);
+		return "redirect:/listprojects";
 	}
 	
 	

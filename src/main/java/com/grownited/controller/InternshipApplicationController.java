@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,26 @@ public class InternshipApplicationController {
 		
 		return "ListInternshipApplication";
 	}
-	
-	
-	
+	@GetMapping("viewinternshipapplication")
+	public String viewInternshipApplication(Integer applicationId, Model model) {
+		System.out.println("ApplicationId => "+applicationId);
+		Optional<InternshipApplicationEntity> op = repositoryInternshipApplication.findById(applicationId);
+		if(op.isEmpty()){
+			//data not found:
+			System.out.println("not found");
+		}
+		else {
+			//data found:
+			InternshipApplicationEntity internshipApplication = op.get();
+			
+			//sends data to jsp:
+			model.addAttribute("internshipApplication", internshipApplication);
+		}
+		return "ViewInternshipApplication";
+	}
+	@GetMapping("deleteinternshipapplication")
+	public String deleteInternshipApplication(Integer applicationId) {
+		repositoryInternshipApplication.deleteById(applicationId);
+		return "redirect:/listinternshipapplication";
+	}
 }

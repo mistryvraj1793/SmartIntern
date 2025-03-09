@@ -20,7 +20,7 @@ public class InternshipProjectController {
 		return "InternshipProject";
 	}
 	@GetMapping("listinternshipproject")
-	private String listInternshipProject(Model model) {
+	public String listInternshipProject(Model model) {
 		//fetchs the data from table internship_project, internship, projects into controller in list internshipProjectList
 		List<InternshipProjectEntity> internshipProjectList = repositoryInternshipProject.findAll();
 		
@@ -29,4 +29,5 @@ public class InternshipProjectController {
 		
 		return "ListInternshipProject";
 	}
+	
 }

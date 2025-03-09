@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.CompanyUserEntity;
 import com.grownited.repository.CompanyUserRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class CompanyUserController {
@@ -39,4 +42,27 @@ public class CompanyUserController {
 		
 		return "ListCompanyUser";
 	}
+	@GetMapping("viewcompanyuser")
+	public String viewCompanyUser(Integer companyUserId, Model model) {
+		System.out.println("companyId => "+companyUserId);
+		Optional<CompanyUserEntity> op = repositoryCompanyUser.findById(companyUserId);
+		if(op.isEmpty()) {
+			//Data Not Found:
+			System.out.println("Not Found");
+		}
+		else {
+			//Data Found:
+			CompanyUserEntity companyUser =op.get();
+			
+			//send data to jsp:
+			model.addAttribute("companyUser", companyUser);
+		}
+		return "ViewCompanyUser";
+	}
+	@GetMapping("deletecompanyuser")
+	public String deleteCompanyUser(Integer companyUserId) {
+		repositoryCompanyUser.deleteById(companyUserId);
+		return "redirect:/listcompanyuser";
+	}
+	
 }

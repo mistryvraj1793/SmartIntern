@@ -21,7 +21,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 		<c:forEach items="${companyUserList}" var="compUser">
 			<tr>
 				<td>${compUser.title}</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>
+				<td><a href="viewcompanyuser?companyUserId=${compUser.companyUserId }">View</a> | 
+				<a href="deletecompanyuser?companyUserId=${compUser.companyUserId }">Delete</a> | 
+				<a href="#">Edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>

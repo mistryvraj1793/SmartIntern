@@ -31,7 +31,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 				<td>${tech.backend }</td>
 				<td>${tech.tools }</td>
 				<td>${tech.language }</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>
+				<td><a href="viewtechnologies?technologyId=${tech.technologyId }">View</a> | 
+				<a href="deletetechnologies?technologyId=${tech.technologyId }">Delete</a> | 
+				<a href="#">Edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>

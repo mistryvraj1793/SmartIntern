@@ -23,7 +23,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 			<tr>
 				<td>${proj.title}</td>
 				<td>${proj.description}</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>
+				<td><a href="viewprojects?projectId=${proj.projectId }">View</a> | 
+				<a href="deleteprojects?projectId=${proj.projectId }">Delete</a> | 
+				<a href="#">Edit</a></td>
 				
 			</tr>
 		</c:forEach>		

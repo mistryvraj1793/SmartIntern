@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 public class TechnologiesEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer technologyID;
+	private Integer technologyId;
 	private String name;
 	private String description;
 	private String frontend; //jsp, react, angular
@@ -23,11 +23,11 @@ public class TechnologiesEntity {
 	private Date createdAt;
 	private Integer companyId;
 	
-	public Integer getTechnologyID() {
-		return technologyID;
+	public Integer getTechnologyId() {
+		return technologyId;
 	}
-	public void setTechnologyID(Integer technologyID) {
-		this.technologyID = technologyID;
+	public void setTechnologyID(Integer technologyId) {
+		this.technologyId = technologyId;
 	}
 	public String getName() {
 		return name;
