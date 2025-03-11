@@ -1,4 +1,4 @@
-package com.grownited.controller;
+package com.grownited.controller.admin;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,18 +9,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.CompanyEntity;
 import com.grownited.entity.CompanyUserEntity;
+import com.grownited.entity.UserEntity;
+import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.CompanyUserRepository;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import com.grownited.repository.UserRepository;
 
 @Controller
 public class CompanyUserController {
 	@Autowired
 	CompanyUserRepository repositoryCompanyUser;
 	
+	@Autowired
+	CompanyRepository repositoryCompany;
+	
+	@Autowired
+	UserRepository repositoryUser;
+	
 	@GetMapping("companyuser")
-	public String companyUser() {
+	public String companyUser(Model model) {
+		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
+		List<UserEntity> allUsers = repositoryUser.findAll();
+		
+		//fetches the data from Controller in allCompanies and allUsers to jsp.
+		model.addAttribute("allCompanies", allCompanies);
+		model.addAttribute("allUsers", allUsers);
+		
 		return "CompanyUser";
 	}
 	@PostMapping("savecompanyuser")
@@ -30,7 +45,7 @@ public class CompanyUserController {
 		
 		//stored the data from the savecompanyuser url.
 		repositoryCompanyUser.save(entityCompanyUser);
-		return "CompanyUser";
+		return "redirect:/companyuser";
 	}
 	@GetMapping("listcompanyuser")
 	public String listCompanyUser(Model model) {

@@ -1,5 +1,6 @@
-package com.grownited.controller;
+package com.grownited.controller.admin;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,21 +10,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.CompanyEntity;
 import com.grownited.entity.TechnologiesEntity;
+import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.TechnologiesRepository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class TechnologiesController {
 	@Autowired
 	TechnologiesRepository repositoryTechnologies;
+	
+	@Autowired
+	CompanyRepository repositoryCompany;
+	
 	@GetMapping("technologies")
-	public String technologies() {
+	public String technologies(Model model) {
+		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
+		
+		//fetches the data from Controller in allCompanies to jsp.
+		model.addAttribute("allCompanies", allCompanies);
 		return "Technologies";
 	}
 	@PostMapping("savetechnologies")
 	public String saveTechnologies(TechnologiesEntity entityTechnologies) {
+		//set the createdAt as today's Date.
+		entityTechnologies.setCreatedAt(LocalDate.now());
+		
 		//print data from Technologies jsp form.
 		System.out.println(entityTechnologies.getName());
 		System.out.println(entityTechnologies.getFrontend());
@@ -32,7 +45,7 @@ public class TechnologiesController {
 		//store the data from Technologies jsp form into table technologies
 		repositoryTechnologies.save(entityTechnologies);
 		
-		return "Technologies";
+		return "redirect:/technologies";
 	}
 	@GetMapping("listtechnologies")
 	public String listTechnologies(Model model) {

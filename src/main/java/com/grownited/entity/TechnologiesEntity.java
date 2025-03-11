@@ -1,5 +1,6 @@
 package com.grownited.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -13,15 +14,15 @@ import jakarta.persistence.Table;
 public class TechnologiesEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer technologyId;
+	private Integer technologyId;//pk
 	private String name;
 	private String description;
 	private String frontend; //jsp, react, angular
 	private String backend; //spring, django, node.js
 	private String tools; //postman, github
 	private String language; //java, python, javaScript 
-	private Date createdAt;
-	private Integer companyId;
+	private LocalDate createdAt;
+	private Integer companyId; //fk
 	
 	public Integer getTechnologyId() {
 		return technologyId;
@@ -65,10 +66,10 @@ public class TechnologiesEntity {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public Date getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 	public Integer getCompanyId() {

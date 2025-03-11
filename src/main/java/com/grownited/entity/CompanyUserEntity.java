@@ -12,8 +12,8 @@ public class CompanyUserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer companyUserId;
-	private Integer companyId;
-	private Integer userId;
+	private Integer companyId;//fk
+	private Integer userId;//fk
 	private String title;
 	public Integer getCompanyUserId() {
 		return companyUserId;

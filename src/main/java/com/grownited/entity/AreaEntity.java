@@ -11,9 +11,9 @@ import jakarta.persistence.Table;
 public class AreaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer areaId;
+	private Integer areaId;//pk
 	private String areaName;
-	private Integer cityId;
+	private Integer cityId;//fk
 	
 	public Integer getAreaId() {
 		return areaId;

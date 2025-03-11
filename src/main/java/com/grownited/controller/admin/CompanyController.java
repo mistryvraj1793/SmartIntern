@@ -1,10 +1,8 @@
-package com.grownited.controller;
+package com.grownited.controller.admin;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
-//import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.CompanyEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.CompanyRepository;
+import com.grownited.repository.UserRepository;
 
 
 
@@ -22,8 +22,15 @@ public class CompanyController {
 	@Autowired
 	CompanyRepository repositoryCompany;
 	
+	@Autowired
+	UserRepository repositoryUser;
+	
 	@GetMapping("company")
-	public String company() {
+	public String company(Model model) {
+		List<UserEntity> allUsers= repositoryUser.findAll();
+		
+		//Fetches the data from Controller in allUsers to jsp.
+		model.addAttribute("allUsers", allUsers);
 		return "Company";
 	}
 	@PostMapping("savecompany")
@@ -32,7 +39,7 @@ public class CompanyController {
 		System.out.println(entityCompany.getCompanyName());
 		
 		//for set as Default 
-		entityCompany.setCreatedAt(new Date());
+		entityCompany.setCreatedAt(LocalDate.now());
 		entityCompany.setActive(true);
 		
 		//for save the attributes data into table company using object of a Singleton of ComapanyRepository class.

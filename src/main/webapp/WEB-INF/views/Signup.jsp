@@ -32,12 +32,12 @@
                   <div class="form-group">
                     <label>First Name</label>
                     <input type="text" class="form-control p_input" name="firstName" 
-                    		placeholder="Enter your First Name" required>
+                    		placeholder="Enter your First-Name" required>
                   </div>
                   <div class="form-group">
                     <label>Last Name</label>
                     <input type="text" class="form-control p_input" name="lastName"
-                    		placeholder="Enter your Last Name" required>
+                    		placeholder="Enter your Last-Name" required>
                   </div>
                   <div class="form-group">
                     <label>Email</label>
@@ -52,8 +52,26 @@
                   <div class="form-group">
                     <label>Confirm Password</label>
                     <input type="password" class="form-control p_input" name="confirmpassword"
-                    		placeholder="Enter your confirm password" required>
+                    		placeholder="Enter your confirm-password" required>
                   </div>
+					<div class="form-group">
+	                    <label>Contact Number</label>
+	                	    <input type="text" class="form-control p_input" name="contactNum"
+	                    		placeholder="Enter your Contact-Number" required>
+					</div>
+					<div class="form-group">
+                    <label>Gender</label>
+	                    <select class="form-control p_input" name="gender">
+	                          <option value="male">Male</option>
+	                          <option value="female">Female</option>
+	                          <option value="other">Other</option>
+						</select>
+	                  </div>
+                  <div class="form-group">
+	                    <label>Born Year</label>
+	                	    <input type="number" class="form-control p_input" name="bornYear"
+	                    		placeholder="Enter your Born-Year" required>
+					</div>
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
                       <label class="form-check-label">
