@@ -1,6 +1,6 @@
 package com.grownited.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,18 +9,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="internhsip_application")
+@Table(name="internship_application")
 public class InternshipApplicationEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer applicationId;
-	private Integer internshipId;
+	private Integer internshipId;//fk
 	private Integer userId;//fk: user
 	private String resumePath;
 	private String coverLetterPath;//optional
 	private String paymentReference;
-	private Boolean status;//eg: PENDING / ACCEPTED / REJECTED / WITHDRAWN 
-	private Date appliedAt;
+	private String status;//eg: PENDING / ACCEPTED / REJECTED / WITHDRAWN 
+	private LocalDate appliedAt;
 	
 	public Integer getApplicationId() {
 		return applicationId;
@@ -58,16 +58,16 @@ public class InternshipApplicationEntity {
 	public void setPaymentReference(String paymentReference) {
 		this.paymentReference = paymentReference;
 	}
-	public Boolean getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Date getAppliedAt() {
+	public LocalDate getAppliedAt() {
 		return appliedAt;
 	}
-	public void setAppliedAt(Date appliedAt) {
+	public void setAppliedAt(LocalDate appliedAt) {
 		this.appliedAt = appliedAt;
 	}
 	

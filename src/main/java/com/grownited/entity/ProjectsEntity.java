@@ -1,6 +1,6 @@
 package com.grownited.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,12 +13,12 @@ import jakarta.persistence.Table;
 public class ProjectsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer projectId;
+	private Integer projectId; //pk
 	private String title;
 	private String description;
-	private Date createdAt;
+	private LocalDate createdAt;
 	private Boolean active;
-	private Integer companyId;
+	private Integer companyId; //fk
 	
 	public Integer getProjectId() {
 		return projectId;
@@ -38,10 +38,10 @@ public class ProjectsEntity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getcreatedAt() {
+	public LocalDate getcreatedAt() {
 		return createdAt;
 	}
-	public void setcreatedAt(Date createdAt) {
+	public void setcreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 	public Boolean getActive() {

@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,22 +10,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.CompanyEntity;
 import com.grownited.entity.ProjectsEntity;
+import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.ProjectsRepository;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class ProjectsController {
 	@Autowired
 	ProjectsRepository repositoryProjects;
+
+	@Autowired
+	CompanyRepository repositoryCompany;
 	
 	@GetMapping("projects")
-	public String projects() {
+	public String projects(Model model) {
+		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
+		
+		//fetches the data from controller in allCompanies to jsp
+		model.addAttribute("allCompanies", allCompanies);
+		
 		return "Projects";
 	}
 	@PostMapping("saveprojects")
 	public String saveProjects(ProjectsEntity entityProjects) {
+		//set the defalut values in the attributes when they click on submit.
+		entityProjects.setActive(true);
+		entityProjects.setcreatedAt(LocalDate.now());
+		
 		//print/s the data from Projects jsp form.
 		System.out.println(entityProjects.getTitle());
 		System.out.println(entityProjects.getDescription());
@@ -32,7 +45,7 @@ public class ProjectsController {
 		//stored the data from Projects jsp form into table Projects through repositoryProjects object.
 		repositoryProjects.save(entityProjects);
 	
-		return "Projects";
+		return "redirect:/projects";
 	}
 	@GetMapping("listprojects")
 	public String listProjects(Model model) {

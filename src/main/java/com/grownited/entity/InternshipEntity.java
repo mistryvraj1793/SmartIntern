@@ -1,6 +1,6 @@
 package com.grownited.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,8 +23,8 @@ public class InternshipEntity {
 	private Integer durationWeeks;
 	private String applicationDeadLine;
 	private String status; //open / closed
-	private Integer postedBy;//adminId
-	private Date createdAt;
+	private Integer postedBy;//adminId //fk
+	private LocalDate createdAt;
 	public Integer getInternshipId() {
 		return internshipId;
 	}
@@ -91,10 +91,10 @@ public class InternshipEntity {
 	public void setPostedBy(Integer postedBy) {
 		this.postedBy = postedBy;
 	}
-	public Date getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 	

@@ -1,4 +1,4 @@
-package com.grownited.controller;
+package com.grownited.controller.admin;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,15 +10,32 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.InternshipApplicationEntity;
+import com.grownited.entity.InternshipEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.InternshipApplicationRepository;
+import com.grownited.repository.InternshipRepository;
+import com.grownited.repository.UserRepository;
 
 @Controller
 public class InternshipApplicationController {
 	@Autowired
 	InternshipApplicationRepository repositoryInternshipApplication;
 	
+	@Autowired
+	InternshipRepository repositoryInternship;
+	
+	@Autowired
+	UserRepository repositoryUser;
+	
 	@GetMapping("internshipapplication")
-	public String internshipApplication() {
+	public String internshipApplication(Model model) {
+		List<InternshipEntity> allInternships = repositoryInternship.findAll();
+		List<UserEntity> allUsers = repositoryUser.findAll();
+		
+		///fetches the data from controller in allInternships and allUsers to jsp
+		model.addAttribute("allInternships", allInternships);
+		model.addAttribute("allUsers", allUsers);
+		
 		return "InternshipApplication";
 	}
 	@PostMapping("saveinternshipapplication")
@@ -30,7 +47,7 @@ public class InternshipApplicationController {
 		//store the data from InternshipApplication jsp form into table internship_application
 		repositoryInternshipApplication.save(entityInternshipApplication);
 		
-		return "InternshipApplication";
+		return "redirect:/internshipapplication";
 	}
 	@GetMapping("listinternshipapplication")
 	public String listInternshipApplication(Model model) {

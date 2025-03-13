@@ -1,4 +1,4 @@
-package com.grownited.controller;
+package com.grownited.controller.admin;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.CollegeEntity;
 import com.grownited.entity.StudentDetailEntity;
+import com.grownited.repository.CollegeRepository;
 import com.grownited.repository.StudentDetailRepository;
 
 
@@ -19,8 +20,15 @@ public class StudentDetailController {
 	@Autowired
 	StudentDetailRepository repositoryStudentDetail;
 	
+	@Autowired
+	CollegeRepository repositoryCollege;
+	
 	@GetMapping("studentdetail")
-	public String studentDetail() {
+	public String studentDetail(Model model) {
+		List<CollegeEntity> allColleges = repositoryCollege.findAll();
+		
+		//fetches the data from controller in allColleges to jsp
+		model.addAttribute("allColleges", allColleges);
 		return "StudentDetail";
 	}
 	@PostMapping("savestudentdetail")

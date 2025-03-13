@@ -44,7 +44,7 @@ public class CollegeController {
 	@GetMapping("viewcollege")
 	public String viewCollege(Integer collegeId, Model model) {
 		//print the collegeId
-		System.out.println("id==> " + collegeId);
+		System.out.println("Company Id ==> " + collegeId);
 		
 		//fetchs the data from table college into controller in Optional op through repositoryCollege object.
 		Optional<CollegeEntity> op = repositoryCollege.findById(collegeId);
