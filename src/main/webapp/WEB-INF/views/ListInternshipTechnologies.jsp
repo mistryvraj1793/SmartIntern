@@ -9,21 +9,21 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ListInternshipTechnologies</title>
 </head>
 <body>
-<h2>This is List Internship Page..</h2>
+<h2>This is ListInternshipTechnologies Page..</h2>
 	<table border="2">
 		<tr>
-			<th>IinternshipId</th>
 			<th>TechnologyId</th>
 			<th>Action</th>
 		</tr>
 		<c:forEach items="${internshipTechnologiesList}" var="intTech">
 			<tr>
-				<td>${intTech.internshipId }</td>
 				<td>${intTech.technologyId }</td>
-				<td><a href="#">View</a> | <a href="#">Delete</a> | <a href="#">Edit</a></td>	
+				<td><a href="viewinternshiptechnology?internshipTechnologyId=${intTech.internshipTechnologyId }">View</a> | 
+				<a href="deleteinternshiptechnology?internshipTechnologyId=${intTech.internshipTechnologyId }">Delete</a> | 
+				<a href="#">Edit</a></td>	
 			</tr>
 		</c:forEach>		
 	</table>

@@ -11,13 +11,14 @@ import jakarta.persistence.Table;
 public class InternshipTechnologiesEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer internshipId;
+	private Integer internshipTechnologyId;
 	private Integer technologyId;
-	public Integer getInternshipId() {
-		return internshipId;
+	
+	public Integer getInternshipTechnologyId() {
+		return internshipTechnologyId;
 	}
-	public void setInternshipId(Integer internshipId) {
-		this.internshipId = internshipId;
+	public void setInternshipTechnologyId(Integer internshipTechnologyId) {
+		this.internshipTechnologyId = internshipTechnologyId;
 	}
 	public Integer getTechnologyId() {
 		return technologyId;
