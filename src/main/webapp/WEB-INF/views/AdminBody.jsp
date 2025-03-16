@@ -2,11 +2,9 @@
     pageEncoding="UTF-8"%>
  <!-- main-panel starts -->
 <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              
-            </div>
-            
+	<div class="content-wrapper">
+    	<div class="row">
+		</div>    
             <div class="row ">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -145,13 +143,10 @@
                 </div>
               </div>
             </div>
-            
-            
           </div>
           <!-- content-wrapper ends -->
-		
 		<!-- Footer Start -->
-			<jsp:include page="AdminFooter.jsp"></jsp:include>
-		<!-- Footer End -->
+		<jsp:include page="AdminFooter.jsp"></jsp:include>
+	<!-- Footer End -->
 </div>
 <!-- main-panel ends -->
