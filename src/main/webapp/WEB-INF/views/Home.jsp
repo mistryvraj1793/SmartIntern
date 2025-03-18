@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>home</title>
+<title>Home</title>
 </head>
 <body>
 	<h2>This is Home Page..</h2>
 	<br>
+	Welcome, <b>${user.firstName }</b>  into SmartIntern. <br>
 	<a href="logout">Logout</a>
 </body>
 </html>
