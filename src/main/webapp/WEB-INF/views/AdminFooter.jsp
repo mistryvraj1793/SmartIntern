@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- partial:partials/_footer.html -->
-<footer class="footer">
-	<div class="d-sm-flex justify-content-center justify-content-sm-between">
-    	<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © SmartIntern.com 2025</span>
-    	<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from SmartIntern.com</span>
+<!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>SmartIntern</span></strong>. All Rights Reserved
     </div>
-</footer>
-<!-- partial -->
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <!-- <a href="https://bootstrapmade.com/"> -->Vraj</a>
+    </div>
+  </footer><!-- End Footer -->

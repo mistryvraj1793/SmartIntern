@@ -29,7 +29,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
     <jsp:include page="AdminHeader.jsp"></jsp:include>
 
     <!-- Sidebar Section -->
-    <jsp:include page="AdminSideBar.jsp"></jsp:include>
+    <jsp:include page="AdminSidebar.jsp"></jsp:include>
 
     <div class="container-fluid page-body-wrapper">
         <div class="main-panel">

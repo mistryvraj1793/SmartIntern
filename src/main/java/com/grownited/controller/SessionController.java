@@ -32,10 +32,6 @@ public class SessionController {
 	public String signup() {
 		return "Signup";//jsp file name
 	}
-	@PostMapping("saveuser")
-	public String saveUser() {
-		return "Register";
-	}
 	@GetMapping("login")
 	public String login() {
 		return "Login";
@@ -56,7 +52,7 @@ public class SessionController {
 	public String newRegister() {
 		return "Register";
 	}
-	@PostMapping("savesignup")
+	@PostMapping("saveuser")
 	public String saveUser(UserEntity entityUser) { //UserEntity is a class and userEntity is a object of that class.
 		
 		//read from the jsp input in the browser:
@@ -81,7 +77,7 @@ public class SessionController {
 		
 		// send mail
 		serviceMail.sendWelcomeMail(entityUser.getEmail(), entityUser.getFirstName() );
-		return "Signup";
+		return "Login";
 	}
 	
 	@PostMapping("authenticate")
