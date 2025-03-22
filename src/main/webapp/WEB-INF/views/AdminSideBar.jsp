@@ -25,7 +25,7 @@
         </ul>
         <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listuser">
+            <a href="listusers">
               <i class="bi bi-circle"></i><span>List Users</span>
             </a>
           </li>
@@ -73,7 +73,7 @@
         <ul id="projects-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
             <a href="#">
-              <i class="bi bi-circle"></i><span>Add Projects</span>
+              <i class="bi bi-circle"></i><span>Add Project</span>
             </a>
           </li>
         </ul>
@@ -92,7 +92,7 @@
         </a>
         <ul id="colleges-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listcollege">
+            <a href="listcolleges">
               <i class="bi bi-circle"></i><span>List Colleges</span>
             </a>
           </li>
@@ -105,15 +105,15 @@
         </a>
         <ul id="company-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listcompany">
-              <i class="bi bi-circle"></i><span>List Company</span>
+            <a href="listcompanies">
+              <i class="bi bi-circle"></i><span>List Companies</span>
             </a>
           </li>
         </ul>
         <ul id="company-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listcompanyuser">
-              <i class="bi bi-circle"></i><span>List Company User</span>
+            <a href="listcompanyusers">
+              <i class="bi bi-circle"></i><span>List Company Users</span>
             </a>
           </li>
         </ul>
@@ -121,12 +121,12 @@
       
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#studentDetail-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
-          <i class="bi bi-menu-button-wide"></i><span>Student Detail</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Student Details</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="studentDetail-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="liststudentdetail">
-              <i class="bi bi-circle"></i><span>List StudentDetail</span>
+            <a href="liststudentdetails">
+              <i class="bi bi-circle"></i><span>List StudentDetails</span>
             </a>
           </li>
         </ul>

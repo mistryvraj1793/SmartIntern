@@ -17,7 +17,7 @@ public class UserController {
 	@Autowired
 	UserRepository repositoryUser;
 	
-	@GetMapping("listuser")
+	@GetMapping("listusers")
 	public String listUsers(Model model) {
 		//how to sends data from database to Controller:
 		//This statement retrieves all records from the users table and stores them in a List<UserEntity> collection.
@@ -26,7 +26,7 @@ public class UserController {
 		
 		 //how to sends data from controller to jsp
 		 model.addAttribute("userList", userList);//where "userList" is a DataName and userList is a DataValue
-		 return "ListUser";
+		 return "ListUsers";
 	}
 	
 	@GetMapping("viewuser")
@@ -48,7 +48,7 @@ public class UserController {
 	@GetMapping("deleteuser")
 	public String deleteUser(Integer userId) {
 		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
-		return "redirect:/listuser"; // Redirects to the user list page
+		return "redirect:/listusers"; // Redirects to the user list page
 	}
 	@GetMapping("home")
 	public String home() {

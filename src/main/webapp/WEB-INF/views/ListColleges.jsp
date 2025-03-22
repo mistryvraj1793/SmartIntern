@@ -13,12 +13,15 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>View / StudentDetail</title>
+  <title>List / Colleges</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Template Main CSS File -->
   <jsp:include page="AdminCss.jsp"></jsp:include>
+  
+  <!-- list table -->
+  <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
   
 </head>
 
@@ -34,12 +37,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>View StudentDetail</h1>
+      <h1>List Colleges</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="liststudentdetails">ListStudentDetails</a></li>
-          <li class="breadcrumb-item active">ViewStudentDetail</li>
+          <li class="breadcrumb-item">Colleges</li>
+          <li class="breadcrumb-item active">ListColleges</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -54,17 +57,32 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<h5 class="card-title">
- 										<span>ViewStudentDetail</span>
+ 										Colleges<span>/all</span>
  									</h5>
- 									
- 									City: ${studentDetail.city }<br>
-									State: ${studentDetail.state }<br>
-									ProfilePicPath: ${studentDetail.profilePicPath }<br>
-									Resume Path: ${studentDetail.resumePath }<br>
-									Degree: ${studentDetail.degree }<br>
-									Semester: ${studentDetail.semester }<br>
-									T-Shirt Size: ${studentDetail.tshirtSize }<br>
-									
+ 									<table class="table datatable datatable-table table-hover" id="myTable">
+ 										<thead>
+ 											<tr>
+ 												<th>CollegeName</th>
+												<th>Address</th>
+												<th>City</th>
+												<th>State</th>
+												<th>Action</th>
+ 											</tr>
+ 										</thead>
+ 										<tbody>
+ 											<c:forEach items="${collegeList}" var="col">
+												<tr>
+													<td>${col.collegeName }</td>
+													<td>${col.address }</td>
+													<td>${col.city }</td>
+													<td>${col.state }</td>
+													<td><a href="viewcollege?collegeId=${col.collegeId }">View</a> 
+														| <a href="deletecollege?collegeId=${col.collegeId }">Delete</a> 
+														| <a href="#">Edit</a></td>
+												</tr>
+											</c:forEach>
+ 										</tbody>
+ 									</table>
  								</div>
  							</div>
  						</div>
@@ -83,7 +101,18 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
-  
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+ 
+ 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+ 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+ 
+ 	<script type="text/javascript">
+ 
+ 	$( document ).ready(function() {
+ 		let table = new DataTable('#myTable');
+ 	});
+ 	</script>
 </body>
 
 </html>
