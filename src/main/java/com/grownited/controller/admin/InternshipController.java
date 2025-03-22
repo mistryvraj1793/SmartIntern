@@ -50,15 +50,15 @@ public class InternshipController {
 		
 		return "redirect:/internship";
 	}
-	@GetMapping("listinternship")
-	public String listinternship(Model model) {
+	@GetMapping("listinternships")
+	public String listinternships(Model model) {
 		//fetchs the data from table internship into Controller in List internshipList
 		List<InternshipEntity> internshipList = repositoryInternship.findAll();
 		
 		//store the data from list internshipList into internship jsp.
 		model.addAttribute("internshipList", internshipList);
 		
-		return "ListInternship";
+		return "ListInternships";
 	}
 	@GetMapping("viewinternship")
 	public String viewInternship(Integer internshipId, Model model) {
@@ -78,6 +78,6 @@ public class InternshipController {
 	}
 	@GetMapping("deleteinternship")
 	public String deleteInternship(Integer internshipId) {
-		return "redirect:/listinternship";
+		return "redirect:/listinternships";
 	}
 }

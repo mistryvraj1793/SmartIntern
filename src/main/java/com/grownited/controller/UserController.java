@@ -18,7 +18,7 @@ public class UserController {
 	UserRepository repositoryUser;
 	
 	@GetMapping("listuser")
-	public String listUser(Model model) {
+	public String listUsers(Model model) {
 		//how to sends data from database to Controller:
 		//This statement retrieves all records from the users table and stores them in a List<UserEntity> collection.
 		 List<UserEntity> userList = repositoryUser.findAll();// repositoryUser.findAll() works was select * from users(i.e;fetches all records from the users table.); 

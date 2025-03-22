@@ -46,8 +46,8 @@ public class InternshipProjectController {
 		return "redirect:/internshipproject";
 	}
 	
-	@GetMapping("listinternshipproject")
-	public String listInternshipProject(Model model) {
+	@GetMapping("listinternshipprojects")
+	public String listInternshipProjects(Model model) {
 		//fetchs the data from table internship_project, internship, projects into controller in list internshipProjectList
 		List<InternshipProjectEntity> internshipProjectList = repositoryInternshipProject.findAll();
 		System.out.println(internshipProjectList);
@@ -55,7 +55,7 @@ public class InternshipProjectController {
 		//fetchs the data from list internshipProjectList
 		model.addAttribute("internshipProjectList", internshipProjectList);
 		
-		return "ListInternshipProject";
+		return "ListInternshipProjects";
 	}
 	@GetMapping("viewinternshipproject")
 	public String viewInternshipProject(Integer internshipProjectId, Model model) {
@@ -79,7 +79,7 @@ public class InternshipProjectController {
 	public String deleteInternshipProject(Integer internshipProjectId) {
 		repositoryInternshipProject.deleteById(internshipProjectId);
 		
-		return "redirect:/listinternshipproject";
+		return "redirect:/listinternshipprojects";
 	}
 	
 }

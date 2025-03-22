@@ -13,7 +13,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>List / StudentDetail</title>
+  <title>List / Internships</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -64,12 +64,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>List StudentDetail</h1>
+      <h1>List Internships</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item">StudentDetail</li>
-          <li class="breadcrumb-item active">ListStudentDetail</li>
+          <li class="breadcrumb-item">Internships</li>
+          <li class="breadcrumb-item active">Listinternships</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -80,35 +80,35 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">List StudentDetail</h5>
+              <h5 class="card-title">List Internships</h5>
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th>City</th>
-					<th>State</th>
-					<th>ProfilePicPath</th>
-					<th>Resume Path</th>
-					<th>Degree</th>
-					<th>Semester</th>
-					<th>T-Shirt Size</th>
+					<th>Title</th>
+					<th>Location</th>
+					<th>stipend</th>
+					<th>Description</th>
+					<th>Requirements</th>
+					<th>Duration Weeks</th>
+					<th>Application DeadLine</th>
 					<th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-					<c:forEach items="${studentDetailList}" var="stu">
+					<c:forEach items="${internshipList}" var="intern">
 						<tr>
-							<td>${stu.city}</td>
-							<td>${stu.state}</td>
-							<td>${stu.profilePicPath}</td>
-							<td>${stu.resumePath}</td>
-							<td>${stu.degree}</td>
-							<td>${stu.semester}</td>
-							<td>${stu.tshirtSize}</td>
-							<td><a href="viewstudentdetail?studentDetailId=${stu.studentDetailId }">View</a> 
-							| <a href="deletestudentdetail?studentDetailId=${stu.studentDetailId }">Delete</a> 
-							| <a href="#">Edit</a></td>
+							<td>${intern.title }</td>
+							<td>${intern.location }</td>
+							<td>${intern.stipend }</td>
+							<td>${intern.description }</td>
+							<td>${intern.requirements }</td>
+							<td>${intern.durationWeeks }</td>
+							<td>${intern.applicationDeadLine }</td>
+							<td><a href="viewinternship?internshipId=${intern.internshipId }">View</a> | 
+							<a href="deleteinternship?internshipId=${intern.internshipId }">Delete</a> | 
+							<a href="#">Edit</a></td>	
 						</tr>
 					</c:forEach>
                 </tbody>

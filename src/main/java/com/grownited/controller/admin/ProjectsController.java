@@ -57,7 +57,7 @@ public class ProjectsController {
 		
 		return "ListProjects";
 	}
-	@GetMapping("viewprojects")
+	@GetMapping("viewproject")
 	public String viewProjects(Integer projectId, Model model) {
 		System.out.println("projectId => "+projectId);
 		Optional<ProjectsEntity> op= repositoryProjects.findById(projectId);
@@ -72,9 +72,9 @@ public class ProjectsController {
 			//send to jsp
 			model.addAttribute("projects", projects);
 		}
-		return "ViewProjects";
+		return "ViewProject";
 	}
-	@GetMapping("deleteprojects")
+	@GetMapping("deleteproject")
 	public String deleteProjects(Integer projectId) {
 		repositoryProjects.deleteById(projectId);
 		return "redirect:/listprojects";

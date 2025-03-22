@@ -49,15 +49,15 @@ public class InternshipApplicationController {
 		
 		return "redirect:/internshipapplication";
 	}
-	@GetMapping("listinternshipapplication")
-	public String listInternshipApplication(Model model) {
+	@GetMapping("listinternshipapplications")
+	public String listInternshipApplications(Model model) {
 		//fetchs the data from table internship_application into controller in list internshipApplicationList
 		List<InternshipApplicationEntity> internshipApplicationList = repositoryInternshipApplication.findAll();
 		
 		//fetchs the data from list internshipApplicationList into ListInternshipApplication jsp
 		model.addAttribute("internshipApplicationList", internshipApplicationList);
 		
-		return "ListInternshipApplication";
+		return "ListInternshipApplications";
 	}
 	@GetMapping("viewinternshipapplication")
 	public String viewInternshipApplication(Integer applicationId, Model model) {
@@ -79,6 +79,6 @@ public class InternshipApplicationController {
 	@GetMapping("deleteinternshipapplication")
 	public String deleteInternshipApplication(Integer applicationId) {
 		repositoryInternshipApplication.deleteById(applicationId);
-		return "redirect:/listinternshipapplication";
+		return "redirect:/listinternshipapplications";
 	}
 }
