@@ -28,6 +28,7 @@ public class UserEntity { // Class names should follow PascalCase
 	private Boolean activate;
 	private LocalDate createdAt;// Represents a timestamp field in the users table.
 	private String role;//according to Me: students, employees, faculties. According to Sir: 1:admin, 2:intern, 3:mentor, 4:hr 
+	private String otp;
 	
 	public Integer getUserId() {
 		return userId;
@@ -94,6 +95,12 @@ public class UserEntity { // Class names should follow PascalCase
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getOtp() {
+		return otp;
+	}
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 		
 }

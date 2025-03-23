@@ -58,7 +58,7 @@ public class ProjectsController {
 		return "ListProjects";
 	}
 	@GetMapping("viewproject")
-	public String viewProjects(Integer projectId, Model model) {
+	public String viewProject(Integer projectId, Model model) {
 		System.out.println("projectId => "+projectId);
 		Optional<ProjectsEntity> op= repositoryProjects.findById(projectId);
 		if(op.isEmpty()){
@@ -75,7 +75,7 @@ public class ProjectsController {
 		return "ViewProject";
 	}
 	@GetMapping("deleteproject")
-	public String deleteProjects(Integer projectId) {
+	public String deleteProject(Integer projectId) {
 		repositoryProjects.deleteById(projectId);
 		return "redirect:/listprojects";
 	}

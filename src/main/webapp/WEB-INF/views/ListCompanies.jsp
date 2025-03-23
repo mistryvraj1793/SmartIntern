@@ -13,7 +13,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>List / Internships</title>
+  <title>List / Companies</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,12 +37,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>List Internships</h1>
+      <h1>List Companies</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item">Internships</li>
-          <li class="breadcrumb-item active">ListInternships</li>
+          <li class="breadcrumb-item">Companies</li>
+          <li class="breadcrumb-item active">ListCompanies</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -57,34 +57,36 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<h5 class="card-title">
- 										Internships<span>/all</span>
+ 										Companies<span>/all</span>
  									</h5>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
- 												<th>Title</th>
-												<th>Location</th>
-												<th>stipend</th>
-												<th>Description</th>
-												<th>Requirements</th>
-												<th>Duration Weeks</th>
-												<th>Application DeadLine</th>
+ 												<th>CompanyName</th>
+												<th>Address</th>
+												<th>Url</th>
+												<th>PersonName</th>
+												<th>ExternalGuide</th>
+												<th>ExternalGuideContactNum</th>
+												<th>CompanyProfileUrl</th>
+												<th>AnyOtherInfoUrl</th>
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
- 											<c:forEach items="${internshipList}" var="intern">
+ 											<c:forEach items="${companylist}" var="com">
 												<tr>
-													<td>${intern.title }</td>
-													<td>${intern.location }</td>
-													<td>${intern.stipend }</td>
-													<td>${intern.description }</td>
-													<td>${intern.requirements }</td>
-													<td>${intern.durationWeeks }</td>
-													<td>${intern.applicationDeadLine }</td>
-													<td><a href="viewinternship?internshipId=${intern.internshipId }">View</a> | 
-													<a href="deleteinternship?internshipId=${intern.internshipId }">Delete</a> | 
-													<a href="#">Edit</a></td>	
+													<td>${com.companyName }</td>
+													<td>${com.address }</td>
+													<td>${com.url }</td>
+													<td>${com.personName }</td>
+													<td>${com.externalGuide }</td>
+													<td>${com.externalGuideContactNum }</td>
+													<td>${com.profileUrl }</td>
+													<td>${com.anyOtherInfoUrl }</td>
+													<td><a href="viewcompany?companyId=${com.companyId }">View</a> 
+													| <a href="deletecompany?companyId=${com.companyId }">Delete</a> 
+													| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>
  										</tbody>

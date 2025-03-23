@@ -47,15 +47,15 @@ public class CompanyUserController {
 		repositoryCompanyUser.save(entityCompanyUser);
 		return "redirect:/companyuser";
 	}
-	@GetMapping("listcompanyuser")
-	public String listCompanyUser(Model model) {
+	@GetMapping("listcompanyusers")
+	public String listCompanyUsers(Model model) {
 		//fetchs the data from table company_user into controller in list companyUserList.
 		List<CompanyUserEntity>	companyUserList = repositoryCompanyUser.findAll();
 		
 		//fetchs the data from list companyuserList into ListCompanyUser jsp.
 		model.addAttribute("companyUserList", companyUserList);
 		
-		return "ListCompanyUser";
+		return "ListCompanyUsers";
 	}
 	@GetMapping("viewcompanyuser")
 	public String viewCompanyUser(Integer companyUserId, Model model) {
@@ -77,7 +77,7 @@ public class CompanyUserController {
 	@GetMapping("deletecompanyuser")
 	public String deleteCompanyUser(Integer companyUserId) {
 		repositoryCompanyUser.deleteById(companyUserId);
-		return "redirect:/listcompanyuser";
+		return "redirect:/listcompanyusers";
 	}
 	
 }

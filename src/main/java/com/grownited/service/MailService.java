@@ -17,7 +17,7 @@ public class MailService {
 		String from ="mistryvraj1234@gmail.com";
 
 		//Logic:
-//		Creates an email service to send simple text emails.
+		//Creates an email service to send simple text emails.
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom(from);
 		message.setTo(email);
@@ -26,4 +26,21 @@ public class MailService {
 		
 		mailSender.send(message);
 	}
+	
+	public void SendOtpForForgetPassword(String email, String firstName, String otp) {
+		String subject = "OTP for ResetPassword";
+		String body = "Hey " +firstName+ ", It seems you have request for forget password, please use below otp for reset password. If not then simply ignore the message! And Do not Share to Anyone OTP: " +otp;
+		String from = "mistryvraj1234@gmail.com";
+		
+		//Logic:
+		//Creates an email service to send simple text emails.
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setFrom(from);
+		message.setTo(email);
+		message.setSubject(subject);
+		message.setText(body);
+		
+		mailSender.send(message);
+	}
+	
 }

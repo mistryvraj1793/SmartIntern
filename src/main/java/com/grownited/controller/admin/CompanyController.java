@@ -48,15 +48,15 @@ public class CompanyController {
 		//read from database
 		return "redirect:/company";
 	}
-	@GetMapping("listcompany")
-	public String listCompany(Model model) {
+	@GetMapping("listcompanies")
+	public String listCompanies(Model model) {
 	//how to sends data from database to Controller:
 	//This statement retrieves all records from the company table and stores them in a List<CompanyEntity> collection.
 	List<CompanyEntity>	companyList = repositoryCompany.findAll();
 	
 	//how to sends data from controller to jsp
 	model.addAttribute("companylist", companyList);
-		return "ListCompany";
+		return "ListCompanies";
 	}
 	@GetMapping("viewcompany")
 	public String viewCompany(Integer companyId, Model model) {
@@ -76,7 +76,7 @@ public class CompanyController {
 	@GetMapping("deletecompany")
 	public String deleteCompany(Integer companyId) {
 		repositoryCompany.deleteById(companyId);
-		return "redirect:/listcompany";
+		return "redirect:/listcompanies";
 	}
 	
 	

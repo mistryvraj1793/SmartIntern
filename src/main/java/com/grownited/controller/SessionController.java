@@ -40,12 +40,59 @@ public class SessionController {
 	public String forgetPassword() {
 		return "ForgetPassword";
 	}
-	@PostMapping("resetpassword")
-	public String resetPassword(){
-		return "UpdatePassword";
+	@PostMapping("sendotp")
+	public String sendOtp(String email, Model model){
+		Optional<UserEntity> op = repositoryUser.findByEmail(email);
+		if(op.isEmpty()) {
+			//email is Invalid:
+			System.out.println("Email not Found!");
+			model.addAttribute("error", "Email not Found!");
+			return "ForgetPassword";
+		}
+		else {
+			//email is Valid:
+			//Generate otp 
+			//send mail with otp
+			
+			String otp="";
+			//generate otp with random method
+			otp = (int)(Math.random() * 1000000)+"";//if you don't convert to int datatype then otp look like: 949298.1878581222
+			//stored otp into Users table with set otp using UserEntity object user
+			UserEntity user = op.get();
+			user.setOtp(otp);
+			
+			//insert otp using repositoryUser object using save method.
+			repositoryUser.save(user);//update otp for user
+			
+			serviceMail.SendOtpForForgetPassword(email, user.getFirstName(), otp);
+			return "UpdatePassword";
+		}
 	}
 	@PostMapping("updatepassword")
-	public String updatePassword() {
+	public String updatePassword(String email, String otp, String password, Model model) {
+		Optional<UserEntity> op = repositoryUser.findByEmail(email);
+		if(op.isEmpty()) {
+			//invalid data
+			model.addAttribute("error", "Invalid Data");
+			return "UpdatePassword";
+		}
+		else {
+			UserEntity user = op.get();
+			if(user.getOtp().equals(otp)) {//valid otp
+				//encrypt the password and store it into encryptPassword
+				String encryptPassword = encoder.encode(password);
+				//
+				user.setPassword(encryptPassword);
+				user.setOtp("");
+				repositoryUser.save(user);//password Updated and stored in users table.
+			}
+			else {
+				//invalid otp
+				model.addAttribute("error", "Invalid OTP");
+				return "UpdatePassword";
+			}
+		}
+		model.addAttribute("msg", "Password Updated");
 		return "Login";
 	}
 	@GetMapping("register")
@@ -114,7 +161,7 @@ public class SessionController {
 					else {
 						model.addAttribute("error", "Please contact with Error code #0991");
 						System.out.println("It is not a Admin and User role");
-						return "redirect:/login";
+						return "Login";
 					}
 					
 				}
@@ -123,10 +170,10 @@ public class SessionController {
 		}
 		else {
 			model.addAttribute("error", "Invalid Credentials");//you don't tell to your that your password is incorrect (i.e;either email or password is incorrect).
-			System.out.println("Invalid Email or Password");
-			return "redirect:/signup";
+			System.out.println("Invalid Email or Password!");
+			return "Login";
 		}
-		return "redirect:/ListUser";
+		return "Signup";
 	}
 	@GetMapping("logout")
 	public String logout(HttpSession session) {

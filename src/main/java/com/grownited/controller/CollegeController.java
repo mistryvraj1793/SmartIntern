@@ -32,14 +32,14 @@ public class CollegeController {
 		 
 		return "College";
 	}
-	@GetMapping("listcollege")
-	public String listCollege(Model model) {
+	@GetMapping("listcolleges")
+	public String listColleges(Model model) {
 	// fetchs the data from table to controller in which stored in list.
 	List<CollegeEntity> collegeList = repositoryCollege.findAll();
 	
 	//fetchs the data from list to College jsp to display the existing data.
 	model.addAttribute("collegeList", collegeList);
-		return "ListCollege";
+		return "ListColleges";
 	}
 	@GetMapping("viewcollege")
 	public String viewCollege(Integer collegeId, Model model) {
@@ -65,7 +65,7 @@ public class CollegeController {
 		//delete from table college where collegeId = :collegeId
 		repositoryCollege.deleteById(collegeId); 
 		
-		return "redirect:/listcollege";
+		return "redirect:/listcolleges";
 	}
 	
 }

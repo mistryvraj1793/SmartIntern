@@ -42,15 +42,15 @@ public class StudentDetailController {
 		
 		return "StudentDetail";
 	}
-	@GetMapping("liststudentdetail")
-	public String listStudentDetail(Model model) {
+	@GetMapping("liststudentdetails")
+	public String listStudentDetails(Model model) {
 		//fetchs the data from the table student_detail into controller list.
 		List<StudentDetailEntity> studentDetailList = repositoryStudentDetail.findAll();
 	
 		//fetchs the data from controller in list into ListStudentDetail jsp.
 		model.addAttribute("studentDetailList", studentDetailList);
 		
-		return "ListStudentDetail";
+		return "ListStudentDetails";
 	}
 	@GetMapping("viewstudentdetail")
 	public String viewStudentDetail(Integer studentDetailId, Model model) {
@@ -76,7 +76,7 @@ public class StudentDetailController {
 		//delete from table college where collegeId = :collegeId
 		repositoryStudentDetail.deleteById(studentDetailId);
 		
-		return "redirect:/liststudentdetail";
+		return "redirect:/liststudentdetails";
 	}
 	
 	
