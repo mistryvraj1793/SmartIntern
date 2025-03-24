@@ -29,6 +29,7 @@ public class UserEntity { // Class names should follow PascalCase
 	private LocalDate createdAt;// Represents a timestamp field in the users table.
 	private String role;//according to Me: students, employees, faculties. According to Sir: 1:admin, 2:intern, 3:mentor, 4:hr 
 	private String otp;
+	private String profilePicPath;
 	
 	public Integer getUserId() {
 		return userId;
@@ -101,6 +102,12 @@ public class UserEntity { // Class names should follow PascalCase
 	}
 	public void setOtp(String otp) {
 		this.otp = otp;
+	}
+	public String getProfilePicPath() {
+		return profilePicPath;
+	}
+	public void setProfilePicPath(String profilePicPath) {
+		this.profilePicPath = profilePicPath;
 	}
 		
 }

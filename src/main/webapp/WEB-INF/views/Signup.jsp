@@ -42,7 +42,7 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate action="saveuser" method="post">
+                  <form class="row g-3 needs-validation" novalidate action="saveuser" method="post" enctype="multipart/form-data">
                     <div class="col-12">
                       <label for="firstName" class="form-label">First Name</label>
                       <input type="text" name="firstName" class="form-control" id="firstName" required>
@@ -74,6 +74,12 @@
                       <label for="confirmPassword" class="form-label">Confirm Password</label>
                       <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required>
                       <div class="invalid-feedback">Please enter your confirm password!</div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <label for="profilepic" class="form-label">Profile Pic</label>
+                      <input type="file" name="profilePic" class="form-control" id="profilepic" required>
+                      <div class="invalid-feedback">Please enter your profile pic!</div>
                     </div>
 
                     <div class="col-12">
