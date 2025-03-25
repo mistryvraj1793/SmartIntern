@@ -38,4 +38,14 @@ public class AreaController {
 		repositoryArea.save(entityArea);
 		return "redirect:/newarea";
 	}
+	public AreaController(AreaRepository repositoryArea) {
+		super();
+		this.repositoryArea = repositoryArea;
+	}
+	@GetMapping("listareas")
+	public String listAreas(Model model) {
+		List<Object[]> listAreas = repositoryArea.getAll();
+		model.addAttribute("allAreas", listAreas);
+		return "ListAreas";
+	}
 }

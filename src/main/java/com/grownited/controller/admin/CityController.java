@@ -36,9 +36,10 @@ public class CityController {
 			repositoryCity.save(entityCity);
 			return "redirect:/newcity";
 		}
-	//@GetMapping("listcity")
-	//public  listCity() {
-	
-	//	return "ListCity";
-	//}
+	@GetMapping("listcity")
+	public String listCity(Model model) {
+	 	List<Object[]> listCity= repositoryCity.getAll();
+		model.addAttribute("allCity", listCity);
+		return "ListCity";
+	}
 }

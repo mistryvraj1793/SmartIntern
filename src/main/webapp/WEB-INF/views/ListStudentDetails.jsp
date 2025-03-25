@@ -69,21 +69,23 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 												<th>Degree</th>
 												<th>Semester</th>
 												<th>T-Shirt Size</th>
+												<th>College Name</th>
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
- 											<c:forEach items="${studentDetailList}" var="stu">
+ 											<c:forEach items="${allStudentDetail}" var="stu">
 												<tr>
-													<td>${stu.city}</td>
-													<td>${stu.state}</td>
-													<td>${stu.profilePicPath}</td>
-													<td>${stu.resumePath}</td>
-													<td>${stu.degree}</td>
-													<td>${stu.semester}</td>
-													<td>${stu.tshirtSize}</td>
-													<td><a href="viewstudentdetail?studentDetailId=${stu.studentDetailId }">View</a> 
-													| <a href="deletestudentdetail?studentDetailId=${stu.studentDetailId }">Delete</a> 
+													<td>${stu[1]}</td>
+													<td>${stu[8]}</td>
+													<td>${stu[5]}</td>
+													<td>${stu[6]}</td>
+													<td>${stu[4]}</td>
+													<td>${stu[7]}</td>
+													<td>${stu[9]}</td>
+													<td>${stu[10]}</td>
+													<td><a href="viewstudentdetail?studentDetailId=${stu[0]}">View</a> 
+													| <a href="deletestudentdetail?studentDetailId=${stu[0]}">Delete</a> 
 													| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>

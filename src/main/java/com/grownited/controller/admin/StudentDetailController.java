@@ -40,15 +40,15 @@ public class StudentDetailController {
 		//stored the data into table student_detail through repository object. 
 		repositoryStudentDetail.save(entityStudentDetail);
 		
-		return "StudentDetail";
+		return "redirect:/studentdetail";
 	}
 	@GetMapping("liststudentdetails")
 	public String listStudentDetails(Model model) {
 		//fetchs the data from the table student_detail into controller list.
-		List<StudentDetailEntity> studentDetailList = repositoryStudentDetail.findAll();
+		List<Object[]> studentDetailList = repositoryStudentDetail.GetAll();
 	
 		//fetchs the data from controller in list into ListStudentDetail jsp.
-		model.addAttribute("studentDetailList", studentDetailList);
+		model.addAttribute("allStudentDetail", studentDetailList);
 		
 		return "ListStudentDetails";
 	}
@@ -65,7 +65,6 @@ public class StudentDetailController {
 		else {
 			//data Found:
 			StudentDetailEntity studentDetail = op.get();
-			
 			//send data into ViewStudentDetail jsp.
 			model.addAttribute("studentDetail", studentDetail);
 		}
