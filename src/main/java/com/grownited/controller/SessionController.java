@@ -117,7 +117,6 @@ public class SessionController {
 			
 			entityUser.setProfilePicPath(result.get("url").toString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

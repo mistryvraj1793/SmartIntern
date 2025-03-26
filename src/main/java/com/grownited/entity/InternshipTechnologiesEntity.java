@@ -13,6 +13,7 @@ public class InternshipTechnologiesEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer internshipTechnologyId;
 	private Integer technologyId;
+	private Integer internshipId;
 	
 	public Integer getInternshipTechnologyId() {
 		return internshipTechnologyId;
@@ -25,6 +26,12 @@ public class InternshipTechnologiesEntity {
 	}
 	public void setTechnologyId(Integer technologyId) {
 		this.technologyId = technologyId;
+	}
+	public Integer getInternshipId() {
+		return internshipId;
+	}
+	public void setInternshipId(Integer internshipId) {
+		this.internshipId = internshipId;
 	}
 	
 }

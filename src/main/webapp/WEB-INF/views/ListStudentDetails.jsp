@@ -62,13 +62,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
+ 												<th>Degree</th>
  												<th>City</th>
-												<th>State</th>
-												<th>ProfilePicPath</th>
-												<th>Resume Path</th>
-												<th>Degree</th>
 												<th>Semester</th>
-												<th>T-Shirt Size</th>
 												<th>College Name</th>
 												<th>Action</th>
  											</tr>
@@ -76,13 +72,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<tbody>
  											<c:forEach items="${allStudentDetail}" var="stu">
 												<tr>
-													<td>${stu[1]}</td>
-													<td>${stu[8]}</td>
-													<td>${stu[5]}</td>
-													<td>${stu[6]}</td>
 													<td>${stu[4]}</td>
+													<td>${stu[1]}</td>
 													<td>${stu[7]}</td>
-													<td>${stu[9]}</td>
 													<td>${stu[10]}</td>
 													<td><a href="viewstudentdetail?studentDetailId=${stu[0]}">View</a> 
 													| <a href="deletestudentdetail?studentDetailId=${stu[0]}">Delete</a> 

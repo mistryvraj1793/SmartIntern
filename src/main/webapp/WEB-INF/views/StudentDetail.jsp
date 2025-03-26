@@ -13,14 +13,14 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 </head>
 <body>	
 	<h2>This is Student Detail Page..</h2>
-	<form action="savestudentdetail" method="post">
+	<form action="savestudentdetail" method="post" enctype="multipart/form-data">
 		City:<input type="text" name="city"/>
 		<br></br>
 		State:<input type="text" name="state"/>
 		<br></br>
-		ProfilePicPath:<input type="file" name="profilePicPath"/>
+		Profile Pic:<input type="file" name="profilePic"/>
 		<br></br>
-		Resume Path:<input type="file" name="resumePath"/>
+		Resume: <input type="file" name="resume"/>
 		<br></br>
 		Degree:<input type="text" name="degree"/>
 		<br></br>

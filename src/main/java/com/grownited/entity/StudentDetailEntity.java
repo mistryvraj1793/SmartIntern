@@ -23,6 +23,7 @@ public class StudentDetailEntity {
 	private String degree; //eg: BE-IT , MCA, BCA , BscIT , BE-EC
 	private String semester; //eg: sem1,sem2
 	private String tshirtSize; //eg: SMALL , L , XL , XXL , XXXL
+	
 	public Integer getStudentDetailId() {
 		return studentDetailId;
 	}

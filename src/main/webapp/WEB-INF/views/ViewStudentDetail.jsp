@@ -57,13 +57,19 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<span>ViewStudentDetail</span>
  									</h5>
  									
- 									City: ${studentDetail.city }<br>
-									State: ${studentDetail.state }<br>
-									ProfilePicPath: ${studentDetail.profilePicPath }<br>
-									Resume Path: ${studentDetail.resumePath }<br>
-									Degree: ${studentDetail.degree }<br>
-									Semester: ${studentDetail.semester }<br>
-									T-Shirt Size: ${studentDetail.tshirtSize }<br>
+ 									StudentID: ${allStudentDetail[0][0]}<br>
+ 									Profile Pic Path: ${allStudentDetail[0][5]}<br>
+ 									Resume Path: ${allStudentDetail[0][6]}<br>
+									City Name: ${allStudentDetail[0][1] }<br>
+									State Name: ${allStudentDetail[0][8] }<br>
+									T-Shirt-Size: ${allStudentDetail[0][9] }<br>
+									Created At: ${allStudentDetail[0][3]}<br>
+									College Name: ${allStudentDetail[0][13]}<br>
+									Degree: ${allStudentDetail[0][4]}<br>
+									Semester: ${allStudentDetail[0][7]}<br>
+									Company Name: ${allStudentDetail[0][14]}<br>
+									Internship Title: ${allStudentDetail[0][15]}<br>
+									Technology Name: ${allStudentDetail[0][16]}<br>
 									
  								</div>
  							</div>
