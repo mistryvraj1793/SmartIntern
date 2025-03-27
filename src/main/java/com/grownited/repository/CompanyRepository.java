@@ -7,5 +7,5 @@ import com.grownited.entity.CompanyEntity;
 
 @Repository
 public interface CompanyRepository extends JpaRepository<CompanyEntity, Integer>{
-	
+
 }

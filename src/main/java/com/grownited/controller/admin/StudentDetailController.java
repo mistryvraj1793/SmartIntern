@@ -16,8 +16,11 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.CollegeEntity;
 import com.grownited.entity.StudentDetailEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.CollegeRepository;
 import com.grownited.repository.StudentDetailRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -40,7 +43,7 @@ public class StudentDetailController {
 		return "StudentDetail";
 	}
 	@PostMapping("savestudentdetail")
-	public String saveStudentDetail(StudentDetailEntity entityStudentDetail, MultipartFile profilePic, MultipartFile resume) {
+	public String saveStudentDetail(StudentDetailEntity entityStudentDetail, UserEntity entityUser,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
 		System.out.println(profilePic.getOriginalFilename());
 		System.out.println(resume.getOriginalFilename());
 		try {
@@ -55,6 +58,11 @@ public class StudentDetailController {
 			e.printStackTrace();
 		}
 		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		System.out.println(user);
+		Integer userId = user.getUserId();
+		System.out.println(userId);
+		entityStudentDetail.setUserId(userId);
 		
 		//print the data from the table student_detail. 
 		System.out.println(entityStudentDetail.getCity());

@@ -23,6 +23,7 @@ public class StudentDetailEntity {
 	private String degree; //eg: BE-IT , MCA, BCA , BscIT , BE-EC
 	private String semester; //eg: sem1,sem2
 	private String tshirtSize; //eg: SMALL , L , XL , XXL , XXXL
+	private Integer userId;
 	
 	public Integer getStudentDetailId() {
 		return studentDetailId;
@@ -83,6 +84,12 @@ public class StudentDetailEntity {
 	}
 	public void setTshirtSize(String tshirtSize) {
 		this.tshirtSize = tshirtSize;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	
 	

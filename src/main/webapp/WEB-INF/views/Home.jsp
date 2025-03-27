@@ -12,6 +12,7 @@
 	<br>
 	Welcome, <b>${user.firstName }</b>  into SmartIntern. <br><br>
 	<img src="${user.profilePicPath }" height="200px" width="200px"/><br>
-	<a href="logout">Logout</a>
+	<a href="logout">Logout</a><br><br>
+	<a Href="studentdetail">Register</a>
 </body>
 </html>
