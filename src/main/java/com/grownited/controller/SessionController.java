@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.cloudinary.Cloudinary;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -27,9 +26,6 @@ public class SessionController {
 	
 	@Autowired
 	UserRepository repositoryUser;//we directly can't create object of a instance (i.e UserRepository).
-	
-	@Autowired
-	Cloudinary cloudinary;
 	
 	//@GetMapping(value = {"/","signup","SIGNUP"})
 	@GetMapping("signup")//url
@@ -104,8 +100,7 @@ public class SessionController {
 		return "Register";
 	}
 	@PostMapping("saveuser")
-	public String saveUser(UserEntity entityUser) { //UserEntity is a class and userEntity is a object of that class.
-		
+	public String saveUser(UserEntity entityUser) { //UserEntity is a class and userEntity is a object of that class.	
 		//read from the jsp input in the browser:
 //		System.out.println(entityUser.getFirstName());
 

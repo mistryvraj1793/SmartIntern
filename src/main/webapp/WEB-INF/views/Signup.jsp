@@ -77,11 +77,17 @@
                     </div>
                     
                     <div class="col-12">
-                      <label for="contactNum" class="form-label">Contact Num</label>
+                      <label for="contactNum" class="form-label">contact Number</label>
                       <input type="tel" name="contactNum" class="form-control" id="contactNum" maxlength="10" pattern="[0-9]{10}" required>
                       <div class="invalid-feedback">Please enter your contact number!</div>
                     </div>
                     
+                    <div class="col-12">
+                      <label for="gender" class="form-label">gender</label>
+                      <input type="radio" name="gender" class="form-control" id="gender" required>
+                      <div class="invalid-feedback">Please enter your gender!</div>
+                    </div>
+
                     <div class="col-12">
                       <label for="bornYear" class="form-label">Born Year</label>
                       <input type="number" name="bornYear" class="form-control" id="bornYear" required>
