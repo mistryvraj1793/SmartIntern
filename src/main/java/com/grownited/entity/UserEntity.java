@@ -22,14 +22,13 @@ public class UserEntity { // Class names should follow PascalCase
 	@Column(unique = true)//in Spring Boot JPA ensures that a column (e.g., email) cannot have duplicate values at the database level.
 	private String email;
 	private String password;
-	private Integer contactNum;
+	private Long contactNum;
 	private String gender;
-	private Integer bornYear;
+	private Long bornYear;
 	private Boolean activate;
 	private LocalDate createdAt;// Represents a timestamp field in the users table.
 	private String role;//according to Me: students, employees, faculties. According to Sir: 1:admin, 2:intern, 3:mentor, 4:hr 
 	private String otp;
-	private String profilePicPath;
 	
 	public Integer getUserId() {
 		return userId;
@@ -61,10 +60,10 @@ public class UserEntity { // Class names should follow PascalCase
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Integer getContactNum() {
+	public Long getContactNum() {
 		return contactNum;
 	}
-	public void setContactNum(Integer contactNum) {
+	public void setContactNum(Long contactNum) {
 		this.contactNum = contactNum;
 	}
 	public String getGender() {
@@ -73,10 +72,10 @@ public class UserEntity { // Class names should follow PascalCase
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Integer getBornYear() {
+	public Long getBornYear() {
 		return bornYear;
 	}
-	public void setBornYear(Integer bornYear) {
+	public void setBornYear(Long bornYear) {
 		this.bornYear = bornYear;
 	}
 	public Boolean getActivate() {
@@ -102,12 +101,6 @@ public class UserEntity { // Class names should follow PascalCase
 	}
 	public void setOtp(String otp) {
 		this.otp = otp;
-	}
-	public String getProfilePicPath() {
-		return profilePicPath;
-	}
-	public void setProfilePicPath(String profilePicPath) {
-		this.profilePicPath = profilePicPath;
 	}
 		
 }
