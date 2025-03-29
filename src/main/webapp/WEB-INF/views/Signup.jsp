@@ -42,7 +42,7 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate action="saveuser" method="post" enctype="multipart/form-data">
+                  <form class="row g-3 needs-validation" novalidate action="saveuser" method="post">
                     <div class="col-12">
                       <label for="firstName" class="form-label">First Name</label>
                       <input type="text" name="firstName" class="form-control" id="firstName" required>
@@ -59,8 +59,8 @@
                       <label for="email" class="form-label">Your Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="enail" name="email" class="form-control" id="email" required>
-                        <div class="invalid-feedback">>Please enter a valid Email adddress!</div>
+                        <input type="email" name="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">>Please enter a valid Email address!</div>
                       </div>
                     </div>
 
@@ -77,9 +77,15 @@
                     </div>
                     
                     <div class="col-12">
-                      <label for="profilepic" class="form-label">Profile Pic</label>
-                      <input type="file" name="profilePic" class="form-control" id="profilepic" required>
-                      <div class="invalid-feedback">Please enter your profile pic!</div>
+                      <label for="contactNum" class="form-label">Contact Num</label>
+                      <input type="tel" name="contactNum" class="form-control" id="contactNum" maxlength="10" pattern="[0-9]{10}" required>
+                      <div class="invalid-feedback">Please enter your contact number!</div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <label for="bornYear" class="form-label">Born Year</label>
+                      <input type="number" name="bornYear" class="form-control" id="bornYear" required>
+                      <div class="invalid-feedback">Please enter your born year!</div>
                     </div>
 
                     <div class="col-12">

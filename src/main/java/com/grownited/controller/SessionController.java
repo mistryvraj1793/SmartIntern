@@ -1,8 +1,6 @@
 package com.grownited.controller;
 
-import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -108,17 +104,7 @@ public class SessionController {
 		return "Register";
 	}
 	@PostMapping("saveuser")
-	public String saveUser(UserEntity entityUser, MultipartFile profilePic) { //UserEntity is a class and userEntity is a object of that class.
-		System.out.println(profilePic.getOriginalFilename());//file name
-		try {
-			Map result = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
-//			System.out.println(result);
-			System.out.println(result.get("url"));
-			
-			entityUser.setProfilePicPath(result.get("url").toString());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public String saveUser(UserEntity entityUser) { //UserEntity is a class and userEntity is a object of that class.
 		
 		//read from the jsp input in the browser:
 //		System.out.println(entityUser.getFirstName());
