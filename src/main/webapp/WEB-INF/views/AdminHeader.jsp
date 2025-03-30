@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Header</title>
+</head>
+<body>
 <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -207,3 +214,5 @@
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
+</body>
+</html>

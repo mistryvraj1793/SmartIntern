@@ -82,11 +82,29 @@
                       <div class="invalid-feedback">Please enter your contact number!</div>
                     </div>
                     
-                    <div class="col-12">
-                      <label for="gender" class="form-label">gender</label>
-                      <input type="radio" name="gender" class="form-control" id="gender" required>
-                      <div class="invalid-feedback">Please enter your gender!</div>
-                    </div>
+                    <fieldset class="row mb-3">
+	                  <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
+	                  <div class="col-sm-10">
+	                    <div class="form-check">
+	                      <input class="form-check-input" type="radio" name="gender" id="gender" value="male" checked="">
+	                      <label class="form-check-label" for="gender">
+	                        Male
+	                      </label>
+	                    </div>
+	                    <div class="form-check">
+	                      <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
+	                      <label class="form-check-label" for="gender">
+	                        Female
+	                      </label>
+	                    </div>
+	                    <div class="form-check disabled">
+	                      <input class="form-check-input" type="radio" name="gender" id="gender" value="other">
+	                      <label class="form-check-label" for="gender">
+	                        Other
+	                      </label>
+	                    </div>
+	                  </div>
+	                </fieldset>
 
                     <div class="col-12">
                       <label for="bornYear" class="form-label">Born Year</label>

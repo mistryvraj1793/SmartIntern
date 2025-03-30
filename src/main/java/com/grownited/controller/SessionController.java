@@ -152,7 +152,7 @@ public class SessionController {
 					}
 					else if(dataBaseUser.getRole().equals("USER")) {
 						System.out.println("It is User role");
-						return "redirect:/home";
+						return "redirect:/userdashboard";
 					}
 					else {
 						model.addAttribute("error", "Please contact with Error code #0991");

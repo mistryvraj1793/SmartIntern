@@ -16,7 +16,16 @@ public class UserController {
 	
 	@Autowired
 	UserRepository repositoryUser;
+
+	@GetMapping("userdashboard")
+	public String userDashboard() {
+		return "UserDashboard";
+	}
 	
+	@GetMapping("home")
+	public String home() {
+		return "Home";
+	}
 	@GetMapping("listusers")
 	public String listUsers(Model model) {
 		//how to sends data from database to Controller:
@@ -49,10 +58,6 @@ public class UserController {
 	public String deleteUser(Integer userId) {
 		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
 		return "redirect:/listusers"; // Redirects to the user list page
-	}
-	@GetMapping("home")
-	public String home() {
-		return "Home";
 	}
 
 }
