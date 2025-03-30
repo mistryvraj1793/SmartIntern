@@ -23,14 +23,13 @@
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="project.html" class="nav-item nav-link">Projects</a>
+                        <a href="#" class="nav-item nav-link">Internships</a>
                         <div class="nav-item dropdown">
-                        	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded">
-                            	<a href="blog.html" class="dropdown-item">Our Blog</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-							</div>
+                        	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
+                        	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
+                    <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                </ul>
 						</div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
 					</div>

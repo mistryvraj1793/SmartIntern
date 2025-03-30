@@ -25,8 +25,8 @@
         </a>
         <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Add Users</span>
+            <a href="adduser">
+              <i class="bi bi-circle"></i><span>Add User</span>
             </a>
           </li>
         </ul>
@@ -43,6 +43,13 @@
         <a class="nav-link collapsed" data-bs-target="#internships-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
           <i class="bi bi-menu-button-wide"></i><span>Internships</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        <ul id="internships-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+          <li>
+            <a href="internship">
+              <i class="bi bi-circle"></i><span>Add Internship</span>
+            </a>
+          </li>
+        </ul>
         <ul id="internships-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
             <a href="listinternships">
