@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.grownited.entity.ProjectsEntity;
 
 @Repository
-public interface ProjectsRepository extends JpaRepository<ProjectsEntity, Integer>{
+public interface ProjectRepository extends JpaRepository<ProjectsEntity, Integer>{
 
 }

@@ -63,7 +63,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 									PersonName: ${company.personName }<br>
 									ExternalGuide: ${company.externalGuide }<br>
 									ExternalGuideContactNum: ${company.externalGuideContactNum }<br>
-									CompanyProfileUrl: ${company.profileUrl }<br>
+									CompanyProfileUrl: ${company.companyProfileUrl }<br>
 									AnyOtherInfoUrl: ${company.anyOtherInfoUrl }<br>
 									
  								</div>

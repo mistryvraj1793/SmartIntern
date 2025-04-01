@@ -55,7 +55,7 @@ public class CompanyController {
 	List<CompanyEntity>	companyList = repositoryCompany.findAll();
 	
 	//how to sends data from controller to jsp
-	model.addAttribute("companylist", companyList);
+	model.addAttribute("companyList", companyList);
 		return "ListCompanies";
 	}
 	@GetMapping("viewcompany")

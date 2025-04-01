@@ -19,8 +19,8 @@ public class CompanyEntity {
 	private String url;
 	private String personName;
 	private String externalGuide;
-	private Integer externalGuideContactNum;
-	private String profileUrl;
+	private Long externalGuideContactNum;
+	private String companyProfileUrl;
 	private String anyOtherInfoUrl;
 	private Boolean active;//status 1.active 2.deactive
 	private LocalDate createdAt;
@@ -62,17 +62,17 @@ public class CompanyEntity {
 	public void setExternalGuide(String externalGuide) {
 		this.externalGuide = externalGuide;
 	}
-	public Integer getExternalGuideContactNum() {
+	public Long getExternalGuideContactNum() {
 		return externalGuideContactNum;
 	}
-	public void setExternalGuideContactNum(Integer externalGuideContactNum) {
+	public void setExternalGuideContactNum(Long externalGuideContactNum) {
 		this.externalGuideContactNum = externalGuideContactNum;
 	}
-	public String getProfileUrl() {
-		return profileUrl;
+	public String getCompanyProfileUrl() {
+		return companyProfileUrl;
 	}
-	public void setProfileUrl(String profileUrl) {
-		this.profileUrl = profileUrl;
+	public void setCompanyProfileUrl(String companyProfileUrl) {
+		this.companyProfileUrl = companyProfileUrl;
 	}
 	public String getAnyOtherInfoUrl() {
 		return anyOtherInfoUrl;
@@ -98,8 +98,6 @@ public class CompanyEntity {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	
-	
-	
+
 	
 }

@@ -41,7 +41,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item">Companies</li>
+          <li class="breadcrumb-item"><a href="company">Add Company</a></li>
           <li class="breadcrumb-item active">ListCompanies</li>
         </ol>
       </nav>
@@ -74,7 +74,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  											</tr>
  										</thead>
  										<tbody>
- 											<c:forEach items="${companylist}" var="com">
+ 											<c:forEach items="${companyList}" var="com">
 												<tr>
 													<td>${com.companyName }</td>
 													<td>${com.address }</td>
@@ -82,7 +82,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${com.personName }</td>
 													<td>${com.externalGuide }</td>
 													<td>${com.externalGuideContactNum }</td>
-													<td>${com.profileUrl }</td>
+													<td>${com.companyProfileUrl }</td>
 													<td>${com.anyOtherInfoUrl }</td>
 													<td><a href="viewcompany?companyId=${com.companyId }">View</a> 
 													| <a href="deletecompany?companyId=${com.companyId }">Delete</a> 

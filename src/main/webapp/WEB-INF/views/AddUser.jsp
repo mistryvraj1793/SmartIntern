@@ -171,35 +171,5 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
 
- 
 </body>
-
 </html>
-
-
-
-
-
-	<!-- <form action="saveuser" method="post" autocomplete="on">
-		First Name:<input type="text" name="firstName"/>
-		<br></br>
-		Last Name:<input type="text" name="lastName"/>
-		<br></br>
-		Email:<input type="text" name="email"/>
-		<br></br>
-		Password:<input type="password" name="password">
-		<br></br>
-		Contact Number:<input type="number" name="contactNum"/>
-		<br></br>
-		Gender: Male:<input type="radio" name="gender" value="male"/>
-				Female:<input type="radio" name="gender" value="female"/>
-				Other:<input type="radio" name="gender" value="other"/>
-		<br></br>
-		Born Year:<input type="number" name="bornYear"/>
-		<br></br>
-
-		<input type="submit" value="register"/>
-	</form>
-	<a href="login">Login</a>
-	<br>
-	<a href="listuser">List User</a> -->

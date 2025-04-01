@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+
 <%-- imports JSTL core tag library into your JSP file, enabling the use of JSTL tags like <c:if>, <c:forEach>, <c:choose>, etc. --%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> <%-- where Enables JSTL in JSP: Without this, JSTL tags won't work. and 
 where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
- 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +12,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Add / College</title>
+  <title>Add / Project</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,12 +36,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Add College</h1>
+      <h1>Add Project</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="college">Add Colleger</a></li>
-          <li class="breadcrumb-item active"><a href="listcolleges">List Colleges</a></li>
+          <li class="breadcrumb-item active"><a href="listprojects">List Projects</a></li>
+          <li class="breadcrumb-item">Add Project</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -59,37 +58,38 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<div class="pt-4 pb-2">
-					                    <h5 class="card-title text-center pb-0 fs-4">Create an College</h5>
-					                    <p class="text-center small">Enter your personal details to create college</p>
+					                    <h5 class="card-title text-center pb-0 fs-4">Create an Project</h5>
+					                    <p class="text-center small">Enter your personal details to create project</p>
 					                  </div>
 					
-					                  <form class="row g-3 needs-validation" novalidate action="savecollege" method="post">
+					                  <form class="row g-3 needs-validation" novalidate action="saveproject" method="post">
 					                    <div class="col-6">
-					                      <label for="collegeName" class="form-label">College Name</label>
-					                      <input type="text" name="collegeName" class="form-control" id="collegeName" required>
-					                      <div class="invalid-feedback">Please, enter your college name!</div>
+					                      <label for="title" class="form-label">Title</label>
+					                      <input type="text" name="title" class="form-control" id="title" required>
+					                      <div class="invalid-feedback">Please, enter your title!</div>
 					                    </div>
 					                    
 					                    <div class="col-6">
-					                      <label for="address" class="form-label">Address</label>
-					                      <input type="text" name="address" class="form-control" id="address" required>
-					                      <div class="invalid-feedback">Please, enter your address!</div>
-					                    </div>
+						                  <label for="description" class="col-sm-6 col-form-label">Description</label>
+						                  <div class="col-sm-12">
+						                    <textarea class="form-control" name="description" style="height: 80px" required=""></textarea>
+						                  </div>
+						                </div>
 					                    
 					                    <div class="col-6">
-					                      <label for="city" class="form-label">City</label>
-					                      <input type="text" name="contactNum" class="form-control" id="city" required>
-					                      <div class="invalid-feedback">Please enter your city!</div>
-					                    </div>
-					                    
-					                     <div class="col-6">
-					                      <label for="state" class="form-label">State</label>
-					                      <input type="text" name="state" class="form-control" id="state" required>
-					                      <div class="invalid-feedback">Please enter your state!</div>
-					                    </div>
+						                  <label class="col-sm-4 col-form-label">Company Name</label>
+						                  <div class="col-sm-10">
+						                    <select class="form-select" aria-label="Default select example" name="companyId">
+						                      <option selected="">--select Company--</option>
+						                      	<c:forEach items="${allCompanies }" var="comp">
+													<option value="${comp.companyId }">${comp.companyName }</option>			
+												</c:forEach>	
+						                    </select>
+						                  </div>
+						                </div>
 						                
 					                    <div class="col-12">
-					                      <button class="btn btn-primary w-100" type="submit" value="SaveCollege">Add College</button>
+					                      <button class="btn btn-primary w-100" type="submit" value="SaveProject">Add Project</button>
 					                    </div>
 					                  </form>`
  									
@@ -120,3 +120,21 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
 
 
+
+
+
+
+<%-- <form action="saveproject" method="post">
+		Title: <input type="text" name="title"/>
+		<br></br>
+		Description: <input type="text" name="description"/>
+		<br></br>
+		Company Name: <select name="companyId">
+							<option>Select Company</option>
+								<c:forEach items="${allCompanies }" var="company">
+									<option value="${company.companyId }">${company.companyName }</option>
+								</c:forEach>
+						</select>
+		<br><br>
+		<input type="submit" value="Save Projects"/>
+	</form> --%>

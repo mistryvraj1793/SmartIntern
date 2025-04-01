@@ -86,7 +86,7 @@
         </a>
         <ul id="projects-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="#">
+            <a href="project">
               <i class="bi bi-circle"></i><span>Add Project</span>
             </a>
           </li>
@@ -106,6 +106,13 @@
         </a>
         <ul id="colleges-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
+            <a href="college">
+              <i class="bi bi-circle"></i><span>Add College</span>
+            </a>
+          </li>
+        </ul>
+        <ul id="colleges-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+          <li>
             <a href="listcolleges">
               <i class="bi bi-circle"></i><span>List Colleges</span>
             </a>
@@ -114,17 +121,24 @@
       </li><!-- End Components Nav -->
       
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#company-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
-          <i class="bi bi-menu-button-wide"></i><span>Company</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" data-bs-target="#companies-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+          <i class="bi bi-menu-button-wide"></i><span>Companies</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="company-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+        <ul id="companies-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+          <li>
+            <a href="company">
+              <i class="bi bi-circle"></i><span>Add Company</span>
+            </a>
+          </li>
+        </ul>
+        <ul id="companies-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
             <a href="listcompanies">
               <i class="bi bi-circle"></i><span>List Companies</span>
             </a>
           </li>
         </ul>
-        <ul id="company-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+        <ul id="companies-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
             <a href="listcompanyusers">
               <i class="bi bi-circle"></i><span>List Company Users</span>

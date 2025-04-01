@@ -14,7 +14,7 @@ import com.grownited.entity.InternshipProjectEntity;
 import com.grownited.entity.ProjectsEntity;
 import com.grownited.repository.InternshipProjectRepository;
 import com.grownited.repository.InternshipRepository;
-import com.grownited.repository.ProjectsRepository;
+import com.grownited.repository.ProjectRepository;
 
 @Controller
 public class InternshipProjectController {
@@ -25,12 +25,12 @@ public class InternshipProjectController {
 	InternshipRepository repositoryInternship;
 	
 	@Autowired
-	ProjectsRepository repositoryProjects;
+	ProjectRepository repositoryProject;
 		
 	@GetMapping("internshipproject")
 	public String internshipProject(Model model) {
 	 	List<InternshipEntity> allInternships = repositoryInternship.findAll();
-	 	List<ProjectsEntity> allProjects = repositoryProjects.findAll();
+	 	List<ProjectsEntity> allProjects = repositoryProject.findAll();
 	 	
 	 	System.out.println(allInternships);
 	 	//fetches the data from Controller in allInternships to jsp

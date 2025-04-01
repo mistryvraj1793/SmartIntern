@@ -13,27 +13,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.CompanyEntity;
 import com.grownited.entity.ProjectsEntity;
 import com.grownited.repository.CompanyRepository;
-import com.grownited.repository.ProjectsRepository;
+import com.grownited.repository.ProjectRepository;
 
 @Controller
-public class ProjectsController {
+public class ProjectController {
 	@Autowired
-	ProjectsRepository repositoryProjects;
+	ProjectRepository repositoryProject;
 
 	@Autowired
 	CompanyRepository repositoryCompany;
 	
-	@GetMapping("projects")
+	@GetMapping("project")
 	public String projects(Model model) {
 		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
 		
 		//fetches the data from controller in allCompanies to jsp
 		model.addAttribute("allCompanies", allCompanies);
 		
-		return "Projects";
+		return "Project";
 	}
-	@PostMapping("saveprojects")
-	public String saveProjects(ProjectsEntity entityProjects) {
+	@PostMapping("saveproject")
+	public String saveProject(ProjectsEntity entityProjects) {
 		//set the defalut values in the attributes when they click on submit.
 		entityProjects.setActive(true);
 		entityProjects.setcreatedAt(LocalDate.now());
@@ -43,14 +43,14 @@ public class ProjectsController {
 		System.out.println(entityProjects.getDescription());
 		
 		//stored the data from Projects jsp form into table Projects through repositoryProjects object.
-		repositoryProjects.save(entityProjects);
+		repositoryProject.save(entityProjects);
 	
-		return "redirect:/projects";
+		return "redirect:/project";
 	}
 	@GetMapping("listprojects")
 	public String listProjects(Model model) {
 		//fetchs the  data from table projects into controller in list projectsList
-		List<ProjectsEntity> projectsList = repositoryProjects.findAll();
+		List<ProjectsEntity> projectsList = repositoryProject.findAll();
 		
 		//fetchs the data from list projectsList into ListProjects jsp through Model object. 
 		model.addAttribute("projectsList", projectsList);
@@ -60,7 +60,7 @@ public class ProjectsController {
 	@GetMapping("viewproject")
 	public String viewProject(Integer projectId, Model model) {
 		System.out.println("projectId => "+projectId);
-		Optional<ProjectsEntity> op= repositoryProjects.findById(projectId);
+		Optional<ProjectsEntity> op= repositoryProject.findById(projectId);
 		if(op.isEmpty()){
 			//Data Not Found:
 			System.out.println("Not Found");
@@ -76,7 +76,7 @@ public class ProjectsController {
 	}
 	@GetMapping("deleteproject")
 	public String deleteProject(Integer projectId) {
-		repositoryProjects.deleteById(projectId);
+		repositoryProject.deleteById(projectId);
 		return "redirect:/listprojects";
 	}
 	

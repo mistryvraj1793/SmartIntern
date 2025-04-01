@@ -85,29 +85,18 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 					                      <div class="invalid-feedback">Please enter your contact number!</div>
 					                    </div>
 					                    
-					                    <fieldset class="col-6">
-						                  <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
-						                  <div class="col-sm-6">
-						                    <div class="form-check">
-						                      <input class="form-check-input" type="radio" name="gender" id="gender" value="male" checked="">
-						                      <label class="form-check-label" for="gender">
-						                        Male
-						                      </label>
-						                    </div>
-						                    <div class="form-check">
-						                      <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
-						                      <label class="form-check-label" for="gender">
-						                        Female
-						                      </label>
-						                    </div>
-						                    <div class="form-check disabled">
-						                      <input class="form-check-input" type="radio" name="gender" id="gender" value="other">
-						                      <label class="form-check-label" for="gender">
-						                        Other
-						                      </label>
-						                    </div>
+					                    <div class="col-6">
+						                  <label class="col-sm-4 col-form-label">Gender</label>
+						                  <div class="col-sm-10">
+						                    <select class="form-select" aria-label="Default select example" name="gender" required>
+						                      <option selected="">${user.gender }</option>
+						                      <option value="male">Male</option>
+						                      <option value="female">Female</option>
+						                      <option value="other">Other</option>
+						                    </select>
+						                    <div class="invalid-feedback">Please enter gender!</div>
 						                  </div>
-						                </fieldset>
+						                </div>
 					                    
 					                    <div class="col-6">
 					                      <label for="bornYear" class="form-label">Born Year</label>
