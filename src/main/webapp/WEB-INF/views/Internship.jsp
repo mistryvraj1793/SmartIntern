@@ -20,9 +20,6 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <!-- Template Main CSS File -->
   <jsp:include page="AdminCss.jsp"></jsp:include>
   
-  <!-- list table -->
-  <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
-  
 </head>
 
 <body>
@@ -37,7 +34,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>List Internships</h1>
+      <h1>Add Internship</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>

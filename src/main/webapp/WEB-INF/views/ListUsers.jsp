@@ -82,7 +82,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${u.gender}</td>
 													<td><a href="viewuser?userId=${u.userId}">View</a> |
 														<a href="deleteuser?userId=${u.userId}">Delete</a> |
-														<a href="#">Edit</a></td>
+														<a href="edituser?userId=${u.userId}">Edit</a></td>
 												</tr>	
 											</c:forEach>
  										</tbody>

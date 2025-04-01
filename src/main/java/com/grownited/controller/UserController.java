@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
@@ -53,6 +54,38 @@ public class UserController {
 			model.addAttribute("user", user); // Pass user data to JSP
 		}
 		return "ViewUser"; // Display ViewUser.jsp
+	}
+	@GetMapping("edituser")
+	public String editUser(Integer userId, Model model) {
+		Optional<UserEntity> op = repositoryUser.findById(userId);
+		if(op.isEmpty()) {
+			return "redirect:/listusers";
+		}
+		else {
+			model.addAttribute("user", op.get());
+			return "EditUser";
+		}
+		//save -> entity -> no id present -> redirect to listusers 
+	 	//save -> entity -> id present -> not present in db -> insert  
+	}
+	@PostMapping("updateuser")
+	public String updateUser(UserEntity entityUser){
+		//save -> entity -> id present -> present in db -> update
+		System.out.println(entityUser.getUserId()); 
+		Optional<UserEntity> op = repositoryUser.findById(entityUser.getUserId());
+		if (op.isPresent()) {
+			UserEntity dbUser = op.get();
+			
+			dbUser.setFirstName(entityUser.getFirstName());
+			dbUser.setLastName(entityUser.getLastName());
+			dbUser.setEmail(entityUser.getEmail());
+			dbUser.setGender(entityUser.getGender());
+			dbUser.setRole(entityUser.getRole());
+			dbUser.setContactNum(entityUser.getContactNum());
+			dbUser.setBornYear(entityUser.getBornYear());
+			repositoryUser.save(dbUser);
+		}
+		return "redirect:/listusers";
 	}
 	@GetMapping("deleteuser")
 	public String deleteUser(Integer userId) {

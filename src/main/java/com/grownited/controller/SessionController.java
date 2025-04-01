@@ -111,9 +111,9 @@ public class SessionController {
 		entityUser.setActivate(true);
 		
 		//Password encoder:
-		String encordePassword = encoder.encode(entityUser.getPassword());
-		System.out.println(encordePassword);
-		entityUser.setPassword(encordePassword);
+		String encordPassword = encoder.encode(entityUser.getPassword());
+		System.out.println(encordPassword);
+		entityUser.setPassword(encordPassword);
 		
 		//Write into a entity or table:
 		repositoryUser.save(entityUser); //Saves the entityUser object (which represents a user) into the database table users, using .save(entityUser)
@@ -150,7 +150,15 @@ public class SessionController {
 						System.out.println("It is Admin role");
 						return "redirect:/admindashboard";
 					}
-					else if(dataBaseUser.getRole().equals("USER")) {
+					else if(dataBaseUser.getRole().equals("HR")) {
+						System.out.println("It is Hr role");
+						return "redirect:/hrmentordashboard";
+					}
+					else if(dataBaseUser.getRole().equals("MENTOR")) {
+						System.out.println("It is Mentor role");
+						return "redirect:/hrmentordashboard";
+					}
+					else if (dataBaseUser.getRole().equals("USER")) {
 						System.out.println("It is User role");
 						return "redirect:/userdashboard";
 					}

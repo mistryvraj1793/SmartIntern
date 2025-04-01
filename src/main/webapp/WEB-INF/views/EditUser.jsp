@@ -13,15 +13,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Add / User</title>
+  <title>Edit / Internship</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Template Main CSS File -->
   <jsp:include page="AdminCss.jsp"></jsp:include>
-  
-  <!-- list table -->
-  <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
   
 </head>
 
@@ -37,12 +34,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Add User</h1>
+      <h1>Edit User</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="adduser">Add User</a></li>
-          <li class="breadcrumb-item active"><a href="listusers">List Users</a></li>
+          <li class="breadcrumb-item"><a href="listusers">List Users</a></li>
+          <li class="breadcrumb-item active"><a href="edituser">Edit User</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -59,50 +56,35 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<div class="pt-4 pb-2">
-					                    <h5 class="card-title text-center pb-0 fs-4">Create an User</h5>
-					                    <p class="text-center small">Enter your personal details to create User</p>
+					                    <h5 class="card-title text-center pb-0 fs-4">Edit an User</h5>
+					                    <p class="text-center small">Enter your personal details to Edit User</p>
 					                  </div>
 					
-					                  <form class="row g-3 needs-validation" novalidate action="savehrmentor" method="post">
+					                  <form class="row g-3 needs-validation" novalidate action="updateuser" method="post">
 					                    <div class="col-6">
 					                      <label for="firstName" class="form-label">First Name</label>
-					                      <input type="text" name="firstName" class="form-control" id="firstName" required>
+					                      <input type="text" name="firstName" class="form-control" id="firstName" value="${user.firstName }" required>
 					                      <div class="invalid-feedback">Please, enter your first name!</div>
 					                    </div>
 					                    
 					                    <div class="col-6">
 					                      <label for="lastName" class="form-label">Last Name</label>
-					                      <input type="text" name="lastName" class="form-control" id="lastName" required>
-					                      <div class="invalid-feedback">Please, enter your lastName!</div>
+					                      <input type="text" name="lastName" class="form-control" id="lastName" value="${user.lastName }" required>
+					                      <div class="invalid-feedback">Please, enter your last name!</div>
 					                    </div>
 					
 					                    <div class="col-6">
-					                      <label for="email" class="form-label">Your Email</label>
-					                      <div class="input-group has-validation">
-					                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-					                        <input type="email" name="email" class="form-control" id="email" required>
-					                        <div class="invalid-feedback">>Please enter a valid Email address!</div>
-					                      </div>
+					                      <label for="email" class="form-label">Email</label>
+					                      <input type="email" name="email" class="form-control" id="email"  value="${user.email }" required>
+					                      <div class="invalid-feedback">Please enter your email!</div>
 					                    </div>
 					                    
 					                    <div class="col-6">
-					                      <label for="contactNum" class="form-label">contact Number</label>
-					                      <input type="tel" name="contactNum" class="form-control" id="contactNum" maxlength="10" pattern="[0-9]{10}" required>
+					                      <label for="contactNum" class="form-label">Contact Number</label>
+					                      <input type="tel" name="contactNum" class="form-control" id="contactNum" value="${user.contactNum }" required>
 					                      <div class="invalid-feedback">Please enter your contact number!</div>
 					                    </div>
 					                    
-					                    <div class="col-6">
-					                      <label for="Password" class="form-label">Password</label>
-					                      <input type="password" name="password" class="form-control" id="password" required>
-					                      <div class="invalid-feedback">Please enter your password!</div>
-					                    </div>
-					                    
-					                    <div class="col-6">
-					                      <label for="confirmPassword" class="form-label">Confirm Password</label>
-					                      <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required>
-					                      <div class="invalid-feedback">Please enter your confirm password!</div>
-					                    </div>
-				
 					                    <fieldset class="col-6">
 						                  <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
 						                  <div class="col-sm-6">
@@ -126,27 +108,32 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 						                    </div>
 						                  </div>
 						                </fieldset>
-										
-										<div class="col-6">
-					                      <label for="bornYear" class="form-label">Born Year</label>
-					                      <input type="number" name="bornYear" class="form-control" id="bornYear" required>
-					                      <div class="invalid-feedback">Please enter your born year!</div>
-					                    </div>
-					                    
 					                    
 					                    <div class="col-6">
+					                      <label for="bornYear" class="form-label">Born Year</label>
+					                      <input type="number" name="bornYear" class="form-control" id="bornYear" value="${user.bornYear }" required>
+					                      <div class="invalid-feedback">Please enter your born year!</div>
+					                    </div>
+					                    										
+										<div class="col-6">
 						                  <label class="col-sm-4 col-form-label">Role</label>
 						                  <div class="col-sm-10">
 						                    <select class="form-select" aria-label="Default select example" name="role" required>
-						                      <option selected="">select Role</option>
+						                      <option selected value="${user.role }">${user.role }</option>
+						                      <option value="USER">User</option>
+						                      <option value="ADMIN">Admin</option>
 						                      <option value="HR">Hr</option>
 						                      <option value="MENTOR">Mentor</option>
+						                      
+						                      	
 						                    </select>
 						                  </div>
 						                </div>
 						                
+						                <input type="hidden" name="userId" value="${user.userId }"/>
+						                
 					                    <div class="col-12">
-					                      <button class="btn btn-primary w-100" type="submit" value="SaveHrMentor">Add User</button>
+					                      <button class="btn btn-primary w-100" type="submit" value="Update User">Update User</button>
 					                    </div>
 					                  </form>`
  									
@@ -175,31 +162,3 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 </body>
 
 </html>
-
-
-
-
-
-	<!-- <form action="saveuser" method="post" autocomplete="on">
-		First Name:<input type="text" name="firstName"/>
-		<br></br>
-		Last Name:<input type="text" name="lastName"/>
-		<br></br>
-		Email:<input type="text" name="email"/>
-		<br></br>
-		Password:<input type="password" name="password">
-		<br></br>
-		Contact Number:<input type="number" name="contactNum"/>
-		<br></br>
-		Gender: Male:<input type="radio" name="gender" value="male"/>
-				Female:<input type="radio" name="gender" value="female"/>
-				Other:<input type="radio" name="gender" value="other"/>
-		<br></br>
-		Born Year:<input type="number" name="bornYear"/>
-		<br></br>
-
-		<input type="submit" value="register"/>
-	</form>
-	<a href="login">Login</a>
-	<br>
-	<a href="listuser">List User</a> -->

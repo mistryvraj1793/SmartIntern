@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Sidebar</title>
+<title>HrMentor Sidebar</title>
 </head>
 <body>
 <!-- ======= Sidebar ======= -->
@@ -23,13 +23,6 @@
         <a class="nav-link collapsed" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
           <i class="bi bi-menu-button-wide"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
-          <li>
-            <a href="adduser">
-              <i class="bi bi-circle"></i><span>Add User</span>
-            </a>
-          </li>
-        </ul>
         <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
             <a href="listusers">

@@ -9,5 +9,5 @@ import com.grownited.entity.UserEntity;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {
-	Optional<UserEntity> findByEmail(String email); //spring boot doesn't have all the particular attribute if we need the particular attribute then you can write in Repository class to get that attribute with findByattributename(datatype attributename) 
+	Optional<UserEntity> findByEmail(String email); //spring boot doesn't have all the particular attribute if we need the particular attribute then you can write in Repository class to get that attribute with findByattributename(datatype attributename)
 }
