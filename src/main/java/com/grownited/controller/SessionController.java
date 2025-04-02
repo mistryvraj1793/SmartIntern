@@ -95,10 +95,6 @@ public class SessionController {
 		model.addAttribute("msg", "Password Updated");
 		return "Login";
 	}
-	@GetMapping("adduser")
-	public String addUser() {
-		return "AddUser";
-	}
 	@PostMapping("saveuser")
 	public String saveUser(UserEntity entityUser) { //UserEntity is a class and userEntity is a object of that class.	
 		//read from the jsp input in the browser:

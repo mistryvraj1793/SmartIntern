@@ -72,8 +72,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 												<tr>
 													<td>${internProj.internshipId }</td>
 													<td>${internProj.projectId }</td>	
-													<td><a href="viewinternshipproject?internshipProjectId=${internProj.internshipProjectId }">View</a> 
-													| <a href="deleteinternshipproject?internshipProjectId=${internProj.internshipProjectId }">Delete</a>
+													<td><a href="adminviewinternshipproject?internshipProjectId=${internProj.internshipProjectId }">View</a> 
+													| <a href="admindeleteinternshipproject?internshipProjectId=${internProj.internshipProjectId }">Delete</a>
 													| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>

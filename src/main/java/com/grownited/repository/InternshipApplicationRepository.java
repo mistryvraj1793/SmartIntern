@@ -7,5 +7,5 @@ import com.grownited.entity.InternshipApplicationEntity;
 
 @Repository
 public interface InternshipApplicationRepository extends JpaRepository<InternshipApplicationEntity, Integer> {
-
+	
 }

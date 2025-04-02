@@ -27,8 +27,8 @@ public class UserController {
 	public String home() {
 		return "Home";
 	}
-	@GetMapping("listusers")
-	public String listUsers(Model model) {
+	@GetMapping("adminlistusers")
+	public String adminListUsers(Model model) {
 		//how to sends data from database to Controller:
 		//This statement retrieves all records from the users table and stores them in a List<UserEntity> collection.
 		 List<UserEntity> userList = repositoryUser.findAll();// repositoryUser.findAll() works was select * from users(i.e;fetches all records from the users table.); 
@@ -39,8 +39,8 @@ public class UserController {
 		 return "ListUsers";
 	}
 	
-	@GetMapping("viewuser")
-	public String viewUser(Integer userId, Model model) {
+	@GetMapping("adminviewuser")
+	public String adminViewUser(Integer userId, Model model) {
 		System.out.println("id => "+userId);
 		Optional<UserEntity> op = repositoryUser.findById(userId);
 		if(op.isEmpty()) {
@@ -55,11 +55,11 @@ public class UserController {
 		}
 		return "ViewUser"; // Display ViewUser.jsp
 	}
-	@GetMapping("edituser")
-	public String editUser(Integer userId, Model model) {
+	@GetMapping("adminedituser")
+	public String adminEditUser(Integer userId, Model model) {
 		Optional<UserEntity> op = repositoryUser.findById(userId);
 		if(op.isEmpty()) {
-			return "redirect:/listusers";
+			return "redirect:/adminlistusers";
 		}
 		else {
 			model.addAttribute("user", op.get());
@@ -69,7 +69,7 @@ public class UserController {
 	 	//save -> entity -> id present -> not present in db -> insert  
 	}
 	@PostMapping("updateuser")
-	public String updateUser(UserEntity entityUser){
+	public String adminUpdateUser(UserEntity entityUser){
 		//save -> entity -> id present -> present in db -> update
 		System.out.println(entityUser.getUserId()); 
 		Optional<UserEntity> op = repositoryUser.findById(entityUser.getUserId());
@@ -85,12 +85,12 @@ public class UserController {
 			dbUser.setBornYear(entityUser.getBornYear());
 			repositoryUser.save(dbUser);
 		}
-		return "redirect:/listusers";
+		return "redirect:/adminlistusers";
 	}
-	@GetMapping("deleteuser")
-	public String deleteUser(Integer userId) {
+	@GetMapping("admindeleteuser")
+	public String adminDeleteUser(Integer userId) {
 		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
-		return "redirect:/listusers"; // Redirects to the user list page
+		return "redirect:/adminlistusers"; // Redirects to the user list page
 	}
 
 }

@@ -41,7 +41,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="adduser">Add User</a></li>
+          <li class="breadcrumb-item"><a href="adminadduser">Add User</a></li>
           <li class="breadcrumb-item active">ListUsers</li>
         </ol>
       </nav>
@@ -65,9 +65,10 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  												<th>First Name</th>
 												<th>Last Name</th>
 												<th>Email</th>
-												<th>Contact Number</th>
-												<th>Born Year</th>
-												<th>Gender</th>
+												<!-- <th>Contact Number</th> -->
+												<!-- <th>Born Year</th> -->
+												<!-- <th>Gender</th> -->
+												<th>Role</th>
 												<th>Action</td>
  											</tr>
  										</thead>
@@ -77,12 +78,13 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${u.firstName}</td>
 													<td>${u.lastName}</td>
 													<td>${u.email}</td>
-													<td>${u.contactNum}</td>
-													<td>${u.bornYear}</td>
-													<td>${u.gender}</td>
-													<td><a href="viewuser?userId=${u.userId}">View</a> |
-														<a href="deleteuser?userId=${u.userId}">Delete</a> |
-														<a href="edituser?userId=${u.userId}">Edit</a></td>
+													<%-- <td>${u.contactNum}</td> --%>
+													<%-- <td>${u.bornYear}</td> --%>
+													<%-- <td>${u.gender}</td> --%>
+													<td>${u.role }</td>
+													<td><a href="adminviewuser?userId=${u.userId}">View</a> |
+														<a href="admindeleteuser?userId=${u.userId}">Delete</a> |
+														<a href="adminedituser?userId=${u.userId}">Edit</a></td>
 												</tr>	
 											</c:forEach>
  										</tbody>

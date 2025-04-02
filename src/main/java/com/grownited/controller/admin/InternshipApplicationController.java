@@ -1,5 +1,6 @@
 package com.grownited.controller.admin;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ import com.grownited.repository.InternshipApplicationRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 
+
 @Controller
 public class InternshipApplicationController {
 	@Autowired
@@ -31,7 +33,7 @@ public class InternshipApplicationController {
 	public String internshipApplication(Model model) {
 		List<InternshipEntity> allInternships = repositoryInternship.findAll();
 		List<UserEntity> allUsers = repositoryUser.findAll();
-		
+	
 		///fetches the data from controller in allInternships and allUsers to jsp
 		model.addAttribute("allInternships", allInternships);
 		model.addAttribute("allUsers", allUsers);
@@ -40,6 +42,8 @@ public class InternshipApplicationController {
 	}
 	@PostMapping("saveinternshipapplication")
 	public String saveInternshipApplication(InternshipApplicationEntity entityInternshipApplication) {
+		entityInternshipApplication.setAppliedAt(LocalDate.now());
+		entityInternshipApplication.setStatus("Pending");
 		//prints data from the InternshipApplication jsp form.
 		System.out.println(entityInternshipApplication.getResumePath());
 		System.out.println(entityInternshipApplication.getCoverLetterPath());
@@ -49,8 +53,8 @@ public class InternshipApplicationController {
 		
 		return "redirect:/internshipapplication";
 	}
-	@GetMapping("listinternshipapplications")
-	public String listInternshipApplications(Model model) {
+	@GetMapping("adminlistinternshipapplications")
+	public String adminlistInternshipApplications(Model model) {
 		//fetchs the data from table internship_application into controller in list internshipApplicationList
 		List<InternshipApplicationEntity> internshipApplicationList = repositoryInternshipApplication.findAll();
 		
@@ -59,8 +63,8 @@ public class InternshipApplicationController {
 		
 		return "ListInternshipApplications";
 	}
-	@GetMapping("viewinternshipapplication")
-	public String viewInternshipApplication(Integer applicationId, Model model) {
+	@GetMapping("adminviewinternshipapplication")
+	public String adminviewInternshipApplication(Integer applicationId, Model model) {
 		System.out.println("ApplicationId => "+applicationId);
 		Optional<InternshipApplicationEntity> op = repositoryInternshipApplication.findById(applicationId);
 		if(op.isEmpty()){
@@ -76,9 +80,9 @@ public class InternshipApplicationController {
 		}
 		return "ViewInternshipApplication";
 	}
-	@GetMapping("deleteinternshipapplication")
+	@GetMapping("admindeleteinternshipapplication")
 	public String deleteInternshipApplication(Integer applicationId) {
 		repositoryInternshipApplication.deleteById(applicationId);
-		return "redirect:/listinternshipapplications";
+		return "redirect:/adminlistinternshipapplications";
 	}
 }

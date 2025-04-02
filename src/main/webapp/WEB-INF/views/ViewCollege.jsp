@@ -54,7 +54,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<h5 class="card-title">
- 										<span>ViewCollege</span>
+ 										<span>View College</span>
  									</h5>
  									
  									CollegeName: ${college.collegeName } <br>

@@ -21,26 +21,16 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 									</c:forEach>
 							</select>
 		<br><br>
-		Email: <select name="userId">
-				<option>Select Email</option>
-					<c:forEach items="${allUsers }" var="user">
-						<option value="${user.userId }">${user.email }</option>
-					</c:forEach>
-			</select>
-		<br><br>
 		ResumePath: <input type="file" name="resumePath"/>
 		<br></br>
 		CoverLetterPath: <input type="file" name="coverLetterPath"/>
 		<br></br>
-		PaymentReference: <input type="text" name="paymentReference"/>
-		<br></br>
-		Status: <select name="status">
-					<option>Select Status</option>
-					<option value="Pending">Pending</option>
-					<option value="WithDrawn">WithDrawn</option>
-					<option value="ACCEPTED">Accepted</option>
-					<option value="REJECTED">Rejected</option>
-				</select>
+		Email: <select name="userId">
+								<option>--Select Email--</option>
+									<c:forEach items="${allUsers }" var="u">
+										<option value="${u.userId }">${u.email}</option>
+									</c:forEach>
+							</select>
 		<br><br>
 		<input type="submit" value="Save Internship Application"/><br>
 	</form>

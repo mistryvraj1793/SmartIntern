@@ -41,8 +41,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="adduser">Add User</a></li>
-          <li class="breadcrumb-item active"><a href="listusers">List Users</a></li>
+          <li class="breadcrumb-item active"><a href="adminlistusers">List Users</a></li>
+          <li class="breadcrumb-item">Add User</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -63,7 +63,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 					                    <p class="text-center small">Enter your personal details to create User</p>
 					                  </div>
 					
-					                  <form class="row g-3 needs-validation" novalidate action="savehrmentor" method="post">
+					                  <form class="row g-3 needs-validation" novalidate action="adminsaveuser" method="post">
 					                    <div class="col-6">
 					                      <label for="firstName" class="form-label">First Name</label>
 					                      <input type="text" name="firstName" class="form-control" id="firstName" required>

@@ -25,14 +25,14 @@
         </a>
         <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="adduser">
+            <a href="adminadduser">
               <i class="bi bi-circle"></i><span>Add User</span>
             </a>
           </li>
         </ul>
         <ul id="users-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listusers">
+            <a href="adminlistusers">
               <i class="bi bi-circle"></i><span>List Users</span>
             </a>
           </li>
@@ -45,28 +45,28 @@
         </a>
         <ul id="internships-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="internship">
+            <a href="admininternship">
               <i class="bi bi-circle"></i><span>Add Internship</span>
             </a>
           </li>
         </ul>
         <ul id="internships-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listinternships">
+            <a href="adminlistinternships">
               <i class="bi bi-circle"></i><span>List Internships</span>
             </a>
           </li>
         </ul>
         <ul id="internships-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listinternshipapplications">
+            <a href="adminlistinternshipapplications">
               <i class="bi bi-circle"></i><span>List Internships Applications</span>
             </a>
           </li>
         </ul>
         <ul id="internships-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listinternshipprojects">
+            <a href="adminlistinternshipprojects">
               <i class="bi bi-circle"></i><span>List Internship Projects</span>
             </a>
           </li>

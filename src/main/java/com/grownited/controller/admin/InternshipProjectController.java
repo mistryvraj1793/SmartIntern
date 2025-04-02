@@ -27,8 +27,8 @@ public class InternshipProjectController {
 	@Autowired
 	ProjectRepository repositoryProject;
 		
-	@GetMapping("internshipproject")
-	public String internshipProject(Model model) {
+	@GetMapping("admininternshipproject")
+	public String adminInternshipProject(Model model) {
 	 	List<InternshipEntity> allInternships = repositoryInternship.findAll();
 	 	List<ProjectsEntity> allProjects = repositoryProject.findAll();
 	 	
@@ -43,11 +43,11 @@ public class InternshipProjectController {
 	public String saveInternshipProject(InternshipProjectEntity entityInternshipProject) {
 	 	
 	 	repositoryInternshipProject.save(entityInternshipProject);
-		return "redirect:/internshipproject";
+		return "redirect:/admininternshipproject";
 	}
 	
-	@GetMapping("listinternshipprojects")
-	public String listInternshipProjects(Model model) {
+	@GetMapping("adminlistinternshipprojects")
+	public String adminListInternshipProjects(Model model) {
 		//fetchs the data from table internship_project, internship, projects into controller in list internshipProjectList
 		List<InternshipProjectEntity> internshipProjectList = repositoryInternshipProject.findAll();
 		System.out.println(internshipProjectList);
@@ -57,8 +57,8 @@ public class InternshipProjectController {
 		
 		return "ListInternshipProjects";
 	}
-	@GetMapping("viewinternshipproject")
-	public String viewInternshipProject(Integer internshipProjectId, Model model) {
+	@GetMapping("adminviewinternshipproject")
+	public String adminViewInternshipProject(Integer internshipProjectId, Model model) {
 		System.out.println("InternshipProjectId => "+internshipProjectId);
 		
 		Optional<InternshipProjectEntity> op = repositoryInternshipProject.findById(internshipProjectId);
@@ -75,11 +75,11 @@ public class InternshipProjectController {
 		}
 		return "ViewInternshipProject";
 	}
-	@GetMapping("deleteinternshipproject")
-	public String deleteInternshipProject(Integer internshipProjectId) {
+	@GetMapping("admindeleteinternshipproject")
+	public String adminDeleteInternshipProject(Integer internshipProjectId) {
 		repositoryInternshipProject.deleteById(internshipProjectId);
 		
-		return "redirect:/listinternshipprojects";
+		return "redirect:/adminlistinternshipprojects";
 	}
 	
 }

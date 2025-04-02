@@ -41,8 +41,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="college">Add Colleger</a></li>
           <li class="breadcrumb-item active"><a href="listcolleges">List Colleges</a></li>
+          <li class="breadcrumb-item">Add College</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->

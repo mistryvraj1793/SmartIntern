@@ -27,8 +27,8 @@ public class InternshipController {
 	@Autowired
 	UserRepository repositoryUser;
 	
-	@GetMapping("internship")
-	public String internship(Model model) {
+	@GetMapping("admininternship")
+	public String adminInternship(Model model) {
 		
 		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
 		
@@ -48,10 +48,10 @@ public class InternshipController {
 		//store the data from Internship jsp form into table internship
 		repositoryInternship.save(entityInternship);
 		
-		return "redirect:/internship";
+		return "redirect:/admininternship";
 	}
-	@GetMapping("listinternships")
-	public String listinternships(Model model) {
+	@GetMapping("adminlistinternships")
+	public String adminListinternships(Model model) {
 		//fetchs the data from table internship into Controller in List internshipList
 		List<InternshipEntity> internshipList = repositoryInternship.findAll();
 		
@@ -60,8 +60,8 @@ public class InternshipController {
 		
 		return "ListInternships";
 	}
-	@GetMapping("viewinternship")
-	public String viewInternship(Integer internshipId, Model model) {
+	@GetMapping("adminviewinternship")
+	public String adminViewInternship(Integer internshipId, Model model) {
 		System.out.println("InternshipId => "+internshipId);
 		Optional<InternshipEntity> op = repositoryInternship.findById(internshipId);
 		if(op.isEmpty()) {
@@ -76,8 +76,8 @@ public class InternshipController {
 		}
 		return "ViewInternship";
 	}
-	@GetMapping("deleteinternship")
-	public String deleteInternship(Integer internshipId) {
-		return "redirect:/listinternships";
+	@GetMapping("admindeleteinternship")
+	public String adminDeleteInternship(Integer internshipId) {
+		return "redirect:/adminlistinternships";
 	}
 }

@@ -41,7 +41,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="internship">Add Internship</a></li>
+          <li class="breadcrumb-item"><a href="admininternship">Add Internship</a></li>
           <li class="breadcrumb-item active">ListInternships</li>
         </ol>
       </nav>
@@ -82,8 +82,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${intern.requirements }</td>
 													<td>${intern.durationWeeks }</td>
 													<td>${intern.applicationDeadLine }</td>
-													<td><a href="viewinternship?internshipId=${intern.internshipId }">View</a> | 
-													<a href="deleteinternship?internshipId=${intern.internshipId }">Delete</a> | 
+													<td><a href="adminviewinternship?internshipId=${intern.internshipId }">View</a> | 
+													<a href="admindeleteinternship?internshipId=${intern.internshipId }">Delete</a> | 
 													<a href="#">Edit</a></td>	
 												</tr>
 											</c:forEach>
