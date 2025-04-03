@@ -34,77 +34,61 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 	<!-- End Sidebar-->
 
-  <main id="main" class="main">
+	<main id="main" class="main d-flex flex-column min-vh-100">
 
-    <div class="pagetitle">
-      <h1>Add College</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item active"><a href="listcolleges">List Colleges</a></li>
-          <li class="breadcrumb-item">Add College</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    
-
-      <section class="section dashboard">
- 			<div class="row" style="min-height: 500px;">
- 
- 				<!-- Left side columns -->
- 				<div class="col-lg-12">
- 					<div class="row">
- 						<div class="col-12">
- 							<div class="card">
- 								<div class="card-body">
- 									<div class="pt-4 pb-2">
-					                    <h5 class="card-title text-center pb-0 fs-4">Create an College</h5>
-					                    <p class="text-center small">Enter your personal details to create college</p>
-					                  </div>
-					
-					                  <form class="row g-3 needs-validation" novalidate action="savecollege" method="post">
-					                    <div class="col-6">
-					                      <label for="collegeName" class="form-label">College Name</label>
-					                      <input type="text" name="collegeName" class="form-control" id="collegeName" required>
-					                      <div class="invalid-feedback">Please, enter your college name!</div>
-					                    </div>
-					                    
-					                    <div class="col-6">
-					                      <label for="address" class="form-label">Address</label>
-					                      <input type="text" name="address" class="form-control" id="address" required>
-					                      <div class="invalid-feedback">Please, enter your address!</div>
-					                    </div>
-					                    
-					                    <div class="col-6">
-					                      <label for="city" class="form-label">City</label>
-					                      <input type="text" name="contactNum" class="form-control" id="city" required>
-					                      <div class="invalid-feedback">Please enter your city!</div>
-					                    </div>
-					                    
-					                     <div class="col-6">
-					                      <label for="state" class="form-label">State</label>
-					                      <input type="text" name="state" class="form-control" id="state" required>
-					                      <div class="invalid-feedback">Please enter your state!</div>
-					                    </div>
-						                
-					                    <div class="col-12">
-					                      <button class="btn btn-primary w-100" type="submit" value="SaveCollege">Add College</button>
-					                    </div>
-					                  </form>`
- 									
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
- 				<!-- End Left side columns -->
- 			</div>
- 		</section>
-
-
-
-  </main><!-- End #main -->
+	    <!-- Centered Page Title (Header) -->
+	    <div class="pagetitle text-center">
+	        <h1>Add College</h1>
+	        <nav>
+	            <ol class="breadcrumb justify-content-center">
+	                <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+	                <li class="breadcrumb-item"><a href="adminlistcolleges">List Colleges</a></li>
+	                <li class="breadcrumb-item active">Add College</li>
+	            </ol>
+	        </nav>
+	    </div><!-- End Page Title -->
+	
+	    <!-- Form Section -->
+	    <section class="section flex-grow-1 d-flex justify-content-center">
+	        <div class="col-lg-8 col-md-8 col-sm-10"> <!-- Responsive Width -->
+	            <div class="card shadow p-4">
+	                <div class="card-body">
+	                    <div class="pt-4 pb-2 text-center">
+	                        <h5 class="card-title fw-bold">Create a College</h5>
+	                        <p class="small">Enter your personal details to create a college</p>
+	                    </div>
+	
+	                    <form class="row g-3 needs-validation" novalidate action="adminsavecollege" method="post">
+	                        <div class="col-6">
+	                            <label for="collegeName" class="form-label">College Name</label>
+	                            <input type="text" name="collegeName" class="form-control" id="collegeName" required>
+	                        </div>
+	                        
+	                        <div class="col-6">
+	                            <label for="address" class="form-label">Address</label>
+	                            <input type="text" name="address" class="form-control" id="address" required>
+	                        </div>
+	                        
+	                        <div class="col-6">
+	                            <label for="city" class="form-label">City</label>
+	                            <input type="text" name="city" class="form-control" id="city" required>
+	                        </div>
+	                        
+	                        <div class="col-6">
+	                            <label for="state" class="form-label">State</label>
+	                            <input type="text" name="state" class="form-control" id="state" required>
+	                        </div>
+	
+	                        <div class="col-12">
+	                            <button class="btn btn-primary w-100" type="submit" value="Save College">Add College</button>
+	                        </div>
+	                    </form>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+	
+	</main><!-- End #main -->
 
   	<!-- Start Footer -->
 	<jsp:include page="AdminFooter.jsp"></jsp:include>

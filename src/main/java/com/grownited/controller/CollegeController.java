@@ -17,12 +17,12 @@ public class CollegeController {
 	@Autowired
 	CollegeRepository repositoryCollege;
 	
-	@GetMapping("college")
-	public String college() {
+	@GetMapping("admincollege")
+	public String adminCollege() {
 		return "College";
 	}
-	@PostMapping("savecollege")
-	public String saveCollege(CollegeEntity entityCollege) {
+	@PostMapping("adminsavecollege")
+	public String adminSaveCollege(CollegeEntity entityCollege) {
 		//save the entered data into table college.
 		repositoryCollege.save(entityCollege);
 		
@@ -32,8 +32,8 @@ public class CollegeController {
 		 
 		return "College";
 	}
-	@GetMapping("listcolleges")
-	public String listColleges(Model model) {
+	@GetMapping("adminlistcolleges")
+	public String adminListColleges(Model model) {
 	// fetchs the data from table to controller in which stored in list.
 	List<CollegeEntity> collegeList = repositoryCollege.findAll();
 	
@@ -41,8 +41,8 @@ public class CollegeController {
 	model.addAttribute("collegeList", collegeList);
 		return "ListColleges";
 	}
-	@GetMapping("viewcollege")
-	public String viewCollege(Integer collegeId, Model model) {
+	@GetMapping("adminviewcollege")
+	public String adminViewCollege(Integer collegeId, Model model) {
 		//print the collegeId
 		System.out.println("Company Id ==> " + collegeId);
 		
@@ -60,12 +60,12 @@ public class CollegeController {
 		}
 		return "ViewCollege";
 	}
-	@GetMapping("deletecollege")
-	public String deleteCollege(Integer collegeId) {
+	@GetMapping("admindeletecollege")
+	public String adminDeleteCollege(Integer collegeId) {
 		//delete from table college where collegeId = :collegeId
 		repositoryCollege.deleteById(collegeId); 
 		
-		return "redirect:/listcolleges";
+		return "redirect:/adminlistcolleges";
 	}
 	
 }

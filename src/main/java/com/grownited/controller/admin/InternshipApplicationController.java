@@ -42,6 +42,7 @@ public class InternshipApplicationController {
 	}
 	@PostMapping("saveinternshipapplication")
 	public String saveInternshipApplication(InternshipApplicationEntity entityInternshipApplication) {
+		//set Bydefault:
 		entityInternshipApplication.setAppliedAt(LocalDate.now());
 		entityInternshipApplication.setStatus("Pending");
 		//prints data from the InternshipApplication jsp form.

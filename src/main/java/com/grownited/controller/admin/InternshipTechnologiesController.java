@@ -38,8 +38,8 @@ public class InternshipTechnologiesController {
 		return "redirect:/internshiptechnologies";
 	}
 	
-	@GetMapping("listinternshiptechnologies")
-	public String listInternshipTechnologies(Model model) {
+	@GetMapping("adminlistinternshiptechnologies")
+	public String adminListInternshipTechnologies(Model model) {
 		//fetchs the data from tables internship, technologies into controller in list internshipTechnologiesList
 		List<InternshipTechnologiesEntity> internshipTechnologiesList = repositoryInternshipTechnologies.findAll();
 		
@@ -48,8 +48,8 @@ public class InternshipTechnologiesController {
 		
 		return "ListInternshipTechnologies";
 	}
-	@GetMapping("viewinternshiptechnology")
-	public String viewInternshipTechnology(Integer internshipTechnologyId, Model model) {
+	@GetMapping("adminviewinternshiptechnology")
+	public String adminViewInternshipTechnology(Integer internshipTechnologyId, Model model) {
 		Optional<InternshipTechnologiesEntity> op = repositoryInternshipTechnologies.findById(internshipTechnologyId);
 		if(op.isPresent()) {
 			//data found:
@@ -64,9 +64,9 @@ public class InternshipTechnologiesController {
 		}
 		return "ViewInternshipTechnology";
 	}
-	@GetMapping("deleteinternshiptechnology")
-	public String deleteInternshipTechnology(Integer internshipTechnologyId) {
+	@GetMapping("admindeleteinternshiptechnology")
+	public String adminDeleteInternshipTechnology(Integer internshipTechnologyId) {
 		repositoryInternshipTechnologies.deleteById(internshipTechnologyId);
-		return "redirect:/listinternshiptechnologies";
+		return "redirect:/adminlistinternshiptechnologies";
 	}
 }

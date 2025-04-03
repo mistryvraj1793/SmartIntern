@@ -65,8 +65,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  												<th>Title</th>
 												<th>Location</th>
 												<th>stipend</th>
-												<th>Description</th>
-												<th>Requirements</th>
+												<!-- <th>Description</th> -->
+												<!-- <th>Requirements</th> -->
 												<th>Duration Weeks</th>
 												<th>Application DeadLine</th>
 												<th>Action</th>
@@ -78,8 +78,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${intern.title }</td>
 													<td>${intern.location }</td>
 													<td>${intern.stipend }</td>
-													<td>${intern.description }</td>
-													<td>${intern.requirements }</td>
+													<%-- <td>${intern.description }</td>
+													<td>${intern.requirements }</td> --%>
 													<td>${intern.durationWeeks }</td>
 													<td>${intern.applicationDeadLine }</td>
 													<td><a href="adminviewinternship?internshipId=${intern.internshipId }">View</a> | 

@@ -27,8 +27,8 @@ public class InternshipProjectController {
 	@Autowired
 	ProjectRepository repositoryProject;
 		
-	@GetMapping("admininternshipproject")
-	public String adminInternshipProject(Model model) {
+	@GetMapping("internshipproject")
+	public String internshipProject(Model model) {
 	 	List<InternshipEntity> allInternships = repositoryInternship.findAll();
 	 	List<ProjectsEntity> allProjects = repositoryProject.findAll();
 	 	
@@ -43,7 +43,7 @@ public class InternshipProjectController {
 	public String saveInternshipProject(InternshipProjectEntity entityInternshipProject) {
 	 	
 	 	repositoryInternshipProject.save(entityInternshipProject);
-		return "redirect:/admininternshipproject";
+		return "redirect:/internshipproject";
 	}
 	
 	@GetMapping("adminlistinternshipprojects")

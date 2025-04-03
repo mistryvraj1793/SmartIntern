@@ -38,7 +38,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="listcompanies">ListCompanies</a></li>
+          <li class="breadcrumb-item"><a href="adminlistcompanies">ListCompanies</a></li>
           <li class="breadcrumb-item active">ViewCompany</li>
         </ol>
       </nav>

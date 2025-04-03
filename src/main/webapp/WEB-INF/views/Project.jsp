@@ -33,78 +33,62 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 	<!-- End Sidebar-->
 
-  <main id="main" class="main">
+  <main id="main" class="main d-flex flex-column min-vh-100">
 
-    <div class="pagetitle">
-      <h1>Add Project</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item active"><a href="listprojects">List Projects</a></li>
-          <li class="breadcrumb-item">Add Project</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    
-
-      <section class="section dashboard">
- 			<div class="row" style="min-height: 500px;">
- 
- 				<!-- Left side columns -->
- 				<div class="col-lg-12">
- 					<div class="row">
- 						<div class="col-12">
- 							<div class="card">
- 								<div class="card-body">
- 									<div class="pt-4 pb-2">
-					                    <h5 class="card-title text-center pb-0 fs-4">Create an Project</h5>
-					                    <p class="text-center small">Enter your personal details to create project</p>
-					                  </div>
-					
-					                  <form class="row g-3 needs-validation" novalidate action="saveproject" method="post">
-					                    <div class="col-6">
-					                      <label for="title" class="form-label">Title</label>
-					                      <input type="text" name="title" class="form-control" id="title" required>
-					                      <div class="invalid-feedback">Please, enter your title!</div>
-					                    </div>
-					                    
-					                    <div class="col-6">
-						                  <label for="description" class="col-sm-6 col-form-label">Description</label>
-						                  <div class="col-sm-12">
-						                    <textarea class="form-control" name="description" style="height: 80px" required=""></textarea>
-						                  </div>
-						                </div>
-					                    
-					                    <div class="col-6">
-						                  <label class="col-sm-4 col-form-label">Company Name</label>
-						                  <div class="col-sm-10">
-						                    <select class="form-select" aria-label="Default select example" name="companyId">
-						                      <option selected="">--select Company--</option>
-						                      	<c:forEach items="${allCompanies }" var="comp">
-													<option value="${comp.companyId }">${comp.companyName }</option>			
-												</c:forEach>	
-						                    </select>
-						                  </div>
-						                </div>
-						                
-					                    <div class="col-12">
-					                      <button class="btn btn-primary w-100" type="submit" value="SaveProject">Add Project</button>
-					                    </div>
-					                  </form>`
- 									
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
- 				<!-- End Left side columns -->
- 			</div>
- 		</section>
-
-
-
-  </main><!-- End #main -->
+	    <!-- Centered Page Title (Header) -->
+	    <div class="pagetitle text-center">
+	        <h1>Add Project</h1>
+	        <nav>
+	            <ol class="breadcrumb justify-content-center">
+	                <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+	                <li class="breadcrumb-item"><a href="adminlistprojects">List Projects</a></li>
+	                <li class="breadcrumb-item active">Add Project</li>
+	            </ol>
+	        </nav>
+	    </div><!-- End Page Title -->
+	
+	    <!-- Form Section -->
+	    <section class="section flex-grow-1 d-flex justify-content-center align-items-start">
+	        <div class="col-lg-8 col-md-8 col-sm-10"> <!-- Responsive Width -->
+	            <div class="card shadow p-4">
+	                <div class="card-body">
+	                    <div class="pt-4 pb-2 text-center">
+	                        <h5 class="card-title fw-bold">Create a Project</h5>
+	                        <p class="small">Enter your personal details to create a project</p>
+	                    </div>
+	
+	                    <form class="row g-3 needs-validation" action="adminsaveproject" method="post" novalidate>
+	                        <div class="col-6">
+	                            <label for="title" class="form-label">Title</label>
+	                            <input type="text" name="title" class="form-control" id="title" required>
+	                        </div>
+							
+							<div class="col-6">
+	                            <label class="form-label">Company Name</label>
+	                            <select class="form-select" name="companyId">
+	                                <option selected>-- Select Company --</option>
+	                                <c:forEach items="${allCompanies}" var="comp">
+	                                    <option value="${comp.companyId}">${comp.companyName}</option>
+	                                </c:forEach>
+	                            </select>
+	                        </div>
+	                        
+	                        <div class="col-12">
+	                            <label for="description" class="form-label">Description</label>
+	                            <textarea class="form-control" name="description" style="height: 80px" required></textarea>
+	                        </div>
+	                     
+	                        <div class="col-12">
+	                            <button class="btn btn-primary w-100" type="submit">Add Project</button>
+	                        </div>
+	                    </form>
+	
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+	
+	</main><!-- End #main -->
 
   	<!-- Start Footer -->
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
@@ -114,27 +98,5 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
 
- 
 </body>
 </html>
-
-
-
-
-
-
-
-<%-- <form action="saveproject" method="post">
-		Title: <input type="text" name="title"/>
-		<br></br>
-		Description: <input type="text" name="description"/>
-		<br></br>
-		Company Name: <select name="companyId">
-							<option>Select Company</option>
-								<c:forEach items="${allCompanies }" var="company">
-									<option value="${company.companyId }">${company.companyName }</option>
-								</c:forEach>
-						</select>
-		<br><br>
-		<input type="submit" value="Save Projects"/>
-	</form> --%>

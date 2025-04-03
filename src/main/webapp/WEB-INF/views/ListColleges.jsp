@@ -41,7 +41,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="college">Add College</a></li>
+          <li class="breadcrumb-item"><a href="admincollege">Add College</a></li>
           <li class="breadcrumb-item active">ListColleges</li>
         </ol>
       </nav>
@@ -76,8 +76,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${col.address }</td>
 													<td>${col.city }</td>
 													<td>${col.state }</td>
-													<td><a href="viewcollege?collegeId=${col.collegeId }">View</a> 
-														| <a href="deletecollege?collegeId=${col.collegeId }">Delete</a> 
+													<td><a href="adminviewcollege?collegeId=${col.collegeId }">View</a> 
+														| <a href="admindeletecollege?collegeId=${col.collegeId }">Delete</a> 
 														| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>

@@ -13,7 +13,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>View / Project</title>
+  <title>View / Technology</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -34,12 +34,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>View Project</h1>
+      <h1>View Technology</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="adminlistprojects">ListProjects</a></li>
-          <li class="breadcrumb-item active">ViewProject</li>
+          <li class="breadcrumb-item"><a href="adminlisttechnologies">List Technologies</a></li>
+          <li class="breadcrumb-item active">View Technology</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -54,13 +54,16 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<h5 class="card-title">
- 										<span>ViewProject</span>
+ 										<span>View Technology</span>
  									</h5>
  									
- 									Title: ${projects.title }<br>
-									Description: ${projects.description }<br>
-									CreatedAt: ${projects.createdAt }<br>
-									Active: ${projects.active }<br>
+ 									Name: ${technologies.name}<br>
+									Description: ${technologies.description }<br>
+									Frontend: ${technologies.frontend }<br>
+									Backend: ${technologies.backend }<br>
+									Tools: ${technologies.tools }<br>
+									Language: ${technologies.language }<br>
+									CreatedAt: ${technologies.createdAt }<br>
 									
  								</div>
  							</div>

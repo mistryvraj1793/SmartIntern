@@ -47,8 +47,8 @@ public class CompanyUserController {
 		repositoryCompanyUser.save(entityCompanyUser);
 		return "redirect:/companyuser";
 	}
-	@GetMapping("listcompanyusers")
-	public String listCompanyUsers(Model model) {
+	@GetMapping("adminlistcompanyusers")
+	public String adminListCompanyUsers(Model model) {
 		//fetchs the data from table company_user into controller in list companyUserList.
 		List<CompanyUserEntity>	companyUserList = repositoryCompanyUser.findAll();
 		
@@ -57,8 +57,8 @@ public class CompanyUserController {
 		
 		return "ListCompanyUsers";
 	}
-	@GetMapping("viewcompanyuser")
-	public String viewCompanyUser(Integer companyUserId, Model model) {
+	@GetMapping("adminviewcompanyuser")
+	public String adminViewCompanyUser(Integer companyUserId, Model model) {
 		System.out.println("companyId => "+companyUserId);
 		Optional<CompanyUserEntity> op = repositoryCompanyUser.findById(companyUserId);
 		if(op.isEmpty()) {
@@ -74,10 +74,10 @@ public class CompanyUserController {
 		}
 		return "ViewCompanyUser";
 	}
-	@GetMapping("deletecompanyuser")
-	public String deleteCompanyUser(Integer companyUserId) {
+	@GetMapping("admindeletecompanyuser")
+	public String adminDeleteCompanyUser(Integer companyUserId) {
 		repositoryCompanyUser.deleteById(companyUserId);
-		return "redirect:/listcompanyusers";
+		return "redirect:/adminlistcompanyusers";
 	}
 	
 }

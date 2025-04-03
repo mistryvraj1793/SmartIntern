@@ -1,5 +1,6 @@
 package com.grownited.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -19,7 +20,7 @@ public class StudentDetailEntity {
 	private Integer collegeId; //fk
 	private String profilePicPath;
 	private String resumePath;
-	private Date createdAt;
+	private LocalDate createdAt;
 	private String degree; //eg: BE-IT , MCA, BCA , BscIT , BE-EC
 	private String semester; //eg: sem1,sem2
 	private String tshirtSize; //eg: SMALL , L , XL , XXL , XXXL
@@ -61,10 +62,10 @@ public class StudentDetailEntity {
 	public void setResumePath(String resumePath) {
 		this.resumePath = resumePath;
 	}
-	public Date getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 	public String getDegree() {

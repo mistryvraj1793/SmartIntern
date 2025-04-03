@@ -25,16 +25,16 @@ public class CompanyController {
 	@Autowired
 	UserRepository repositoryUser;
 	
-	@GetMapping("company")
-	public String company(Model model) {
+	@GetMapping("admincompany")
+	public String adminCompany(Model model) {
 		List<UserEntity> allUsers= repositoryUser.findAll();
 		
 		//Fetches the data from Controller in allUsers to jsp.
 		model.addAttribute("allUsers", allUsers);
 		return "Company";
 	}
-	@PostMapping("savecompany")
-	public String saveCompany(CompanyEntity entityCompany) {
+	@PostMapping("adminsavecompany")
+	public String adminSaveCompany(CompanyEntity entityCompany) {
 		//read from the company jsp
 		System.out.println(entityCompany.getCompanyName());
 		
@@ -46,10 +46,10 @@ public class CompanyController {
 		repositoryCompany.save(entityCompany);
 		
 		//read from database
-		return "redirect:/company";
+		return "redirect:/admincompany";
 	}
-	@GetMapping("listcompanies")
-	public String listCompanies(Model model) {
+	@GetMapping("adminlistcompanies")
+	public String adminListCompanies(Model model) {
 	//how to sends data from database to Controller:
 	//This statement retrieves all records from the company table and stores them in a List<CompanyEntity> collection.
 	List<CompanyEntity>	companyList = repositoryCompany.findAll();
@@ -58,8 +58,8 @@ public class CompanyController {
 	model.addAttribute("companyList", companyList);
 		return "ListCompanies";
 	}
-	@GetMapping("viewcompany")
-	public String viewCompany(Integer companyId, Model model) {
+	@GetMapping("adminviewcompany")
+	public String adminViewCompany(Integer companyId, Model model) {
 		System.out.println("id==> " + companyId);
 		
 		Optional<CompanyEntity> op = repositoryCompany.findById(companyId);
@@ -73,10 +73,10 @@ public class CompanyController {
 		}
 		return "ViewCompany";
 	}
-	@GetMapping("deletecompany")
-	public String deleteCompany(Integer companyId) {
+	@GetMapping("admindeletecompany")
+	public String adminDeleteCompany(Integer companyId) {
 		repositoryCompany.deleteById(companyId);
-		return "redirect:/listcompanies";
+		return "redirect:/adminlistcompanies";
 	}
 	
 	

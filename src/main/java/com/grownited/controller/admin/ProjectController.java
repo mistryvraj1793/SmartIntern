@@ -23,8 +23,8 @@ public class ProjectController {
 	@Autowired
 	CompanyRepository repositoryCompany;
 	
-	@GetMapping("project")
-	public String projects(Model model) {
+	@GetMapping("adminproject")
+	public String adminProject(Model model) {
 		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
 		
 		//fetches the data from controller in allCompanies to jsp
@@ -32,8 +32,8 @@ public class ProjectController {
 		
 		return "Project";
 	}
-	@PostMapping("saveproject")
-	public String saveProject(ProjectsEntity entityProjects) {
+	@PostMapping("adminsaveproject")
+	public String adminSaveProject(ProjectsEntity entityProjects) {
 		//set the defalut values in the attributes when they click on submit.
 		entityProjects.setActive(true);
 		entityProjects.setcreatedAt(LocalDate.now());
@@ -45,10 +45,10 @@ public class ProjectController {
 		//stored the data from Projects jsp form into table Projects through repositoryProjects object.
 		repositoryProject.save(entityProjects);
 	
-		return "redirect:/project";
+		return "redirect:/adminproject";
 	}
-	@GetMapping("listprojects")
-	public String listProjects(Model model) {
+	@GetMapping("adminlistprojects")
+	public String adminListProjects(Model model) {
 		//fetchs the  data from table projects into controller in list projectsList
 		List<ProjectsEntity> projectsList = repositoryProject.findAll();
 		
@@ -57,8 +57,8 @@ public class ProjectController {
 		
 		return "ListProjects";
 	}
-	@GetMapping("viewproject")
-	public String viewProject(Integer projectId, Model model) {
+	@GetMapping("adminviewproject")
+	public String adminViewProject(Integer projectId, Model model) {
 		System.out.println("projectId => "+projectId);
 		Optional<ProjectsEntity> op= repositoryProject.findById(projectId);
 		if(op.isEmpty()){
@@ -74,10 +74,10 @@ public class ProjectController {
 		}
 		return "ViewProject";
 	}
-	@GetMapping("deleteproject")
-	public String deleteProject(Integer projectId) {
+	@GetMapping("admindeleteproject")
+	public String adminDeleteProject(Integer projectId) {
 		repositoryProject.deleteById(projectId);
-		return "redirect:/listprojects";
+		return "redirect:/adminlistprojects";
 	}
 	
 	

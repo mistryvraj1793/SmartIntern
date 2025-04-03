@@ -13,7 +13,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Add / Internship</title>
+  <title>Add / Technology</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -35,12 +35,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
 	    <!-- Centered Page Title (Header) -->
 	    <div class="pagetitle text-center">
-	        <h1>Add Internship</h1>
+	        <h1>Add Technology</h1>
 	        <nav>
 	            <ol class="breadcrumb justify-content-center">
 	                <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-	                <li class="breadcrumb-item"><a href="adminlistinternships">List Internships</a></li>
-	                <li class="breadcrumb-item active">Add Internship</li>
+	                <li class="breadcrumb-item"><a href="adminlisttechnologies">List Technology</a></li>
+	                <li class="breadcrumb-item active">Add Technology</li>
 	            </ol>
 	        </nav>
 	    </div><!-- End Page Title -->
@@ -51,58 +51,53 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	            <div class="card shadow p-4">
 	                <div class="card-body">
 	                    <div class="pt-4 pb-2 text-center">
-	                        <h5 class="card-title fw-bold">Create an Internship</h5>
-	                        <p class="small">Enter your personal details to create an internship</p>
+	                        <h5 class="card-title fw-bold">Create an Technology</h5>
+	                        <p class="small">Enter your personal details to create an technology</p>
 	                    </div>
 	
-	                    <form class="row g-3 needs-validation" novalidate action="saveinternship" method="post">
+	                    <form class="row g-3 needs-validation" action="adminsavetechnology" method="post" novalidate>
 	                        <div class="col-6">
-	                            <label for="title" class="form-label">Title</label>
-	                            <input type="text" name="title" class="form-control" id="title" required>
+	                            <label for="name" class="form-label">Name</label>
+	                            <input type="text" name="name" class="form-control" id="name" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
-	                            <label for="location" class="form-label">Location</label>
-	                            <input type="text" name="location" class="form-control" id="location" required>
+	                            <label for="tools" class="form-label">Tools</label>
+	                            <input type="text" name="tools" class="form-control" id="tools" required>
+	                        </div>
+	                        
+	                        <div class="col-6">
+	                            <label for="frontend" class="form-label">Front End</label>
+	                            <input type="text" name="frontend" class="form-control" id="frontend" required>
 	                        </div>
 	
 	                        <div class="col-6">
-	                            <label for="stipend" class="form-label">Stipend</label>
-	                            <input type="number" name="stipend" class="fo rm-control" id="stipend" required>
+	                            <label for="backend" class="form-label">Back End</label>
+	                            <input type="text" name="backend" class="form-control" id="backend" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
-	                            <label for="durationWeeks" class="form-label">Duration Weeks</label>
-	                            <input type="number" name="durationWeeks" class="form-control" id="durationWeeks" required>
-	                        </div>
-	                        
-	                        <div class="col-6">
-	                            <label for="description" class="form-label">Description</label>
-	                            <textarea class="form-control" name="description" style="height: 80px" required></textarea>
-	                        </div>
-	                        
-	                        <div class="col-6">
-	                            <label for="requirements" class="form-label">Requirements</label>
-	                            <textarea class="form-control" name="requirements" style="height: 80px" required></textarea>
-	                        </div>
-	
-	                        <div class="col-6">
-	                            <label for="applicationDeadLine" class="form-label">Application Deadline</label>
-	                            <input type="date" class="form-control" name="applicationDeadLine" required>
+	                            <label for="language" class="form-label">Language</label>
+	                            <input type="text" name="language" class="form-control" id="language" required>
 	                        </div>
 	
 	                        <div class="col-6">
 	                            <label class="form-label">Company Name</label>
 	                            <select class="form-select" name="companyId">
-	                                <option selected>select Company</option>
-	                                <c:forEach items="${allCompanies}" var="company">
-	                                    <option value="${company.companyId}">${company.companyName}</option>
+	                                <option selected>--Select Company--</option>
+	                                <c:forEach items="${allCompanies}" var="comp">
+	                                    <option value="${comp.companyId}">${comp.companyName}</option>
 	                                </c:forEach>
 	                            </select>
 	                        </div>
-	
+							
+							<div class="col-12">
+	                            <label for="description" class="form-label">Description</label>
+	                            <textarea class="form-control" name="description" style="height: 80px" required></textarea>
+	                        </div>
+	                        
 	                        <div class="col-12">
-	                            <button class="btn btn-primary w-100" type="submit" value="Save Internship">Add Internship</button>
+	                            <button class="btn btn-primary w-100" type="submit" value="Save Technology">Add Technology</button>
 	                        </div>
 	                    </form>
 	
@@ -121,7 +116,28 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
 
- 
 </body>
-
 </html>
+
+	<%-- <form action="savetechnologies" method="post">
+		Name: <input type="text" name="name"/>
+		<br></br>
+		Description: <input type="text" name="description"/>
+		<br></br>
+		Frontend: <input type="text" name="frontend"/>
+		<br></br>
+		Backend: <input type="text" name="backend"/>
+		<br></br>
+		Tools: <input type="text" name="tools"/>
+		<br></br>
+		Language: <input type="text" name="language"/>
+		<br></br>
+		Company Name: <select name="companyId">
+							<option>Select Company</option>
+							<c:forEach items="${allCompanies }" var="company">
+								<option value="${company.companyId }">${company.companyName }</option>
+							</c:forEach>
+						</select>
+		<br><br>
+		<input type="submit" value="Save Technologies"/><br>
+	</form> --%>

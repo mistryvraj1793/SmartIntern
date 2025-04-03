@@ -41,7 +41,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="company">Add Company</a></li>
+          <li class="breadcrumb-item"><a href="admincompany">Add Company</a></li>
           <li class="breadcrumb-item active">ListCompanies</li>
         </ol>
       </nav>
@@ -64,12 +64,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  											<tr>
  												<th>CompanyName</th>
 												<th>Address</th>
-												<th>Url</th>
+												<!-- <th>Url</th> -->
 												<th>PersonName</th>
-												<th>ExternalGuide</th>
+												<!-- <th>ExternalGuide</th> -->
 												<th>ExternalGuideContactNum</th>
-												<th>CompanyProfileUrl</th>
-												<th>AnyOtherInfoUrl</th>
+												<!-- <th>CompanyProfileUrl</th>
+												<th>AnyOtherInfoUrl</th> -->
 												<th>Action</th>
  											</tr>
  										</thead>
@@ -78,14 +78,14 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 												<tr>
 													<td>${com.companyName }</td>
 													<td>${com.address }</td>
-													<td>${com.url }</td>
+													<%-- <td>${com.url }</td> --%>
 													<td>${com.personName }</td>
-													<td>${com.externalGuide }</td>
+													<%-- <td>${com.externalGuide }</td> --%>
 													<td>${com.externalGuideContactNum }</td>
-													<td>${com.companyProfileUrl }</td>
-													<td>${com.anyOtherInfoUrl }</td>
-													<td><a href="viewcompany?companyId=${com.companyId }">View</a> 
-													| <a href="deletecompany?companyId=${com.companyId }">Delete</a> 
+													<%-- <td>${com.companyProfileUrl }</td>
+													<td>${com.anyOtherInfoUrl }</td> --%>
+													<td><a href="adminviewcompany?companyId=${com.companyId }">View</a> 
+													| <a href="admindeletecompany?companyId=${com.companyId }">Delete</a> 
 													| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>

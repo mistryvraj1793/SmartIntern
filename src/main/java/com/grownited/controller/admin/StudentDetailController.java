@@ -1,9 +1,9 @@
 package com.grownited.controller.admin;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +44,9 @@ public class StudentDetailController {
 	}
 	@PostMapping("savestudentdetail")
 	public String saveStudentDetail(StudentDetailEntity entityStudentDetail, UserEntity entityUser,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
+		//set Bydefault:
+		entityStudentDetail.setCreatedAt(LocalDate.now());
+		
 		System.out.println(profilePic.getOriginalFilename());
 		System.out.println(resume.getOriginalFilename());
 		try {
@@ -73,8 +76,8 @@ public class StudentDetailController {
 		
 		return "redirect:/studentdetail";
 	}
-	@GetMapping("liststudentdetails")
-	public String listStudentDetails(Model model) {
+	@GetMapping("adminliststudentdetails")
+	public String adminListStudentDetails(Model model) {
 		//fetchs the data from the table student_detail into controller list.
 		List<Object[]> studentDetailList = repositoryStudentDetail.GetAll();
 	
@@ -83,8 +86,8 @@ public class StudentDetailController {
 		
 		return "ListStudentDetails";
 	}
-	@GetMapping("viewstudentdetail")
-	public String viewStudentDetail(Integer studentDetailId, Model model) {
+	@GetMapping("adminviewstudentdetail")
+	public String adminViewStudentDetail(Integer studentDetailId, Model model) {
 		//print the studentDetailId
 		System.out.println("id==> " + studentDetailId);
 		
@@ -104,12 +107,12 @@ public class StudentDetailController {
 //		}
 		return "ViewStudentDetail";
 	}
-	@GetMapping("deletestudentdetail")
-	public String deleteStudentDetail(Integer studentDetailId) {
+	@GetMapping("admindeletestudentdetail")
+	public String adminDeleteStudentDetail(Integer studentDetailId) {
 		//delete from table college where collegeId = :collegeId
 		repositoryStudentDetail.deleteById(studentDetailId);
 		
-		return "redirect:/liststudentdetails";
+		return "redirect:/adminliststudentdetails";
 	}
 	
 	

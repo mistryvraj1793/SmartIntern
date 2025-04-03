@@ -40,6 +40,19 @@
       </li><!-- End Components Nav -->
       
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#studentDetail-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+          <i class="bi bi-menu-button-wide"></i><span>Student Details</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="studentDetail-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+          <li>
+            <a href="adminliststudentdetails">
+              <i class="bi bi-circle"></i><span>List StudentDetails</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+      
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#internships-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
           <i class="bi bi-menu-button-wide"></i><span>Internships</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -73,7 +86,7 @@
         </ul>
         <ul id="internships-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listinternshiptechnologies">
+            <a href="adminlistinternshiptechnologies">
               <i class="bi bi-circle"></i><span>List Internship Technologies</span>
             </a>
           </li>
@@ -86,15 +99,35 @@
         </a>
         <ul id="projects-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="project">
+            <a href="adminproject">
               <i class="bi bi-circle"></i><span>Add Project</span>
             </a>
           </li>
         </ul>
         <ul id="projects-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listprojects">
+            <a href="adminlistprojects">
               <i class="bi bi-circle"></i><span>List Projects</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#technology-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
+          <i class="bi bi-menu-button-wide"></i><span>Technologies</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="technology-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+          <li>
+            <a href="admintechnology">
+              <i class="bi bi-circle"></i><span>Add Technology</span>
+            </a>
+          </li>
+        </ul>
+        <ul id="technology-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+          <li>
+            <a href="adminlisttechnologies">
+              <i class="bi bi-circle"></i><span>List Technologies</span>
             </a>
           </li>
         </ul>
@@ -106,14 +139,14 @@
         </a>
         <ul id="colleges-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="college">
+            <a href="admincollege">
               <i class="bi bi-circle"></i><span>Add College</span>
             </a>
           </li>
         </ul>
         <ul id="colleges-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listcolleges">
+            <a href="adminlistcolleges">
               <i class="bi bi-circle"></i><span>List Colleges</span>
             </a>
           </li>
@@ -126,35 +159,22 @@
         </a>
         <ul id="companies-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="company">
+            <a href="admincompany">
               <i class="bi bi-circle"></i><span>Add Company</span>
             </a>
           </li>
         </ul>
         <ul id="companies-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listcompanies">
+            <a href="adminlistcompanies">
               <i class="bi bi-circle"></i><span>List Companies</span>
             </a>
           </li>
         </ul>
         <ul id="companies-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
           <li>
-            <a href="listcompanyusers">
+            <a href="adminlistcompanyusers">
               <i class="bi bi-circle"></i><span>List Company Users</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#studentDetail-nav" data-bs-toggle="collapse" href="#" aria-expanded="false">
-          <i class="bi bi-menu-button-wide"></i><span>Student Details</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="studentDetail-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
-          <li>
-            <a href="liststudentdetails">
-              <i class="bi bi-circle"></i><span>List StudentDetails</span>
             </a>
           </li>
         </ul>

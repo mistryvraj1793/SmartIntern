@@ -41,7 +41,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="project">Add Project</a></li>
+          <li class="breadcrumb-item"><a href="adminproject">Add Project</a></li>
           <li class="breadcrumb-item active">ListProjects</li>
         </ol>
       </nav>
@@ -72,8 +72,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 												<tr>
 													<td>${proj.title}</td>
 													<td>${proj.description}</td>
-													<td><a href="viewproject?projectId=${proj.projectId }">View</a> | 
-													<a href="deleteproject?projectId=${proj.projectId }">Delete</a> | 
+													<td><a href="adminviewproject?projectId=${proj.projectId }">View</a> | 
+													<a href="admindeleteproject?projectId=${proj.projectId }">Delete</a> | 
 													<a href="#">Edit</a></td>
 													
 												</tr>

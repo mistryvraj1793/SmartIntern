@@ -62,22 +62,32 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
- 												<th>Degree</th>
+ 												<th>Full Name</th>
+ 												<th>Email</th>
+ 												<!-- <th>Degree</th>
  												<th>City</th>
-												<th>Semester</th>
+												<th>Semester</th> -->
 												<th>College Name</th>
+												<th>Internship Title</th>
+												<th>Company Name</th>
+												<th>Technology Name</th>
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
  											<c:forEach items="${allStudentDetail}" var="stu">
 												<tr>
-													<td>${stu[4]}</td>
+													<td>${stu[11]}</td>
+													<td>${stu[12]}</td>
+													<td>${stu[16]}</td>
+													<%-- <td>${stu[4]}</td>
 													<td>${stu[1]}</td>
-													<td>${stu[7]}</td>
-													<td>${stu[10]}</td>
-													<td><a href="viewstudentdetail?studentDetailId=${stu[0]}">View</a> 
-													| <a href="deletestudentdetail?studentDetailId=${stu[0]}">Delete</a> 
+													<td>${stu[7]}</td> --%>
+													<td>${stu[18]}</td>
+													<td>${stu[17]}</td>
+													<td>${stu[19]}</td>
+													<td><a href="adminviewstudentdetail?studentDetailId=${stu[0]}">View</a> 
+													| <a href="admindeletestudentdetail?studentDetailId=${stu[0]}">Delete</a> 
 													| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>

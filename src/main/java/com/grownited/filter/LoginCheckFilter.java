@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Component
@@ -32,6 +33,8 @@ public class LoginCheckFilter implements Filter{
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 		HttpServletRequest requestHttp = (HttpServletRequest) request;
+		HttpServletResponse responseHttp = (HttpServletResponse) response;
+		
 		String url = requestHttp.getRequestURI().toString();
 		String uri = requestHttp.getRequestURI();
 		
@@ -46,9 +49,18 @@ public class LoginCheckFilter implements Filter{
 			UserEntity user = (UserEntity) session.getAttribute("user");
 			
 			if(user == null) {
+				System.out.println("Unauthorized access! Redirecting to login.");
 				requestHttp.getRequestDispatcher("login").forward(request, response);
 			}
 			else {
+				 // Authorization Check: Admin Access Control
+		        if (uri.startsWith("/admin")) {
+		            if (!"ADMIN".equals(user.getRole())) {
+		                System.out.println("Access Denied! User is not an admin.");
+		                responseHttp.sendRedirect(requestHttp.getContextPath() + "/login"); // Redirect to unauthorized page
+		                return;
+		            }
+		        }
 				chain.doFilter(request, response);//go Ahead
 			}
 		}

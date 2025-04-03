@@ -24,16 +24,16 @@ public class TechnologiesController {
 	@Autowired
 	CompanyRepository repositoryCompany;
 	
-	@GetMapping("technologies")
-	public String technologies(Model model) {
+	@GetMapping("admintechnology")
+	public String adminTechnology(Model model) {
 		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
 		
 		//fetches the data from Controller in allCompanies to jsp.
 		model.addAttribute("allCompanies", allCompanies);
-		return "Technologies";
+		return "Technology";
 	}
-	@PostMapping("savetechnologies")
-	public String saveTechnologies(TechnologiesEntity entityTechnologies) {
+	@PostMapping("adminsavetechnology")
+	public String adminSaveTechnology(TechnologiesEntity entityTechnologies) {
 		//set the createdAt as today's Date.
 		entityTechnologies.setCreatedAt(LocalDate.now());
 		
@@ -45,10 +45,10 @@ public class TechnologiesController {
 		//store the data from Technologies jsp form into table technologies
 		repositoryTechnologies.save(entityTechnologies);
 		
-		return "redirect:/technologies";
+		return "redirect:/admintechnology";
 	}
-	@GetMapping("listtechnologies")
-	public String listTechnologies(Model model) {
+	@GetMapping("adminlisttechnologies")
+	public String adminListTechnologies(Model model) {
 		//fetchs the data from table technologies into controller in list technologiesList
 		List<TechnologiesEntity> technologiesList = repositoryTechnologies.findAll();
 		
@@ -57,8 +57,8 @@ public class TechnologiesController {
 			
 		return "ListTechnologies";
 	}
-	@GetMapping("viewtechnologies")
-	public String viewTechnologies(Integer technologyId, Model model) {
+	@GetMapping("adminviewtechnology")
+	public String adminViewTechnology(Integer technologyId, Model model) {
 		System.out.println("id => "+technologyId);
 		Optional<TechnologiesEntity> op = repositoryTechnologies.findById(technologyId);
 		if(op.isEmpty()) {
@@ -72,12 +72,12 @@ public class TechnologiesController {
 			//Send to jsp
 			model.addAttribute("technologies", technologies);
 		}
-		return "ViewTechnologies";
+		return "ViewTechnology";
 	}
-	@GetMapping("deletetechnologies")
-	public String deleteTechnologies(Integer technologyId) {
+	@GetMapping("admindeletetechnology")
+	public String adminDeleteTechnologies(Integer technologyId) {
 		repositoryTechnologies.deleteById(technologyId);
-		return "redirect:/listtechnologies";
+		return "redirect:/adminlisttechnologies";
 	}
 	
 }
