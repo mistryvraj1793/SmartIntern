@@ -27,7 +27,7 @@
                         <div class="nav-item dropdown">
                         	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                         	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
+                    <li><a class="dropdown-item" href="userviewstudentdetail"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
                     <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                 </ul>
 						</div>

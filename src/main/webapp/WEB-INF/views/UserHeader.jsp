@@ -25,7 +25,7 @@
                     <i class="fa fa-user fs-5" aria-hidden="true"></i> <!-- Increased icon size -->
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
+                    <li><a class="dropdown-item" href="userviewstudentdetail"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
                     <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                 </ul>
             </div>

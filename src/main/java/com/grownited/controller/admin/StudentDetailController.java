@@ -22,7 +22,6 @@ import com.grownited.repository.StudentDetailRepository;
 
 import jakarta.servlet.http.HttpSession;
 
-
 @Controller
 public class StudentDetailController {
 	@Autowired
@@ -34,16 +33,16 @@ public class StudentDetailController {
 	@Autowired
 	Cloudinary cloudinary;
 	
-	@GetMapping("studentdetail")
-	public String studentDetail(Model model) {
+	@GetMapping("userstudentdetail")
+	public String userStudentDetail(Model model) {
 		List<CollegeEntity> allColleges = repositoryCollege.findAll();
 		
 		//fetches the data from controller in allColleges to jsp
 		model.addAttribute("allColleges", allColleges);
 		return "StudentDetail";
 	}
-	@PostMapping("savestudentdetail")
-	public String saveStudentDetail(StudentDetailEntity entityStudentDetail, UserEntity entityUser,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
+	@PostMapping("saveuserstudentdetail")
+	public String saveUserStudentDetail(StudentDetailEntity entityStudentDetail, UserEntity entityUser,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
 		//set Bydefault:
 		entityStudentDetail.setCreatedAt(LocalDate.now());
 		
@@ -74,7 +73,7 @@ public class StudentDetailController {
 		//stored the data into table student_detail through repository object. 
 		repositoryStudentDetail.save(entityStudentDetail);
 		
-		return "redirect:/studentdetail";
+		return "redirect:/userstudentdetail";
 	}
 	@GetMapping("adminliststudentdetails")
 	public String adminListStudentDetails(Model model) {
@@ -86,6 +85,18 @@ public class StudentDetailController {
 		
 		return "ListStudentDetails";
 	}
+	@GetMapping("userviewstudentdetail")
+	public String userViewStudentDetail(Model model, HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		System.out.println(userId);
+		List<Object[]> UserAllStudentDetail = repositoryStudentDetail.GetUserStudentDetailById(userId);
+		
+		model.addAttribute("UserAllStudentDetail", UserAllStudentDetail);
+		
+		return "UserViewStudentDetail";
+	}
+	
 	@GetMapping("adminviewstudentdetail")
 	public String adminViewStudentDetail(Integer studentDetailId, Model model) {
 		//print the studentDetailId

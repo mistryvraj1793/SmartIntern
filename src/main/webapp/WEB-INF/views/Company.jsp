@@ -97,7 +97,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                         </div>
 
                         <div class="col-12">
-                            <button class="btn btn-primary w-100" type="submit">Add Company</button>
+                            <button class="btn btn-primary w-100" type="submit" value="Save Company">Add Company</button>
                         </div>
                     </form>
 
