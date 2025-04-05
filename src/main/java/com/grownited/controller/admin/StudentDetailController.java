@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,12 +35,23 @@ public class StudentDetailController {
 	Cloudinary cloudinary;
 	
 	@GetMapping("userstudentdetail")
-	public String userStudentDetail(Model model) {
-		List<CollegeEntity> allColleges = repositoryCollege.findAll();
-		
-		//fetches the data from controller in allColleges to jsp
-		model.addAttribute("allColleges", allColleges);
-		return "StudentDetail";
+	public String userStudentDetail(StudentDetailEntity entityStudentDetail, Model model, HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
+		if (!op.isPresent()) {
+			List<CollegeEntity> allColleges = repositoryCollege.findAll();
+			
+			//fetches the data from controller in allColleges to jsp
+			model.addAttribute("allColleges", allColleges);
+			return "StudentDetail";
+		}
+		else if (op.isPresent()) {
+			return "redirect:/userviewstudentdetail";
+		}
+		else {
+			return "redirect:/userdashboard";
+		}
 	}
 	@PostMapping("saveuserstudentdetail")
 	public String saveUserStudentDetail(StudentDetailEntity entityStudentDetail, UserEntity entityUser,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
@@ -73,7 +85,7 @@ public class StudentDetailController {
 		//stored the data into table student_detail through repository object. 
 		repositoryStudentDetail.save(entityStudentDetail);
 		
-		return "redirect:/userstudentdetail";
+		return "redirect:/userviewstudentdetail";
 	}
 	@GetMapping("adminliststudentdetails")
 	public String adminListStudentDetails(Model model) {
@@ -117,6 +129,67 @@ public class StudentDetailController {
 //			model.addAttribute("studentDetail", studentDetail);
 //		}
 		return "ViewStudentDetail";
+	}
+	@GetMapping("usereditstudentdetail")
+	public String userEditStudentDetail(Integer studentDetailid ,HttpSession session ,Model model) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
+		if (!op.isPresent()) {
+			return "redirect:/userstudentdetail";
+		}
+		else if (op.isPresent()) {
+			List<CollegeEntity> allColleges = repositoryCollege.findAll();
+			
+			//fetches the data from controller in allColleges to jsp
+			model.addAttribute("allColleges", allColleges);
+			
+			model.addAttribute("userEditStudentDetail", op.get());
+			return "UserEditStudentDetail";
+		}
+		else {
+			return "redirect:/userdashboard";
+		}
+	}
+	@PostMapping("userupdatestudentdetail")
+	public String userUpdateStudentDetail(StudentDetailEntity entityStudentDetail,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId();
+		Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
+
+		System.out.println(profilePic.getOriginalFilename());
+		System.out.println(resume.getOriginalFilename());
+		
+		if (op.isPresent()) {
+			try {
+				Map resultProfilePic = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
+				Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());			
+				System.out.println(resultProfilePic.get("url"));
+				System.out.println(resultResume.get("url"));
+				
+				entityStudentDetail.setProfilePicPath(resultProfilePic.get("url").toString());
+				entityStudentDetail.setResumePath(resultResume.get("url").toString());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			StudentDetailEntity dbStudentDetail = op.get();
+			
+			dbStudentDetail.setCity(entityStudentDetail.getCity());
+			dbStudentDetail.setState(entityStudentDetail.getState());
+			dbStudentDetail.setCollegeId(entityStudentDetail.getCollegeId());
+			dbStudentDetail.setProfilePicPath(entityStudentDetail.getProfilePicPath());
+			dbStudentDetail.setResumePath(entityStudentDetail.getResumePath());
+			dbStudentDetail.setDegree(entityStudentDetail.getDegree());
+			dbStudentDetail.setSemester(entityStudentDetail.getSemester());
+			dbStudentDetail.setTshirtSize(entityStudentDetail.getTshirtSize());
+			
+			repositoryStudentDetail.save(dbStudentDetail); 
+			return "redirect:/userviewstudentdetail";
+		}
+		else {
+			return "redirect:/userdashboard";
+		}	
 	}
 	@GetMapping("admindeletestudentdetail")
 	public String adminDeleteStudentDetail(Integer studentDetailId) {

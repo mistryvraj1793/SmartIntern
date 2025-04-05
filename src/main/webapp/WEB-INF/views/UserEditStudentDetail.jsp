@@ -38,74 +38,76 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
             </ol>
         </nav>
     </div><!-- End Page Title -->
-      <section class="section register min-vh-50 d-flex flex-column align-items-center justify-content-center py-4">
+      <section class="section register py-4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
-              <div class="card mb-3">
+              <div class="card mb-3" style="background-color: #f9f9f9;">
 
-                <div class="card-body">
+                <div class="card-body" style="background-color: #fff;">
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Update an Profile</h5>
                     <p class="text-center small">Enter your details to update profile</p>
                   </div>
-					<form class="row g-3 needs-validation" action="saveuserstudentdetail" method="post" enctype="multipart/form-data" novalidate>
+					<form class="row g-3 needs-validation" action="userupdatestudentdetail" method="post" enctype="multipart/form-data" novalidate>
                         <div class="col-6">
-	                      <label for="city" class="form-label">City</label>
-	                      <input type="text" name="city" class="form-control" id="city" required>
+	                      <label for="city" class="form-label">City Name</label>
+	                      <input type="text" name="city" class="form-control" id="city" value="${userEditStudentDetail.city }" required>
 	                      <div class="invalid-feedback">Please, enter your city!</div>
 	                    </div>
 	                    
 	                    <div class="col-6">
-	                      <label for="state" class="form-label">State</label>
-	                      <input type="text" name="state" class="form-control" id="state" required>
+	                      <label for="state" class="form-label">State Name</label>
+	                      <input type="text" name="state" class="form-control" id="state" value="${userEditStudentDetail.state }" required>
 	                      <div class="invalid-feedback">Please, enter your state!</div>
 	                    </div>
 	
 	                    <div class="col-6">
 	                   		<label for="profilePic" class="form-label">Profile Pic</label>
-	                   		<input type="file" name="profilePic" class="form-control" id="profilePic" required>
+	                   		<input type="file" name="profilePic" class="form-control" id="profilePic" value="${userEditStudentDetail.profilePicPath }" required>
 	                    </div>
 	                    
 	                    <div class="col-6">
 	                   		<label for="resume" class="form-label">Resume</label>
-	                   		<input type="file" name="resume" class="form-control" id="resume" required>
+	                   		<input type="file" name="resume" class="form-control" id="resume" value="${userEditStudentDetail.resumePath }" required>
 	                    </div>
 
                         <div class="col-6">
                             <label for="degree" class="form-label">Degree</label>
-                            <input type="text" name="degree" class="form-control" id="degree" required>
+                            <input type="text" name="degree" class="form-control" id="degree" value="${userEditStudentDetail.degree }" required>
                         </div>
 
                         <div class="col-6">
                             <label for="semester" class="form-label">Semester</label>
-                            <input type="text" name="semester" class="form-control" id="semester" required>
+                            <input type="text" name="semester" class="form-control" id="semester" value="${userEditStudentDetail.semester }" required>
                         </div>
 
                         <div class="col-6">
-	                        <label class="form-label">T-Shirt Size</label>
-	                        <select class="form-select" name="tshirtSize" required>
-	                            <option disabled selected>--Select Size--</option>
-								<option value="small">Small</option>
-								<option value="large">Large</option>
-								<option value="xl">XL</option>
-								<option value="xxl">XXL</option>
-								<option value="xxxl">XXXL</option>
-	                        </select>
-	                    </div>
+						    <label class="form-label">T-Shirt Size</label>
+						    <select class="form-select" name="tshirtSize" required>
+						        <option disabled <c:if test="${empty userEditStudentDetail.tshirtSize}">selected</c:if>>--Select Size--</option>
+						        <option value="small" <c:if test="${userEditStudentDetail.tshirtSize eq 'small'}">selected</c:if>>Small</option>
+						        <option value="large" <c:if test="${userEditStudentDetail.tshirtSize eq 'large'}">selected</c:if>>Large</option>
+						        <option value="xl" <c:if test="${userEditStudentDetail.tshirtSize eq 'xl'}">selected</c:if>>XL</option>
+						        <option value="xxl" <c:if test="${userEditStudentDetail.tshirtSize eq 'xxl'}">selected</c:if>>XXL</option>
+						        <option value="xxxl" <c:if test="${userEditStudentDetail.tshirtSize eq 'xxxl'}">selected</c:if>>XXXL</option>
+						    </select>
+						</div>
+
 	                    
 	                    <div class="col-6">
-	                        <label class="form-label">College Name</label>
-	                        <select class="form-select" name="collegeId" required>
-	                            <option disabled selected>--Select College--</option>
-								<c:forEach items="${allColleges }" var="college">
-									<option value="${college.collegeId }">${college.collegeName }</option>
-								</c:forEach>
-	                        </select>
-	                    </div>
+						    <label class="form-label">College Name</label>
+						    <select class="form-select" name="collegeId" required>
+						        <option disabled <c:if test="${empty userEditStudentDetail.collegeId}">selected</c:if>>--Select College--</option>
+						        <c:forEach items="${allColleges}" var="college">
+						            <option value="${college.collegeId}" <c:if test="${college.collegeId eq userEditStudentDetail.collegeId}">selected</c:if>>${college.collegeName}</option>
+						        </c:forEach>
+						    </select>
+						</div>
 
-						<input type="hidden" name="${userId }" value="${user.userId }"/>
+						<!-- Hidden input to pass studentDetailId -->
+						<input type="hidden" name="StudentDetailId" value="${userEditStudentDetail.studentDetailId }"/>
 
                         <div class="col-12">
                             <button class="btn btn-primary w-100" type="submit" value="Update Details">Update Details</button>

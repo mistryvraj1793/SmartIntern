@@ -11,7 +11,7 @@
 	<div class="container-fluid bg-primary">
     	<div class="container">
         	<nav class="navbar navbar-dark navbar-expand-lg py-0">
-            	<a href="index.html" class="navbar-brand">
+            	<a href="userdashboard" class="navbar-brand">
                 	<h1 class="text-white fw-bold d-block">High<span class="text-secondary">Tech</span> </h1>
                 </a>
                 <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -19,19 +19,19 @@
 				</button>
                 <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
                 	<div class="navbar-nav ms-auto mx-xl-auto p-0">
-                    	<a href="index.html" class="nav-item nav-link active text-secondary">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a>
+                    	<a href="userdashboard" class="nav-item nav-link active text-secondary">Home</a>
+                        <a href="#" class="nav-item nav-link">About</a>
+                        <a href="#" class="nav-item nav-link">Services</a>
+                        <a href="#" class="nav-item nav-link">Projects</a>
                         <a href="#" class="nav-item nav-link">Internships</a>
                         <div class="nav-item dropdown">
                         	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                         	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                    <li><a class="dropdown-item" href="userviewstudentdetail"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
+                    <li><a class="dropdown-item" href="userstudentdetail"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
                     <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                 </ul>
 						</div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="#" class="nav-item nav-link">Contact</a>
 					</div>
 				</div>
                 <div class="d-none d-xl-flex flex-shirink-0">

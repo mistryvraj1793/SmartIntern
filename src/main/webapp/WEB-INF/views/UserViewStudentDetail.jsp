@@ -34,7 +34,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
         <nav>
             <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-                <li class="breadcrumb-item"><a href="userviewstudentdetail">Update profile</a></li>
+                <li class="breadcrumb-item"><a href="usereditstudentdetail">Update profile</a></li>
                 <li class="breadcrumb-item active">View Profile</li>
             </ol>
         </nav>
@@ -59,7 +59,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 					City Name: ${UserAllStudentDetail[0][4] }<br>
 					State Name: ${UserAllStudentDetail[0][11] }<br>
 					T-Shirt-Size: ${UserAllStudentDetail[0][12] }<br>
-					Created At: ${UserAllStudentDetail[0][3]}<br>
+					Created At: ${UserAllStudentDetail[0][6]}<br>
 					College Name: ${UserAllStudentDetail[0][14]}<br>
 					Degree: ${UserAllStudentDetail[0][7]}<br>
 					Semester: ${UserAllStudentDetail[0][10]}<br>
