@@ -79,7 +79,7 @@ public class StudentDetailController {
 		entityStudentDetail.setUserId(userId);
 		
 		//print the data from the table student_detail. 
-		System.out.println(entityStudentDetail.getCity());
+		System.out.println(entityStudentDetail.getStuCity());
 		System.out.println(entityStudentDetail.getDegree());
 	
 		//stored the data into table student_detail through repository object. 
@@ -175,8 +175,8 @@ public class StudentDetailController {
 			
 			StudentDetailEntity dbStudentDetail = op.get();
 			
-			dbStudentDetail.setCity(entityStudentDetail.getCity());
-			dbStudentDetail.setState(entityStudentDetail.getState());
+			dbStudentDetail.setStuCity(entityStudentDetail.getStuCity());
+			dbStudentDetail.setStuState(entityStudentDetail.getStuState());
 			dbStudentDetail.setCollegeId(entityStudentDetail.getCollegeId());
 			dbStudentDetail.setProfilePicPath(entityStudentDetail.getProfilePicPath());
 			dbStudentDetail.setResumePath(entityStudentDetail.getResumePath());

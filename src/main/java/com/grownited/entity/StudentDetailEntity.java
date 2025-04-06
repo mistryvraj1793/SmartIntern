@@ -15,8 +15,8 @@ public class StudentDetailEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer studentDetailId;
-	private String city;
-	private String state;
+	private String stuCity;
+	private String stuState;
 	private Integer collegeId; //fk
 	private String profilePicPath;
 	private String resumePath;
@@ -32,17 +32,17 @@ public class StudentDetailEntity {
 	public void setStudentDetailId(Integer studentDetailId) {
 		this.studentDetailId = studentDetailId;
 	}
-	public String getCity() {
-		return city;
+	public String getStuCity() {
+		return stuCity;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setStuCity(String stuCity) {
+		this.stuCity = stuCity;
 	}
-	public String getState() {
-		return state;
+	public String getStuState() {
+		return stuState;
 	}
-	public void setState(String state) {
-		this.state = state;
+	public void setStuState(String stuState) {
+		this.stuState = stuState;
 	}
 	public Integer getCollegeId() {
 		return collegeId;

@@ -52,14 +52,14 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                   </div>
 					<form class="row g-3 needs-validation" action="saveuserstudentdetail" method="post" enctype="multipart/form-data" novalidate>
                         <div class="col-6">
-	                      <label for="city" class="form-label">City</label>
-	                      <input type="text" name="city" class="form-control" id="city" required>
+	                      <label for="stuCity" class="form-label">City</label>
+	                      <input type="text" name="stuCity" class="form-control" id="stuCity" required>
 	                      <div class="invalid-feedback">Please, enter your city!</div>
 	                    </div>
 	                    
 	                    <div class="col-6">
-	                      <label for="state" class="form-label">State</label>
-	                      <input type="text" name="state" class="form-control" id="state" required>
+	                      <label for="stuState" class="form-label">State</label>
+	                      <input type="text" name="stuState" class="form-control" id="stuState" required>
 	                      <div class="invalid-feedback">Please, enter your state!</div>
 	                    </div>
 	
