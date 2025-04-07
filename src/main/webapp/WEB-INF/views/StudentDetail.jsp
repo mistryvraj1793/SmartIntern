@@ -12,7 +12,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Update Profile</title>
+  <title>Add Student Detail</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -30,11 +30,11 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
     <div class="container">
 		<!-- Centered Page Title (Header) -->
     <div class="pagetitle text-center">
-        <h1>Update Profile</h1>
+        <h1>Add Student Detail</h1>
         <nav>
             <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="userdashboard">Home</a></li>
-                <li class="breadcrumb-item active">Update Profile</li>
+                <li class="breadcrumb-item active">Add Student Detail</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -47,8 +47,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Update an Profile</h5>
-                    <p class="text-center small">Enter your details to update profile</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Add an Student Detail</h5>
+                    <p class="text-center small">Enter your details to add student detail</p>
                   </div>
 					<form class="row g-3 needs-validation" action="saveuserstudentdetail" method="post" enctype="multipart/form-data" novalidate>
                         <div class="col-6">
@@ -108,7 +108,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 						<input type="hidden" name="${userId }" value="${user.userId }"/>
 
                         <div class="col-12">
-                            <button class="btn btn-primary w-100" type="submit" value="Update Details">Update Details</button>
+                            <button class="btn btn-primary w-100" type="submit" value="Add Student Details">Add Student Details</button>
                         </div>
                     </form>
                   

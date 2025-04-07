@@ -28,7 +28,6 @@ public interface StudentDetailRepository extends JpaRepository<StudentDetailEnti
 	@Query(value = "select concat(u.first_name, ' ', u.last_name) as FullName, u.email, u.contact_num, sd.*,c.college_name from student_detail sd join college c on sd.college_id = c.college_id join users u on sd.user_id = u.user_id and u.user_id = :userId",nativeQuery = true)
 	List<Object[]> GetUserStudentDetailById(Integer userId);
 	
-	
 	Optional<StudentDetailEntity> findByUserId(Integer userId);
 
 }

@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.InternshipEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 
 @Controller
@@ -17,9 +19,14 @@ public class UserController {
 	
 	@Autowired
 	UserRepository repositoryUser;
+	
+	@Autowired
+	InternshipRepository repositoryInternship;
 
 	@GetMapping("userdashboard")
-	public String userDashboard() {
+	public String userDashboard(Model model) {
+		List<InternshipEntity> availableInternship = repositoryInternship.findByStatus("OPEN"); // Only show open ones
+	    model.addAttribute("availableInternship", availableInternship);
 		return "UserDashboard";
 	}
 	

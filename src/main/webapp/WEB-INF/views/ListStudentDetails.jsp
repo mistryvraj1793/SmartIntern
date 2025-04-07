@@ -67,8 +67,6 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  												<th>City</th>
  												<th>Degree</th>
  												<th>Semester</th>
- 												<!--<th>City</th>
-												<th>Semester</th> -->
 												<th>College Name</th>
 												<th>Action</th>
  											</tr>
@@ -78,10 +76,10 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 												<tr>
 													<td>${stu[11]}</td>
 													<td>${stu[12]}</td>
-													<td>${stu[1]}</td>
-													<td>${stu[4]}</td>
 													<td>${stu[7]}</td>
-													<td>${stu[12]}</td>
+													<td>${stu[3]}</td>
+													<td>${stu[6]}</td>
+													<td>${stu[16]}</td>
 													<td><a href="adminviewstudentdetail?studentDetailId=${stu[0]}">View</a> 
 													| <a href="admindeletestudentdetail?studentDetailId=${stu[0]}">Delete</a> 
 													| <a href="#">Edit</a></td>
