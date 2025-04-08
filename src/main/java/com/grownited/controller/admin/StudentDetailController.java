@@ -191,6 +191,50 @@ public class StudentDetailController {
 			return "redirect:/userdashboard";
 		}	
 	}
+	@GetMapping("admineditstudentdetail")
+	public String adminEditStudentDetail(StudentDetailEntity entityStudentDetail , Model model) {
+		/*
+		 * UserEntity user = (UserEntity) session.getAttribute("user"); Integer userId =
+		 * user.getUserId(); Optional<StudentDetailEntity> op1 =
+		 * repositoryStudentDetail.findByUserId(userId);
+		 */
+		Optional<StudentDetailEntity> op = repositoryStudentDetail.findById(entityStudentDetail.getStudentDetailId());
+		if (!op.isPresent()) {
+			return "redirect:/adminliststudentdetails";
+		}
+		else if (op.isPresent()) {
+			List<CollegeEntity> allColleges = repositoryCollege.findAll();
+			
+			//fetches the data from controller in allColleges to jsp
+			model.addAttribute("allColleges", allColleges);
+			
+			model.addAttribute("adminEditStudentDetail", op.get());
+			return "EditStudentDetail";
+		}
+		else {
+			return "redirect:/admindashboard";
+		}
+	}
+	@PostMapping("adminupdatestudentdetails")
+	public String adminUpdateStudentDetails(StudentDetailEntity entityStudentDetail) {
+		Optional<StudentDetailEntity> op = repositoryStudentDetail.findById(entityStudentDetail.getStudentDetailId());
+		if (op.isPresent()) {
+			StudentDetailEntity dbStudentDetail = op.get();
+			
+			dbStudentDetail.setCollegeId(entityStudentDetail.getCollegeId());
+			dbStudentDetail.setDegree(entityStudentDetail.getDegree());
+			dbStudentDetail.setSemester(entityStudentDetail.getSemester());
+			dbStudentDetail.setStuCity(entityStudentDetail.getStuCity());
+			dbStudentDetail.setStuState(entityStudentDetail.getStuState());
+			dbStudentDetail.setTshirtSize(entityStudentDetail.getTshirtSize());
+			
+			repositoryStudentDetail.save(dbStudentDetail);
+			return "redirect:/adminliststudentdetails";
+		}
+		else {
+			return "redirect:/admindashboard";
+		}
+	}
 	@GetMapping("admindeletestudentdetail")
 	public String adminDeleteStudentDetail(Integer studentDetailId) {
 		//delete from table college where collegeId = :collegeId

@@ -65,12 +65,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 									State Name: ${allStudentDetail[0][8] }<br>
 									T-Shirt-Size: ${allStudentDetail[0][9] }<br>
 									Created At: ${allStudentDetail[0][2]}<br>
-									College Name: ${allStudentDetail[0][16]}<br>
+									College Name: ${allStudentDetail[0][13]}<br>
 									Degree: ${allStudentDetail[0][3]}<br>
 									Semester: ${allStudentDetail[0][6]}<br>
-									Company Name: ${allStudentDetail[0][17]}<br>
-									Internship Title: ${allStudentDetail[0][18]}<br>
-									Technology Name: ${allStudentDetail[0][19]}<br>
 									
  								</div>
  							</div>

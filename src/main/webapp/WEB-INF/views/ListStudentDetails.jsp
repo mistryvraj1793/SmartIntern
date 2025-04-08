@@ -79,10 +79,10 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${stu[7]}</td>
 													<td>${stu[3]}</td>
 													<td>${stu[6]}</td>
-													<td>${stu[16]}</td>
+													<td>${stu[13]}</td>
 													<td><a href="adminviewstudentdetail?studentDetailId=${stu[0]}">View</a> 
 													| <a href="admindeletestudentdetail?studentDetailId=${stu[0]}">Delete</a> 
-													| <a href="#">Edit</a></td>
+													| <a href="admineditstudentdetail?studentDetailId=${stu[0]}">Edit</a></td>
 												</tr>
 											</c:forEach>
  										</tbody>

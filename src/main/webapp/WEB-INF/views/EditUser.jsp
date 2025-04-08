@@ -13,7 +13,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Edit / Internship</title>
+  <title>Update / User</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -34,12 +34,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Edit User</h1>
+      <h1>Update User</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
           <li class="breadcrumb-item"><a href="listusers">List Users</a></li>
-          <li class="breadcrumb-item active"><a href="edituser">Edit User</a></li>
+          <li class="breadcrumb-item active"><a href="edituser">Update User</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -56,8 +56,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<div class="pt-4 pb-2">
-					                    <h5 class="card-title text-center pb-0 fs-4">Edit an User</h5>
-					                    <p class="text-center small">Enter your personal details to Edit User</p>
+					                    <h5 class="card-title text-center pb-0 fs-4">Update an User</h5>
+					                    <p class="text-center small">Enter your personal details to update your User</p>
 					                  </div>
 					
 					                  <form class="row g-3 needs-validation" novalidate action="updateuser" method="post">
@@ -124,7 +124,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 					                    <div class="col-12">
 					                      <button class="btn btn-primary w-100" type="submit" value="Update User">Update User</button>
 					                    </div>
-					                  </form>`
+					                  </form>
  									
  								</div>
  							</div>
