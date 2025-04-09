@@ -27,12 +27,11 @@
 				    <a href="#" class="bg-light nav-fill btn btn-sm-square rounded-circle user-icon-btn overflow-hidden p-0"
 				       id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px;">
 				       
-				        <img src="${UserAllStudentDetail[0][7]}" alt="User" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
+				        <img src="${sessionScope.studentDetail.profilePicPath}" alt="User" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
 				    </a>
 				    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
 				    	<li class="dropdown-header text-center" >
 				            <h5>${sessionScope.user.firstName }</h5>
-				            <span>${sessionScope.user.role }</span>
 			            </li>
 				        <li><a class="dropdown-item" href="userstudentdetail"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
 				        <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>

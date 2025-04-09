@@ -23,7 +23,7 @@
                         <a href="#" class="nav-item nav-link">About</a>
                         <a href="#" class="nav-item nav-link">Services</a>
                         <a href="#" class="nav-item nav-link">Projects</a>
-                        <a href="#" class="nav-item nav-link">Internships</a>
+                        <a href="userinternships" class="nav-item nav-link">Internships</a>
                         <div class="nav-item dropdown">
                         	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                         	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">

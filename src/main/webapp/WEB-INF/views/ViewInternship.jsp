@@ -57,16 +57,18 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<span>ViewInternship</span>
  									</h5>
  									
- 									Title: ${internship.title }<br>
-									Location: ${internship.location }<br>
-									Stipend: ${internship.stipend }<br>
-									Description: ${internship.description }<br>
-									Requirements: ${internship.requirements }<br>
-									DurationWeeks: ${internship.durationWeeks }<br>
-									ApplicationDeadLine: ${internship.applicationDeadLine }<br>
-									Status: ${internship.status }<br>
-									PostedBy: ${internship.postedBy }<br>
-									CreatedAt: ${internship.createdAt }<br>
+ 									Title: ${viewInternship[0][11]}<br>
+									Location: ${viewInternship[0][6]}<br>
+									Stipend: ${viewInternship[0][10]}<br>
+									Description: ${viewInternship[0][4]}<br>
+									Requirements: ${viewInternship[0][8]}<br>
+									DurationWeeks:${viewInternship[0][5]}<br>
+									ApplicationDeadLine: ${viewInternship[0][1]}<br>
+									Status: ${viewInternship[0][9]}<br>
+									PostedBy Name: ${viewInternship[0][12]}<br>
+									PostedBy Role: ${viewInternship[0][13]}<br>
+									Company Name: ${viewInternship[0][14]}<br> 
+									CreatedAt: ${viewInternship[0][3]}<br>
 									
  								</div>
  							</div>

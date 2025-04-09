@@ -198,42 +198,40 @@
     <!-- Services End -->
 
 	<!-- Internship Start -->
-        <div class="container-fluid project py-5 mb-5">
-    <div class="container">
-        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Internships</h5>
-            <h1>Our Recently Launched Internships</h1>
-        </div>
-
-        <!-- Show this if internshipList is empty -->
-        <c:if test="${empty availableInternship}">
-            <p class="text-center text-danger">No internships available at the moment.</p>
-        </c:if>
-
-        <!-- Show this if internshipList has data -->
-        <c:if test="${not empty availableInternship}">
-            <div class="row g-5">
-                <c:forEach items="${availableInternship}" var="intern">
-                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-                        <div class="project-item">
-                            <div class="project-img">
-                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
-                                <div class="project-content">
-                                    <a href="#" class="text-center">
-                                        <h4 class="text-secondary">${intern.title}</h4>
-                                        <p class="m-0 text-white">Upcoming Internships</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </c:if>
-
-    </div>
-</div>
-
+    <div class="container-fluid project py-5 mb-5">
+	    <div class="container">
+	        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+	            <h5 class="text-primary">Our Internships</h5>
+	            <h1>Our Recently Launched Internships</h1>
+	        </div>
+	
+	        <!-- Show this if internshipList is empty -->
+	        <c:if test="${empty availableInternship}">
+	            <p class="text-center text-danger">No internships available at the moment.</p>
+	        </c:if>
+	
+	        <!-- Show this if internshipList has data -->
+	        <c:if test="${not empty availableInternship}">
+	            <div class="row g-5">
+	                <c:forEach items="${availableInternship}" var="intern">
+	                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+	                        <div class="project-item">
+	                            <div class="project-img">
+	                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
+	                                <div class="project-content">
+	                                    <a href="#" class="text-center">
+	                                        <h4 class="text-secondary">${intern.title}</h4>
+	                                    </a>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </c:forEach>
+	            </div>
+	        </c:if>
+	
+	    </div>
+	</div>
     <!-- Internship End -->
 
     <!-- Project Start -->

@@ -68,7 +68,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	
 	                        <div class="col-6">
 	                            <label for="stipend" class="form-label">Stipend</label>
-	                            <input type="number" name="stipend" class="fo rm-control" id="stipend" required>
+	                            <input type="number" name="stipend" class="form-control" id="stipend" required>
 	                        </div>
 	                        
 	                        <div class="col-6">

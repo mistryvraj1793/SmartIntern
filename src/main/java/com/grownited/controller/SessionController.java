@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.StudentDetailEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.StudentDetailRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
 
@@ -26,6 +28,9 @@ public class SessionController {
 	
 	@Autowired
 	UserRepository repositoryUser;//we directly can't create object of a instance (i.e UserRepository).
+	
+	@Autowired
+	StudentDetailRepository repositoryStudentDetail;
 	
 	//@GetMapping(value = {"/","signup","SIGNUP"})
 	@GetMapping("signup")//url
@@ -126,7 +131,6 @@ public class SessionController {
 		
 		//users ->email,password
 		Optional<UserEntity> op = repositoryUser.findByEmail(email); //select * from users where email = :email and password = :password
-		
 		if(op.isPresent()) { //isPresent() return a boolean datatype (i.e;either true or false).
 			//email (i.e;true)
 			UserEntity dataBaseUser=op.get();
@@ -140,6 +144,17 @@ public class SessionController {
 				System.out.println("Password is Correct");
 				if(ans==true) {
 					session.setAttribute("user", dataBaseUser); //session -> user set
+					
+					//set the session for studentDetail through userId
+					UserEntity user = (UserEntity) session.getAttribute("user"); 
+					Integer userId =user.getUserId(); 
+					//System.out.println("Id => "+userId);
+					Optional<StudentDetailEntity> studentDetailOptn = repositoryStudentDetail.findByUserId(userId);
+					if (studentDetailOptn.isPresent()) {
+						StudentDetailEntity dataBaseStudentDetail = studentDetailOptn.get();
+						session.setAttribute("studentDetail", dataBaseStudentDetail);
+						//System.out.println(dataBaseStudentDetail);
+					}
 					
 					//checking the role is ADMIN or Not.
 					if(dataBaseUser.getRole().equals("ADMIN")) {

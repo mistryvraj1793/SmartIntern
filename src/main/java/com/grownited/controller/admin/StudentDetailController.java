@@ -27,97 +27,100 @@ import jakarta.servlet.http.HttpSession;
 public class StudentDetailController {
 	@Autowired
 	StudentDetailRepository repositoryStudentDetail;
-	
+
 	@Autowired
 	CollegeRepository repositoryCollege;
-	
+
 	@Autowired
 	Cloudinary cloudinary;
-	
+
 	@GetMapping("userstudentdetail")
-	public String userStudentDetail(StudentDetailEntity entityStudentDetail, Model model, HttpSession session) {
+	public String userStudentDetail(Model model, HttpSession session) {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId();
 		Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
 		if (!op.isPresent()) {
 			List<CollegeEntity> allColleges = repositoryCollege.findAll();
-			
-			//fetches the data from controller in allColleges to jsp
+
+			// fetches the data from controller in allColleges to jsp
 			model.addAttribute("allColleges", allColleges);
 			return "StudentDetail";
-		}
-		else if (op.isPresent()) {
+		} else if (op.isPresent()) {
 			return "redirect:/userviewstudentdetail";
-		}
-		else {
+		} else {
 			return "redirect:/userdashboard";
 		}
 	}
+
 	@PostMapping("saveuserstudentdetail")
-	public String saveUserStudentDetail(StudentDetailEntity entityStudentDetail, UserEntity entityUser,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
-		//set Bydefault:
+	public String saveUserStudentDetail(StudentDetailEntity entityStudentDetail, UserEntity entityUser,
+			MultipartFile profilePic, MultipartFile resume, HttpSession session) {
+		// set Bydefault:
 		entityStudentDetail.setCreatedAt(LocalDate.now());
-		
+
 		System.out.println(profilePic.getOriginalFilename());
 		System.out.println(resume.getOriginalFilename());
 		try {
 			Map resultProfilePic = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
-			Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());			
+			Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());
 			System.out.println(resultProfilePic.get("url"));
 			System.out.println(resultResume.get("url"));
-			
+
 			entityStudentDetail.setProfilePicPath(resultProfilePic.get("url").toString());
 			entityStudentDetail.setResumePath(resultResume.get("url").toString());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		System.out.println(user);
 		Integer userId = user.getUserId();
 		System.out.println(userId);
 		entityStudentDetail.setUserId(userId);
-		
-		//print the data from the table student_detail. 
+
+		// print the data from the table student_detail.
 		System.out.println(entityStudentDetail.getStuCity());
 		System.out.println(entityStudentDetail.getDegree());
-	
-		//stored the data into table student_detail through repository object. 
+
+		// stored the data into table student_detail through repository object.
 		repositoryStudentDetail.save(entityStudentDetail);
-		
+
 		return "redirect:/userviewstudentdetail";
 	}
+
 	@GetMapping("adminliststudentdetails")
 	public String adminListStudentDetails(Model model) {
-		//fetchs the data from the table student_detail into controller list.
+		// fetchs the data from the table student_detail into controller list.
 		List<Object[]> studentDetailList = repositoryStudentDetail.GetAll();
-	
-		//fetchs the data from controller in list into ListStudentDetail jsp.
+
+		// fetchs the data from controller in list into ListStudentDetail jsp.
 		model.addAttribute("allStudentDetail", studentDetailList);
-		
+
 		return "ListStudentDetails";
 	}
+
 	@GetMapping("userviewstudentdetail")
 	public String userViewStudentDetail(Model model, HttpSession session) {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId();
 		System.out.println(userId);
 		List<Object[]> UserAllStudentDetail = repositoryStudentDetail.GetUserStudentDetailById(userId);
-		
+
 		model.addAttribute("UserAllStudentDetail", UserAllStudentDetail);
-		
+
 		return "UserViewStudentDetail";
 	}
-	
+
 	@GetMapping("adminviewstudentdetail")
 	public String adminViewStudentDetail(Integer studentDetailId, Model model) {
-		//print the studentDetailId
+		// print the studentDetailId
 		System.out.println("id==> " + studentDetailId);
-		
+
 		List<Object[]> allStudentDetail = repositoryStudentDetail.GetStudentDetailById(studentDetailId);
-		
+
 		model.addAttribute("allStudentDetail", allStudentDetail);
-		//fetchs the data from table student_detail into controller in Optional op through repositoryStudentDetail object.
+		// fetchs the data from table student_detail into controller in Optional op
+		// through repositoryStudentDetail object.
 //		Optional<StudentDetailEntity> op = repositoryStudentDetail.findById(studentDetailId);
 //		if(op.isEmpty()) {
 //			System.out.println("Not Found");
@@ -130,51 +133,52 @@ public class StudentDetailController {
 //		}
 		return "ViewStudentDetail";
 	}
+
 	@GetMapping("usereditstudentdetail")
-	public String userEditStudentDetail(Integer studentDetailid ,HttpSession session ,Model model) {
+	public String userEditStudentDetail(Integer studentDetailid, HttpSession session, Model model) {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId();
 		Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
 		if (!op.isPresent()) {
 			return "redirect:/userstudentdetail";
-		}
-		else if (op.isPresent()) {
+		} else if (op.isPresent()) {
 			List<CollegeEntity> allColleges = repositoryCollege.findAll();
-			
-			//fetches the data from controller in allColleges to jsp
+
+			// fetches the data from controller in allColleges to jsp
 			model.addAttribute("allColleges", allColleges);
-			
+
 			model.addAttribute("userEditStudentDetail", op.get());
 			return "UserEditStudentDetail";
-		}
-		else {
+		} else {
 			return "redirect:/userdashboard";
 		}
 	}
+
 	@PostMapping("userupdatestudentdetail")
-	public String userUpdateStudentDetail(StudentDetailEntity entityStudentDetail,MultipartFile profilePic, MultipartFile resume, HttpSession session) {
+	public String userUpdateStudentDetail(StudentDetailEntity entityStudentDetail, MultipartFile profilePic,
+			MultipartFile resume, HttpSession session) {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId();
 		Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
 
 		System.out.println(profilePic.getOriginalFilename());
 		System.out.println(resume.getOriginalFilename());
-		
+
 		if (op.isPresent()) {
 			try {
 				Map resultProfilePic = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
-				Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());			
+				Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());
 				System.out.println(resultProfilePic.get("url"));
 				System.out.println(resultResume.get("url"));
-				
+
 				entityStudentDetail.setProfilePicPath(resultProfilePic.get("url").toString());
 				entityStudentDetail.setResumePath(resultResume.get("url").toString());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+
 			StudentDetailEntity dbStudentDetail = op.get();
-			
+
 			dbStudentDetail.setStuCity(entityStudentDetail.getStuCity());
 			dbStudentDetail.setStuState(entityStudentDetail.getStuState());
 			dbStudentDetail.setCollegeId(entityStudentDetail.getCollegeId());
@@ -183,16 +187,16 @@ public class StudentDetailController {
 			dbStudentDetail.setDegree(entityStudentDetail.getDegree());
 			dbStudentDetail.setSemester(entityStudentDetail.getSemester());
 			dbStudentDetail.setTshirtSize(entityStudentDetail.getTshirtSize());
-			
-			repositoryStudentDetail.save(dbStudentDetail); 
+
+			repositoryStudentDetail.save(dbStudentDetail);
 			return "redirect:/userviewstudentdetail";
-		}
-		else {
+		} else {
 			return "redirect:/userdashboard";
-		}	
+		}
 	}
+
 	@GetMapping("admineditstudentdetail")
-	public String adminEditStudentDetail(StudentDetailEntity entityStudentDetail , Model model) {
+	public String adminEditStudentDetail(StudentDetailEntity entityStudentDetail, Model model) {
 		/*
 		 * UserEntity user = (UserEntity) session.getAttribute("user"); Integer userId =
 		 * user.getUserId(); Optional<StudentDetailEntity> op1 =
@@ -201,48 +205,45 @@ public class StudentDetailController {
 		Optional<StudentDetailEntity> op = repositoryStudentDetail.findById(entityStudentDetail.getStudentDetailId());
 		if (!op.isPresent()) {
 			return "redirect:/adminliststudentdetails";
-		}
-		else if (op.isPresent()) {
+		} else if (op.isPresent()) {
 			List<CollegeEntity> allColleges = repositoryCollege.findAll();
-			
-			//fetches the data from controller in allColleges to jsp
+
+			// fetches the data from controller in allColleges to jsp
 			model.addAttribute("allColleges", allColleges);
-			
+
 			model.addAttribute("adminEditStudentDetail", op.get());
 			return "EditStudentDetail";
-		}
-		else {
+		} else {
 			return "redirect:/admindashboard";
 		}
 	}
+
 	@PostMapping("adminupdatestudentdetails")
 	public String adminUpdateStudentDetails(StudentDetailEntity entityStudentDetail) {
 		Optional<StudentDetailEntity> op = repositoryStudentDetail.findById(entityStudentDetail.getStudentDetailId());
 		if (op.isPresent()) {
 			StudentDetailEntity dbStudentDetail = op.get();
-			
+
 			dbStudentDetail.setCollegeId(entityStudentDetail.getCollegeId());
 			dbStudentDetail.setDegree(entityStudentDetail.getDegree());
 			dbStudentDetail.setSemester(entityStudentDetail.getSemester());
 			dbStudentDetail.setStuCity(entityStudentDetail.getStuCity());
 			dbStudentDetail.setStuState(entityStudentDetail.getStuState());
 			dbStudentDetail.setTshirtSize(entityStudentDetail.getTshirtSize());
-			
+
 			repositoryStudentDetail.save(dbStudentDetail);
 			return "redirect:/adminliststudentdetails";
-		}
-		else {
+		} else {
 			return "redirect:/admindashboard";
 		}
 	}
+
 	@GetMapping("admindeletestudentdetail")
 	public String adminDeleteStudentDetail(Integer studentDetailId) {
-		//delete from table college where collegeId = :collegeId
+		// delete from table college where collegeId = :collegeId
 		repositoryStudentDetail.deleteById(studentDetailId);
-		
+
 		return "redirect:/adminliststudentdetails";
 	}
-	
-	
-	
+
 }

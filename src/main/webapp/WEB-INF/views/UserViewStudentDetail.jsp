@@ -33,7 +33,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
         <h1>View Profile</h1>
         <nav>
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+                <li class="breadcrumb-item"><a href="userdashboard">Home</a></li>
                 <li class="breadcrumb-item"><a href="usereditstudentdetail">Update profile</a></li>
                 <li class="breadcrumb-item active">View Profile</li>
             </ol>

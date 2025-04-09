@@ -14,6 +14,7 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 
+
 @Controller
 public class UserController {
 	
@@ -25,14 +26,24 @@ public class UserController {
 
 	@GetMapping("userdashboard")
 	public String userDashboard(Model model) {
-		List<InternshipEntity> availableInternship = repositoryInternship.findByStatus("OPEN"); // Only show open ones
-	    model.addAttribute("availableInternship", availableInternship);
+		 List<InternshipEntity> availableInternship =
+		 repositoryInternship.findByStatus("OPEN"); // Only show open ones
+		 model.addAttribute("availableInternship", availableInternship);
 		return "UserDashboard";
 	}
 	
 	@GetMapping("home")
 	public String home() {
 		return "Home";
+	}
+	@GetMapping("userinternships")
+	public String userInternships(Model model) {
+		List<InternshipEntity> availableInternships =
+		repositoryInternship.findByStatus("OPEN"); // Only show open ones
+		System.out.println(availableInternships);
+		model.addAttribute("availableInternships", availableInternships);
+	
+		return "UserInternships";
 	}
 	@GetMapping("adminlistusers")
 	public String adminListUsers(Model model) {
@@ -75,7 +86,7 @@ public class UserController {
 		//save -> entity -> no id present -> redirect to listusers 
 	 	//save -> entity -> id present -> not present in db -> insert  
 	}
-	@PostMapping("updateuser")
+	@PostMapping("adminupdateuser")
 	public String adminUpdateUser(UserEntity entityUser){
 		//save -> entity -> id present -> present in db -> update
 		System.out.println(entityUser.getUserId()); 
@@ -99,5 +110,4 @@ public class UserController {
 		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
 		return "redirect:/adminlistusers"; // Redirects to the user list page
 	}
-
 }

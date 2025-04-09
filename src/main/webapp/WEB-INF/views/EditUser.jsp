@@ -39,7 +39,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
           <li class="breadcrumb-item"><a href="listusers">List Users</a></li>
-          <li class="breadcrumb-item active"><a href="edituser">Update User</a></li>
+          <li class="breadcrumb-item active">Update User</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -60,7 +60,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 					                    <p class="text-center small">Enter your personal details to update your User</p>
 					                  </div>
 					
-					                  <form class="row g-3 needs-validation" novalidate action="updateuser" method="post">
+					                  <form class="row g-3 needs-validation" novalidate action="adminupdateuser" method="post">
 					                    <div class="col-6">
 					                      <label for="firstName" class="form-label">First Name</label>
 					                      <input type="text" name="firstName" class="form-control" id="firstName" value="${user.firstName }" required>
