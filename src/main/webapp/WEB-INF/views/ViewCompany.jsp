@@ -56,15 +56,17 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<h5 class="card-title">
  										<span>ViewCompany</span>
  									</h5>
- 									
- 									CompanyName: ${company.companyName }<br>
-									Address: ${company.address }<br>
-									Url: ${company.url }<br>
-									PersonName: ${company.personName }<br>
-									ExternalGuide: ${company.externalGuide }<br>
-									ExternalGuideContactNum: ${company.externalGuideContactNum }<br>
-									CompanyProfileUrl: ${company.companyProfileUrl }<br>
-									AnyOtherInfoUrl: ${company.anyOtherInfoUrl }<br>
+ 									Created By: ${companyUserDetails[0][13]}<br>
+ 									CreatedBy Role: ${companyUserDetails[0][14]}<br>
+ 									CompanyName: ${companyUserDetails[0][4]}<br>
+									Address: ${companyUserDetails[0][2]}<br>
+									Url: ${companyUserDetails[0][10]}<br>
+									PersonName: ${companyUserDetails[0][8]}<br>
+									ExternalGuide: ${companyUserDetails[0][6] }<br>
+									ExternalGuideContactNum: ${companyUserDetails[0][7]}<br>
+									CompanyProfileUrl: ${companyUserDetails[0][12]}<br>
+									AnyOtherInfoUrl: ${companyUserDetails[0][3]}<br>
+									CreatedAt: ${companyUserDetails[0][5]}<br>
 									
  								</div>
  							</div>

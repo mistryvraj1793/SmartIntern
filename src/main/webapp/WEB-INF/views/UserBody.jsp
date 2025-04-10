@@ -219,7 +219,7 @@
 	                            <div class="project-img">
 	                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
 	                                <div class="project-content">
-	                                    <a href="#" class="text-center">
+	                                    <a href="internshipapplications?internshipId=${intern.internshipId }" class="text-center">
 	                                        <h4 class="text-secondary">${intern.title}</h4>
 	                                    </a>
 	                                </div>

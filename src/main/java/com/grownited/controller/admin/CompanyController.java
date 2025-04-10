@@ -26,51 +26,60 @@ public class CompanyController {
 	UserRepository repositoryUser;
 	
 	@GetMapping("admincompany")
-	public String adminCompany(Model model) {
-		List<UserEntity> allUsers= repositoryUser.findAll();
+	public String adminCompany(CompanyEntity entityCompany) {
 		
-		//Fetches the data from Controller in allUsers to jsp.
-		model.addAttribute("allUsers", allUsers);
+		
 		return "Company";
 	}
 	@PostMapping("adminsavecompany")
-	public String adminSaveCompany(CompanyEntity entityCompany) {
-		//read from the company jsp
-		System.out.println(entityCompany.getCompanyName());
-		
-		//for set as Default 
-		entityCompany.setCreatedAt(LocalDate.now());
-		entityCompany.setActive(true);
-		
-		//for save the attributes data into table company using object of a Singleton of ComapanyRepository class.
-		repositoryCompany.save(entityCompany);
-		
-		//read from database
-		return "redirect:/admincompany";
+	public String adminSaveCompany(Integer userId,Model model, CompanyEntity entityCompany) {
+		System.out.println("userId =>"+userId);
+		Optional<UserEntity> op = repositoryUser.findById(userId);
+		if (op.isPresent()) {
+			//for set as Default 
+			entityCompany.setCreatedAt(LocalDate.now());
+			entityCompany.setActive(true);
+			entityCompany.setUserId(userId);
+			
+			//read from the company jsp
+			System.out.println(entityCompany.getCompanyName());	
+			
+			//for save the attributes data into table company using object of a Singleton of ComapanyRepository class.
+			repositoryCompany.save(entityCompany);
+			return "redirect:/admindashboard";
+		}
+		else {
+			//read from database
+			System.out.println("Not Found!");
+		}
+		return "redirect:/admindashboard";
 	}
 	@GetMapping("adminlistcompanies")
 	public String adminListCompanies(Model model) {
+		List<Object[]> allCompanyUsersDetails = repositoryCompany.GetAll();
+		model.addAttribute("allCompany", allCompanyUsersDetails);
 	//how to sends data from database to Controller:
 	//This statement retrieves all records from the company table and stores them in a List<CompanyEntity> collection.
-	List<CompanyEntity>	companyList = repositoryCompany.findAll();
-	
-	//how to sends data from controller to jsp
-	model.addAttribute("companyList", companyList);
+	/*
+	 * List<CompanyEntity> companyList = repositoryCompany.findAll();
+	 * 
+	 * //how to sends data from controller to jsp model.addAttribute("companyList",
+	 * companyList);
+	 */
 		return "ListCompanies";
 	}
 	@GetMapping("adminviewcompany")
 	public String adminViewCompany(Integer companyId, Model model) {
 		System.out.println("id==> " + companyId);
-		
-		Optional<CompanyEntity> op = repositoryCompany.findById(companyId);
-		if(op.isEmpty()) {
-			System.out.println("Not Found");
-		}
-		else {
-			CompanyEntity company= op.get();
-			
-			model.addAttribute("company", company);
-		}
+		List<Object[]> viewCompanyUserDetails = repositoryCompany.findByCompanyId(companyId);
+		model.addAttribute("companyUserDetails", viewCompanyUserDetails);
+		/*
+		 * Optional<CompanyEntity> op = repositoryCompany.findById(companyId);
+		 * if(op.isEmpty()) { System.out.println("Not Found"); } else { CompanyEntity
+		 * company= op.get();
+		 * 
+		 * model.addAttribute("company", company); }
+		 */
 		return "ViewCompany";
 	}
 	@GetMapping("admindeletecompany")

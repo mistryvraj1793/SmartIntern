@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="internship_application")
+@Table(name="internship_applications")
 public class InternshipApplicationEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,9 @@ public class InternshipApplicationEntity {
 	private Integer userId;//fk: user
 	private String resumePath;
 	private String coverLetterPath;//optional
-	private String paymentReference;
 	private String status;//eg: PENDING / ACCEPTED / REJECTED / WITHDRAWN 
 	private LocalDate appliedAt;
+	private Integer paymentId; 
 	
 	public Integer getApplicationId() {
 		return applicationId;
@@ -52,12 +52,6 @@ public class InternshipApplicationEntity {
 	public void setCoverLetterPath(String coverLetterPath) {
 		this.coverLetterPath = coverLetterPath;
 	}
-	public String getPaymentReference() {
-		return paymentReference;
-	}
-	public void setPaymentReference(String paymentReference) {
-		this.paymentReference = paymentReference;
-	}
 	public String getStatus() {
 		return status;
 	}
@@ -69,6 +63,12 @@ public class InternshipApplicationEntity {
 	}
 	public void setAppliedAt(LocalDate appliedAt) {
 		this.appliedAt = appliedAt;
+	}
+	public Integer getPaymentId() {
+		return paymentId;
+	}
+	public void setPaymentId(Integer paymentId) {
+		this.paymentId = paymentId;
 	}
 	
 }

@@ -72,7 +72,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                         </div>
 
                         <div class="col-6">
-                            <label for="personName" class="form-label">Contact Person Name</label>
+                            <label for="personName" class="form-label">Person Name</label>
                             <input type="text" name="personName" class="form-control" id="personName" required>
                         </div>
 
@@ -95,7 +95,9 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                             <label for="anyOtherInfoUrl" class="form-label">Additional Information</label>
                             <input type="file" name="anyOtherInfoUrl" class="form-control" id="anyOtherInfoUrl" required>
                         </div>
-
+						
+						<input type="hidden" name="userId" value="${user.userId }"/>
+							
                         <div class="col-12">
                             <button class="btn btn-primary w-100" type="submit" value="Save Company">Add Company</button>
                         </div>

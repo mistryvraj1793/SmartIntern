@@ -20,6 +20,8 @@ import com.grownited.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -68,10 +70,10 @@ public class InternshipController {
 	@GetMapping("adminlistinternships")
 	public String adminListinternships(Model model) {
 		//fetchs the data from table internship into Controller in List internshipList
-		List<InternshipEntity> internshipList = repositoryInternship.findAll();
+		List<Object[]> internshipList = repositoryInternship.GetAll();
 		
 		//store the data from list internshipList into internship jsp.
-		model.addAttribute("internshipList", internshipList);
+		model.addAttribute("allInternshipDetail", internshipList);
 		
 		return "ListInternships";
 	}
@@ -81,6 +83,7 @@ public class InternshipController {
 		model.addAttribute("viewInternship", viewInternshipByAdmin);
 		return "ViewInternship";
 	}
+	
 	@GetMapping("admineditinternship")
 	public String admineditinternship(Integer internshipId, Model model) {
 		Optional<InternshipEntity> op = repositoryInternship.findById(internshipId);

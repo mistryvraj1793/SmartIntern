@@ -62,21 +62,29 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
- 												<th>Resume Path</th>
-												<th>Cover LetterPath</th>
-												<th>Payment Reference</th>
+ 												<th>Internship Title</th>
+ 												<th>Applied By</th>
+												<th>Company Name</th>
+												<th>Company Address</th>
+												<th>Stipend</th>
+												<th>Status</th>	
+												<th>Duration Weeks</th>											
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>	
-										<c:forEach items="${internshipApplicationList }" var="internApp">
+										<c:forEach items="${internApplied }" var="internApp">
 											<tr>
-												<td>${internApp.resumePath }</td>
-												<td>${internApp.coverLetterPath }</td>
-												<td>${internApp.paymentReference }</td>
-												<td><a href="adminviewinternshipapplication?applicationId=${internApp.applicationId }">View</a> | 
-												<a href="admindeleteinternshipapplication?applicationId=${internApp.applicationId }">Delete</a> | 
-												<a href="#">Edit</a></td>
+												<td>${internApp[11] }</td>
+												<td>${internApp[8] }</td>
+												<td>${internApp[16] }</td>
+												<td>${internApp[17] }</td>
+												<td>${internApp[10] }</td>
+												<td>${internApp[5] }</td>	
+												<td>${internApp[12] }</td>
+												<td><a href="adminviewinternshipapplication?applicationId=${internApp[0] }">View</a> | 
+												<a href="admindeleteinternshipapplication?applicationId=${internApp[0] }">Delete</a> | 
+												<a href="admineditinternshipapplication?applicationId=${internApp[0] }">Edit</a></td>
 											</tr>
 										</c:forEach>	
  										</tbody>
@@ -99,18 +107,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
-
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
- 
- 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
- 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
- 
- 	<script type="text/javascript">
- 
- 	$( document ).ready(function() {
- 		let table = new DataTable('#myTable');
- 	});
- 	</script>
+  
 </body>
 
 </html>

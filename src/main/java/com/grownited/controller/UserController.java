@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.InternshipEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.InternshipApplicationRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -23,6 +26,9 @@ public class UserController {
 	
 	@Autowired
 	InternshipRepository repositoryInternship;
+	
+	@Autowired
+	InternshipApplicationRepository repositoryInternshipApplication;
 
 	@GetMapping("userdashboard")
 	public String userDashboard(Model model) {
@@ -38,8 +44,7 @@ public class UserController {
 	}
 	@GetMapping("userinternships")
 	public String userInternships(Model model) {
-		List<InternshipEntity> availableInternships =
-		repositoryInternship.findByStatus("OPEN"); // Only show open ones
+		List<InternshipEntity> availableInternships = repositoryInternship.findByStatus("OPEN"); // Only show open ones
 		System.out.println(availableInternships);
 		model.addAttribute("availableInternships", availableInternships);
 	
@@ -73,6 +78,14 @@ public class UserController {
 		}
 		return "ViewUser"; // Display ViewUser.jsp
 	}
+	@GetMapping("userlistinternshipapplications")
+	public String userlistinternshipApplications(Integer userId, Model model) {
+		List<Object[]> allInternApplications = repositoryInternshipApplication.GetInternApplicationById(userId);
+		model.addAttribute("internApplications", allInternApplications);
+		
+		return "UserListInternApplications";
+	}
+	
 	@GetMapping("adminedituser")
 	public String adminEditUser(Integer userId, Model model) {
 		Optional<UserEntity> op = repositoryUser.findById(userId);

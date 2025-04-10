@@ -85,8 +85,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 											<div class="col-6">
 											    <label for="resume" class="form-label">Resume</label>
 											    <c:if test="${not empty adminEditStudentDetail.resumePath}">
-											    <a href="${adminEditStudentDetail.resumePath}" class="btn btn-outline-secondary btn-sm" target="_blank" download>View Resume</a>
-											</c:if>
+											    	<a href="${adminEditStudentDetail.resumePath}" class="btn btn-outline-secondary btn-sm" target="_blank" download>View Resume</a>
+												</c:if>
 											</div>
 
 					                        <div class="col-6">
@@ -125,8 +125,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 											<!-- Hidden input to pass studentDetailId -->
 											<input type="hidden" name="StudentDetailId" value="${adminEditStudentDetail.studentDetailId }"/>
 					
-					                        <div class="col-12">
-					                            <button class="btn btn-primary w-100" type="submit" value="Update StudentDetails">Update StudentDetails</button>
+					                        <div class="text-center">
+					                            <button class="btn btn-primary px-4" type="submit" value="Update StudentDetails">Update StudentDetails</button>
 					                        </div>
 					                    </form>
  									

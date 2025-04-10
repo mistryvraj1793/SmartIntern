@@ -31,20 +31,19 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 	<!-- End Sidebar-->
 
-  <main id="main" class="main">
+	<main id="main" class="main">
+    	<div class="pagetitle">
+      		<h1>View InternshipApplication</h1>
+      		<nav>
+        		<ol class="breadcrumb">
+			        <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+			        <li class="breadcrumb-item"><a href="adminlistinternshipapplications">ListInternshipApplications</a></li>
+			        <li class="breadcrumb-item active">ViewInternshipApplication</li>
+	        	</ol>
+	      	</nav>
+	    </div><!-- End Page Title -->
 
-    <div class="pagetitle">
-      <h1>View InternshipApplication</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="adminlistinternshipapplications">ListInternshipApplications</a></li>
-          <li class="breadcrumb-item active">ViewInternshipApplication</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section dashboard">
+    	<section class="section dashboard">
  			<div class="row" style="min-height: 500px;">
  
  				<!-- Left side columns -->
@@ -57,11 +56,21 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<span>ViewInternshipApplication</span>
  									</h5>
  									
- 									ResumePath: ${internshipApplication.resumePath }<br>
-									CoverLetterPath: ${internshipApplication.coverLetterPath }<br>
-									PaymentReference: ${internshipApplication.paymentReference }<br>
-									Status: ${internshipApplication.status }<br>
-									AppliedAt: ${internshipApplication.appliedAt }<br>
+ 									Applied By: ${internApplication[0][8] }<br>
+ 									Internship Title: ${internApplication[0][11] }<br>
+ 									Internship Location: ${internApplication[0][13] }<br>
+ 									Description: ${internApplication[0][14] }<br>
+ 									Requirements: ${internApplication[0][15] }<br>	
+									Company Name: ${internApplication[0][16] }<br>
+									Company Address: ${internApplication[0][17] }<br>s
+									Stipend: ${internApplication[0][10] }<br>d
+									Status: ${internApplication[0][5] }	<br>
+									Duration Weeks: ${internApplication[0][12] }<br>									
+ 									ResumePath: ${internApplication[0][4] }<br>
+									CoverLetterPath: ${internApplication[0][2] }<br>
+									AppliedAt: ${internApplication[0][1] }<br>
+									Application DeadLine: ${internApplication[0][9] }<br>
+									Payment Id: ${internApplication[0][7] }<br>
 									
  								</div>
  							</div>
@@ -71,17 +80,15 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  				<!-- End Left side columns -->
  			</div>
  		</section>
-
-  </main><!-- End #main -->
+	</main><!-- End #main -->
 
   	<!-- Start Footer -->
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 	<!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <jsp:include page="AdminJs.jsp"></jsp:include>
+	<jsp:include page="AdminJs.jsp"></jsp:include>
   
 </body>
-
 </html>

@@ -108,19 +108,18 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 										</div>
 										
 										 <div class="col-4">
-    <label class="form-label">Status</label>
-    <select class="form-select" name="status" required>
-        <option disabled <c:if test="${empty admineditInternship.status}">selected</c:if>>--Select Status--</option>
-        <option value="OPEN" <c:if test="${admineditInternship.status eq 'OPEN'}">selected</c:if>>Open</option>
-        <option value="CLOSED" <c:if test="${admineditInternship.status eq 'CLOSED'}">selected</c:if>>Closed</option>
-    </select>
-</div>
+										    <label class="form-label">Status</label>
+										    <select class="form-select" name="status" required>
+										        <option disabled <c:if test="${empty admineditInternship.status}">selected</c:if>>--Select Status--</option>
+										        <option value="OPEN" <c:if test="${admineditInternship.status eq 'OPEN'}">selected</c:if>>Open</option>
+										        <option value="CLOSED" <c:if test="${admineditInternship.status eq 'CLOSED'}">selected</c:if>>Closed</option>
+										    </select>
+										</div>
 
-										
 										<input type="hidden" name="internshipId" value="${admineditInternship.internshipId }" />
 							
-				                        <div class="col-12">
-				                            <button class="btn btn-primary w-100" type="submit" value="Update Internship">Update Internship</button>
+				                        <div class="text-center">
+				                            <button class="btn btn-primary px-4" type="submit" value="Update Internship">Update Internship</button>
 				                        </div>
 				                    </form>
  								</div>

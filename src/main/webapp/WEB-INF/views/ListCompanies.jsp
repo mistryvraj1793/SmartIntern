@@ -62,6 +62,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
+ 												<th>Created By</th>
  												<th>CompanyName</th>
 												<th>Address</th>
 												<!-- <th>Url</th> -->
@@ -70,22 +71,25 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 												<th>ExternalGuideContactNum</th>
 												<!-- <th>CompanyProfileUrl</th>
 												<th>AnyOtherInfoUrl</th> -->
+												<th>CreatedBy Role</th>
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
- 											<c:forEach items="${companyList}" var="com">
+ 											<c:forEach items="${allCompany}" var="com">
 												<tr>
-													<td>${com.companyName }</td>
-													<td>${com.address }</td>
-													<%-- <td>${com.url }</td> --%>
-													<td>${com.personName }</td>
-													<%-- <td>${com.externalGuide }</td> --%>
-													<td>${com.externalGuideContactNum }</td>
+													<td>${com[13] }</td>
+													<td>${com[4] }</td>
+													<td>${com[2] }</td>
+													<%-- <td>${com[] }</td> --%>
+													<td>${com[8] }</td>
+													<%-- <td>${com[] }</td> --%>
+													<td>${com[7] }</td>
 													<%-- <td>${com.companyProfileUrl }</td>
 													<td>${com.anyOtherInfoUrl }</td> --%>
-													<td><a href="adminviewcompany?companyId=${com.companyId }">View</a> 
-													| <a href="admindeletecompany?companyId=${com.companyId }">Delete</a> 
+													<td>${com[14] }</td>
+													<td><a href="adminviewcompany?companyId=${com[0] }">View</a> 
+													| <a href="admindeletecompany?companyId=${com[0] }">Delete</a> 
 													| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>

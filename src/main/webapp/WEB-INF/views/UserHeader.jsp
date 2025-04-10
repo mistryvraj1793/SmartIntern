@@ -19,9 +19,12 @@
                 	<small class="me-3 text-white-50"><a href="#"><i class="fas fa-map-marker-alt me-2 text-secondary"></i></a>23 Ranking Street, New York</small>
                     <small class="me-3 text-white-50"><a href="#"><i class="fas fa-envelope me-2 text-secondary"></i></a>Email@Example.com</small>
 				</div>
-                <div id="note" class="text-secondary d-none d-xl-flex">
-                	<small>Note : We help you to Apply for your Internships</small>
-                </div>
+                <div id="note" class="text-danger d-none d-xl-flex align-items-center" style="white-space: nowrap;">
+    <small><strong>Note:</strong> We're here to guide you every step of the way — from finding the perfect internship to submitting a standout application. Let's launch your career journey together!</small>
+</div>
+
+
+
                 <!-- User Dropdown without caret -->
 				<div class="top-link dropdown">
 				    <a href="#" class="bg-light nav-fill btn btn-sm-square rounded-circle user-icon-btn overflow-hidden p-0"

@@ -63,28 +63,31 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<thead>
  											<tr>
  												<th>Title</th>
-												<th>Location</th>
-												<th>stipend</th>
+ 												<!-- <th>Location</th> -->
+												<th>PostedBy Name</th>
+												<th>PostedBy Role</th>
 												<!-- <th>Description</th> -->
 												<!-- <th>Requirements</th> -->
+												<th>Company Name</th>
 												<th>Duration Weeks</th>
-												<th>Application DeadLine</th>
+												<th>Status</th>
+												<!-- <th>Application DeadLine</th> -->
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
- 											<c:forEach items="${internshipList}" var="intern">
+ 											<c:forEach items="${allInternshipDetail}" var="intern">
 												<tr>
-													<td>${intern.title }</td>
-													<td>${intern.location }</td>
-													<td>${intern.stipend }</td>
-													<%-- <td>${intern.description }</td>
-													<td>${intern.requirements }</td> --%>
-													<td>${intern.durationWeeks }</td>
-													<td>${intern.applicationDeadLine }</td>
-													<td><a href="adminviewinternship?internshipId=${intern.internshipId }">View</a> | 
-													<a href="admindeleteinternship?internshipId=${intern.internshipId }">Delete</a> | 
-													<a href="admineditinternship?internshipId=${intern.internshipId }">Edit</a></td>	
+													<td>${intern[11] }</td>
+													<td>${intern[12] }</td>
+													<td>${intern[13] }</td>
+													<td>${intern[14] }</td>
+													<td>${intern[5] }</td>
+													<td>${intern[9] }</td>
+													<td><a href="adminviewinternship?internshipId=${intern[0] }">View</a> | 
+														<a href="admindeleteinternship?internshipId=${intern[0] }">Delete</a> | 
+														<a href="admineditinternship?internshipId=${intern[0] }">Edit</a>
+													</td>	
 												</tr>
 											</c:forEach>
  										</tbody>

@@ -121,8 +121,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 						                
 						                <input type="hidden" name="userId" value="${user.userId }"/>
 						                
-					                    <div class="col-12">
-					                      <button class="btn btn-primary w-100" type="submit" value="Update User">Update User</button>
+					                    <div class="text-center">
+					                      <button class="btn btn-primary px-4" type="submit" value="Update User">Update User</button>
 					                    </div>
 					                  </form>
  									

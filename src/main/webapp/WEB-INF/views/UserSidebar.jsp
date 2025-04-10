@@ -28,6 +28,7 @@
                         	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                         	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li><a class="dropdown-item" href="userstudentdetail"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
+                    <li><a class="dropdown-item" href="userlistinternshipapplications?userId=${user.userId}"><i class="fas fa-list me-2"></i>List Internships</a></li>
                     <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                 </ul>
 						</div>
