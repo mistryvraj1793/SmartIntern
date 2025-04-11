@@ -44,8 +44,8 @@ public class InternshipApplicationController {
 	@Autowired
 	StudentDetailRepository repositoryStudentDetail;
 	
-	@GetMapping("internshipapplications")
-	public String internshipApplications(Integer internshipId,Model model) {
+	@GetMapping("userinternshipapplications")
+	public String userInternshipApplications(Integer internshipId,Model model) {
 		/*
 		 * List<InternshipEntity> allInternships = repositoryInternship.findAll();
 		 * List<UserEntity> allUsers = repositoryUser.findAll();
@@ -65,17 +65,24 @@ public class InternshipApplicationController {
 		}
 	}
 	@PostMapping("saveinternshipapplication")
-	public String saveInternshipApplication(Integer internshipId,InternshipApplicationEntity entityInternshipApplication, MultipartFile resume, MultipartFile coverLetter, HttpSession session, StudentDetailEntity entityStudentDetail) {
+	public String saveInternshipApplication(Integer internshipId,InternshipApplicationEntity entityInternshipApplication, MultipartFile resume, MultipartFile coverLetter, HttpSession session, StudentDetailEntity entityStudentDetail, UserEntity entityUser) {
 		UserEntity user = (UserEntity) session.getAttribute("user");
 		Integer userId = user.getUserId();
-		Optional<InternshipEntity> op = repositoryInternship.findById(internshipId);
-		if(op.isPresent()) {
+		Optional<InternshipEntity> internship = repositoryInternship.findById(internshipId);
+		Optional<UserEntity> users = repositoryUser.findById(userId);
+		if(internship.isPresent()) {
 			System.out.println(userId);
 			entityInternshipApplication.setUserId(userId);
 			entityInternshipApplication.setInternshipId(internshipId);
 			
-			
+			if (users.isPresent()) {
+				UserEntity dbUser = users.get();
+				dbUser.setRole("INTERN");
+				repositoryUser.save(dbUser);
+			}
 			//set Bydefault:
+			
+			System.out.println("Role =>"+entityUser.getRole());
 			entityInternshipApplication.setAppliedAt(LocalDate.now());
 			entityInternshipApplication.setStatus("PENDING");
 	

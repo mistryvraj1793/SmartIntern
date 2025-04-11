@@ -23,6 +23,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 </head>
 
 <body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<!-- Start Header -->
 	<jsp:include page="AdminHeader.jsp"></jsp:include>
 	<!-- End Header -->
@@ -62,9 +63,14 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                        </div>
 	                        
 	                        <div class="col-6">
-	                            <label for="location" class="form-label">Location</label>
-	                            <input type="text" name="location" class="form-control" id="location" required>
-	                        </div>
+                        		<label class="form-label">Location</label>
+                        			<select class="form-select" name="location" required>
+			                            <option selected="">--Select Location--</option>
+			                            <option value="REMOTE">Remote</option>
+			                            <option value="ON-SITE">On-Site</option>
+			                            <option value="HYBRID">Hybrid</option>
+                       				</select>
+                   			</div>
 	
 	                        <div class="col-6">
 	                            <label for="stipend" class="form-label">Stipend</label>
@@ -100,7 +106,29 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                                </c:forEach>
 	                            </select>
 	                        </div>
-	
+	                        
+	                        <div class="col-6">
+	                            <label class="form-label">Project Name</label>
+	                            <select class="form-select" name="projectId">
+	                                <option selected>select Project</option>
+	                                <c:forEach items="${allProjects}" var="proj">
+	                                    <option value="${proj.projectId}">${proj.title}</option>
+	                                </c:forEach>
+	                            </select>
+	                        </div>
+	                        
+	                        <div class="col-6">
+	                            <label class="form-label">Technology Name</label>
+	                            <select class="form-select" name="technologyId">
+	                                <option selected>select Technology</option>
+	                                <c:forEach items="${allTechnologies}" var="tech">
+	                                    <option value="${tech.technologyId}">${tech.name}</option>
+	                                </c:forEach>
+	                            </select>
+	                        </div>
+							
+							<input type="hidden" name="userId" value="${user.userId }" />
+							
 	                        <div class="col-12">
 	                            <button class="btn btn-primary w-100" type="submit" value="Save Internship">Add Internship</button>
 	                        </div>

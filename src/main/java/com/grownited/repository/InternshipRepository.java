@@ -21,4 +21,12 @@ public interface InternshipRepository extends JpaRepository<InternshipEntity, In
 	@Query(value = "select i.*, concat(u.first_name, ' ', u.last_name) as PostedByName, u.role, cmp.company_name from internships i join users u on i.posted_by = u.user_id join company cmp on i.company_id = cmp.company_id and i.internship_id = :internshipId", nativeQuery = true)
 	List<Object[]> GetPostedById(Integer internshipId);
 	
+	//Widget Total Internships:
+	@Query(value = "select count(*) from internships", nativeQuery = true)
+	Integer totalInternships();
+	
+	//Widget ActiveInternships: and //Dynamic Display in UserBody as a Fact:
+	@Query(value = "select count(*) from internships where status=\"OPEN\"", nativeQuery = true)
+	Integer CurrentActiveInternships();
+	
 }

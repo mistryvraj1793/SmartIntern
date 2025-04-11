@@ -63,17 +63,23 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<thead>
  											<tr>
  												<th>Title</th>
-												<th>Description</th>
+ 												<th>Company Name</th>
+ 												<th>Person Name</th>
+ 												<th>Full Name</th>
+												<!-- <th>Description</th> -->
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
- 											<c:forEach items="${projectsList}" var="proj">
+ 											<c:forEach items="${projectList}" var="proj">
 												<tr>
-													<td>${proj.title}</td>
-													<td>${proj.description}</td>
-													<td><a href="adminviewproject?projectId=${proj.projectId }">View</a> | 
-													<a href="admindeleteproject?projectId=${proj.projectId }">Delete</a> | 
+													<td>${proj[5]}</td>
+													<td>${proj[6]}</td>
+													<td>${proj[10]}</td>
+													<td>${proj[11]}</td>
+													<%-- <td>${proj[]}</td> --%>
+													<td><a href="adminviewproject?projectId=${proj[0] }">View</a> | 
+													<a href="admindeleteproject?projectId=${proj[0] }">Delete</a> | 
 													<a href="#">Edit</a></td>
 													
 												</tr>

@@ -69,7 +69,7 @@ public class SessionController {
 			//insert otp using repositoryUser object using save method.
 			repositoryUser.save(user);//update otp for user
 			
-			serviceMail.SendOtpForForgetPassword(email, user.getFirstName(), otp);
+			serviceMail.sendOtpForForgetPassword(email, user.getFirstName(), otp);
 			return "UpdatePassword";
 		}
 	}
@@ -169,7 +169,7 @@ public class SessionController {
 						System.out.println("It is Mentor role");
 						return "redirect:/hrmentordashboard";
 					}
-					else if (dataBaseUser.getRole().equals("USER")) {
+					else if (dataBaseUser.getRole().equals("USER") || dataBaseUser.getRole().equals("INTERN")) {
 						System.out.println("It is User role");
 						return "redirect:/userdashboard";
 					}

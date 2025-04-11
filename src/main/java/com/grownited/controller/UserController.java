@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.InternshipEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.InternshipApplicationRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
@@ -30,11 +31,28 @@ public class UserController {
 	@Autowired
 	InternshipApplicationRepository repositoryInternshipApplication;
 
+	@Autowired
+	CompanyRepository repositoryCompany;
+	
 	@GetMapping("userdashboard")
 	public String userDashboard(Model model) {
-		 List<InternshipEntity> availableInternship =
-		 repositoryInternship.findByStatus("OPEN"); // Only show open ones
-		 model.addAttribute("availableInternship", availableInternship);
+		List<InternshipEntity> availableInternship =
+		repositoryInternship.findByStatus("OPEN"); // Only show open ones
+		model.addAttribute("availableInternship", availableInternship);
+		
+		Integer activeInternships = repositoryInternship.CurrentActiveInternships();
+		model.addAttribute("activeInternships", activeInternships);
+		
+		//Dynamic Display in UserBody as a Fact:
+		Integer totalInternships = repositoryInternship.totalInternships();
+		Integer totalSuccessFullInternships = repositoryInternshipApplication.acceptedInternshipApplications();
+		Integer totalCompanies = repositoryCompany.totalCompany();
+		Integer totalUsers = repositoryUser.totalUsers();
+			
+		model.addAttribute("totalInternships", totalInternships);
+		model.addAttribute("totalSuccessFullInternships", totalSuccessFullInternships);
+		model.addAttribute("totalCompanies", totalCompanies);
+		model.addAttribute("totalUsers", totalUsers);
 		return "UserDashboard";
 	}
 	
@@ -45,6 +63,7 @@ public class UserController {
 	@GetMapping("userinternships")
 	public String userInternships(Model model) {
 		List<InternshipEntity> availableInternships = repositoryInternship.findByStatus("OPEN"); // Only show open ones
+		
 		System.out.println(availableInternships);
 		model.addAttribute("availableInternships", availableInternships);
 	

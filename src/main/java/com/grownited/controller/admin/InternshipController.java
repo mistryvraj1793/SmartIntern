@@ -9,25 +9,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.cloudinary.Cloudinary;
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.grownited.entity.CompanyEntity;
 import com.grownited.entity.InternshipEntity;
+import com.grownited.entity.InternshipProjectEntity;
+import com.grownited.entity.InternshipTechnologiesEntity;
+import com.grownited.entity.ProjectsEntity;
+import com.grownited.entity.TechnologiesEntity;
 import com.grownited.entity.UserEntity;
-import com.grownited.repository.CompanyRepository;
-import com.grownited.repository.InternshipRepository;
-import com.grownited.repository.UserRepository;
-
+import com.grownited.repository.*;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 @Controller
 public class InternshipController {
 
-    private final Cloudinary cloudinary;
 	@Autowired
 	InternshipRepository repositoryInternship;
 	
@@ -36,25 +30,37 @@ public class InternshipController {
 	
 	@Autowired
 	UserRepository repositoryUser;
-
-    InternshipController(Cloudinary cloudinary) {
-        this.cloudinary = cloudinary;
-    }
+	
+	@Autowired
+	ProjectRepository repositoryProject;
+	
+	@Autowired
+	TechnologiesRepository repositoryTechnology;
+	
+	@Autowired
+	InternshipProjectRepository repositoryInternshipProject;
+	
+	@Autowired
+	InternshipTechnologiesRepository repositoryInternshipTechnology;
 	
 	@GetMapping("admininternship")
 	public String adminInternship(Model model) {
-		
 		List<CompanyEntity> allCompanies = repositoryCompany.findAll();
+		List<ProjectsEntity> allProjects = repositoryProject.findAll();
+		List<TechnologiesEntity> allTechnologies = repositoryTechnology.findAll();
 		
 		//fetches the data from Controller in allCompanies to jsp.
 		model.addAttribute("allCompanies", allCompanies);
-				
+		model.addAttribute("allProjects", allProjects);
+		model.addAttribute("allTechnologies", allTechnologies);
 		return "Internship";
 	}
 	@PostMapping("saveinternship")
-	public String saveinternship(InternshipEntity entityInternship, Model model, HttpSession session) {	
-		UserEntity user = (UserEntity) session.getAttribute("user");
-		Integer userId = user.getUserId();
+	public String saveinternship(InternshipEntity entityInternship, Model model, Integer userId, Integer projectId, Integer technologyId) {	
+		/*
+		 * UserEntity user = (UserEntity) session.getAttribute("user"); Integer userId =
+		 * user.getUserId();
+		 */
 		entityInternship.setPostedBy(userId);
 		entityInternship.setCreatedAt(LocalDate.now());
 		entityInternship.setStatus("OPEN");
@@ -63,8 +69,19 @@ public class InternshipController {
 		System.out.println(entityInternship.getTitle());
 		
 		//store the data from Internship jsp form into table internship
-		repositoryInternship.save(entityInternship);
+		InternshipEntity savedInternship = repositoryInternship.save(entityInternship);
 		
+		InternshipProjectEntity	internshipProject = new InternshipProjectEntity();
+		internshipProject.setInternshipId(savedInternship.getInternshipId());
+		internshipProject.setProjectId(projectId);
+		
+		repositoryInternshipProject.save(internshipProject);
+		
+		InternshipTechnologiesEntity internshipTechnology = new InternshipTechnologiesEntity();
+		internshipTechnology.setInternshipId(savedInternship.getInternshipId());
+		internshipTechnology.setTechnologyId(technologyId);
+		
+		repositoryInternshipTechnology.save(internshipTechnology);
 		return "redirect:/admininternship";
 	}
 	@GetMapping("adminlistinternships")

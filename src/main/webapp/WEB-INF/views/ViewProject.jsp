@@ -57,10 +57,17 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<span>ViewProject</span>
  									</h5>
  									
- 									Title: ${projects.title }<br>
-									Description: ${projects.description }<br>
-									CreatedAt: ${projects.createdAt }<br>
-									Active: ${projects.active }<br>
+ 									Title: ${projects[0][5] }<br>
+ 									Description: ${projects[0][4]}<br>
+ 									Company Name: ${projects[0][6] }<br>
+ 									Company Address: ${projects[0][7] }<br>
+ 									External Guide: ${projects[0][8] }<br>
+ 									External Guide Contact Num: ${projects[0][9] }<br>
+ 									Person Name: ${projects[0][10] }<br>
+ 									Full Name: ${projects[0][11] }<br>
+ 									Role: ${projects[0][12] }<br>
+									CreatedAt: ${projects[0][3] }<br>
+									
 									
  								</div>
  							</div>

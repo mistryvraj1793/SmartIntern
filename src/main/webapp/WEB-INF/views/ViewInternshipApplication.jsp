@@ -57,19 +57,20 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									</h5>
  									
  									Applied By: ${internApplication[0][8] }<br>
- 									Internship Title: ${internApplication[0][11] }<br>
- 									Internship Location: ${internApplication[0][13] }<br>
- 									Description: ${internApplication[0][14] }<br>
- 									Requirements: ${internApplication[0][15] }<br>	
-									Company Name: ${internApplication[0][16] }<br>
-									Company Address: ${internApplication[0][17] }<br>s
-									Stipend: ${internApplication[0][10] }<br>d
-									Status: ${internApplication[0][5] }	<br>
-									Duration Weeks: ${internApplication[0][12] }<br>									
+ 									Student Role: ${internApplication[0][9] }<br>
+ 									Internship Title: ${internApplication[0][12] }<br>
+ 									Internship Location: ${internApplication[0][14] }<br>
+ 									Description: ${internApplication[0][15] }<br>
+ 									Requirements: ${internApplication[0][16] }<br>	
+									Company Name: ${internApplication[0][17] }<br>
+									Company Address: ${internApplication[0][18] }<br>
+									Stipend: ${internApplication[0][11] }<br>
+									Application Status: ${internApplication[0][5] }	<br>
+									Duration Weeks: ${internApplication[0][13] }<br>									
  									ResumePath: ${internApplication[0][4] }<br>
 									CoverLetterPath: ${internApplication[0][2] }<br>
 									AppliedAt: ${internApplication[0][1] }<br>
-									Application DeadLine: ${internApplication[0][9] }<br>
+									Application DeadLine: ${internApplication[0][10] }<br>
 									Payment Id: ${internApplication[0][7] }<br>
 									
  								</div>

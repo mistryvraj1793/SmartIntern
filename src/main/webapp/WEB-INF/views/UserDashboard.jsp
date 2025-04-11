@@ -20,10 +20,11 @@
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
-
+	
 		<!-- Header Start -->
         <jsp:include page="UserHeader.jsp"></jsp:include>
 		<!-- Header End -->
+	
 	
 		<!-- Sidebar Start-->
         <jsp:include page="UserSidebar.jsp"></jsp:include>

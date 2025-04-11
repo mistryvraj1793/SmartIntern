@@ -119,7 +119,17 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                             <option value="MENTOR">Mentor</option>
                         </select>
                     </div>
-
+					
+					<div class="col-6">
+						<label class="form-label">Company Name</label>
+	                    	<select class="form-select" name="companyId">
+	                        	<option selected>select Company</option>
+	                                <c:forEach items="${allCompanies}" var="company">
+	                                    <option value="${company.companyId}">${company.companyName}</option>
+	                                </c:forEach>
+	                       	</select>
+					</div>
+	                        
                     <div class="col-12">
                         <button class="btn btn-primary w-100" type="submit">Add User</button>
                     </div>

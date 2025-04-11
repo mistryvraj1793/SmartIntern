@@ -42,36 +42,29 @@ public class ProjectController {
 		System.out.println(entityProjects.getTitle());
 		System.out.println(entityProjects.getDescription());
 		
-		//stored the data from Projects jsp form into table Projects through repositoryProjects object.
+		//stored the data from Projects jsp form into projectViewtable Projects through repositoryProjects object.
 		repositoryProject.save(entityProjects);
 	
 		return "redirect:/adminproject";
 	}
 	@GetMapping("adminlistprojects")
 	public String adminListProjects(Model model) {
-		//fetchs the  data from table projects into controller in list projectsList
-		List<ProjectsEntity> projectsList = repositoryProject.findAll();
+	 	List<Object[]> projectCompanyUserList = repositoryProject.GetAll();
+		/*
+		 * //fetchs the data from table projects into controller in list projectsList
+		 * List<ProjectsEntity> projectsList = repositoryProject.findAll();
+		 */
 		
 		//fetchs the data from list projectsList into ListProjects jsp through Model object. 
-		model.addAttribute("projectsList", projectsList);
+		model.addAttribute("projectList", projectCompanyUserList);
 		
 		return "ListProjects";
 	}
 	@GetMapping("adminviewproject")
 	public String adminViewProject(Integer projectId, Model model) {
 		System.out.println("projectId => "+projectId);
-		Optional<ProjectsEntity> op= repositoryProject.findById(projectId);
-		if(op.isEmpty()){
-			//Data Not Found:
-			System.out.println("Not Found");
-		}
-		else {
-			//Data Found:
-			ProjectsEntity projects = op.get();
-			
-			//send to jsp
-			model.addAttribute("projects", projects);
-		}
+	 	List<Object[]> projectsCompanyUserDetails = repositoryProject.findByProjectId(projectId);
+		model.addAttribute("projects", projectsCompanyUserDetails);
 		return "ViewProject";
 	}
 	@GetMapping("admindeleteproject")

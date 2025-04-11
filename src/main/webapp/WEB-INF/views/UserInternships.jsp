@@ -44,18 +44,19 @@
 	        <c:if test="${empty availableInternships}">
 	            <p class="text-center text-danger">No internships available at the moment.</p>
 	        </c:if>
-	
+			
 	        <!-- Show this if internshipList has data -->
 	        <c:if test="${not empty availableInternships}">
 	            <div class="row g-5">
-	                <c:forEach items="${availableInternships}" var="intern">
+	                <c:forEach items="${availableInternships}" var="i">
 	                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
 	                        <div class="project-item">
 	                            <div class="project-img">
 	                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
 	                                <div class="project-content">
 	                                    <a href="#" class="text-center">
-	                                        <h4 class="text-secondary">${intern.title}</h4>
+	                                    	<p>${i.internshipId}</p>
+	                                        <h4 class="text-secondary">${i.title}</h4>
 	                                    </a>
 	                                </div>
 	                            </div>

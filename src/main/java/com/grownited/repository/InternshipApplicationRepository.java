@@ -18,8 +18,11 @@ public interface InternshipApplicationRepository extends JpaRepository<Internshi
 	@Query(value = "select iapp.*, concat(u.first_name, ' ', u.last_name) as AppledBy, i.application_dead_line, i.stipend, i.title as Internship_Title, i.duration_weeks, i.location as Internship_Location, i.description, i.requirements, cmp.company_name, cmp.address as Company_Address from internship_applications as iapp join internships i on i.internship_id = iapp.internship_id join company cmp on i.company_id = cmp.company_id join users u on u.user_id = iapp.user_id", nativeQuery = true)
 	List<Object[]> GetInternAppliedByUser();
 	
-	//for admin see list of internshipApplication by internshipApplicationId
-	@Query(value = "select iapp.*, concat(u.first_name, ' ', u.last_name) as AppledBy, i.application_dead_line, i.stipend, i.title as Internship_Title, i.duration_weeks, i.location as Internship_Location, i.description, i.requirements, cmp.company_name, cmp.address as Company_Address from internship_applications as iapp join internships i on i.internship_id = iapp.internship_id join company cmp on i.company_id = cmp.company_id join users u on u.user_id = iapp.user_id and iapp.application_id = :applicationId", nativeQuery = true)
+	//for admin see view of internshipApplication by internshipApplicationId
+	@Query(value = "select iapp.*, concat(u.first_name, ' ', u.last_name) as AppledBy, u.role, i.application_dead_line, i.stipend, i.title as Internship_Title, i.duration_weeks, i.location as Internship_Location, i.description, i.requirements, cmp.company_name, cmp.address as Company_Address from internship_applications as iapp join internships i on i.internship_id = iapp.internship_id join company cmp on i.company_id = cmp.company_id join users u on u.user_id = iapp.user_id and iapp.application_id = :applicationId", nativeQuery = true)
 	List<Object[]> GetInternAppliedId(Integer applicationId);
 	
+	//Dynamic Display in UserBody as a Fact:
+	@Query(value = "select count(*) from internship_applications where status=\"ACCEPTED\"", nativeQuery = true)
+	Integer acceptedInternshipApplications();
 }
