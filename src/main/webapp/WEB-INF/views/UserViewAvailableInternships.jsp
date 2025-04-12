@@ -29,9 +29,7 @@
         <jsp:include page="UserSidebar.jsp"></jsp:include>
 		<!-- Sidebar End-->
 
-
-
-	<!-- Fact Start -->
+	
 	<!-- Internship Start -->
     <div class="container-fluid project py-5 mb-5">
 	    <div class="container">
@@ -41,22 +39,21 @@
 	        </div>
 	
 	        <!-- Show this if internshipList is empty -->
-	        <c:if test="${empty availableInternships}">
+	        <c:if test="${empty availableInternship}">
 	            <p class="text-center text-danger">No internships available at the moment.</p>
 	        </c:if>
-			
+	
 	        <!-- Show this if internshipList has data -->
-	        <c:if test="${not empty availableInternships}">
+	        <c:if test="${not empty availableInternship}">
 	            <div class="row g-5">
-	                <c:forEach items="${availableInternships}" var="i">
+	                <c:forEach items="${availableInternship}" var="avaiIntern">
 	                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
 	                        <div class="project-item">
 	                            <div class="project-img">
 	                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
 	                                <div class="project-content">
-	                                    <a href="#" class="text-center">
-	                                    	<p>${i.internshipId}</p>
-	                                        <h4 class="text-secondary">${i.title}</h4>
+	                                    <a href="userinternshipapplications?internshipId=${avaiIntern.internshipId }" class="text-center">
+	                                        <h4 class="text-secondary">${avaiIntern.title}</h4>
 	                                    </a>
 	                                </div>
 	                            </div>
@@ -69,7 +66,6 @@
 	    </div>
 	</div>
     <!-- Internship End -->
-	<!-- Fact End -->
 
 	<!-- Footer Start -->
 	<jsp:include page="UserFooter.jsp"></jsp:include>

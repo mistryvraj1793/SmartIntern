@@ -17,8 +17,12 @@
 <!-- Customized Bootstrap Stylesheet -->
 	<link href="user/css/bootstrap.min.css" rel="stylesheet">
 <style>
-/*** Spinner Start ***/
 
+html {
+  scroll-behavior: smooth;
+}
+
+/*** Spinner Start ***/
 #spinner {
     opacity: 0;
     visibility: hidden;

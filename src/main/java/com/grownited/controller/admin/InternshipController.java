@@ -56,7 +56,7 @@ public class InternshipController {
 		return "Internship";
 	}
 	@PostMapping("saveinternship")
-	public String saveinternship(InternshipEntity entityInternship, Model model, Integer userId, Integer projectId, Integer technologyId) {	
+	public String saveinternship(InternshipEntity entityInternship, Model model, Integer userId,InternshipProjectEntity entityInternshipProject, InternshipTechnologiesEntity entityInternshipTechnology, Integer projectId, Integer technologyId) {	
 		/*
 		 * UserEntity user = (UserEntity) session.getAttribute("user"); Integer userId =
 		 * user.getUserId();
@@ -71,17 +71,15 @@ public class InternshipController {
 		//store the data from Internship jsp form into table internship
 		InternshipEntity savedInternship = repositoryInternship.save(entityInternship);
 		
-		InternshipProjectEntity	internshipProject = new InternshipProjectEntity();
-		internshipProject.setInternshipId(savedInternship.getInternshipId());
-		internshipProject.setProjectId(projectId);
+		//save into InternshipProject table:
+		entityInternshipProject.setInternshipId(savedInternship.getInternshipId());
+		entityInternshipProject.setProjectId(projectId);
+		repositoryInternshipProject.save(entityInternshipProject);
 		
-		repositoryInternshipProject.save(internshipProject);
-		
-		InternshipTechnologiesEntity internshipTechnology = new InternshipTechnologiesEntity();
-		internshipTechnology.setInternshipId(savedInternship.getInternshipId());
-		internshipTechnology.setTechnologyId(technologyId);
-		
-		repositoryInternshipTechnology.save(internshipTechnology);
+		//save into InternshipTechnology table:
+		entityInternshipTechnology.setInternshipId(savedInternship.getInternshipId());
+		entityInternshipTechnology.setTechnologyId(technologyId);
+		repositoryInternshipTechnology.save(entityInternshipTechnology);
 		return "redirect:/admininternship";
 	}
 	@GetMapping("adminlistinternships")

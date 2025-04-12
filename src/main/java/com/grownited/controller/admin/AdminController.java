@@ -67,7 +67,7 @@ public class AdminController {
 		return "AddUser";
 	}
 	@PostMapping("adminsaveuser")
-	public String adminSaveUser(UserEntity entityUser,Integer companyId) {
+	public String adminSaveUser(UserEntity entityUser, CompanyUserEntity entityCompanyUser,Integer companyId) {
 		entityUser.setCreatedAt(LocalDate.now());//sets createdAt to the current system time.
 		entityUser.setActivate(true);
 		
@@ -87,11 +87,10 @@ public class AdminController {
 		UserEntity savedUser = repositoryUser.save(entityUser);
 		
 		//save into CompanyUser table
-		CompanyUserEntity companyUser = new CompanyUserEntity();
-		companyUser.setUserId(savedUser.getUserId());
-		companyUser.setTitle(savedUser.getRole());
-		companyUser.setCompanyId(companyId);
-		repositoryCompanyUser.save(companyUser);
+		entityCompanyUser.setUserId(savedUser.getUserId());
+		entityCompanyUser.setTitle(savedUser.getRole());
+		entityCompanyUser.setCompanyId(companyId);
+		repositoryCompanyUser.save(entityCompanyUser);
 		
 		//send mail to Hr or Mentor after save their details:
 		serviceMail.sendHrMentorWelcomeMail(entityUser.getEmail(), entityUser.getFirstName(), entityUser.getRole());

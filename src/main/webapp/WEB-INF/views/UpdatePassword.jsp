@@ -58,10 +58,11 @@
                     </div>
                     
                     <div class="col-12">
-                      <label for="otp" class="form-label">OTP</label>
-                      <input type="otp" name="otp" class="form-control" id="otp" required>
-                      <div class="invalid-feedback">Please enter your otp!</div>
-                    </div>
+					  <label for="otp" class="form-label">OTP</label>
+						  <input type="text" name="otp" class="form-control" id="otp" maxlength="6" pattern="\d{6}" title="Please enter a 6-digit OTP" required>
+					  <div class="invalid-feedback">Please enter your 6-digit OTP!</div>
+					</div>
+
 					
                     <div class="col-12">
                       <label for="password" class="form-label">NewPassword</label>

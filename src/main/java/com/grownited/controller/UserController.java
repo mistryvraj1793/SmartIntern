@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.InternshipEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.CompanyRepository;
+import com.grownited.repository.CompanyUserRepository;
 import com.grownited.repository.InternshipApplicationRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -34,22 +37,25 @@ public class UserController {
 	@Autowired
 	CompanyRepository repositoryCompany;
 	
+	@Autowired
+	CompanyUserRepository repositoryCompanyUser;
+	
 	@GetMapping("userdashboard")
 	public String userDashboard(Model model) {
-		List<InternshipEntity> availableInternship =
-		repositoryInternship.findByStatus("OPEN"); // Only show open ones
+		List<InternshipEntity> availableInternship = repositoryInternship.findByStatus("OPEN"); // Only show open ones
 		model.addAttribute("availableInternship", availableInternship);
 		
-		Integer activeInternships = repositoryInternship.CurrentActiveInternships();
-		model.addAttribute("activeInternships", activeInternships);
+		//Our Team Section in UserBody:
+		 List<Object[]> companyUserList = repositoryCompanyUser.GetCompanyUser();
+		 model.addAttribute("companyUsers", companyUserList);
 		
 		//Dynamic Display in UserBody as a Fact:
-		Integer totalInternships = repositoryInternship.totalInternships();
+		Integer activeInternships = repositoryInternship.CurrentActiveInternships();
 		Integer totalSuccessFullInternships = repositoryInternshipApplication.acceptedInternshipApplications();
 		Integer totalCompanies = repositoryCompany.totalCompany();
 		Integer totalUsers = repositoryUser.totalUsers();
 			
-		model.addAttribute("totalInternships", totalInternships);
+		model.addAttribute("activeInternships", activeInternships);
 		model.addAttribute("totalSuccessFullInternships", totalSuccessFullInternships);
 		model.addAttribute("totalCompanies", totalCompanies);
 		model.addAttribute("totalUsers", totalUsers);
@@ -60,17 +66,27 @@ public class UserController {
 	public String home() {
 		return "Home";
 	}
-	@GetMapping("userinternships")
-	public String userInternships(Model model) {
-		List<InternshipEntity> availableInternships = repositoryInternship.findByStatus("OPEN"); // Only show open ones
+	@GetMapping("userviewavailableinternships")
+	public String userViewAvailableInternships(Model model) {
+		List<InternshipEntity> availableInternship = repositoryInternship.findByStatus("OPEN"); // Only show open ones
 		
-		System.out.println(availableInternships);
-		model.addAttribute("availableInternships", availableInternships);
+		System.out.println(availableInternship);
+		model.addAttribute("availableInternship", availableInternship);
 	
-		return "UserInternships";
+		//Dynamic Display in UserBody as a Fact:
+		Integer activeInternships = repositoryInternship.CurrentActiveInternships();
+		Integer totalSuccessFullInternships = repositoryInternshipApplication.acceptedInternshipApplications();
+		Integer totalCompanies = repositoryCompany.totalCompany();
+		Integer totalUsers = repositoryUser.totalUsers();
+					
+		model.addAttribute("activeInternships", activeInternships);
+		model.addAttribute("totalSuccessFullInternships", totalSuccessFullInternships);
+		model.addAttribute("totalCompanies", totalCompanies);
+		model.addAttribute("totalUsers", totalUsers);
+		return "UserViewAvailableInternships";
 	}
 	@GetMapping("adminlistusers")
-	public String adminListUsers(Model model) {
+	public String adminListUsers(Model model) {		
 		//how to sends data from database to Controller:
 		//This statement retrieves all records from the users table and stores them in a List<UserEntity> collection.
 		 List<UserEntity> userList = repositoryUser.findAll();// repositoryUser.findAll() works was select * from users(i.e;fetches all records from the users table.); 
@@ -142,4 +158,9 @@ public class UserController {
 		repositoryUser.deleteById(userId); //delete from users where userId = :userId or  Deletes user from database
 		return "redirect:/adminlistusers"; // Redirects to the user list page
 	}
+	@GetMapping("usercontactus")
+	public String userContactUs() {
+		return "UserContactUs";
+	}
+	
 }
