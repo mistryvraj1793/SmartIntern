@@ -49,30 +49,18 @@ public class InternshipProjectController {
 	@GetMapping("adminlistinternshipprojects")
 	public String adminListInternshipProjects(Model model) {
 		//fetchs the data from table internship_project, internship, projects into controller in list internshipProjectList
-		List<InternshipProjectEntity> internshipProjectList = repositoryInternshipProject.findAll();
+		List<Object[]> internshipProjectList = repositoryInternshipProject.GetAllDetails();
 		System.out.println(internshipProjectList);
-		
 		//fetchs the data from list internshipProjectList
 		model.addAttribute("internshipProjectList", internshipProjectList);
-		
 		return "ListInternshipProjects";
 	}
 	@GetMapping("adminviewinternshipproject")
 	public String adminViewInternshipProject(Integer internshipProjectId, Model model) {
 		System.out.println("InternshipProjectId => "+internshipProjectId);
-		
-		Optional<InternshipProjectEntity> op = repositoryInternshipProject.findById(internshipProjectId);
-		if(op.isPresent()) {
-			//Data found:
-			InternshipProjectEntity internshipProject = op.get();
-			
-			//fetches the data from controller in internshipProject to jsp
-			model.addAttribute("internshipProject", internshipProject);
-		}
-		else {
-			//Data not found:
-			System.out.println("Not Found");
-		}
+		List<Object[]> internshipProjectDetails = repositoryInternshipProject.GetInternshipProjectDetailsById(internshipProjectId);	
+		//fetches the data from controller in internshipProject to jsp
+		model.addAttribute("internshipProjectDetails", internshipProjectDetails);	
 		return "ViewInternshipProject";
 	}
 	@GetMapping("admindeleteinternshipproject")

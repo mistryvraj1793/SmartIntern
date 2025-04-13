@@ -49,7 +49,7 @@ public class UserController {
 		 model.addAttribute("companyUsers", companyUserList);
 		
 		//Dynamic Display in UserBody as a Fact:
-		Integer activeInternships = repositoryInternship.CurrentActiveInternships();
+		Integer activeInternships = repositoryInternship.findByStatus("OPEN").size();
 		Integer totalSuccessFullInternships = repositoryInternshipApplication.acceptedInternshipApplications();
 		Integer totalCompanies = repositoryCompany.totalCompany();
 		Integer totalUsers = repositoryUser.totalUsers();
@@ -73,7 +73,7 @@ public class UserController {
 		model.addAttribute("availableInternship", availableInternship);
 	
 		//Dynamic Display in UserBody as a Fact:
-		Integer activeInternships = repositoryInternship.CurrentActiveInternships();
+		Integer activeInternships = repositoryInternship.findByStatus("OPEN").size();
 		Integer totalSuccessFullInternships = repositoryInternshipApplication.acceptedInternshipApplications();
 		Integer totalCompanies = repositoryCompany.totalCompany();
 		Integer totalUsers = repositoryUser.totalUsers();

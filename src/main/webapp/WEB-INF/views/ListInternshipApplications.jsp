@@ -75,13 +75,13 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<tbody>	
 										<c:forEach items="${internApplied }" var="internApp">
 											<tr>
-												<td>${internApp[11] }</td>
-												<td>${internApp[8] }</td>
-												<td>${internApp[16] }</td>
-												<td>${internApp[17] }</td>
 												<td>${internApp[10] }</td>
-												<td>${internApp[5] }</td>	
+												<td>${internApp[8] }</td>
 												<td>${internApp[12] }</td>
+												<td>${internApp[13] }</td>
+												<td>${internApp[9] }</td>
+												<td>${internApp[6] }</td>	
+												<td>${internApp[11] }</td>
 												<td><a href="adminviewinternshipapplication?applicationId=${internApp[0] }">View</a> | 
 												<a href="admindeleteinternshipapplication?applicationId=${internApp[0] }">Delete</a> | 
 												<a href="admineditinternshipapplication?applicationId=${internApp[0] }">Edit</a></td>

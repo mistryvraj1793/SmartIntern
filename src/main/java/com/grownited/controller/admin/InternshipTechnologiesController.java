@@ -41,27 +41,16 @@ public class InternshipTechnologiesController {
 	@GetMapping("adminlistinternshiptechnologies")
 	public String adminListInternshipTechnologies(Model model) {
 		//fetchs the data from tables internship, technologies into controller in list internshipTechnologiesList
-		List<InternshipTechnologiesEntity> internshipTechnologiesList = repositoryInternshipTechnologies.findAll();
-		
+		List<Object[]> internshipTechnologiesList = repositoryInternshipTechnologies.GetAllDetails();
 		//fetchs the data from list internshipTechnologiesList into ListInternshipTechnologies jsp.
 		model.addAttribute("internshipTechnologiesList", internshipTechnologiesList);
-		
 		return "ListInternshipTechnologies";
 	}
 	@GetMapping("adminviewinternshiptechnology")
 	public String adminViewInternshipTechnology(Integer internshipTechnologyId, Model model) {
-		Optional<InternshipTechnologiesEntity> op = repositoryInternshipTechnologies.findById(internshipTechnologyId);
-		if(op.isPresent()) {
-			//data found:
-			InternshipTechnologiesEntity allInternshipTechnology = op.get();
-			
-			//fetches the data from entity object in allInternshipTechnology to jsp
-			model.addAttribute("allInternshipTechnology", allInternshipTechnology);
-		}
-		else {
-			//data not found:
-			System.out.println("Not Found");
-		}
+		List<Object[]> internshipTechnologyDetails = repositoryInternshipTechnologies.GetAllInternshipTechnologyDetailsById(internshipTechnologyId);
+		//fetches the data from entity object in allInternshipTechnology to jsp
+		model.addAttribute("internshipTechnologyDetails", internshipTechnologyDetails);
 		return "ViewInternshipTechnology";
 	}
 	@GetMapping("admindeleteinternshiptechnology")

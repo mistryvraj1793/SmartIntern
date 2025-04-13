@@ -10,7 +10,7 @@ import com.grownited.entity.InternshipEntity;
 
 @Repository
 public interface InternshipRepository extends JpaRepository<InternshipEntity, Integer>{
-	//by user email
+	//by user email //Widget ActiveInternships: and //Dynamic Display in UserBody as a Fact:
 	List<InternshipEntity> findByStatus(String status);
 	
 	//list all the internship detail with postedByName and PostedByRole
@@ -24,9 +24,5 @@ public interface InternshipRepository extends JpaRepository<InternshipEntity, In
 	//Widget Total Internships:
 	@Query(value = "select count(*) from internships", nativeQuery = true)
 	Integer totalInternships();
-	
-	//Widget ActiveInternships: and //Dynamic Display in UserBody as a Fact:
-	@Query(value = "select count(*) from internships where status=\"OPEN\"", nativeQuery = true)
-	Integer CurrentActiveInternships();
 	
 }

@@ -20,4 +20,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 	@Query(value = "select count(*) from users where role=\"INTERN\"", nativeQuery = true)
 	Integer totalInterns();
 	
+	@Query(value = "select count(*) from users where month(created_at) = :month and role='INTERN'", nativeQuery = true)
+	Integer countThisMonthIntern(Integer month);
+	
 }

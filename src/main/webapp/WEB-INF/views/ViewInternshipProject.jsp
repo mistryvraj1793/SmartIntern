@@ -54,13 +54,86 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<h5 class="card-title">
- 										<span>ViewInternshipProject</span>
+ 										<span>View InternshipProject</span>
  									</h5>
  									
- 									InternshipProjectId: ${internshipProject.internshipProjectId } <br>
-									InternshipId: ${internshipProject.internshipId } <br>
-									ProjectId: ${internshipProject.projectId } <br>
+ 									
+ 									<div class="row mb-2">
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Internship Title</strong></label>
+									    <p>${internshipProjectDetails[0][1]}</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Internship Location</strong></label>
+									    <p>${internshipProjectDetails[0][2]}</p>
+									  </div>
 									
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Duration (Weeks)</strong></label>
+									    <p>${internshipProjectDetails[0][3]}</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Stipend</strong></label>
+									    <p>${internshipProjectDetails[0][4]}</p>
+									  </div>
+									
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Requirements</strong></label>
+									    <p>${internshipProjectDetails[0][5]}</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Application Deadline</strong></label>
+									    <p>${internshipProjectDetails[0][6]}</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Internship Status</strong></label>
+									    <p>${internshipProjectDetails[0][7] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Internship CreatedAt</strong></label>
+									    <p>${internshipProjectDetails[0][8] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Project Title</strong></label>
+									    <p>${internshipProjectDetails[0][9] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Project Description</strong></label>
+									    <p>${internshipProjectDetails[0][10] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Project ActiveStatus</strong></label>
+									    <p>${internshipProjectDetails[0][11] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Project CreatedAt</strong></label>
+									    <p>${internshipProjectDetails[0][12] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>Company Name</strong></label>
+									    <p>${internshipProjectDetails[0][13] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>ContactPerson</strong></label>
+									    <p>${internshipProjectDetails[0][14] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>ExternalGuide</strong></label>
+									    <p>${internshipProjectDetails[0][15] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>CompanyProfileUrl</strong></label>
+									    <p>${internshipProjectDetails[0][16] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>OtherInfoUrl</strong></label>
+									    <p>${internshipProjectDetails[0][17] }</p>
+									  </div>
+									  <div class="col-sm-6">
+									    <label class="form-label"><strong>PostedByName</strong></label>
+									    <p>${internshipProjectDetails[0][18] }</p>
+									  </div>
+									</div>
  								</div>
  							</div>
  						</div>

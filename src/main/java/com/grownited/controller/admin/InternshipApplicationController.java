@@ -50,7 +50,7 @@ public class InternshipApplicationController {
 		if (op.isPresent()) {
 		 	InternshipEntity internshipById = op.get();
 		 	model.addAttribute("internshipById", internshipById);
-		 	return "InternshipApplications";
+		 	return "UserInternshipApplications";
 		}
 		else {
 			return "redirect:/userstudentdetail";

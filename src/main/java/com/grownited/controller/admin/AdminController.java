@@ -15,6 +15,7 @@ import com.grownited.entity.CompanyUserEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.CompanyUserRepository;
+import com.grownited.repository.InternshipApplicationRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -36,6 +37,9 @@ public class AdminController {
 	InternshipRepository repositoryInternship;
 	
 	@Autowired
+	InternshipApplicationRepository repositoryInternshipApplication;
+	
+	@Autowired
 	CompanyRepository repositoryCompany;
 	
 	@Autowired
@@ -45,12 +49,20 @@ public class AdminController {
 	public String adminDashboard(Model model) {
 		//Widget
 		Integer totalInterns = repositoryUser.totalInterns();
+		Integer acceptedInternshipApplications = repositoryInternshipApplication.acceptedInternshipApplications();
 		Integer totalInternships = repositoryInternship.totalInternships();
-		Integer activeInternships = repositoryInternship.CurrentActiveInternships();
+		Integer activeInternships = repositoryInternship.findByStatus("OPEN").size();
+		
+		LocalDate today = LocalDate.now();
+		int month = today.getMonthValue();
+		Integer thisMonthInternsCount = repositoryUser.countThisMonthIntern(month);
 		
 		model.addAttribute("totalInterns", totalInterns);
+		model.addAttribute("acceptedInternApplication", acceptedInternshipApplications);
 		model.addAttribute("totalInternships", totalInternships);
 		model.addAttribute("activeInternships", activeInternships);
+		model.addAttribute("currentMonth", LocalDate.now().getMonth().name());
+		model.addAttribute("thisMonthInternsCount", thisMonthInternsCount);
 		return "AdminDashboard";
 	}
 	@GetMapping("hrmentordashboard")

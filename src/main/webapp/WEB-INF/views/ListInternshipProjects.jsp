@@ -62,18 +62,32 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
- 												<th>InternshipId</th>
-												<th>ProjectId</th>	
+ 												<th>Internship Title</th>
+ 												<th>Internship Location</th>
+ 												<th>Company Name</th>
+ 												<th>Project Title</th>
+ 												<th>Internship Duration Weeks</th>
+												<th>Stipend</th>	
+												<th>Internship Application Deadline</th>
+												<th>Internship Status</th>
+												<th>Posted By</th>
 												<th>Action</th>	
  											</tr>
  										</thead>
  										<tbody>
- 											<c:forEach items="${internshipProjectList }" var="internProj">
+ 											<c:forEach items="${internshipProjectList }" var="intProj">
 												<tr>
-													<td>${internProj.internshipId }</td>
-													<td>${internProj.projectId }</td>	
-													<td><a href="adminviewinternshipproject?internshipProjectId=${internProj.internshipProjectId }">View</a> 
-													| <a href="admindeleteinternshipproject?internshipProjectId=${internProj.internshipProjectId }">Delete</a>
+													<td>${intProj[3] }</td>
+													<td>${intProj[4]}</td>	
+													<td>${intProj[5]}</td>	
+													<td>${intProj[6]}</td>	
+													<td>${intProj[7]}</td>	
+													<td>${intProj[8]}</td>	
+													<td>${intProj[9]}</td>	
+													<td>${intProj[10]}</td>	
+													<td>${intProj[12]}</td>	
+													<td><a href="adminviewinternshipproject?internshipProjectId=${intProj[0]}">View</a> 
+													| <a href="admindeleteinternshipproject?internshipProjectId=${intProj[0]}">Delete</a>
 													| <a href="#">Edit</a></td>
 												</tr>
 											</c:forEach>

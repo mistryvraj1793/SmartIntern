@@ -62,16 +62,32 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
- 												<th>TechnologyId</th>
+ 												<th>InternshipTitle</th>
+ 												<th>InternshipStatus</th>
+ 												<th>ApplicationDeadline</th>
+ 												<th>TechnologyName</th>
+ 												<!-- <th>Frontend</th>
+ 												<th>Backend</th>
+ 												<th>Tools</th>
+ 												<th>Language</th> -->
+ 												<th>CompanyName</th>
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
  											<c:forEach items="${internshipTechnologiesList}" var="intTech">
 												<tr>
-													<td>${intTech.technologyId }</td>
-													<td><a href="adminviewinternshiptechnology?internshipTechnologyId=${intTech.internshipTechnologyId }">View</a> | 
-													<a href="admindeleteinternshiptechnology?internshipTechnologyId=${intTech.internshipTechnologyId }">Delete</a> | 
+													<td>${intTech[1] }</td>
+													<td>${intTech[2] }</td>
+													<td>${intTech[3] }</td>
+													<td>${intTech[4] }</td>
+													<%-- <td>${intTech[6] }</td>
+													<td>${intTech[7] }</td>
+													<td>${intTech[8] }</td>
+													<td>${intTech[9] }</td> --%>
+													<td>${intTech[11] }</td>
+													<td><a href="adminviewinternshiptechnology?internshipTechnologyId=${intTech[0] }">View</a> | 
+													<a href="admindeleteinternshiptechnology?internshipTechnologyId=${intTech[0] }">Delete</a> | 
 													<a href="#">Edit</a></td>	
 												</tr>
 											</c:forEach>
