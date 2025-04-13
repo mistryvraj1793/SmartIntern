@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
                 	<div class="navbar-nav ms-auto mx-xl-auto p-0">
                     	<a href="userdashboard" class="nav-item nav-link active text-secondary">Home</a>
-                        <a href="#" class="nav-item nav-link">About</a>
+                        <a href="useraboutus" class="nav-item nav-link">About</a>
                         <a href="#" class="nav-item nav-link">Services</a>
                         <a href="#" class="nav-item nav-link">Projects</a>
                         <a href="userviewavailableinternships" class="nav-item nav-link">Internships</a>
@@ -28,11 +28,11 @@
                         	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                         	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li><a class="dropdown-item" href="userstudentdetail"><i class="fas fa-user-edit me-2"></i>Update Profile</a></li>
-                    <li><a class="dropdown-item" href="userlistinternshipapplications?userId=${user.userId}"><i class="fas fa-list me-2"></i>List Internships</a></li>
+                    <li><a class="dropdown-item" href="userlistinternshipapplications?userId=${user.userId}"><i class="fas fa-list me-2"></i>My Internships</a></li>
                     <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                 </ul>
 						</div>
-                        <a href="#" class="nav-item nav-link">Contact</a>
+                        <a href="usercontactus" class="nav-item nav-link">Contact</a>
 					</div>
 				</div>
                 <div class="d-none d-xl-flex flex-shirink-0">

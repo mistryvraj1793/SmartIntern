@@ -46,14 +46,6 @@ public class InternshipApplicationController {
 	
 	@GetMapping("userinternshipapplications")
 	public String userInternshipApplications(Integer internshipId,Model model) {
-		/*
-		 * List<InternshipEntity> allInternships = repositoryInternship.findAll();
-		 * List<UserEntity> allUsers = repositoryUser.findAll();
-		 * 
-		 * //fetches the data from controller in allInternships and allUsers to jsp
-		 * model.addAttribute("allInternships", allInternships);
-		 * model.addAttribute("allUsers", allUsers);
-		 */
 		Optional<InternshipEntity> op = repositoryInternship.findById(internshipId);
 		if (op.isPresent()) {
 		 	InternshipEntity internshipById = op.get();
@@ -65,47 +57,54 @@ public class InternshipApplicationController {
 		}
 	}
 	@PostMapping("saveinternshipapplication")
-	public String saveInternshipApplication(Integer internshipId,InternshipApplicationEntity entityInternshipApplication, MultipartFile resume, MultipartFile coverLetter, HttpSession session, StudentDetailEntity entityStudentDetail, UserEntity entityUser) {
-		UserEntity user = (UserEntity) session.getAttribute("user");
-		Integer userId = user.getUserId();
-		Optional<InternshipEntity> internship = repositoryInternship.findById(internshipId);
-		Optional<UserEntity> users = repositoryUser.findById(userId);
-		if(internship.isPresent()) {
-			System.out.println(userId);
-			entityInternshipApplication.setUserId(userId);
-			entityInternshipApplication.setInternshipId(internshipId);
-			
-			if (users.isPresent()) {
-				UserEntity dbUser = users.get();
-				dbUser.setRole("INTERN");
-				repositoryUser.save(dbUser);
-			}
-			//set Bydefault:
-			
-			System.out.println("Role =>"+entityUser.getRole());
-			entityInternshipApplication.setAppliedAt(LocalDate.now());
-			entityInternshipApplication.setStatus("PENDING");
-	
-			try {
-				Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());
-				Map resultcoverLetter= cloudinary.uploader().upload(coverLetter.getBytes(), ObjectUtils.emptyMap());
-				System.out.println(resultResume.get("url"));
-				System.out.println(resultcoverLetter.get("url"));
+	public String saveInternshipApplication(Integer internshipId, InternshipApplicationEntity entityInternshipApplication, MultipartFile resume, MultipartFile coverLetter, HttpSession session) {
+	    UserEntity user = (UserEntity) session.getAttribute("user");
+	    Integer userId = user.getUserId();
+	    StudentDetailEntity studentDetail = (StudentDetailEntity) session.getAttribute("studentDetail");
 
-				entityInternshipApplication.setResumePath(resultResume.get("url").toString());
-				entityInternshipApplication.setCoverLetterPath(resultcoverLetter.get("url").toString());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			System.out.println("Can't do AnyThing");
-			
-			//store the data from InternshipApplication jsp form into table internship_application
-			repositoryInternshipApplication.save(entityInternshipApplication);
-			return "redirect:/userdashboard";
-		}
-		else {
-			return "redirect:/userstudentdetail";
-		}
+	    Optional<InternshipEntity> internshipOptn = repositoryInternship.findById(internshipId);
+	    Optional<UserEntity> userOptn = repositoryUser.findById(userId);
+
+	    if (internshipOptn.isPresent()) {
+	        entityInternshipApplication.setUserId(userId);
+	        entityInternshipApplication.setInternshipId(internshipId);
+	        entityInternshipApplication.setAppliedAt(LocalDate.now());
+	        entityInternshipApplication.setStatus("PENDING");
+
+	        // Update user role to INTERN if present
+	        if (userOptn.isPresent()) {
+	            UserEntity dbUser = userOptn.get();
+	            dbUser.setRole("INTERN");
+	            repositoryUser.save(dbUser);
+	        }
+
+	        // Upload resume if student detail not present or resume is missing
+	        if (studentDetail == null || studentDetail.getResumePath() == null) {
+	            try {
+	                Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());
+	                entityInternshipApplication.setResumePath(resultResume.get("url").toString());
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	        } else {
+	            entityInternshipApplication.setResumePath(studentDetail.getResumePath());
+	        }
+	        
+	     // Only upload cover letter if user uploaded one (optional)
+	        if (coverLetter != null && coverLetter.getSize() > 0) {
+	            try {
+	                Map resultCoverLetter = cloudinary.uploader().upload(coverLetter.getBytes(), ObjectUtils.emptyMap());
+	                entityInternshipApplication.setCoverLetterPath(resultCoverLetter.get("url").toString());
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	        }
+
+	        repositoryInternshipApplication.save(entityInternshipApplication);
+	        return "redirect:/userdashboard";
+	    } else {
+	        return "redirect:/userstudentdetail";
+	    }
 	}
 	@GetMapping("adminlistinternshipapplications")
 	public String adminlistInternshipApplications(Model model) {

@@ -16,7 +16,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 	@Query(value = "select count(*) from users", nativeQuery = true)
 	Integer totalUsers();
 	
-	//Widget ActiveInternships:
+	//Widget ActiveInternships and Dynamic Display in UserContactUs, UserAboutUs as a Fact:
 	@Query(value = "select count(*) from users where role=\"INTERN\"", nativeQuery = true)
 	Integer totalInterns();
 	

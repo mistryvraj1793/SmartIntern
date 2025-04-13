@@ -14,13 +14,9 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.CompanyUserRepository;
 import com.grownited.repository.InternshipApplicationRepository;
+import com.grownited.repository.InternshipProjectRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
-
-import jakarta.servlet.http.HttpSession;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 @Controller
 public class UserController {
@@ -30,6 +26,9 @@ public class UserController {
 	
 	@Autowired
 	InternshipRepository repositoryInternship;
+	
+	@Autowired
+	InternshipProjectRepository repositoryInternshipProject;
 	
 	@Autowired
 	InternshipApplicationRepository repositoryInternshipApplication;
@@ -121,6 +120,14 @@ public class UserController {
 		return "UserListInternApplications";
 	}
 	
+	@GetMapping("userviewinternshipapplication")
+	public String userViewInternshipApplication(Integer applicationId, Model model) {
+		List<Object[]> userViewInternApplication = repositoryInternshipApplication.UserViewInternApplicationById(applicationId);
+		model.addAttribute("userInternApplication", userViewInternApplication);
+		return "UserViewInternshipApplication";
+	}
+	
+	
 	@GetMapping("adminedituser")
 	public String adminEditUser(Integer userId, Model model) {
 		Optional<UserEntity> op = repositoryUser.findById(userId);
@@ -159,8 +166,36 @@ public class UserController {
 		return "redirect:/adminlistusers"; // Redirects to the user list page
 	}
 	@GetMapping("usercontactus")
-	public String userContactUs() {
+	public String userContactUs(Model model) {
+		//Dynamic Display in UserContactUs as a Fact:
+		Integer totalinterns = repositoryUser.totalInterns();
+		Integer totalCompanies = repositoryCompany.totalCompany();	
+		Integer countLiveInternshipProjects = repositoryInternshipProject.countLiveInternshipProjects();
+		Integer totalmentors = repositoryCompanyUser.totalMentors();
+		
+		model.addAttribute("totalinterns", totalinterns);
+		model.addAttribute("totalCompanies", totalCompanies);
+		model.addAttribute("liveInternshipProjects", countLiveInternshipProjects);
+		model.addAttribute("totalmentors", totalmentors);
 		return "UserContactUs";
+	}
+	@GetMapping("useraboutus")
+	public String userAboutUs(Model model) {
+		//Dynamic Display in UserContactUs as a Fact:
+		Integer totalinterns = repositoryUser.totalInterns();
+		Integer totalCompanies = repositoryCompany.totalCompany();	
+		Integer countLiveInternshipProjects = repositoryInternshipProject.countLiveInternshipProjects();
+		Integer totalmentors = repositoryCompanyUser.totalMentors();
+				
+		model.addAttribute("totalinterns", totalinterns);
+		model.addAttribute("totalCompanies", totalCompanies);
+		model.addAttribute("liveInternshipProjects", countLiveInternshipProjects);
+		model.addAttribute("totalmentors", totalmentors);
+		return "UserAboutUs";
+	}
+	@GetMapping("userservices")
+	public String userServices(Model model) {
+		return "UserServcies";
 	}
 	
 }

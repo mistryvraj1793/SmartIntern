@@ -109,121 +109,121 @@
 	<!-- Fact End -->
 	
 	<!-- About Start -->
-<div class="container-fluid py-5 my-5">
-    <div class="container pt-5">
-        <div class="row g-5">
-            <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
-                <div class="h-100 position-relative">
-                    <img src="user/img/about-1.jpg" class="img-fluid w-75 rounded" alt="" style="margin-bottom: 25%;">
-                    <div class="position-absolute w-75" style="top: 25%; left: 25%;">
-                        <img src="user/img/about-2.jpg" class="img-fluid w-100 rounded" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
-                <h5 class="text-primary">About SmartIntern</h5>
-                <h1 class="mb-4">SmartIntern — Streamlined Internship Management Platform</h1>
-                <p>SmartIntern is a comprehensive internship management system built to connect students, faculties, and employers on a single transparent platform. It simplifies the process of applying for internships, enables faculty mentors to guide students effectively, and provides companies direct access to a talented pool of candidates.</p>
-                <p class="mb-4">With SmartIntern, organizations can post internships, review applications, and manage evaluations seamlessly, while students get structured guidance, real-time progress tracking, and valuable certifications. Our platform ensures a fair, efficient, and rewarding internship experience for all stakeholders involved.</p>
-                <a href="#" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Explore Features</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- About End -->
+	<div class="container-fluid py-5 my-5">
+	    <div class="container pt-5">
+	        <div class="row g-5">
+	            <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+	                <div class="h-100 position-relative">
+	                    <img src="user/img/about-1.jpg" class="img-fluid w-75 rounded" alt="" style="margin-bottom: 25%;">
+	                    <div class="position-absolute w-75" style="top: 25%; left: 25%;">
+	                        <img src="user/img/about-2.jpg" class="img-fluid w-100 rounded" alt="">
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+	                <h5 class="text-primary">About SmartIntern</h5>
+	                <h1 class="mb-4">SmartIntern — Streamlined Internship Management Platform</h1>
+	                <p>SmartIntern is a comprehensive internship management system built to connect students, faculties, and employers on a single transparent platform. It simplifies the process of applying for internships, enables faculty mentors to guide students effectively, and provides companies direct access to a talented pool of candidates.</p>
+	                <p class="mb-4">With SmartIntern, organizations can post internships, review applications, and manage evaluations seamlessly, while students get structured guidance, real-time progress tracking, and valuable certifications. Our platform ensures a fair, efficient, and rewarding internship experience for all stakeholders involved.</p>
+	                <a href="#" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Explore Features</a>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- About End -->
 
 
 	<!-- Services Start -->
-<div class="container-fluid services py-5 mb-5">
-    <div class="container">
-        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Services</h5>
-            <h1>SmartIntern Solutions For Internship Management</h1>
-        </div>
-        <div class="row g-5 services-inner">
-
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-briefcase fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Internship Listings</h4>
-                            <p class="mb-4">Companies can post internships, and students can easily explore opportunities matching their skills and interests.</p>
-                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-user-tie fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Mentorship Management</h4>
-                            <p class="mb-4">Mentors can monitor assigned students, track project progress, and provide guidance through the platform.</p>
-                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-tasks fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Project Allocation</h4>
-                            <p class="mb-4">HRs and admins can efficiently assign projects and technologies to students based on their profiles and preferences.</p>
-                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-users fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Student Profiles</h4>
-                            <p class="mb-4">Students can maintain detailed profiles with personal info, education, skillsets, and internship history for companies to review.</p>
-                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-building fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Company Collaboration</h4>
-                            <p class="mb-4">Partner companies can connect with talented interns, post requirements, and manage their internship activities smoothly.</p>
-                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-chart-line fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Performance Tracking</h4>
-                            <p class="mb-4">Monitor student performance, project submissions, and mentor feedback to evaluate overall internship outcomes.</p>
-                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- Services End -->
+	<div class="container-fluid services py-5 mb-5">
+	    <div class="container">
+	        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+	            <h5 class="text-primary">Our Services</h5>
+	            <h1>SmartIntern Solutions For Internship Management</h1>
+	        </div>
+	        <div class="row g-5 services-inner">
+	
+	            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
+	                <div class="services-item bg-light">
+	                    <div class="p-4 text-center services-content">
+	                        <div class="services-content-icon">
+	                            <i class="fas fa-briefcase fa-7x mb-4 text-primary"></i>
+	                            <h4 class="mb-3">Internship Listings</h4>
+	                            <p class="mb-4">Companies can post internships, and students can easily explore opportunities matching their skills and interests.</p>
+	                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
+	                <div class="services-item bg-light">
+	                    <div class="p-4 text-center services-content">
+	                        <div class="services-content-icon">
+	                            <i class="fas fa-user-tie fa-7x mb-4 text-primary"></i>
+	                            <h4 class="mb-3">Mentorship Management</h4>
+	                            <p class="mb-4">Mentors can monitor assigned students, track project progress, and provide guidance through the platform.</p>
+	                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+	                <div class="services-item bg-light">
+	                    <div class="p-4 text-center services-content">
+	                        <div class="services-content-icon">
+	                            <i class="fas fa-tasks fa-7x mb-4 text-primary"></i>
+	                            <h4 class="mb-3">Project Allocation</h4>
+	                            <p class="mb-4">HRs and admins can efficiently assign projects and technologies to students based on their profiles and preferences.</p>
+	                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
+	                <div class="services-item bg-light">
+	                    <div class="p-4 text-center services-content">
+	                        <div class="services-content-icon">
+	                            <i class="fas fa-users fa-7x mb-4 text-primary"></i>
+	                            <h4 class="mb-3">Student Profiles</h4>
+	                            <p class="mb-4">Students can maintain detailed profiles with personal info, education, skillsets, and internship history for companies to review.</p>
+	                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
+	                <div class="services-item bg-light">
+	                    <div class="p-4 text-center services-content">
+	                        <div class="services-content-icon">
+	                            <i class="fas fa-building fa-7x mb-4 text-primary"></i>
+	                            <h4 class="mb-3">Company Collaboration</h4>
+	                            <p class="mb-4">Partner companies can connect with talented interns, post requirements, and manage their internship activities smoothly.</p>
+	                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+	                <div class="services-item bg-light">
+	                    <div class="p-4 text-center services-content">
+	                        <div class="services-content-icon">
+	                            <i class="fas fa-chart-line fa-7x mb-4 text-primary"></i>
+	                            <h4 class="mb-3">Performance Tracking</h4>
+	                            <p class="mb-4">Monitor student performance, project submissions, and mentor feedback to evaluate overall internship outcomes.</p>
+	                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	        </div>
+	    </div>
+	</div>
+	<!-- Services End -->
 
 
 	<!-- Internship Start -->
@@ -358,43 +358,125 @@
     <!-- Project End -->
 
 	<!-- Team Start -->
-<div class="container-fluid py-5 mb-5 team">
-    <div class="container">
-        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Team</h5>
-            <h1>Meet the SmartIntern Leadership</h1>
-        </div>
+	<div class="container-fluid py-5 mb-5 team">
+	    <div class="container">
+	        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+	            <h5 class="text-primary">Our Team</h5>
+	            <h1>Meet the SmartIntern Leadership</h1>
+	        </div>
+	
+	        <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">
+	            <c:forEach var="cmpUser" items="${companyUsers}">
+	                <div class="rounded team-item">
+	                    <div class="team-content">
+	                        <div class="team-img-icon">
+	                            <div class="team-img rounded-circle">
+	                                <img src="user/img/team-1.jpg" class="img-fluid w-100 rounded-circle" alt="${cmpUser[8]}">
+	                            </div>
+	                            <div class="team-name text-center py-3">
+	                                <h4>${cmpUser[8]}</h4>
+	                                <p class="m-0">${cmpUser[2]}</p>
+	                            </div>
+	                            <div class="team-icon d-flex justify-content-center pb-4">
+	                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-facebook-f"></i></a>
+	                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-twitter"></i></a>
+	                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-instagram"></i></a>
+	                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </c:forEach>
+	        </div>
+	    </div>
+	</div>
+	<!-- Team End -->
 
-        <div class="owl-carousel team-carousel wow fadeIn" data-wow-delay=".5s">
-            <c:forEach var="cmpUser" items="${companyUsers}">
-                <div class="rounded team-item">
-                    <div class="team-content">
-                        <div class="team-img-icon">
-                            <div class="team-img rounded-circle">
-                                <img src="user/img/team-1.jpg" class="img-fluid w-100 rounded-circle" alt="${cmpUser[8]}">
-                            </div>
-                            <div class="team-name text-center py-3">
-                                <h4>${cmpUser[8]}</h4>
-                                <p class="m-0">${cmpUser[2]}</p>
-                            </div>
-                            <div class="team-icon d-flex justify-content-center pb-4">
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-secondary text-white rounded-circle m-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
-    </div>
-</div>
-<!-- Team End -->
 
-
-
-	<jsp:include page="UserContactUs.jsp"></jsp:include>
+	<!-- Contact Start -->
+	<div id="contact-us-section" class="container-fluid py-5 mb-5 bg-light">
+	    <div class="container-fluid py-5 mb-5 bg-light">
+	        <div class="container">
+	            <div class="text-center mx-auto pb-4 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+	                <h5 class="text-primary">Reach Out to SmartIntern</h5>
+	                <h1 class="mb-3">We're Here to Help You</h1>
+	                <p class="mb-2">Whether you're a student, mentor, HR, or admin — contact us for any queries, feedback, or internship collaboration opportunities.</p>
+	            </div>
+	
+	            <div class="contact-detail position-relative p-5 rounded bg-white shadow">
+	                <div class="row g-5 mb-5 justify-content-center">
+	                    <div class="col-xl-4 col-lg-6 wow fadeIn" data-wow-delay=".3s">
+	                        <div class="d-flex bg-secondary text-white p-3 rounded">
+	                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
+	                                <i class="fas fa-map-marker-alt"></i>
+	                            </div>
+	                            <div class="ms-3">
+	                                <h5 class="text-white">Head Office</h5>
+	                                <p class="mb-0">Vatsalya Complex-3, Ahmedabad, Gujarat, India</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	
+	                    <div class="col-xl-4 col-lg-6 wow fadeIn" data-wow-delay=".5s">
+	                        <div class="d-flex bg-secondary text-white p-3 rounded">
+	                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
+	                                <i class="fa fa-phone"></i>
+	                            </div>
+	                            <div class="ms-3">
+	                                <h5 class="text-white">Call Us</h5>
+	                                <p class="mb-0">+91 98765 43210</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	
+	                    <div class="col-xl-4 col-lg-6 wow fadeIn" data-wow-delay=".7s">
+	                        <div class="d-flex bg-secondary text-white p-3 rounded">
+	                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
+	                                <i class="fa fa-envelope"></i>
+	                            </div>
+	                            <div class="ms-3">
+	                                <h5 class="text-white">Email Us</h5>
+	                                <p class="mb-0">support@smartintern.in</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	
+	                <div class="row g-5">
+	                    <div class="col-lg-6 wow fadeIn" data-wow-delay=".3s">
+	                        <div class="p-5 h-100 rounded contact-map">
+	                            <iframe class="rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.891106546056!2d72.5544307149615!3d23.026027921279498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e6148f38b1151%3A0x3e896fb2fabfb3ff!2sVatsalya+Complex-3%2C+Ahmedabad%2C+Gujarat%2C+India!5e0!3m2!1sen!2sin!4v1686493221834!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+	                        </div>
+	                    </div>
+	
+	                    <div class="col-lg-6 wow fadeIn" data-wow-delay=".5s">
+	                        <div class="p-5 rounded contact-form bg-light">
+	                            <form>
+	                                <div class="mb-4">
+	                                    <input type="text" class="form-control border-0 py-3" placeholder="Your Name" required>
+	                                </div>
+	                                <div class="mb-4">
+	                                    <input type="email" class="form-control border-0 py-3" placeholder="Your Email" required>
+	                                </div>
+	                                <div class="mb-4">
+	                                    <input type="text" class="form-control border-0 py-3" placeholder="Subject" required>
+	                                </div>
+	                                <div class="mb-4">
+	                                    <textarea class="w-100 form-control border-0 py-3" rows="6" placeholder="Your Message" required></textarea>
+	                                </div>
+	                                <div class="text-start">
+	                                    <button class="btn bg-primary text-white py-3 px-5" type="submit">Send Message</button>
+	                                </div>
+	                            </form>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- Contact End -->
+	
 
 <!-- Body End -->
 </body>

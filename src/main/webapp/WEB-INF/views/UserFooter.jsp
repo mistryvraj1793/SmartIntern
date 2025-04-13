@@ -32,9 +32,9 @@
                 <h3 class="text-secondary">Quick Links</h3>
                 <div class="mt-4 d-flex flex-column short-link">
                     <a href="#" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>About Us</a>
-                    <a href="#" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact Us</a>
+                    <a href="usercontactus" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Contact Us</a>
                     <a href="#" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Our Projects</a>
-                    <a href="userinternships" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Internships</a>
+                    <a href="#" class="mb-2 text-white"><i class="fas fa-angle-right text-secondary me-2"></i>Internships</a>
                 </div>
             </div>
 
@@ -60,8 +60,8 @@
                     <a href="tel:+919876543210" class="py-3 text-light border-bottom border-primary">
                         <i class="fas fa-phone-alt text-secondary me-2"></i> +91 98765 43210
                     </a>
-                    <a href="mailto:support@smartintern.in" class="py-3 text-light border-bottom border-primary">
-                        <i class="fas fa-envelope text-secondary me-2"></i> support@smartintern.in
+                    <a href="mailto:supportsmartntern@gmail.com" class="py-3 text-light border-bottom border-primary">
+                        <i class="fas fa-envelope text-secondary me-2"></i> supportsmartntern@gmail.com
                     </a>
                 </div>
             </div>

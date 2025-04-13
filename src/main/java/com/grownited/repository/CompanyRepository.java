@@ -19,7 +19,7 @@ public interface CompanyRepository extends JpaRepository<CompanyEntity, Integer>
 	@Query(value = "select cmp.*, concat(u.first_name, ' ', u.last_name) as FullName, u.role from company cmp join users u on u.user_id = cmp.user_id and cmp.company_id = :companyId", nativeQuery = true)
 	List<Object[]> findByCompanyId(Integer companyId);
 	
-	//Dynamic Display in UserBody as a Fact:
+	//Dynamic Display in UserBody, UserContactUs as a Fact:
 	@Query(value = "select count(*) from company", nativeQuery = true)
 	Integer totalCompany();
 }

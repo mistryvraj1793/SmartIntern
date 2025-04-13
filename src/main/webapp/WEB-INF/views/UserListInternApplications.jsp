@@ -40,42 +40,38 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
           <div class="d-flex justify-content-center">
             <div class="col-lg-12 col-md-10 d-flex flex-column align-items-center justify-content-center ">
               <div class="card">
-
-               <div class="card-body">
- 									<h5 class="card-title">
- 										InternshipApplications<span>/all</span>
- 									</h5>
- 									<table class="table datatable datatable-table table-hover" id="myTable">
- 										<thead>
- 											<tr>
- 												<th>Title</th>
-												<th>Company Name</th>
-												<th>Stipend</th>
-												<th>Status</th>
-												<th>Action</th>
- 											</tr>
- 										</thead>
- 										<tbody>	
-										<c:forEach items="${internApplications }" var="internApp">
-											<tr>
-												<td>${internApp[8] }</td>
-												<td>${internApp[11] }</td>
-												<td>${internApp[10] }</td>
-												<td>${internApp[5] }</td>
-												<td><a href="#">View</a></td>
-											</tr>
-										</c:forEach>	
- 										</tbody>
- 									</table>
- 								</div>
+				<div class="card-body">
+ 					<h5 class="card-title">
+ 						InternshipApplications<span>/all</span>
+ 					</h5>
+ 					<table class="table datatable datatable-table table-hover" id="myTable">
+ 						<thead>
+ 							<tr>
+ 								<th>Internship Title</th>
+								<th>Company Name</th>
+								<th>Your Stipend</th>
+								<th>Application Status</th>
+								<th>Action</th>
+ 								</tr>
+						</thead>
+ 						<tbody>	
+							<c:forEach items="${internApplications }" var="internApp">
+								<tr>
+									<td>${internApp[8] }</td>
+									<td>${internApp[11] }</td>
+									<td>${internApp[10] }</td>
+									<td>${internApp[6] }</td>
+									<td><a href="userviewinternshipapplication?applicationId=${internApp[0] }">View</a></td>
+								</tr>
+							</c:forEach>	
+ 						</tbody>
+ 					</table>
+				</div>
               </div>
-
             </div>
           </div>
         </div>
-
       </section>
-
     </div>
   </main><!-- End #main -->
 	  
@@ -87,5 +83,4 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <jsp:include page="UserJs.jsp"></jsp:include>
   
 </body>
-
 </html>

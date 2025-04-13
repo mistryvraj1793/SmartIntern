@@ -20,10 +20,10 @@
         <div class="d-flex justify-content-between topbar">
             <div class="top-info">
                 <small class="me-3 text-white-50">
-                    <a href="#"><i class="fas fa-map-marker-alt me-2 text-secondary"></i></a>Vatsalya Complex-3, Ahmedabad, Gujarat, India
+                    <a href="https://www.google.com/maps/place/Vatsalya+Complex-3/@22.8229913,72.7599621,811m/data=!3m2!1e3!4b1!4m6!3m5!1s0x395e6148f38b1151:0x3e896fb2fabfb3ff!8m2!3d22.8229913!4d72.762537!16s%2Fg%2F11h_f8_j3x?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D" target="_blank"><i class="fas fa-map-marker-alt me-2 text-secondary"></i></a>Vatsalya Complex-3, Ahmedabad, Gujarat, India
                 </small>
                 <small class="me-3 text-white-50">
-                    <a href="#"><i class="fas fa-envelope me-2 text-secondary"></i></a>support@smartintern.com
+                    <a href="mailto:supportsmartntern@gmail.com"><i class="fas fa-envelope me-2 text-secondary"></i></a>supportsmartntern@gmail.com
                 </small>
             </div>
             <div id="note" class="text-danger d-none d-xl-flex align-items-center" style="white-space: nowrap;">
