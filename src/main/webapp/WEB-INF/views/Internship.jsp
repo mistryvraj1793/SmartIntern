@@ -20,6 +20,10 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <!-- Template Main CSS File -->
   <jsp:include page="AdminCss.jsp"></jsp:include>
   
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
+  
 </head>
 
 <body>
@@ -98,32 +102,32 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                        </div>
 	
 	                        <div class="col-6">
-	                            <label class="form-label">Company Name</label>
-	                            <select class="form-select" name="companyId">
-	                                <option selected>select Company</option>
+	                            <label for="company" class="form-label">Company Name</label>
+	                            
+	                            <select class="form-select" name="companyId" id="company" onchange="getCompanyRelatedData()">
+	                            	<option value="-1">Select Company</option>
 	                                <c:forEach items="${allCompanies}" var="company">
 	                                    <option value="${company.companyId}">${company.companyName}</option>
 	                                </c:forEach>
+	                            
 	                            </select>
 	                        </div>
 	                        
 	                        <div class="col-6">
-	                            <label class="form-label">Project Name</label>
-	                            <select class="form-select" name="projectId">
-	                                <option selected>select Project</option>
-	                                <c:forEach items="${allProjects}" var="proj">
-	                                    <option value="${proj.projectId}">${proj.title}</option>
-	                                </c:forEach>
+	                            <label for="project" class="form-label">Project Title</label>
+	                            
+	                            <select class="form-select" name="projectId" id="project">
+	                                <option value="-1">Select Project</option>
+	                                
 	                            </select>
+	                            
 	                        </div>
 	                        
 	                        <div class="col-6">
-	                            <label class="form-label">Technology Name</label>
-	                            <select class="form-select" name="technologyId">
-	                                <option selected>select Technology</option>
-	                                <c:forEach items="${allTechnologies}" var="tech">
-	                                    <option value="${tech.technologyId}">${tech.name}</option>
-	                                </c:forEach>
+	                            <label for="technology" class="form-label">Technology Name</label>
+	                            <select class="form-select" name="technologyId" id="technology">
+	                                <option value="-1">Select Technology</option>
+	                 
 	                            </select>
 	                        </div>
 							
@@ -149,6 +153,87 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
 
+	<script type="text/javascript">
+		/* function getProject() {
+			console.log("Company Change");
+			let companyId = document.getElementById("company").value;
+			console.log(companyId);
+			
+			//url -> json REST
+			
+			// Assign handlers immediately after making the request,
+			// and remember the jqxhr object for this request
+			$.get( "getallprojectbycompanyid/"+companyId, function() {
+			})
+			  .done(function(data) {
+				  console.log(data);
+				  
+				  //fill the project
+				   $('#project').empty().append('<option selected="selected" value="-1">Select Project</option>')
+				  
+				  for (var i = 0; i < data.length; i++) {
+      			  	$('#project').append('<option value="' + data[i].projectId + '">' + data[i].title + '</option>');
+   				 }
+				  
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  .always(function() {
+			    
+			  });
+		} */
+		function getCompanyRelatedData() {
+			console.log("Company Change");
+		    let companyId = document.getElementById("company").value;
+		    console.log(companyId);
+		    
+		    //url -> json REST
+		    
+		 	// Assign handlers immediately after making the request, and remember the jqxhr object for this request/
+		 	// Fetch Projects
+		    $.get( "getallprojectbycompanyid/"+companyId, function() {
+			})
+			  .done(function(data) {
+				  console.log(data);
+				  
+				  //fill the project
+				   $('#project').empty().append('<option selected="selected" value="-1">Select Project</option>')
+				  
+				  for (var i = 0; i < data.length; i++) {
+      			  	$('#project').append('<option value="' + data[i].projectId + '">' + data[i].title + '</option>');
+   				 }
+				  
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  .always(function() {
+			    
+			  });
+		    
+		    // Fetch Technology:
+		    $.get( "getalltechnologybycompanyid/"+companyId, function() {
+			})
+			  .done(function(data) {
+				  console.log(data);
+				  
+				  //fill the project
+				   $('#technology').empty().append('<option selected="selected" value="-1">Select Technology</option>')
+				  
+				  for (var i = 0; i < data.length; i++) {
+      			  	$('#technology').append('<option value="' + data[i].technologyId + '">' + data[i].name + '</option>');
+   				 }
+				  
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  .always(function() {
+			    
+			  });
+		}
+	</script>
  
 </body>
 

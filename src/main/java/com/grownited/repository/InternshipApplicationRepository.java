@@ -26,6 +26,10 @@ public interface InternshipApplicationRepository extends JpaRepository<Internshi
 	@Query(value = "select count(*) from internship_applications where status=\"ACCEPTED\"", nativeQuery = true)
 	Integer acceptedInternshipApplications();
 	
+	//admin Widget for Applications was PENDING:
+	@Query(value = "select count(*) from internship_applications where status='PENDING'", nativeQuery = true)
+	Integer pendingInternshipApplications();
+	
 	//for user see list of internshipApplication by user
 	@Query(value = " select iapp.*, concat(u.first_name, ' ', u.last_name) as YourName, u.role, i.title, i.company_id, i.stipend, cmp.company_name, cmp.address from internship_applications as iapp join internships i on i.internship_id = iapp.internship_id join company cmp on i.company_id = cmp.company_id join users u on u.user_id = iapp.user_id and iapp.application_id = :applicationId", nativeQuery = true)
 	List<Object[]> UserViewInternApplicationById(Integer applicationId);

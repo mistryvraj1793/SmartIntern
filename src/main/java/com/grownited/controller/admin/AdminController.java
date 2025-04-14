@@ -16,6 +16,7 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.CompanyUserRepository;
 import com.grownited.repository.InternshipApplicationRepository;
+import com.grownited.repository.InternshipProjectRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -37,6 +38,9 @@ public class AdminController {
 	InternshipRepository repositoryInternship;
 	
 	@Autowired
+	InternshipProjectRepository repositoryInternshipProject;
+	
+	@Autowired
 	InternshipApplicationRepository repositoryInternshipApplication;
 	
 	@Autowired
@@ -52,17 +56,31 @@ public class AdminController {
 		Integer acceptedInternshipApplications = repositoryInternshipApplication.acceptedInternshipApplications();
 		Integer totalInternships = repositoryInternship.totalInternships();
 		Integer activeInternships = repositoryInternship.findByStatus("OPEN").size();
+		Integer pendingInternApplications = repositoryInternshipApplication.pendingInternshipApplications();
+		Integer totalCompanies = repositoryCompany.totalCompany();
+		Integer totalInternProjects = repositoryInternshipProject.totalInternshipProject();
 		
 		LocalDate today = LocalDate.now();
 		int month = today.getMonthValue();
 		Integer thisMonthInternsCount = repositoryUser.countThisMonthIntern(month);
+		//for Chart
+		Integer monthWiseIntern [] = new Integer[12];
+		for(int i = 1; i <= 12; i++) {
+			monthWiseIntern [i-1] = repositoryUser.countThisMonthIntern(i);
+		}
+		model.addAttribute("monthWiseIntern", monthWiseIntern);
 		
+		//Widget
 		model.addAttribute("totalInterns", totalInterns);
 		model.addAttribute("acceptedInternApplication", acceptedInternshipApplications);
 		model.addAttribute("totalInternships", totalInternships);
 		model.addAttribute("activeInternships", activeInternships);
 		model.addAttribute("currentMonth", LocalDate.now().getMonth().name());
 		model.addAttribute("thisMonthInternsCount", thisMonthInternsCount);
+		model.addAttribute("pendingInternApplications", pendingInternApplications);
+		model.addAttribute("totalCompanies", totalCompanies);
+		model.addAttribute("totalInternProjects", totalInternProjects);
+		
 		return "AdminDashboard";
 	}
 	@GetMapping("hrmentordashboard")

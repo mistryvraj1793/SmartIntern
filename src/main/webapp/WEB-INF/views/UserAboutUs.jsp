@@ -37,8 +37,8 @@
                 <h1 class="display-2 text-white mb-4 animated slideInDown">About Us</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item"><a href="userdashboard">Home</a></li>
+                        <li class="breadcrumb-item">Profile</li>
                         <li class="breadcrumb-item" aria-current="page">About</li>
                     </ol>
                 </nav>
@@ -98,7 +98,7 @@
 		                <h1 class="mb-4">SmartIntern — Streamlined Internship Management Platform</h1>
 		                <p>SmartIntern is a comprehensive internship management system built to connect students, faculties, and employers on a single transparent platform. It simplifies the process of applying for internships, enables faculty mentors to guide students effectively, and provides companies direct access to a talented pool of candidates.</p>
 		                <p class="mb-4">With SmartIntern, organizations can post internships, review applications, and manage evaluations seamlessly, while students get structured guidance, real-time progress tracking, and valuable certifications. Our platform ensures a fair, efficient, and rewarding internship experience for all stakeholders involved.</p>
-		                <a href="#" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Explore Features</a>
+		                <a href="userfeatures" class="btn btn-secondary rounded-pill px-5 py-3 text-white">Explore Features</a>
 		            </div>
 		        </div>
 		    </div>
@@ -141,8 +141,60 @@
 		    </div>
 		</div>
 		<!-- Team End -->
-
-
+			
+		<!-- Features Modal Start -->
+		<div class="modal fade" id="featuresModal" tabindex="-1" aria-labelledby="featuresModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+		    <div class="modal-content">
+		      <div class="modal-header bg-primary text-white">
+		        <h5 class="modal-title" id="featuresModalLabel">SmartIntern Features</h5>
+		        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <h5>🚀 Seamless Internship Management Platform</h5>
+		        <p>SmartIntern simplifies the internship journey for students, mentors, and companies.</p>
+		
+		        <h6>👨‍🎓 For Students</h6>
+		        <ul>
+		          <li>Browse and apply for a variety of internships.</li>
+		          <li>Track application and internship progress in real-time.</li>
+		          <li>Earn certificates upon successful completion.</li>
+		        </ul>
+		
+		        <h6>🏢 For Companies</h6>
+		        <ul>
+		          <li>Create and manage internship openings.</li>
+		          <li>Review applications and select ideal candidates.</li>
+		          <li>Assign mentors and monitor internship deliverables.</li>
+		        </ul>
+		
+		        <h6>🎓 For Faculty Mentors</h6>
+		        <ul>
+		          <li>Monitor student progress and status updates.</li>
+		          <li>Evaluate deliverables and provide structured feedback.</li>
+		          <li>Communicate directly with students and companies.</li>
+		        </ul>
+		
+		        <h6>📊 Analytics & Reports</h6>
+		        <ul>
+		          <li>Real-time insights on applications, projects, and performance.</li>
+		          <li>Visual dashboards for tracking engagement and success rates.</li>
+		        </ul>
+		
+		        <h6>🔒 Secure & User-Friendly</h6>
+		        <ul>
+		          <li>Role-based access and data privacy.</li>
+		          <li>Responsive, clean, and intuitive interface for all users.</li>
+		        </ul>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Features Modal End -->
+		
         <!-- Footer Start -->
         <jsp:include page="UserFooter.jsp"></jsp:include>
         <!-- Footer End -->

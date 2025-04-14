@@ -96,8 +96,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                            <textarea class="form-control" name="description" style="height: 80px" required></textarea>
 	                        </div>
 	                        
-	                        <div class="col-12">
-	                            <button class="btn btn-primary w-100" type="submit" value="Save Technology">Add Technology</button>
+	                        <div class="text-center">
+	                            <button class="btn btn-primary px-4" type="submit" value="Save Technology">Add Technology</button>
 	                        </div>
 	                    </form>
 	

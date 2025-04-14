@@ -33,43 +33,40 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 	<!-- End Sidebar-->
 
-  <main id="main" class="main">
+  <main id="main" class="main d-flex flex-column min-vh-100">
 
-    <div class="pagetitle">
-      <h1>Update User</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="adminliststudentdetails">List StudentDetails</a></li>
-          <li class="breadcrumb-item active">Update StudentDetail</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+  <!-- Centered Page Title -->
+  <div class="pagetitle text-center">
+    <h1>Update StudentDetail</h1>
+    <nav>
+      <ol class="breadcrumb justify-content-center">
+        <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+        <li class="breadcrumb-item"><a href="adminliststudentdetails">List StudentDetails</a></li>
+        <li class="breadcrumb-item active">Update StudentDetail</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
 
-    
+  <!-- Form Section Centered -->
+  <section class="section flex-grow-1 d-flex justify-content-center align-items-start">
+    <div class="col-lg-8 col-md-8 col-sm-10">
+      <div class="card shadow p-4">
+        <div class="card-body">
+          <div class="pt-4 pb-2 text-center">
+            <h5 class="card-title fw-bold">Update a StudentDetail</h5>
+            <p class="small">Enter personal details to update student detail</p>
+          </div>
 
-      <section class="section dashboard">
- 			<div class="row" style="min-height: 500px;">
- 
- 				<!-- Left side columns -->
- 				<div class="col-lg-12">
- 					<div class="row">
- 						<div class="col-12">
- 							<div class="card">
- 								<div class="card-body">
- 									<div class="pt-4 pb-2">
-					                    <h5 class="card-title text-center pb-0 fs-4">Update an StudentDetail</h5>
-					                    <p class="text-center small">Enter your personal details to update your studentDetail</p>
-					                  </div>
-					
-					                  <form class="row g-3 needs-validation" action="adminupdatestudentdetails" method="post" novalidate>
-					                        <div class="col-6">
-						                      <label for="stuCity" class="form-label">City Name</label>
-						                      <input type="text" name="stuCity" class="form-control" id="stuCity" value="${adminEditStudentDetail.stuCity }" required>
-						                      <div class="invalid-feedback">Please, enter your city!</div>
-						                    </div>
-						                    
-						                    <div class="col-6">
+          <!-- your existing form content -->
+          <form class="row g-3 needs-validation" action="adminupdatestudentdetails" method="post" novalidate>
+            <!-- all your form fields as is -->
+
+            <div class="col-6">
+              <label for="stuCity" class="form-label">City Name</label>
+              <input type="text" name="stuCity" class="form-control" id="stuCity" value="${adminEditStudentDetail.stuCity}" required>
+            </div>
+
+            <div class="col-6">
 						                      <label for="stuState" class="form-label">State Name</label>
 						                      <input type="text" name="stuState" class="form-control" id="stuState" value="${adminEditStudentDetail.stuState }" required>
 						                      <div class="invalid-feedback">Please, enter your state!</div>
@@ -122,26 +119,21 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 											    </select>
 											</div>
 					
-											<!-- Hidden input to pass studentDetailId -->
-											<input type="hidden" name="StudentDetailId" value="${adminEditStudentDetail.studentDetailId }"/>
-					
-					                        <div class="text-center">
-					                            <button class="btn btn-primary px-4" type="submit" value="Update StudentDetails">Update StudentDetails</button>
-					                        </div>
-					                    </form>
- 									
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
- 				<!-- End Left side columns -->
- 			</div>
- 		</section>
 
+            <input type="hidden" name="StudentDetailId" value="${adminEditStudentDetail.studentDetailId}" />
 
+            <div class="text-center">
+              <button class="btn btn-primary px-4" type="submit" value="Update StudentDetails">Update StudentDetails</button>
+            </div>
+          </form>
 
-  </main><!-- End #main -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
 
   	<!-- Start Footer -->
 	<jsp:include page="AdminFooter.jsp"></jsp:include>

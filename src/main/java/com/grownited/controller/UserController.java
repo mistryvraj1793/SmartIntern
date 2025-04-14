@@ -198,4 +198,10 @@ public class UserController {
 		return "UserServcies";
 	}
 	
+	@GetMapping("userfeatures")
+	public String userFeatures() {
+		return "UserFeatures";
+	}
+	
+	
 }

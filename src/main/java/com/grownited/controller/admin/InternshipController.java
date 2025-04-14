@@ -15,9 +15,7 @@ import com.grownited.entity.InternshipProjectEntity;
 import com.grownited.entity.InternshipTechnologiesEntity;
 import com.grownited.entity.ProjectsEntity;
 import com.grownited.entity.TechnologiesEntity;
-import com.grownited.entity.UserEntity;
 import com.grownited.repository.*;
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class InternshipController {

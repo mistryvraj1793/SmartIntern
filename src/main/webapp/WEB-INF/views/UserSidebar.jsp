@@ -46,7 +46,7 @@
 					</div>
                     <div class="d-flex flex-column pe-4 border-end">
                     	<span class="text-white-50">Have any questions?</span>
-                        <span class="text-secondary">Call: + 0123 456 7890</span>
+                        <span class="text-secondary">Call: + 91 9876543210</span>
 					</div>
                     <div class="d-flex align-items-center justify-content-center ms-4 ">
                     	<a href="#"><i class="bi bi-search text-white fa-2x"></i> </a>

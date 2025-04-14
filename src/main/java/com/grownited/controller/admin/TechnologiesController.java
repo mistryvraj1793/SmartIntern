@@ -50,8 +50,7 @@ public class TechnologiesController {
 	@GetMapping("adminlisttechnologies")
 	public String adminListTechnologies(Model model) {
 		//fetchs the data from table technologies into controller in list technologiesList
-		List<TechnologiesEntity> technologiesList = repositoryTechnologies.findAll();
-		
+		List<Object[]> technologiesList = repositoryTechnologies.findActiveTechnologies();
 		//fetchs the data from list technologiesList into ListTechnologies jsp.
 		model.addAttribute("technologiesList", technologiesList);
 			
@@ -60,18 +59,10 @@ public class TechnologiesController {
 	@GetMapping("adminviewtechnology")
 	public String adminViewTechnology(Integer technologyId, Model model) {
 		System.out.println("id => "+technologyId);
-		Optional<TechnologiesEntity> op = repositoryTechnologies.findById(technologyId);
-		if(op.isEmpty()) {
-			//Data not Found:
-			System.out.println("Not Found");
-		}
-		else {
-			//Data Found:
-			TechnologiesEntity technologies = op.get();
-			
-			//Send to jsp
-			model.addAttribute("technologies", technologies);
-		}
+		List<Object[]> techDetailsById = repositoryTechnologies.GetTechnologyDetailById(technologyId);
+		//Send to jsp
+		model.addAttribute("techDetails", techDetailsById);
+		
 		return "ViewTechnology";
 	}
 	@GetMapping("admindeletetechnology")

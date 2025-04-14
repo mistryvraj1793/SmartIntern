@@ -5,6 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin Header</title>
+
+<!-- for chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
  <!-- main starts -->
@@ -30,26 +34,12 @@
             <!-- Total Interns Card -->
             <div class="col-xxl-3 col-md-6">
               <div class="card info-card sales-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
-                <div class="card-body">
+              	<div class="card-body">
                   <h5 class="card-title">Interns <span>| OverAll</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people-fill"></i>
+                      <i class="bi-people-fill"></i>
                     </div>
                     <div class="ps-3">
                       <h6>${totalInterns }</h6>
@@ -60,32 +50,19 @@
                 </div>
 
               </div>
-            </div><!-- End Total Interns Card -->
+            </div>
+            <!-- End Total Interns Card -->
             
             <!-- Applications Open Card -->
             <div class="col-xxl-3 col-xl-12">
 
               <div class="card info-card customers-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
                 <div class="card-body">
                   <h5 class="card-title">Applications <span>| Accepted</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-calendar-check"></i>
+                      <i class="bi-check-circle-fill"></i>
                     </div>
                     <div class="ps-3">
                       <h6>${acceptedInternApplication }</h6>
@@ -97,32 +74,19 @@
                 </div>
               </div>
 
-            </div><!-- End Applications Open Card -->
+            </div>
+            <!-- End Applications Open Card -->
 			
 			<!-- Interns thisMonth Card -->
             <div class="col-xxl-3 col-xl-12">
 
               <div class="card info-card customers-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
                 <div class="card-body">
                   <h5 class="card-title">Interns <span>| ${currentMonth }</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-calendar-check"></i>
+                      <i class="bi-person-check-fill"></i>
                     </div>
                     <div class="ps-3">
                       <h6>${thisMonthInternsCount }</h6>
@@ -134,31 +98,18 @@
                 </div>
               </div>
 
-            </div><!-- End Interns thisMonth Card -->
+            </div>
+            <!-- End Interns thisMonth Card -->
 			
-            <!-- Patient Card -->
+            <!-- Start Internships Total Card -->
             <div class="col-xxl-3 col-md-6">
               <div class="card info-card revenue-card">
-
-                <!-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div> -->
-
                 <div class="card-body">
                   <h5 class="card-title">Internships<span>| Total </span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people-fill"></i>
+                      <i class="bi-briefcase-fill"></i>
                     </div>
                     <div class="ps-3">
                       <h6> ${totalInternships }</h6>
@@ -169,7 +120,7 @@
                 </div>
 
               </div>
-            </div><!-- End Patient Card -->
+            </div><!-- End Internships Total Card -->
             
             <!-- Active Internships Card -->
             <div class="col-xxl-3 col-xl-12">
@@ -194,7 +145,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-calendar-check"></i>
+                      <i class="bi-calendar-check-fill"></i>
                     </div>
                     <div class="ps-3">
                       <h6>${activeInternships }</h6>
@@ -206,9 +157,67 @@
                 </div>
               </div>
 
-            </div><!-- End Appointment Card -->
+            </div><!-- End Active Internship Card -->
 
-            <!-- Patient Analysis -->
+			<!-- Start Internships Pending Card -->
+            <div class="col-xxl-3 col-md-6">
+              <div class="card info-card revenue-card">
+                <div class="card-body">
+                  <h5 class="card-title">Internships<span>| Pending </span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-hourglass-split"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> ${pendingInternApplications }</h6>
+                      <!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>-->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Internships Pending Card -->
+            
+            <!-- Start Total Companies Card -->
+            <div class="col-xxl-3 col-md-6">
+              <div class="card info-card revenue-card">
+                <div class="card-body">
+                  <h5 class="card-title">Companies<span>| Total </span></h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi bi-building"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> ${totalCompanies }</h6>
+                      <!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>-->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Internships Pending Card -->
+            
+            <!-- Start Total InternProjects Card -->
+            <div class="col-xxl-3 col-md-6">
+              <div class="card info-card revenue-card">
+                <div class="card-body">
+                  <h5 class="card-title">InternshipProjects <span>| Total </span></h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-folder-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6> ${totalInternProjects }</h6>
+                      <!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>-->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Internships InternProjects Card -->
+
+            <!-- Intern Analysis -->
             <div class="col-12">
               <div class="card">
 
@@ -226,7 +235,7 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Patients Analysis <span>/ Year</span></h5>
+                  <h5 class="card-title">Intern Analysis <span>/ Year</span></h5>
 
                   <!-- Bar Chart -->
                    <canvas id="myChart" width="400" height="180"></canvas>
@@ -238,8 +247,8 @@
 					        data: {
 					          labels: ['January', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December'],
 					          datasets: [{
-					            label: 'Patient Data',
-					            data: [${monthWisePatients[0]}, ${monthWisePatients[1]}, ${monthWisePatients[2]}, ${monthWisePatients[3]}, ${monthWisePatients[4]}, ${monthWisePatients[5]}, ${monthWisePatients[6]}, ${monthWisePatients[7]}, ${monthWisePatients[8]}, ${monthWisePatients[9]}, ${monthWisePatients[10]}, ${monthWisePatients[11]}],
+					            label: 'Intern Data',
+					            data: [${monthWiseIntern[0]}, ${monthWiseIntern[1]}, ${monthWiseIntern[2]}, ${monthWiseIntern[3]}, ${monthWiseIntern[4]}, ${monthWiseIntern[5]}, ${monthWiseIntern[6]}, ${monthWiseIntern[7]}, ${monthWiseIntern[8]}, ${monthWiseIntern[9]}, ${monthWiseIntern[10]}, ${monthWiseIntern[11]}],
 					            backgroundColor: [
 					              'rgba(255, 99, 132, 0.2)',
 					              'rgba(54, 162, 235, 0.2)',
@@ -273,10 +282,76 @@
                 </div>
 
               </div>
-            </div><!-- End Patient Analysis -->
+            </div>
+           <!--  End Intern Analysis -->
             
+            
+           <!-- Intern Analysis -->
+<div class="col-12">
+  <div class="card">
+
+    <div class="filter">
+      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+        <li class="dropdown-header text-start">
+          <h6>Filter</h6>
+        </li>
+        <li><a class="dropdown-item" href="#">Today</a></li>
+        <li><a class="dropdown-item" href="#">This Month</a></li>
+        <li><a class="dropdown-item" href="#">This Year</a></li>
+      </ul>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">Intern Analysis <span>/ Year</span></h5>
+
+      <!-- Line Chart -->
+      <canvas id="internLineChart" width="400" height="180"></canvas>
+
+      <script>
+        var ctx = document.getElementById('internLineChart').getContext('2d');
+        var internLineChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+              label: 'Intern Data',
+              data: [${monthWiseIntern[0]}, ${monthWiseIntern[1]}, ${monthWiseIntern[2]}, ${monthWiseIntern[3]}, ${monthWiseIntern[4]}, ${monthWiseIntern[5]}, ${monthWiseIntern[6]}, ${monthWiseIntern[7]}, ${monthWiseIntern[8]}, ${monthWiseIntern[9]}, ${monthWiseIntern[10]}, ${monthWiseIntern[11]}],
+              fill: false,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              tension: 0.3,
+              pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            },
+            plugins: {
+              legend: {
+                display: true,
+                position: 'top'
+              }
+            }
+          }
+        });
+      </script>
+      <!-- End Line Chart -->
+
+    </div>
+
+  </div>
+</div>
+<!--  End Intern Analysis -->
+           
             <!-- Appointment Analysis -->
-            <div class="col-12">
+            <!-- <div class="col-12">
               <div class="card">
 
                 <div class="filter">
@@ -295,7 +370,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Appointments Analysis <span>/ Year</span></h5>
 
-                  <!-- Line Chart -->
+                  Line Chart
                   <canvas id="appointmentChart" width="400" height="180"></canvas>
 
                     <script>
@@ -342,12 +417,12 @@
 				        }
 				      });
 				    </script>
-                  <!-- End Line Chart -->
+                  End Line Chart
 
                 </div>
 
               </div>
-            </div><!-- End Patient Analysis -->
+            </div>End Patient Analysis -->
 
           </div>
         </div><!-- End Left side columns -->

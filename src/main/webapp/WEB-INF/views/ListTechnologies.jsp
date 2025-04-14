@@ -62,27 +62,27 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
- 												<th>Name</th>
-												<!-- <th>Description</th> -->
+ 												<th>Technology Name</th>
 												<th>Frontend</th>
 												<th>Backend</th>
-												<!-- <th>Tools</th> -->
+												<th>Tools</th>
 												<th>Language</th>
+												<th>Company Name</th>
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
  											<c:forEach items="${technologiesList }" var="tech">
 												<tr>
-													<td>${tech.name }</td>
-													<%-- <td>${tech.description }</td> --%>
-													<td>${tech.frontend }</td>
-													<td>${tech.backend }</td>
-													<%-- <td>${tech.tools }</td> --%>
-													<td>${tech.language }</td>
-													<td><a href="adminviewtechnology?technologyId=${tech.technologyId }">View</a> | 
-													<a href="admindeletetechnology?technologyId=${tech.technologyId }">Delete</a> | 
-													<a href="#">Edit</a></td>
+													<td>${tech[7] }</td>
+													<td>${tech[5] }</td>
+													<td>${tech[1] }</td>
+													<td>${tech[8] }</td>
+													<td>${tech[6] }</td>
+													<td>${tech[9] }</td>
+													<td><a href="adminviewtechnology?technologyId=${tech[0] }">View</a> | 
+													<a href="admindeletetechnology?technologyId=${tech[0] }">Delete</a> | 
+													<a href="adminedittechnology?technologyId=${tech[0] }">Edit</a></td>
 												</tr>
 											</c:forEach>
  										</tbody>
@@ -105,45 +105,5 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
-
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
- 
- 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
- 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
- 
- 	<script type="text/javascript">
- 
- 	$( document ).ready(function() {
- 		let table = new DataTable('#myTable');
- 	});
- 	</script>
 </body>
-
 </html>
-
-
-
-	<table border="2">
-		<tr>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Frontend</th>
-			<th>Backend</th>
-			<th>Tools</th>
-			<th>Language</th>
-			<th>Action</th>
-		</tr>
-		<c:forEach items="${technologiesList }" var="tech">
-			<tr>
-				<td>${tech.name }</td>
-				<td>${tech.description }</td>
-				<td>${tech.frontend }</td>
-				<td>${tech.backend }</td>
-				<td>${tech.tools }</td>
-				<td>${tech.language }</td>
-				<td><a href="adminviewtechnologies?technologyId=${tech.technologyId }">View</a> | 
-				<a href="admindeletetechnologies?technologyId=${tech.technologyId }">Delete</a> | 
-				<a href="#">Edit</a></td>
-			</tr>
-		</c:forEach>
-	</table>

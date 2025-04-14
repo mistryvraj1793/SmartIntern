@@ -64,9 +64,10 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  											<tr>
  												<th>Title</th>
  												<th>Company Name</th>
+ 												<th>Company Address</th>
  												<th>Person Name</th>
  												<th>Full Name</th>
-												<!-- <th>Description</th> -->
+												<th>CreatedBy</th>
 												<th>Action</th>
  											</tr>
  										</thead>
@@ -75,12 +76,13 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 												<tr>
 													<td>${proj[5]}</td>
 													<td>${proj[6]}</td>
+													<td>${proj[7]}</td>
+													<td>${proj[8]}</td>
+													<td>${proj[9]}</td>
 													<td>${proj[10]}</td>
-													<td>${proj[11]}</td>
-													<%-- <td>${proj[]}</td> --%>
 													<td><a href="adminviewproject?projectId=${proj[0] }">View</a> | 
 													<a href="admindeleteproject?projectId=${proj[0] }">Delete</a> | 
-													<a href="#">Edit</a></td>
+													<a href="admineditproject?projectId=${proj[0] }">Edit</a></td>
 													
 												</tr>
 											</c:forEach>
