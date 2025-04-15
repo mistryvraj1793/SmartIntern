@@ -48,7 +48,7 @@ public class SessionController {
 	@PostMapping("sendotp")
 	public String sendOtp(String email, Model model){
 		Optional<UserEntity> op = repositoryUser.findByEmail(email);
-		if(op.isEmpty()) {
+		if(!op.isPresent()) {
 			//email is Invalid:
 			System.out.println("Email not Found!");
 			model.addAttribute("error", "Email not Found!");
@@ -76,7 +76,7 @@ public class SessionController {
 	@PostMapping("updatepassword")
 	public String updatePassword(String email, String otp, String password, Model model) {
 		Optional<UserEntity> op = repositoryUser.findByEmail(email);
-		if(op.isEmpty()) {
+		if(!op.isPresent()) {
 			//invalid data
 			model.addAttribute("error", "Invalid Data");
 			return "UpdatePassword";

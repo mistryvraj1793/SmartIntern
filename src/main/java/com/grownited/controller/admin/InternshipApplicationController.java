@@ -101,7 +101,8 @@ public class InternshipApplicationController {
 	        }
 
 	        repositoryInternshipApplication.save(entityInternshipApplication);
-	        return "redirect:/userdashboard";
+	        
+	        return "redirect:/applicationfee";
 	    } else {
 	        return "redirect:/userstudentdetail";
 	    }

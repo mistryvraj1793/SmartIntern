@@ -82,5 +82,11 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <jsp:include page="AdminJs.jsp"></jsp:include>
   <jsp:include page="UserJs.jsp"></jsp:include>
   
+  	<script type="text/javascript">
+ 		$( document ).ready(function() {
+ 			let table = new DataTable('#myTable');
+ 		});
+ 	</script>
+  
 </body>
 </html>

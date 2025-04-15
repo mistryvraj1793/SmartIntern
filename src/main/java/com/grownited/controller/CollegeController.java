@@ -48,7 +48,7 @@ public class CollegeController {
 		
 		//fetchs the data from table college into controller in Optional op through repositoryCollege object.
 		Optional<CollegeEntity> op = repositoryCollege.findById(collegeId);
-		if(op.isEmpty()) { //we don't consider this case.
+		if(!op.isPresent()) { //we don't consider this case.
 			System.out.println("Not Found"); 
 		}
 		else { //we will consider this case.

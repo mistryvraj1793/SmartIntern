@@ -22,4 +22,8 @@ public interface CompanyRepository extends JpaRepository<CompanyEntity, Integer>
 	//Dynamic Display in UserBody, UserContactUs as a Fact:
 	@Query(value = "select count(*) from company", nativeQuery = true)
 	Integer totalCompany();
+	
+	//Company Report:
+	@Query(value = "SELECT c.company_id,  c.company_name, c.url, c.external_guide, c.external_guide_contact_num, c.active, c.created_at, COUNT(DISTINCT i.internship_id) AS total_internships, COUNT(DISTINCT cu.company_user_id) AS total_hr_mentors FROM company c LEFT JOIN internships i ON c.company_id = i.company_id LEFT JOIN company_user cu ON c.company_id = cu.company_id GROUP BY c.company_id, c.company_name, c.url, c.external_guide, c.external_guide_contact_num, c.active, c.created_at ORDER BY c.created_at DESC", nativeQuery = true)
+	List<Object[]> findAllCompanyDetailsWithInternshipAndMentorCount();
 }

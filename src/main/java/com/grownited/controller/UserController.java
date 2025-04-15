@@ -100,7 +100,7 @@ public class UserController {
 	public String adminViewUser(Integer userId, Model model) {
 		System.out.println("id => "+userId);
 		Optional<UserEntity> op = repositoryUser.findById(userId);
-		if(op.isEmpty()) {
+		if(!op.isPresent()) {
 			//not found but we dont consider this case.
 			System.out.println("Not found"); // If user is not found
 		} 
@@ -131,7 +131,7 @@ public class UserController {
 	@GetMapping("adminedituser")
 	public String adminEditUser(Integer userId, Model model) {
 		Optional<UserEntity> op = repositoryUser.findById(userId);
-		if(op.isEmpty()) {
+		if(!op.isPresent()) {
 			return "redirect:/adminlistusers";
 		}
 		else {

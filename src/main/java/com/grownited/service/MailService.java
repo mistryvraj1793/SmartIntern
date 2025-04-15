@@ -79,4 +79,29 @@ public class MailService {
 	    mailSender.send(message);
 	}
 	
+	public void sendPaymentStatusMail(String email, String firstName, Double amount, String last4Digits) {
+	    String subject = "Internship Payment Confirmation";
+	    String body = "Hello " + firstName + ",\n\n"
+	            + "This is to confirm that we have received your payment for the internship.\n"
+	            + "Amount: ₹" + amount + "\n"
+	            + "Card Number (Last 4 Digits): **** **** **** " + last4Digits + "\n\n"
+	            + "Thank you for being a part of SmartIntern!\n\n"
+	            + "Regards,\n"
+	            + "SmartIntern Team";
+
+	    String from = "mistryvraj1234@gmail.com";
+
+	    // logic
+	    SimpleMailMessage message = new SimpleMailMessage();
+
+	    message.setFrom(from);
+	    message.setTo(email);
+	    message.setSubject(subject);
+	    message.setText(body);
+
+	    mailSender.send(message);
+	}
+
+
+	
 }

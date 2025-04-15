@@ -20,6 +20,8 @@ import com.grownited.repository.InternshipProjectRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -126,5 +128,36 @@ public class AdminController {
 		serviceMail.sendHrMentorWelcomeMail(entityUser.getEmail(), entityUser.getFirstName(), entityUser.getRole());
 		return "redirect:/adminadduser";
 	}
+	@GetMapping("listreportinternshipapplications")
+	public String listReportInternshipApplications(Model model) {
+		//fetchs the data from table internship_application into controller in list ApplicationsWithStudentCollegeAndInternship
+		List<Object[]> ApplicationsWithStudentCollegeAndInternship = repositoryInternshipApplication.findApplicationsWithCollegeAndInternshipDetails();
+				
+		//fetchs the data from list internshipApplicationList into ListInternshipApplication jsp
+		model.addAttribute("appDetails", ApplicationsWithStudentCollegeAndInternship);
+		return "ListReportInternshipApplications";
+	}
+	@GetMapping("listreporttop5internshipapplication")
+	public String listReporttop5InternshipApplication(Model model) {
+		List<Object[]> topInternshipApplicationCount = repositoryInternship.findTop5InternshipsByApplicationCount();
+		model.addAttribute("TopInternshipApplicationCount", topInternshipApplicationCount);
+		return "ListReportTop5InternshipsByApplications";
+	}
+	
+	@GetMapping("listreportcompanydetailed")
+	public String listReportCompanyDetailed(Model model) {
+		List<Object[]> CompanyDetailsWithInternshipAndMentorCount = repositoryCompany.findAllCompanyDetailsWithInternshipAndMentorCount();
+		model.addAttribute("companyDetails", CompanyDetailsWithInternshipAndMentorCount);
+		return "ListReportCompanyDetailed";
+	}
+	
+	@GetMapping("listreportinternshipapplicationsummary")
+	public String listReportInternshipApplicationSummary(Model model) {
+		List<Object[]> internshipApplicationSummary = repositoryInternshipApplication.findInternshipApplicationStatusSummary();
+		model.addAttribute("IntAppSummary", internshipApplicationSummary);
+		return "ListReportInternshipApplicationSummary";
+	}
+	
+	
 	
 }

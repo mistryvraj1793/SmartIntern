@@ -105,5 +105,11 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <jsp:include page="AdminJs.jsp"></jsp:include>
+  
+ 	<script type="text/javascript">
+ 		$( document ).ready(function() {
+ 			let table = new DataTable('#myTable');
+ 		});
+ 	</script>
 </body>
 </html>

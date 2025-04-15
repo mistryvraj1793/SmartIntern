@@ -25,4 +25,7 @@ public interface InternshipRepository extends JpaRepository<InternshipEntity, In
 	@Query(value = "select count(*) from internships", nativeQuery = true)
 	Integer totalInternships();
 	
+	//for  Internships Reports:
+	@Query(value = "SELECT i.internship_id, i.title AS internship_title, c.company_name, i.status, i.location, i.application_dead_line, i.created_at AS internship_created_at, COUNT(ia.application_id) AS totalApplications FROM internships i JOIN company c ON i.company_id = c.company_id LEFT JOIN internship_applications ia ON i.internship_id = ia.internship_id GROUP BY i.internship_id, i.title, c.company_name, i.status, i.location, i.application_dead_line, i.created_at ORDER BY totalApplications DESC LIMIT 5", nativeQuery = true)
+	List<Object[]> findTop5InternshipsByApplicationCount();
 }

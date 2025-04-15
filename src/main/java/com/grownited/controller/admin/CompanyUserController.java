@@ -61,7 +61,7 @@ public class CompanyUserController {
 	public String adminViewCompanyUser(Integer companyUserId, Model model) {
 		System.out.println("companyId => "+companyUserId);
 		Optional<CompanyUserEntity> op = repositoryCompanyUser.findById(companyUserId);
-		if(op.isEmpty()) {
+		if(!op.isPresent()) {
 			//Data Not Found:
 			System.out.println("Not Found");
 		}

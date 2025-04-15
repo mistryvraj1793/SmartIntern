@@ -34,4 +34,12 @@ public interface InternshipApplicationRepository extends JpaRepository<Internshi
 	@Query(value = " select iapp.*, concat(u.first_name, ' ', u.last_name) as YourName, u.role, i.title, i.company_id, i.stipend, cmp.company_name, cmp.address from internship_applications as iapp join internships i on i.internship_id = iapp.internship_id join company cmp on i.company_id = cmp.company_id join users u on u.user_id = iapp.user_id and iapp.application_id = :applicationId", nativeQuery = true)
 	List<Object[]> UserViewInternApplicationById(Integer applicationId);
 	
+	//for Internship Application Reports:
+	@Query(value = "SELECT ia.application_id,  concat(u.first_name, ' ', u.last_name) as FullName, c.college_name,        i.title AS internship_title, comp.company_name, ia.status, ia.applied_at FROM internship_applications ia JOIN users u ON ia.user_id = u.user_id JOIN student_detail sd ON u.user_id = sd.user_id JOIN college c ON sd.college_id = c.college_id JOIN internships i ON ia.internship_id = i.internship_id JOIN company comp ON i.company_id = comp.company_id ORDER BY c.college_name", nativeQuery = true)
+	List<Object[]> findApplicationsWithCollegeAndInternshipDetails();
+	
+	//for Internship Application Status Summary Report:
+	@Query(value = "SELECT i.internship_id, i.title AS internship_title, c.company_name, COUNT(ia.application_id) AS total_applications, SUM(CASE WHEN ia.status = 'PENDING' THEN 1 ELSE 0 END) AS pending_count, SUM(CASE WHEN ia.status = 'ACCEPTED' THEN 1 ELSE 0 END) AS accepted_count, SUM(CASE WHEN ia.status = 'REJECTED' THEN 1 ELSE 0 END) AS rejected_count, SUM(CASE WHEN ia.status = 'WITHDRAWN' THEN 1 ELSE 0 END) AS withdrawn_count, i.application_dead_line, i.created_at FROM internships i JOIN company c ON i.company_id = c.company_id LEFT JOIN internship_applications ia ON i.internship_id = ia.internship_id GROUP BY i.internship_id, i.title, c.company_name, i.application_dead_line, i.created_at ORDER BY total_applications DESC", nativeQuery = true)
+	List<Object[]> findInternshipApplicationStatusSummary();
+	
 }
