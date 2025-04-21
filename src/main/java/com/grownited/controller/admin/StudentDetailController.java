@@ -155,45 +155,45 @@ public class StudentDetailController {
 	}
 
 	@PostMapping("userupdatestudentdetail")
-	public String userUpdateStudentDetail(StudentDetailEntity entityStudentDetail, MultipartFile profilePic,
-			MultipartFile resume, HttpSession session) {
-		UserEntity user = (UserEntity) session.getAttribute("user");
-		Integer userId = user.getUserId();
-		Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
+	public String userUpdateStudentDetail(StudentDetailEntity entityStudentDetail, MultipartFile profilePic, MultipartFile resume, HttpSession session) {
+	    UserEntity user = (UserEntity) session.getAttribute("user");
+	    Integer userId = user.getUserId();
+	    Optional<StudentDetailEntity> op = repositoryStudentDetail.findByUserId(userId);
 
-		System.out.println(profilePic.getOriginalFilename());
-		System.out.println(resume.getOriginalFilename());
+	    if (op.isPresent()) {
+	        StudentDetailEntity dbStudentDetail = op.get();
 
-		if (op.isPresent()) {
-			try {
-				Map resultProfilePic = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
-				Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());
-				System.out.println(resultProfilePic.get("url"));
-				System.out.println(resultResume.get("url"));
+	        try {
+	            if (profilePic != null && profilePic.getOriginalFilename() != null && profilePic.getOriginalFilename().length() > 0) {
+	                Map resultProfilePic = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
+	                dbStudentDetail.setProfilePicPath(resultProfilePic.get("url").toString());
+	            }
 
-				entityStudentDetail.setProfilePicPath(resultProfilePic.get("url").toString());
-				entityStudentDetail.setResumePath(resultResume.get("url").toString());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	            if (resume != null && resume.getOriginalFilename() != null && resume.getOriginalFilename().length() > 0) {
+	                Map resultResume = cloudinary.uploader().upload(resume.getBytes(), ObjectUtils.emptyMap());
+	                dbStudentDetail.setResumePath(resultResume.get("url").toString());
+	            }
 
-			StudentDetailEntity dbStudentDetail = op.get();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 
-			dbStudentDetail.setStuCity(entityStudentDetail.getStuCity());
-			dbStudentDetail.setStuState(entityStudentDetail.getStuState());
-			dbStudentDetail.setCollegeId(entityStudentDetail.getCollegeId());
-			dbStudentDetail.setProfilePicPath(entityStudentDetail.getProfilePicPath());
-			dbStudentDetail.setResumePath(entityStudentDetail.getResumePath());
-			dbStudentDetail.setDegree(entityStudentDetail.getDegree());
-			dbStudentDetail.setSemester(entityStudentDetail.getSemester());
-			dbStudentDetail.setTshirtSize(entityStudentDetail.getTshirtSize());
+	        // Update other fields
+	        dbStudentDetail.setStuCity(entityStudentDetail.getStuCity());
+	        dbStudentDetail.setStuState(entityStudentDetail.getStuState());
+	        dbStudentDetail.setCollegeId(entityStudentDetail.getCollegeId());
+	        dbStudentDetail.setDegree(entityStudentDetail.getDegree());
+	        dbStudentDetail.setSemester(entityStudentDetail.getSemester());
+	        dbStudentDetail.setTshirtSize(entityStudentDetail.getTshirtSize());
 
-			repositoryStudentDetail.save(dbStudentDetail);
-			return "redirect:/userviewstudentdetail";
-		} else {
-			return "redirect:/userdashboard";
-		}
+	        repositoryStudentDetail.save(dbStudentDetail);
+	        return "redirect:/userviewstudentdetail";
+
+	    } else {
+	        return "redirect:/userdashboard";
+	    }
 	}
+
 
 	@GetMapping("admineditstudentdetail")
 	public String adminEditStudentDetail(StudentDetailEntity entityStudentDetail, Model model) {

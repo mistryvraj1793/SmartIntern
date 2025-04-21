@@ -67,57 +67,56 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
             </div>
 
             <div class="col-6">
-						                      <label for="stuState" class="form-label">State Name</label>
-						                      <input type="text" name="stuState" class="form-control" id="stuState" value="${adminEditStudentDetail.stuState }" required>
-						                      <div class="invalid-feedback">Please, enter your state!</div>
-						                    </div>
+			<label for="stuState" class="form-label">State Name</label>
+				<input type="text" name="stuState" class="form-control" id="stuState" value="${adminEditStudentDetail.stuState }" required>
+				<div class="invalid-feedback">Please, enter your state!</div>
+			</div>
 						                    
-											<div class="col-6">
-											    <label for="profilePic" class="form-label">Profile Pic</label>
-											    <c:if test="${not empty adminEditStudentDetail.profilePicPath}">
-												    <a href="${adminEditStudentDetail.profilePicPath}" class="btn btn-outline-secondary btn-sm" target="_blank" download>View Profile Pic</a>
-												</c:if>
-											</div>
+			<div class="col-6">
+				<label for="profilePic" class="form-label">Profile Pic</label>
+					<c:if test="${not empty adminEditStudentDetail.profilePicPath}">
+						<a href="${adminEditStudentDetail.profilePicPath}" class="btn btn-outline-secondary btn-sm" target="_blank" download>View Profile Pic</a>
+					</c:if>
+			</div>
 										
-											<div class="col-6">
-											    <label for="resume" class="form-label">Resume</label>
-											    <c:if test="${not empty adminEditStudentDetail.resumePath}">
-											    	<a href="${adminEditStudentDetail.resumePath}" class="btn btn-outline-secondary btn-sm" target="_blank" download>View Resume</a>
-												</c:if>
-											</div>
+			<div class="col-6">
+				<label for="resume" class="form-label">Resume</label>
+					<c:if test="${not empty adminEditStudentDetail.resumePath}">
+						<a href="${adminEditStudentDetail.resumePath}" class="btn btn-outline-secondary btn-sm" target="_blank" download>View Resume</a>
+					</c:if>
+			</div>
 
-					                        <div class="col-6">
-					                            <label for="degree" class="form-label">Degree</label>
-					                            <input type="text" name="degree" class="form-control" id="degree" value="${adminEditStudentDetail.degree }" required>
-					                        </div>
+			<div class="col-6">
+				<label for="degree" class="form-label">Degree</label>
+				<input type="text" name="degree" class="form-control" id="degree" value="${adminEditStudentDetail.degree }" required>
+			</div>
 					
-					                        <div class="col-6">
-					                            <label for="semester" class="form-label">Semester</label>
-					                            <input type="text" name="semester" class="form-control" id="semester" value="${adminEditStudentDetail.semester }" required>
-					                        </div>
+			<div class="col-6">
+				<label for="semester" class="form-label">Semester</label>
+				<input type="text" name="semester" class="form-control" id="semester" value="${adminEditStudentDetail.semester }" required>
+			</div>
 					
-					                        <div class="col-6">
-											    <label class="form-label">T-Shirt Size</label>
-											    <select class="form-select" name="tshirtSize" required>
-											        <option disabled <c:if test="${empty adminEditStudentDetail.tshirtSize}">selected</c:if>>--Select Size--</option>
-											        <option value="small" <c:if test="${adminEditStudentDetail.tshirtSize eq 'small'}">selected</c:if>>Small</option>
-											        <option value="large" <c:if test="${adminEditStudentDetail.tshirtSize eq 'large'}">selected</c:if>>Large</option>
-											        <option value="xl" <c:if test="${adminEditStudentDetail.tshirtSize eq 'xl'}">selected</c:if>>XL</option>
-											        <option value="xxl" <c:if test="${adminEditStudentDetail.tshirtSize eq 'xxl'}">selected</c:if>>XXL</option>
-											        <option value="xxxl" <c:if test="${adminEditStudentDetail.tshirtSize eq 'xxxl'}">selected</c:if>>XXXL</option>
-											    </select>
-											</div>
-					
-						                    
-						                    <div class="col-6">
-											    <label class="form-label">College Name</label>
-											    <select class="form-select" name="collegeId" required>
-											        <option disabled <c:if test="${empty adminEditStudentDetail.collegeId}">selected</c:if>>--Select College--</option>
-											        <c:forEach items="${allColleges}" var="college">
-											            <option value="${college.collegeId}" <c:if test="${college.collegeId eq adminEditStudentDetail.collegeId}">selected</c:if>>${college.collegeName}</option>
-											        </c:forEach>
-											    </select>
-											</div>
+			<div class="col-6">
+				<label class="form-label">T-Shirt Size</label>
+				<select class="form-select" name="tshirtSize" required>
+					<option disabled <c:if test="${empty adminEditStudentDetail.tshirtSize}">selected</c:if>>--Select Size--</option>
+					<option value="small" <c:if test="${adminEditStudentDetail.tshirtSize eq 'small'}">selected</c:if>>Small</option>
+					<option value="large" <c:if test="${adminEditStudentDetail.tshirtSize eq 'large'}">selected</c:if>>Large</option>
+					<option value="xl" <c:if test="${adminEditStudentDetail.tshirtSize eq 'xl'}">selected</c:if>>XL</option>
+					<option value="xxl" <c:if test="${adminEditStudentDetail.tshirtSize eq 'xxl'}">selected</c:if>>XXL</option>
+					<option value="xxxl" <c:if test="${adminEditStudentDetail.tshirtSize eq 'xxxl'}">selected</c:if>>XXXL</option>
+				</select>
+			</div>
+								                    
+			<div class="col-6">
+				<label class="form-label">College Name</label>
+				<select class="form-select" name="collegeId" required>
+					<option disabled <c:if test="${empty adminEditStudentDetail.collegeId}">selected</c:if>>--Select College--</option>
+					<c:forEach items="${allColleges}" var="college">
+						<option value="${college.collegeId}" <c:if test="${college.collegeId eq adminEditStudentDetail.collegeId}">selected</c:if>>${college.collegeName}</option>
+					</c:forEach>
+				</select>
+			</div>
 					
 
             <input type="hidden" name="StudentDetailId" value="${adminEditStudentDetail.studentDetailId}" />

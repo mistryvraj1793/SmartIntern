@@ -20,10 +20,6 @@ import com.grownited.repository.InternshipProjectRepository;
 import com.grownited.repository.InternshipRepository;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
-
 
 @Controller
 public class AdminController {

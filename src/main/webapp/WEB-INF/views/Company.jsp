@@ -67,8 +67,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                         </div>
 
                         <div class="col-6">
-                            <label for="url" class="form-label">Company URL</label>
-                            <input type="file" name="url" class="form-control" id="url" required>
+                            <label for="url" class="form-label">Company url</label>
+                            <input type="url" name="url" class="form-control" id="url" required>
                         </div>
 
                         <div class="col-6">
@@ -87,13 +87,13 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                         </div>
 
                         <div class="col-6">
-                            <label for="companyProfileUrl" class="form-label">Company Profile</label>
-                            <input type="file" name="companyProfileUrl" class="form-control" id="companyProfileUrl" required>
+                            <label for="companyProfileurl" class="form-label">Company Profile</label>
+                            <input type="url" name="companyProfileurl" class="form-control" id="companyProfileurl" required>
                         </div>
 
                         <div class="col-6">
-                            <label for="anyOtherInfoUrl" class="form-label">Additional Information</label>
-                            <input type="file" name="anyOtherInfoUrl" class="form-control" id="anyOtherInfoUrl" required>
+                            <label for="anyOtherInfourl" class="form-label">Additional Information</label>
+                            <input type="url" name="anyOtherInfourl" class="form-control" id="anyOtherInfourl" required>
                         </div>
 						
 						<input type="hidden" name="userId" value="${user.userId }"/>

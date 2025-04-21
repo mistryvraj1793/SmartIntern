@@ -68,7 +68,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  												<th>Project Title</th>
  												<th>Internship Duration Weeks</th>
 												<th>Stipend</th>	
-												<th>Internship Application Deadline</th>
+												<!-- <th>Internship Application Deadline</th> -->
 												<th>Internship Status</th>
 												<th>Posted By</th>
 												<th>Action</th>	
@@ -83,12 +83,12 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 													<td>${intProj[6]}</td>	
 													<td>${intProj[7]}</td>	
 													<td>${intProj[8]}</td>	
-													<td>${intProj[9]}</td>	
+													<%-- <td>${intProj[9]}</td> --%>	
 													<td>${intProj[10]}</td>	
 													<td>${intProj[12]}</td>	
 													<td><a href="adminviewinternshipproject?internshipProjectId=${intProj[0]}">View</a> 
 													| <a href="admindeleteinternshipproject?internshipProjectId=${intProj[0]}">Delete</a>
-													| <a href="#">Edit</a></td>
+													| <a href="admineditinternshipproject?internshipProjectId=${intProj[0]}">Edit</a></td>
 												</tr>
 											</c:forEach>
  										</tbody>

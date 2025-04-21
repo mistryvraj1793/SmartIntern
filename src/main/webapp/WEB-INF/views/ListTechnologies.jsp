@@ -42,7 +42,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
           <li class="breadcrumb-item"><a href="admintechnology">Add Technology</a></li>
-          <li class="breadcrumb-item active">ListUsers</li>
+          <li class="breadcrumb-item active">ListTechnologies</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -57,7 +57,11 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  							<div class="card">
  								<div class="card-body">
  									<h5 class="card-title">
- 										Technologies<span>/all</span>
+ 										Technologies<span>/all</span> 
+ 										<c:if test="${not empty errorId}">
+    <div class="alert alert-danger text-center">${errorId}</div>
+</c:if>
+
  									</h5>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>

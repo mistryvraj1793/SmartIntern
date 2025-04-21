@@ -62,17 +62,33 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  									<table class="table datatable datatable-table table-hover" id="myTable">
  										<thead>
  											<tr>
+ 												<th>Full Name</th>
  												<th>Title</th>
+ 												<th>Email</th>
+ 												<th>Company Name</th>
+ 												<!-- <th>Password</th> -->
+ 												<!-- <th>Born Year</th> -->
+ 												<!-- <th>Contact Number</th>
+ 												<th>Created At</th> -->
+ 												<th>Activate</th>
 												<th>Action</th>
  											</tr>
  										</thead>
  										<tbody>
  											<c:forEach items="${companyUserList}" var="compUser">
 												<tr>
-													<td>${compUser.title}</td>
-													<td><a href="adminviewcompanyuser?companyUserId=${compUser.companyUserId }">View</a> | 
-													<a href="admindeletecompanyuser?companyUserId=${compUser.companyUserId }">Delete</a> | 
-													<a href="#">Edit</a></td>
+													<td>${compUser[4]}</td>
+													<td>${compUser[2]}</td>
+													<td>${compUser[9]}</td>
+													<td>${compUser[11]}</td>
+													<%-- <td>${compUser[10]}</td> --%>
+													<%-- <td>${compUser[6]}</td> --%>
+													<%-- <td>${compUser[7]}</td>
+													<td>${compUser[8]}</td> --%>
+													<td>${compUser[5]}</td>
+													<td><a href="adminviewcompanyuser?companyUserId=${compUser[0] }">View</a> | 
+													<a href="admindeletecompanyuser?companyUserId=${compUser[0] }">Delete</a> | 
+													<a href="admineditcompanyuser?companyUserId=${compUser[0] }">Edit</a></td>
 												</tr>
 											</c:forEach>
  										</tbody>

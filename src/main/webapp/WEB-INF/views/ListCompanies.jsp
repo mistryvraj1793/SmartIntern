@@ -64,7 +64,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  											<tr>
  												<th>Created By</th>
  												<th>CompanyName</th>
-												<th>Address</th>
+												<!-- <th>Address</th> -->
 												<!-- <th>Url</th> -->
 												<th>PersonName</th>
 												<!-- <th>ExternalGuide</th> -->
@@ -78,19 +78,19 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  										<tbody>
  											<c:forEach items="${allCompany}" var="com">
 												<tr>
-													<td>${com[13] }</td>
+													<td>${com[12] }</td>
 													<td>${com[4] }</td>
-													<td>${com[2] }</td>
+													<%-- <td>${com[2] }</td> --%>
 													<%-- <td>${com[] }</td> --%>
 													<td>${com[8] }</td>
 													<%-- <td>${com[] }</td> --%>
 													<td>${com[7] }</td>
 													<%-- <td>${com.companyProfileUrl }</td>
 													<td>${com.anyOtherInfoUrl }</td> --%>
-													<td>${com[14] }</td>
+													<td>${com[13] }</td>
 													<td><a href="adminviewcompany?companyId=${com[0] }">View</a> 
 													| <a href="admindeletecompany?companyId=${com[0] }">Delete</a> 
-													| <a href="#">Edit</a></td>
+													| <a href="admineditcompany?companyId=${com[0] }">Edit</a></td>
 												</tr>
 											</c:forEach>
  										</tbody>

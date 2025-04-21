@@ -15,6 +15,12 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
   
+  <!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Instead of local file -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 <!--  
@@ -29,6 +35,44 @@
 -------------------------------------------------------------- -->
 <style>
 
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-user-circle {
+    font-size: 22px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.details-card {
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .details-card {
+        max-width: 80%;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .details-card {
+        max-width: 70%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .details-card {
+        max-width: 60%;
+      }
+    }
+    
 :root {
   scroll-behavior: smooth;
 }

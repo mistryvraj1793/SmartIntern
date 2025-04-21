@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.CollegeEntity;
 import com.grownited.repository.CollegeRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 @Controller
 public class CollegeController {
@@ -60,6 +64,34 @@ public class CollegeController {
 		}
 		return "ViewCollege";
 	}
+	@GetMapping("admineditcollege")
+	public String adminEditCollege(Integer collegeId ,Model model) {
+		Optional<CollegeEntity> op = repositoryCollege.findById(collegeId);
+		if (op.isPresent()) {
+			model.addAttribute("college", op.get());
+			return "EditCollege";
+		} else {
+			return "redirect:/adminlistcolleges";
+		}
+	}
+	@PostMapping("adminupdatecollege")
+	public String adminUpdateCollege(Integer collegeId, CollegeEntity entityCollege) {
+		Optional<CollegeEntity> op = repositoryCollege.findById(collegeId);
+		if (op.isPresent()) {
+			CollegeEntity dbCollege = op.get();
+			dbCollege.setAddress(entityCollege.getAddress());
+			dbCollege.setCity(entityCollege.getCity());
+			dbCollege.setCollegeName(entityCollege.getCollegeName());
+			dbCollege.setState(entityCollege.getState());
+			repositoryCollege.save(dbCollege);
+			return "redirect:/adminlistcolleges";
+			
+		} else {
+			return "redirect:/admindashboard";
+		}
+	}
+	
+	
 	@GetMapping("admindeletecollege")
 	public String adminDeleteCollege(Integer collegeId) {
 		//delete from table college where collegeId = :collegeId

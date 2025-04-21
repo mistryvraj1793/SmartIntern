@@ -62,8 +62,24 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                      <input type="text" name="stuState" class="form-control" id="stuState" value="${userEditStudentDetail.stuState }" required>
 	                      <div class="invalid-feedback">Please, enter your state!</div>
 	                    </div>
-	
-	                    <div class="col-6">
+						
+						<div class="col-6">
+    <label for="profilePic" class="form-label">Profile Pic</label>
+    <input type="file" name="profilePic" class="form-control" id="profilePic">
+    <c:if test="${not empty userEditStudentDetail.profilePicPath}">
+        <a href="${userEditStudentDetail.profilePicPath}" target="_blank" class="btn btn-sm btn-primary mt-2">View ProfilePic</a>
+    </c:if>
+</div>
+
+<div class="col-6">
+    <label for="resume" class="form-label">Resume</label>
+    <input type="file" name="resume" class="form-control" id="resume">
+    <c:if test="${not empty userEditStudentDetail.resumePath}">
+        <a href="${userEditStudentDetail.resumePath}" target="_blank" class="btn btn-sm btn-primary mt-2">View Resume</a>
+    </c:if>
+</div>
+						
+	                    <%-- <div class="col-6">
 	                   		<label for="profilePic" class="form-label">Profile Pic</label>
 	                   		<input type="file" name="profilePic" class="form-control" id="profilePic" value="${userEditStudentDetail.profilePicPath }" required>
 	                    </div>
@@ -71,7 +87,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                    <div class="col-6">
 	                   		<label for="resume" class="form-label">Resume</label>
 	                   		<input type="file" name="resume" class="form-control" id="resume" value="${userEditStudentDetail.resumePath }" required>
-	                    </div>
+	                    </div> --%>
 
                         <div class="col-6">
                             <label for="degree" class="form-label">Degree</label>

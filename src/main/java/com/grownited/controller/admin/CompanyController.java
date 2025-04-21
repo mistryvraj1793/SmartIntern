@@ -15,8 +15,6 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.UserRepository;
 
-
-
 @Controller
 public class CompanyController {
 	@Autowired
@@ -40,6 +38,7 @@ public class CompanyController {
 			entityCompany.setCreatedAt(LocalDate.now());
 			entityCompany.setActive(true);
 			entityCompany.setUserId(userId);
+			System.out.println(entityCompany.getAnyOtherInfoUrl()); 
 			
 			//read from the company jsp
 			System.out.println(entityCompany.getCompanyName());	
@@ -58,14 +57,6 @@ public class CompanyController {
 	public String adminListCompanies(Model model) {
 		List<Object[]> allCompanyUsersDetails = repositoryCompany.GetAll();
 		model.addAttribute("allCompany", allCompanyUsersDetails);
-	//how to sends data from database to Controller:
-	//This statement retrieves all records from the company table and stores them in a List<CompanyEntity> collection.
-	/*
-	 * List<CompanyEntity> companyList = repositoryCompany.findAll();
-	 * 
-	 * //how to sends data from controller to jsp model.addAttribute("companyList",
-	 * companyList);
-	 */
 		return "ListCompanies";
 	}
 	@GetMapping("adminviewcompany")
@@ -82,6 +73,38 @@ public class CompanyController {
 		 */
 		return "ViewCompany";
 	}
+	@GetMapping("admineditcompany")
+	public String adminEditCompany(Integer companyId, Model model) {
+		Optional<CompanyEntity> op = repositoryCompany.findById(companyId);
+		if (op.isPresent()) {
+			model.addAttribute("company", op.get());
+			return "EditCompany";
+		} else {
+			return "redirect:/adminlistcompanies";
+		}
+	}
+	@PostMapping("adminupdatecompany")
+	public String adminUpdateCompany(Integer companyId, Integer userId, CompanyEntity entityCompany) {
+		Optional<CompanyEntity> op = repositoryCompany.findById(companyId);
+		if (op.isPresent()) {
+			CompanyEntity dbCompany = op.get();
+			dbCompany.setActive(entityCompany.getActive());
+			dbCompany.setAddress(entityCompany.getAddress());
+			dbCompany.setAnyOtherInfoUrl(entityCompany.getAnyOtherInfoUrl());
+			dbCompany.setCompanyName(entityCompany.getCompanyName());
+			dbCompany.setCompanyProfileUrl(entityCompany.getCompanyProfileUrl());
+			dbCompany.setExternalGuide(entityCompany.getExternalGuide());
+			dbCompany.setExternalGuideContactNum(entityCompany.getExternalGuideContactNum());
+			dbCompany.setPersonName(entityCompany.getPersonName());
+			dbCompany.setUrl(entityCompany.getUrl());
+			dbCompany.setUserId(userId);
+			repositoryCompany.save(dbCompany);
+			return "redirect:/adminlistcompanies";
+		} else {
+			return "redirect:/admindashboard";
+		}
+	}
+	
 	@GetMapping("admindeletecompany")
 	public String adminDeleteCompany(Integer companyId) {
 		repositoryCompany.deleteById(companyId);

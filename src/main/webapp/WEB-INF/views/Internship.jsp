@@ -154,35 +154,6 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
   <jsp:include page="AdminJs.jsp"></jsp:include>
 
 	<script type="text/javascript">
-		/* function getProject() {
-			console.log("Company Change");
-			let companyId = document.getElementById("company").value;
-			console.log(companyId);
-			
-			//url -> json REST
-			
-			// Assign handlers immediately after making the request,
-			// and remember the jqxhr object for this request
-			$.get( "getallprojectbycompanyid/"+companyId, function() {
-			})
-			  .done(function(data) {
-				  console.log(data);
-				  
-				  //fill the project
-				   $('#project').empty().append('<option selected="selected" value="-1">Select Project</option>')
-				  
-				  for (var i = 0; i < data.length; i++) {
-      			  	$('#project').append('<option value="' + data[i].projectId + '">' + data[i].title + '</option>');
-   				 }
-				  
-			  })
-			  .fail(function() {
-			    alert( "error" );
-			  })
-			  .always(function() {
-			    
-			  });
-		} */
 		function getCompanyRelatedData() {
 			console.log("Company Change");
 		    let companyId = document.getElementById("company").value;

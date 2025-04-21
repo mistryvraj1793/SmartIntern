@@ -118,13 +118,19 @@ public class InternshipApplicationController {
 	}
 	@GetMapping("adminviewinternshipapplication")
 	public String adminviewInternshipApplication(Integer applicationId, Model model) {
-		System.out.println("InternshipApplicationId => "+applicationId);
-	 	List<Object[]> allInternshipApplicationDetails = repositoryInternshipApplication.GetInternAppliedId(applicationId);
+		Optional<InternshipApplicationEntity> op = repositoryInternshipApplication.findById(applicationId);
+		if (op.isPresent()) {
+			System.out.println("InternshipApplicationId => "+applicationId);
+		 	List<Object[]> allInternshipApplicationDetails = repositoryInternshipApplication.GetInternAppliedId(applicationId);
+			
+		 	//sends data to jsp:
+			model.addAttribute("internApplication", allInternshipApplicationDetails);
+			
+			return "ViewInternshipApplication";
+		} else {
+			return "redirect:/adminlistinternshipapplications";
+		}
 		
-	 	//sends data to jsp:
-		model.addAttribute("internApplication", allInternshipApplicationDetails);
-		
-		return "ViewInternshipApplication";
 	}
 	@GetMapping("admineditinternshipapplication")
 	public String adminEditInternshipApplication(Integer applicationId, Model model){

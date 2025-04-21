@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>View / InternshipTechnology</title>
+  <title>SmartIntern | View Internship Technology</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -17,98 +17,111 @@
 </head>
 
 <body>
+
   <jsp:include page="AdminHeader.jsp"></jsp:include>
   <jsp:include page="AdminSidebar.jsp"></jsp:include>
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>View InternshipTechnology</h1>
+    <div class="pagetitle text-center mt-4">
+      <h1>View Internship Technology</h1>
       <nav>
-        <ol class="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
           <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="adminlistinternshiptechnologies">ListInternshipTechnologies</a></li>
-          <li class="breadcrumb-item active">ViewInternshipTechnology</li>
+          <li class="breadcrumb-item"><a href="adminlistinternshiptechnologies">List Internship Technologies</a></li>
+          <li class="breadcrumb-item active">View Internship Technology</li>
         </ol>
       </nav>
     </div>
 
-    <section class="section dashboard">
-      <div class="row" style="min-height: 500px;">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body pt-4">
-              <h5 class="card-title">InternshipTechnology Details</h5>
+    <section class="section d-flex flex-column align-items-center justify-content-center py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-12 d-flex flex-column align-items-center justify-content-center">
+            <div class="card mb-3 shadow details-card">
 
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <strong>Internship Title:</strong> ${internshipTechnologyDetails[0][1]}
+              <div class="card-body">
+                <h5 class="card-title text-center mb-4">
+                  <span>Internship Technology Details</span>
+                </h5>
+
+                <!-- Internship Info -->
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Internship Title:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][1]}</div>
                 </div>
-                <div class="col-sm-6">
-                  <strong>Application Deadline:</strong> ${internshipTechnologyDetails[0][2]}
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Application Deadline:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][2]}</div>
                 </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Duration (Weeks):</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][3]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Location:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][4]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Stipend:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][5]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Technology Name:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][6]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Description:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][7]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Frontend:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][8]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Backend:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][9]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Tools:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][10]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Language:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][11]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Created At:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][12]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Company Name:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][13]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Company Profile URL:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][14]}</div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col-sm-5 fw-bold">Posted By:</div>
+                  <div class="col-sm-7">${internshipTechnologyDetails[0][15]}</div>
+                </div>
+
               </div>
-
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <strong>Duration (Weeks):</strong> ${internshipTechnologyDetails[0][3]}
-                </div>
-                <div class="col-sm-6">
-                  <strong>Location:</strong> ${internshipTechnologyDetails[0][4]}
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <strong>Stipend:</strong> ${internshipTechnologyDetails[0][5]}
-                </div>
-                <div class="col-sm-6">
-                  <strong>Technology Name:</strong> ${internshipTechnologyDetails[0][6]}
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="col-12">
-                  <strong>Description:</strong> ${internshipTechnologyDetails[0][7]}
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <strong>Frontend:</strong> ${internshipTechnologyDetails[0][8]}
-                </div>
-                <div class="col-sm-6">
-                  <strong>Backend:</strong> ${internshipTechnologyDetails[0][9]}
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <strong>Tools:</strong> ${internshipTechnologyDetails[0][10]}
-                </div>
-                <div class="col-sm-6">
-                  <strong>Language:</strong> ${internshipTechnologyDetails[0][11]}
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <strong>Created At:</strong> ${internshipTechnologyDetails[0][12]}
-                </div>
-                <div class="col-sm-6">
-                  <strong>Company Name:</strong> ${internshipTechnologyDetails[0][13]}
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <strong>Company Profile URL:</strong> ${internshipTechnologyDetails[0][14]}
-                </div>
-                <div class="col-sm-6">
-                  <strong>Posted By:</strong> ${internshipTechnologyDetails[0][15]}
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
@@ -126,4 +139,5 @@
   <jsp:include page="AdminJs.jsp"></jsp:include>
 
 </body>
+
 </html>

@@ -58,13 +58,61 @@ public class TechnologiesController {
 	}
 	@GetMapping("adminviewtechnology")
 	public String adminViewTechnology(Integer technologyId, Model model) {
-		System.out.println("id => "+technologyId);
-		List<Object[]> techDetailsById = repositoryTechnologies.GetTechnologyDetailById(technologyId);
-		//Send to jsp
-		model.addAttribute("techDetails", techDetailsById);
-		
+		Optional<TechnologiesEntity> op = repositoryTechnologies.findById(technologyId);
+		if (op.isPresent()) {
+			System.out.println("id => "+technologyId);
+			List<Object[]> techDetailsById = repositoryTechnologies.GetTechnologyDetailById(technologyId);
+			//Send to jsp
+			model.addAttribute("techDetails", techDetailsById);
 		return "ViewTechnology";
+		}
+		else {
+			model.addAttribute("error", "Id Doesn't Exist");
+			return "";
+		}
+		
 	}
+	@GetMapping("adminedittechnology")
+	public String adminEditTechnology(Integer technologyId,Model model) {
+		Optional<TechnologiesEntity> op = repositoryTechnologies.findById(technologyId);
+		if (op.isPresent()) {
+			List<TechnologiesEntity> editTechnology = repositoryTechnologies.findAll();
+			List<CompanyEntity> allCompanies = repositoryCompany.findAll();
+		
+			model.addAttribute("editTechnology", op.get());
+			//fetches the data from Controller in allCompanies to jsp.
+			model.addAttribute("allCompanies", allCompanies);
+		return "EditTechnology";
+		}
+		else {
+			System.out.println("Id Doesn't Exist");
+			return "redirect:/adminlisttechnologies";
+		}
+		
+	}
+	@PostMapping("adminupdatetechnology")
+	public String adminUpdateTechnology(Integer technologyId, Model model, TechnologiesEntity entityTechnology) {
+		Optional<TechnologiesEntity> op = repositoryTechnologies.findById(technologyId);
+		if (op.isPresent()) {
+			TechnologiesEntity dbTechnology = op.get();
+			
+			dbTechnology.setBackend(entityTechnology.getBackend());
+			dbTechnology.setFrontend(entityTechnology.getFrontend());
+			dbTechnology.setCompanyId(entityTechnology.getCompanyId());
+			dbTechnology.setDescription(entityTechnology.getDescription());
+			dbTechnology.setLanguage(entityTechnology.getLanguage());
+			dbTechnology.setName(entityTechnology.getName());
+			dbTechnology.setTools(entityTechnology.getTools());
+			
+			repositoryTechnologies.save(dbTechnology);
+			return "redirect:/adminlisttechnologies";
+		}
+		else {
+			System.out.println("Not Found");
+			return "redirect:/admindashboard";
+		}
+	}
+	
 	@GetMapping("admindeletetechnology")
 	public String adminDeleteTechnologies(Integer technologyId) {
 		repositoryTechnologies.deleteById(technologyId);

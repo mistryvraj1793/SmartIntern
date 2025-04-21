@@ -79,8 +79,8 @@
 										<c:forEach items="${appDetails }" var="internApp" >
 											<tr>
 												<td>${internApp[0] }</td>
-												<td>${internApp[2] }</td>
 												<td>${internApp[1] }</td>
+												<td>${internApp[2] }</td>
 												<td>${internApp[3] }</td>
 												<td>${internApp[4] }</td>
 												<td>${internApp[5] }</td>

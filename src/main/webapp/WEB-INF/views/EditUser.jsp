@@ -5,6 +5,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> <%-- where Enables JSTL in JSP: Without this, JSTL tags won't work. and 
 where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,113 +33,101 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 	<!-- End Sidebar-->
 
-  <main id="main" class="main">
+  <main id="main" class="main d-flex flex-column min-vh-100">
 
-    <div class="pagetitle">
-      <h1>Update User</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-          <li class="breadcrumb-item"><a href="listusers">List Users</a></li>
-          <li class="breadcrumb-item active">Update User</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    
-
-      <section class="section dashboard">
- 			<div class="row" style="min-height: 500px;">
- 
- 				<!-- Left side columns -->
- 				<div class="col-lg-12">
- 					<div class="row">
- 						<div class="col-12">
- 							<div class="card">
- 								<div class="card-body">
- 									<div class="pt-4 pb-2">
-					                    <h5 class="card-title text-center pb-0 fs-4">Update an User</h5>
-					                    <p class="text-center small">Enter your personal details to update your User</p>
-					                  </div>
+	  <!-- Centered Page Title -->
+	  <div class="pagetitle text-center">
+	    <h1>Update User</h1>
+	    <nav>
+	      <ol class="breadcrumb justify-content-center">
+	        <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+	        <li class="breadcrumb-item"><a href="adminliststudentdetails">List Users</a></li>
+	        <li class="breadcrumb-item active">Update User</li>
+	      </ol>
+	    </nav>
+	  </div><!-- End Page Title -->
+	
+	  <!-- Form Section Centered -->
+	  <section class="section flex-grow-1 d-flex justify-content-center align-items-start">
+	    <div class="col-lg-8 col-md-8 col-sm-10">
+	      <div class="card shadow p-4">
+	        <div class="card-body">
+	          <div class="pt-4 pb-2 text-center">
+	            <h5 class="card-title fw-bold">Update a User</h5>
+	            <p class="small">Enter personal details to update user detail</p>
+	          </div>
+						
+				<form class="row g-3 needs-validation" novalidate action="adminupdateuser" method="post">
+					<div class="col-6">
+						<label for="firstName" class="form-label">First Name</label>
+						<input type="text" name="firstName" class="form-control" id="firstName" value="${user.firstName }" required>
+						<div class="invalid-feedback">Please, enter your first name!</div>
+					</div>
+								                    
+					<div class="col-6">
+						<label for="lastName" class="form-label">Last Name</label>
+						<input type="text" name="lastName" class="form-control" id="lastName" value="${user.lastName }" required>
+						<div class="invalid-feedback">Please, enter your last name!</div>
+					</div>
+								
+					<div class="col-6">
+						<label for="email" class="form-label">Email</label>
+						<input type="email" name="email" class="form-control" id="email"  value="${user.email }" required>
+						<div class="invalid-feedback">Please enter your email!</div>
+					</div>
+								                    
+					<div class="col-6">
+						<label for="contactNum" class="form-label">Contact Number</label>
+						<input type="tel" name="contactNum" class="form-control" id="contactNum" value="${user.contactNum }" required>
+						<div class="invalid-feedback">Please enter your contact number!</div>
+					</div>
+								                    
+					<div class="col-4">
+						<label for="bornYear" class="form-label">Born Year</label>
+						<input type="number" name="bornYear" class="form-control" id="bornYear" value="${user.bornYear }" required>
+						<div class="invalid-feedback">Please enter your born year!</div>
+					</div>
 					
-					                  <form class="row g-3 needs-validation" novalidate action="adminupdateuser" method="post">
-					                    <div class="col-6">
-					                      <label for="firstName" class="form-label">First Name</label>
-					                      <input type="text" name="firstName" class="form-control" id="firstName" value="${user.firstName }" required>
-					                      <div class="invalid-feedback">Please, enter your first name!</div>
-					                    </div>
-					                    
-					                    <div class="col-6">
-					                      <label for="lastName" class="form-label">Last Name</label>
-					                      <input type="text" name="lastName" class="form-control" id="lastName" value="${user.lastName }" required>
-					                      <div class="invalid-feedback">Please, enter your last name!</div>
-					                    </div>
-					
-					                    <div class="col-6">
-					                      <label for="email" class="form-label">Email</label>
-					                      <input type="email" name="email" class="form-control" id="email"  value="${user.email }" required>
-					                      <div class="invalid-feedback">Please enter your email!</div>
-					                    </div>
-					                    
-					                    <div class="col-6">
-					                      <label for="contactNum" class="form-label">Contact Number</label>
-					                      <input type="tel" name="contactNum" class="form-control" id="contactNum" value="${user.contactNum }" required>
-					                      <div class="invalid-feedback">Please enter your contact number!</div>
-					                    </div>
-					                    
-					                    <div class="col-6">
-						                  <label class="col-sm-4 col-form-label">Gender</label>
-						                  <div class="col-sm-10">
-						                    <select class="form-select" aria-label="Default select example" name="gender" required>
-						                      <option selected="">${user.gender }</option>
-						                      <option value="male">Male</option>
-						                      <option value="female">Female</option>
-						                      <option value="other">Other</option>
-						                    </select>
-						                    <div class="invalid-feedback">Please enter gender!</div>
-						                  </div>
-						                </div>
-					                    
-					                    <div class="col-6">
-					                      <label for="bornYear" class="form-label">Born Year</label>
-					                      <input type="number" name="bornYear" class="form-control" id="bornYear" value="${user.bornYear }" required>
-					                      <div class="invalid-feedback">Please enter your born year!</div>
-					                    </div>
-					                    										
-										<div class="col-6">
-						                  <label class="col-sm-4 col-form-label">Role</label>
-						                  <div class="col-sm-10">
-						                    <select class="form-select" aria-label="Default select example" name="role" required>
-						                      <option selected value="${user.role }">${user.role }</option>
-						                      <option value="USER">User</option>
-						                      <option value="ADMIN">Admin</option>
-						                      <option value="HR">Hr</option>
-						                      <option value="MENTOR">Mentor</option>
-						                      
-						                      	
-						                    </select>
-						                  </div>
-						                </div>
-						                
-						                <input type="hidden" name="userId" value="${user.userId }"/>
-						                
-					                    <div class="text-center">
-					                      <button class="btn btn-primary px-4" type="submit" value="Update User">Update User</button>
-					                    </div>
-					                  </form>
- 									
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 				</div>
- 				<!-- End Left side columns -->
- 			</div>
- 		</section>
+					<div class="col-4">
+						<label for="gender" class="form-label">Gender</label>
+						<!-- <div class="col-sm-10"> -->
+							<select class="form-select" name="gender" required>
+								<option selected="">${user.gender }</option>
+								<option value="male">Male</option>
+								<option value="female">Female</option>
+								<option value="other">Other</option>
+							</select>
+							<div class="invalid-feedback">Please enter gender!</div>
+						<!-- </div> -->
+					</div>
+								                    										
+					<div class="col-4">
+						<label for="role" class="form-label">Role</label>
+						<!-- <div class="col-sm-10"> -->
+							<select class="form-select" name="role" required>
+								<option selected value="${user.role }">${user.role }</option>
+								<option value="USER">User</option>
+								<option value="ADMIN">Admin</option>
+								<option value="HR">Hr</option>
+								<option value="MENTOR">Mentor</option>
+							</select>
+						<!-- </div> -->
+					</div>
+									                
+					<input type="hidden" name="userId" value="${user.userId }"/>
+									                
+					<div class="text-center">
+						<button class="btn btn-primary px-4" type="submit" value="Update User">Update User</button>
+					</div>
+				</form>
+	 									
+	 		</div>
+	      </div>
+	    </div>
+	</section>
 
+</main><!-- End #main -->
 
-
-  </main><!-- End #main -->
 
   	<!-- Start Footer -->
 	<jsp:include page="AdminFooter.jsp"></jsp:include>

@@ -25,4 +25,6 @@ public interface InternshipProjectRepository extends JpaRepository<InternshipPro
 	//admin Widget for Total projects available under internships:
 	@Query(value = "SELECT COUNT(DISTINCT project_id) AS totalProjects  FROM internship_project", nativeQuery = true)
 	Integer totalInternshipProject();
+	
+
 }

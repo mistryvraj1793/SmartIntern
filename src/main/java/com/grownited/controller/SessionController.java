@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.time.LocalDate;
+import java.util.Enumeration;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -143,18 +144,24 @@ public class SessionController {
 				
 				System.out.println("Password is Correct");
 				if(ans==true) {
+					session.removeAttribute("user");
+
 					session.setAttribute("user", dataBaseUser); //session -> user set
 					
-					//set the session for studentDetail through userId
-					UserEntity user = (UserEntity) session.getAttribute("user"); 
+					//set the session for studentDetail through userId			
+					
+					UserEntity user = (UserEntity) session.getAttribute("user");
 					Integer userId =user.getUserId(); 
 					//System.out.println("Id => "+userId);
-					Optional<StudentDetailEntity> studentDetailOptn = repositoryStudentDetail.findByUserId(userId);
-					if (studentDetailOptn.isPresent()) {
-						StudentDetailEntity dataBaseStudentDetail = studentDetailOptn.get();
-						session.setAttribute("studentDetail", dataBaseStudentDetail);
-						//System.out.println(dataBaseStudentDetail);
-					}
+
+		            // fetch corresponding studentDetail if exists
+					/*
+					 * Optional<StudentDetailEntity> studentDetailOptn =
+					 * repositoryStudentDetail.findByUserId(userId); if
+					 * (studentDetailOptn.isPresent()) { StudentDetailEntity dataBaseStudentDetail =
+					 * studentDetailOptn.get(); session.setAttribute("studentDetail",
+					 * dataBaseStudentDetail); //System.out.println(dataBaseStudentDetail); }
+					 */
 					
 					//checking the role is ADMIN or Not.
 					if(dataBaseUser.getRole().equals("ADMIN")) {
