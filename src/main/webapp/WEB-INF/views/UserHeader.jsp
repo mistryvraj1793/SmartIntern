@@ -33,14 +33,15 @@
             <div class="top-link dropdown bg-light nav-fill btn btn-sm-square rounded-circle user-icon-btn overflow-hidden p-0 d-flex align-items-center justify-content-center"
      id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
      style="width: 40px; height: 40px;" title="Your Profile">
-    <c:if test="${not empty sessionScope.studentDetail and not empty sessionScope.studentDetail.profilePicPath}">
+     <i class="fa fa-user" aria-hidden="true" style="font-size: 30px; color: #333;"></i>
+    <%-- <c:if test="${not empty sessionScope.studentDetail and not empty sessionScope.studentDetail.profilePicPath}">
         <img src="${sessionScope.studentDetail.profilePicPath}" alt="Profile picture"
              class="img-fluid rounded-circle"
              style="width: 100%; height: 100%; object-fit: cover;">
     </c:if>
     <c:if test="${empty sessionScope.studentDetail or empty sessionScope.studentDetail.profilePicPath}">
         <i class="fa fa-user" aria-hidden="true" style="font-size: 20px; color: #333;"></i>
-    </c:if>
+    </c:if> --%>
 </div>
 
 

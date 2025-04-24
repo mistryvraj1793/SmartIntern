@@ -34,9 +34,8 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 	<!-- End Sidebar-->
 
-  <main id="main" class="main">
-    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 w-100">
-
+  <main id="main" class="main d-flex flex-column min-vh-100">
+    
         <!-- Page Title (Centered) -->
         <div class="pagetitle text-center">
             <h1>Add User</h1>
@@ -50,7 +49,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
         </div>
         <!-- End Page Title -->
 
-        <section class="section dashboard d-flex justify-content-center align-items-center min-vh-100">
+        <section class="section flex-grow-1 d-flex justify-content-center align-items-start">
     <div class="col-lg-8 col-md-8 col-sm-10"> <!-- Adjust width for responsiveness -->
         <div class="card shadow p-4">
             <div class="card-body">
@@ -62,32 +61,32 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                 <form class="row g-3 needs-validation" novalidate action="adminsaveuser" method="post">
                     <div class="col-6">
                         <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" name="firstName" class="form-control" id="firstName" required>
+                        <input type="text" name="firstName" class="form-control" id="firstName" placeholder="please enter a first name!" required>
                     </div>
                     <div class="col-6">
                         <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" name="lastName" class="form-control" id="lastName" required>
+                        <input type="text" name="lastName" class="form-control" id="lastName" placeholder="please enter a last name!" required>
                     </div>
 
                     <div class="col-6">
                         <label for="email" class="form-label">Your Email</label>
                         <div class="input-group">
                             <span class="input-group-text">@</span>
-                            <input type="email" name="email" class="form-control" id="email" required>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="please enter a email!" required>
                         </div>
                     </div>
                     <div class="col-6">
                         <label for="contactNum" class="form-label">Contact Number</label>
-                        <input type="tel" name="contactNum" class="form-control" id="contactNum" maxlength="10" pattern="[0-9]{10}" required>
+                        <input type="tel" name="contactNum" class="form-control" id="contactNum" maxlength="10" pattern="[0-9]{10}" placeholder="please enter a contact number!" required>
                     </div>
 
                     <div class="col-6">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="password" required>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="please enter a password!" required>
                     </div>
                     <div class="col-6">
                         <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required>
+                        <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="please enter a confirm password!" required>
                     </div>
 
                     <fieldset class="col-6">
@@ -108,7 +107,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 
                     <div class="col-6">
                         <label for="bornYear" class="form-label">Born Year</label>
-                        <input type="number" name="bornYear" class="form-control" id="bornYear" required>
+                        <input type="number" name="bornYear" class="form-control" id="bornYear" placeholder="please enter a born year!" required>
                     </div>
 
                     <div class="col-6">
@@ -139,8 +138,6 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
     </div>
 </section>
 
-
-    </div>
 </main><!-- End #main -->
 
 

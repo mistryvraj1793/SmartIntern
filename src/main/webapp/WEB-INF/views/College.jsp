@@ -61,22 +61,22 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                    <form class="row g-3 needs-validation" novalidate action="adminsavecollege" method="post">
 	                        <div class="col-6">
 	                            <label for="collegeName" class="form-label">College Name</label>
-	                            <input type="text" name="collegeName" class="form-control" id="collegeName" required>
+	                            <input type="text" name="collegeName" class="form-control" id="collegeName" placeholder="please enter a college name!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="address" class="form-label">Address</label>
-	                            <input type="text" name="address" class="form-control" id="address" required>
+	                            <input type="text" name="address" class="form-control" id="address" placeholder="please enter a college address!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="city" class="form-label">City</label>
-	                            <input type="text" name="city" class="form-control" id="city" required>
+	                            <input type="text" name="city" class="form-control" id="city" placeholder="please enter a college city!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="state" class="form-label">State</label>
-	                            <input type="text" name="state" class="form-control" id="state" required>
+	                            <input type="text" name="state" class="form-control" id="state" placeholder="please enter a college state!" required>
 	                        </div>
 	
 	                        <div class="col-12">

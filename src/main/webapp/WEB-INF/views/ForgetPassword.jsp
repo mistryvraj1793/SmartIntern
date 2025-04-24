@@ -53,7 +53,7 @@
                       <label for="email" class="form-label">Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="email" name="email" class="form-control" id="email" required>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="please enter a email" required>
                         <div class="invalid-feedback">Please enter your email.</div>
                       </div>
                     </div>

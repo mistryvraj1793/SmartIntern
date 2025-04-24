@@ -45,13 +45,13 @@
                   <form class="row g-3 needs-validation" novalidate action="saveuser" method="post">
                     <div class="col-12">
                       <label for="firstName" class="form-label">First Name</label>
-                      <input type="text" name="firstName" class="form-control" id="firstName" required>
+                      <input type="text" name="firstName" class="form-control" id="firstName" placeholder="please enter a first name!" required>
                       <div class="invalid-feedback">Please, enter your first name!</div>
                     </div>
                     
                     <div class="col-12">
                       <label for="lastName" class="form-label">Last Name</label>
-                      <input type="text" name="lastName" class="form-control" id="firstName" required>
+                      <input type="text" name="lastName" class="form-control" id="lastName" placeholder="please enter a last name!" required>
                       <div class="invalid-feedback">Please, enter your last name!</div>
                     </div>
 
@@ -59,26 +59,26 @@
                       <label for="email" class="form-label">Your Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="email" name="email" class="form-control" id="email" required>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="please enter a email!" required>
                         <div class="invalid-feedback">>Please enter a valid Email address!</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="Password" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="password" required>
+                      <input type="password" name="password" class="form-control" id="password" placeholder="please enter a password!" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
                     
                     <div class="col-12">
                       <label for="confirmPassword" class="form-label">Confirm Password</label>
-                      <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required>
+                      <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="please enter a confirm password!" required>
                       <div class="invalid-feedback">Please enter your confirm password!</div>
                     </div>
                     
                     <div class="col-12">
                       <label for="contactNum" class="form-label">contact Number</label>
-                      <input type="tel" name="contactNum" class="form-control" id="contactNum" maxlength="10" pattern="[0-9]{10}" required>
+                      <input type="tel" name="contactNum" class="form-control" id="contactNum" maxlength="10" pattern="[0-9]{10}" placeholder="please enter a contact number!" required>
                       <div class="invalid-feedback">Please enter your contact number!</div>
                     </div>
                     
@@ -108,7 +108,7 @@
 
                     <div class="col-12">
                       <label for="bornYear" class="form-label">Born Year</label>
-                      <input type="number" name="bornYear" class="form-control" id="bornYear" required>
+                      <input type="number" name="bornYear" class="form-control" id="bornYear" placeholder="please enter a born year!" required>
                       <div class="invalid-feedback">Please enter your born year!</div>
                     </div>
 

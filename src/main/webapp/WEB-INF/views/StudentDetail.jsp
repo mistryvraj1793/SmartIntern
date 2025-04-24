@@ -53,34 +53,34 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 					<form class="row g-3 needs-validation" action="saveuserstudentdetail" method="post" enctype="multipart/form-data" novalidate>
                         <div class="col-6">
 	                      <label for="stuCity" class="form-label">City</label>
-	                      <input type="text" name="stuCity" class="form-control" id="stuCity" required>
+	                      <input type="text" name="stuCity" class="form-control" id="stuCity" placeholder="please enter your city name!" required>
 	                      <div class="invalid-feedback">Please, enter your city!</div>
 	                    </div>
 	                    
 	                    <div class="col-6">
 	                      <label for="stuState" class="form-label">State</label>
-	                      <input type="text" name="stuState" class="form-control" id="stuState" required>
+	                      <input type="text" name="stuState" class="form-control" id="stuState" placeholder="please enter your state name!" required>
 	                      <div class="invalid-feedback">Please, enter your state!</div>
 	                    </div>
 	
 	                    <div class="col-6">
 	                   		<label for="profilePic" class="form-label">Profile Pic</label>
-	                   		<input type="file" name="profilePic" class="form-control" id="profilePic" required>
+	                   		<input type="file" name="profilePic" class="form-control" id="profilePic" placeholder="please upload tour profile picture!" required>
 	                    </div>
 	                    
 	                    <div class="col-6">
 	                   		<label for="resume" class="form-label">Resume</label>
-	                   		<input type="file" name="resume" class="form-control" id="resume" required>
+	                   		<input type="file" name="resume" class="form-control" id="resume" placeholder="please upload your resume!" required>
 	                    </div>
 
                         <div class="col-6">
                             <label for="degree" class="form-label">Degree</label>
-                            <input type="text" name="degree" class="form-control" id="degree" required>
+                            <input type="text" name="degree" class="form-control" id="degree" placeholder="please enter your degree!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="semester" class="form-label">Semester</label>
-                            <input type="text" name="semester" class="form-control" id="semester" required>
+                            <input type="text" name="semester" class="form-control" id="semester" placeholder="please enter your semester!" required>
                         </div>
 
                         <div class="col-6">

@@ -58,42 +58,42 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
                     <form class="row g-3 needs-validation" action="adminsavecompany" method="post" novalidate>
                         <div class="col-6">
                             <label for="companyName" class="form-label">Company Name</label>
-                            <input type="text" name="companyName" class="form-control" id="companyName" required>
+                            <input type="text" name="companyName" class="form-control" id="companyName" placeholder="please enter a company name!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" name="address" class="form-control" id="address" required>
+                            <input type="text" name="address" class="form-control" id="address" placeholder="please enter a company address!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="url" class="form-label">Company url</label>
-                            <input type="url" name="url" class="form-control" id="url" required>
+                            <input type="url" name="url" class="form-control" id="url" placeholder="please enter a company url!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="personName" class="form-label">Person Name</label>
-                            <input type="text" name="personName" class="form-control" id="personName" required>
+                            <input type="text" name="personName" class="form-control" id="personName" placeholder="please enter a company person name!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="externalGuide" class="form-label">External Guide</label>
-                            <input type="text" name="externalGuide" class="form-control" id="externalGuide" required>
+                            <input type="text" name="externalGuide" class="form-control" id="externalGuide" placeholder="please enter a company external guide!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="externalGuideContactNum" class="form-label">External Guide Contact No.</label>
-                            <input type="tel" name="externalGuideContactNum" class="form-control" id="externalGuideContactNum" maxlength="10" pattern="[0-9]{10}" required>
+                            <input type="tel" name="externalGuideContactNum" class="form-control" id="externalGuideContactNum" maxlength="10" pattern="[0-9]{10}" placeholder="please enter a contact number!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="companyProfileurl" class="form-label">Company Profile</label>
-                            <input type="url" name="companyProfileurl" class="form-control" id="companyProfileurl" required>
+                            <input type="url" name="companyProfileurl" class="form-control" id="companyProfileurl" placeholder="please enter a company profile!" required>
                         </div>
 
                         <div class="col-6">
                             <label for="anyOtherInfourl" class="form-label">Additional Information</label>
-                            <input type="url" name="anyOtherInfourl" class="form-control" id="anyOtherInfourl" required>
+                            <input type="url" name="anyOtherInfourl" class="form-control" id="anyOtherInfourl" placeholder="please enter a additional information!" required>
                         </div>
 						
 						<input type="hidden" name="userId" value="${user.userId }"/>

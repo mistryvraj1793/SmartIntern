@@ -58,27 +58,27 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                    <form class="row g-3 needs-validation" action="adminsavetechnology" method="post" novalidate>
 	                        <div class="col-6">
 	                            <label for="name" class="form-label">Name</label>
-	                            <input type="text" name="name" class="form-control" id="name" required>
+	                            <input type="text" name="name" class="form-control" id="name" placeholder="please enter a technology name!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="tools" class="form-label">Tools</label>
-	                            <input type="text" name="tools" class="form-control" id="tools" required>
+	                            <input type="text" name="tools" class="form-control" id="tools" placeholder="please enter a technology tools" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="frontend" class="form-label">Front End</label>
-	                            <input type="text" name="frontend" class="form-control" id="frontend" required>
+	                            <input type="text" name="frontend" class="form-control" id="frontend" placeholder="please enter a front end name!" required>
 	                        </div>
 	
 	                        <div class="col-6">
 	                            <label for="backend" class="form-label">Back End</label>
-	                            <input type="text" name="backend" class="form-control" id="backend" required>
+	                            <input type="text" name="backend" class="form-control" id="backend" placeholder="please enter a back end name!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="language" class="form-label">Language</label>
-	                            <input type="text" name="language" class="form-control" id="language" required>
+	                            <input type="text" name="language" class="form-control" id="language" placeholder="please enter a language name!" required>
 	                        </div>
 	
 	                        <div class="col-6">
@@ -93,7 +93,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 							
 							<div class="col-12">
 	                            <label for="description" class="form-label">Description</label>
-	                            <textarea class="form-control" name="description" style="height: 80px" required></textarea>
+	                            <textarea class="form-control" name="description" style="height: 80px" placeholder="please enter a technology description!" required></textarea>
 	                        </div>
 	                        
 	                        <div class="text-center">

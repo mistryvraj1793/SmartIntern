@@ -15,7 +15,7 @@ public interface TechnologiesRepository extends JpaRepository<TechnologiesEntity
 	List<Object[]> findActiveTechnologies();
 	
 	//admin Viewing Technology Details by TechnologyId with company details:
-	@Query(value = "SELECT  t.*, c.company_name, c.address, c.person_name, c.profile_url FROM technologies t JOIN     company c ON t.company_id = c.company_id WHERE t.technology_id = :technologyId", nativeQuery = true)
+	@Query(value = "SELECT  t.*, c.company_name, c.address, c.person_name, c.company_profile_url FROM technologies t JOIN     company c ON t.company_id = c.company_id WHERE t.technology_id = :technologyId", nativeQuery = true)
 	List<Object[]> GetTechnologyDetailById(Integer technologyId);
 	
 	//ajax findByCompanyId so we get the technologyName:

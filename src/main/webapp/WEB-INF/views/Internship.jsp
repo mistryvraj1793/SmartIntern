@@ -63,7 +63,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                    <form class="row g-3 needs-validation" novalidate action="saveinternship" method="post">
 	                        <div class="col-6">
 	                            <label for="title" class="form-label">Title</label>
-	                            <input type="text" name="title" class="form-control" id="title" required>
+	                            <input type="text" name="title" class="form-control" id="title" placeholder="please enter a internship title!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
@@ -78,22 +78,22 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	
 	                        <div class="col-6">
 	                            <label for="stipend" class="form-label">Stipend</label>
-	                            <input type="number" name="stipend" class="form-control" id="stipend" required>
+	                            <input type="number" name="stipend" class="form-control" id="stipend" placeholder="please enter a internship stipend!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="durationWeeks" class="form-label">Duration Weeks</label>
-	                            <input type="number" name="durationWeeks" class="form-control" id="durationWeeks" required>
+	                            <input type="number" name="durationWeeks" class="form-control" id="durationWeeks" placeholder="please enter a duration weeks!" required>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="description" class="form-label">Description</label>
-	                            <textarea class="form-control" name="description" style="height: 80px" required></textarea>
+	                            <textarea class="form-control" name="description" style="height: 80px" placeholder="please enter a internship description!" required></textarea>
 	                        </div>
 	                        
 	                        <div class="col-6">
 	                            <label for="requirements" class="form-label">Requirements</label>
-	                            <textarea class="form-control" name="requirements" style="height: 80px" required></textarea>
+	                            <textarea class="form-control" name="requirements" style="height: 80px" placeholder="please enter a internship requirements!" required></textarea>
 	                        </div>
 	
 	                        <div class="col-6">

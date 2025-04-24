@@ -18,9 +18,7 @@
   <jsp:include page="AdminHeader.jsp"></jsp:include>
   <jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-  <main id="main" class="main">
-    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 w-100">
-
+  <main id="main" class="main d-flex flex-column min-vh-100">
       <div class="pagetitle text-center">
         <h1>Edit Company</h1>
         <nav>
@@ -32,7 +30,7 @@
         </nav>
       </div>
 
-      <section class="section dashboard d-flex justify-content-center align-items-center min-vh-100">
+      <section class="section flex-grow-1 d-flex justify-content-center align-items-start">
         <div class="col-lg-8 col-md-8 col-sm-10">
           <div class="card shadow p-4">
             <div class="card-body">
@@ -104,8 +102,6 @@
           </div>
         </div>
       </section>
-
-    </div>
   </main>
 
   <jsp:include page="AdminFooter.jsp"></jsp:include>

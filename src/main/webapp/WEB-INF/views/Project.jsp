@@ -60,7 +60,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                    <form class="row g-3 needs-validation" action="adminsaveproject" method="post" novalidate>
 	                        <div class="col-6">
 	                            <label for="title" class="form-label">Title</label>
-	                            <input type="text" name="title" class="form-control" id="title" required>
+	                            <input type="text" name="title" class="form-control" id="title" placeholder="please enter a project title!" required>
 	                        </div>
 							
 							<div class="col-6">
@@ -75,7 +75,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 	                        
 	                        <div class="col-12">
 	                            <label for="description" class="form-label">Description</label>
-	                            <textarea class="form-control" name="description" style="height: 80px" required></textarea>
+	                            <textarea class="form-control" name="description" style="height: 80px" placeholder="please enter a project description!" required></textarea>
 	                        </div>
 	                     
 	                        <div class="text-center">

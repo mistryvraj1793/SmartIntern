@@ -53,26 +53,26 @@
                   <form class="row g-3 needs-validation" action="updatepassword" method="post" novalidate >
 					<div class="col-12">
                       <label for="email" class="form-label">Email</label>
-                      <input type="email" name="email" class="form-control" id="email" required>
+                      <input type="email" name="email" class="form-control" id="email" placeholder="please enter a email" required>
                       <div class="invalid-feedback">Please enter your email!</div>
                     </div>
                     
                     <div class="col-12">
 					  <label for="otp" class="form-label">OTP</label>
-						  <input type="text" name="otp" class="form-control" id="otp" maxlength="6" pattern="\d{6}" title="Please enter a 6-digit OTP" required>
+						  <input type="text" name="otp" class="form-control" id="otp" maxlength="6" pattern="\d{6}" title="Please enter a 6-digit OTP" placeholder="please enter a otp!" required>
 					  <div class="invalid-feedback">Please enter your 6-digit OTP!</div>
 					</div>
 
 					
                     <div class="col-12">
                       <label for="password" class="form-label">NewPassword</label>
-                      <input type="password" name="password" class="form-control" id="password" required>
+                      <input type="password" name="password" class="form-control" id="password" placeholder="please enter a password!" required>
                       <div class="invalid-feedback">Please enter your new password!</div>
                     </div>
 	
 					<div class="col-12">
                       <label for="confirmPassword" class="form-label">Confirm Password</label>
-                      <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required>
+                      <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="please enter a confirm password!" required>
                       <div class="invalid-feedback">Please enter your confirm password!</div>
                     </div>
                     
