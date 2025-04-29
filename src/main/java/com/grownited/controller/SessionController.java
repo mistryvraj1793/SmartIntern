@@ -151,18 +151,18 @@ public class SessionController {
 					//set the session for studentDetail through userId			
 					
 					UserEntity user = (UserEntity) session.getAttribute("user");
-					Integer userId =user.getUserId(); 
+					Integer userId = user.getUserId(); 
 					//System.out.println("Id => "+userId);
 
 		            // fetch corresponding studentDetail if exists
-					/*
-					 * Optional<StudentDetailEntity> studentDetailOptn =
-					 * repositoryStudentDetail.findByUserId(userId); if
-					 * (studentDetailOptn.isPresent()) { StudentDetailEntity dataBaseStudentDetail =
-					 * studentDetailOptn.get(); session.setAttribute("studentDetail",
-					 * dataBaseStudentDetail); //System.out.println(dataBaseStudentDetail); }
-					 */
 					
+					 Optional<StudentDetailEntity> studentDetailOptn = repositoryStudentDetail.findByUserId(userId); 
+					 if(studentDetailOptn.isPresent()) { 
+						 StudentDetailEntity dataBaseStudentDetail = studentDetailOptn.get(); 
+						 session.setAttribute("studentDetail", dataBaseStudentDetail); 
+						 //System.out.println(dataBaseStudentDetail); }
+					 }
+					 
 					//checking the role is ADMIN or Not.
 					if(dataBaseUser.getRole().equals("ADMIN")) {
 						System.out.println("It is Admin role");

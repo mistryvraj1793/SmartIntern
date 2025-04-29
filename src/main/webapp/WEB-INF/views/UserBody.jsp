@@ -4,6 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Bundle JS (includes Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <meta charset="UTF-8">
 <title>User Body</title>
 </head>
@@ -45,7 +53,7 @@
 	                        <h6 class="text-secondary h4 animated fadeInUp">SmartIntern Management System</h6>
 	                        <h1 class="text-white display-1 mb-4 animated fadeInLeft">Simplify Internship Tracking & Certification</h1>
 	                        <p class="mb-4 text-white fs-5 animated fadeInDown">A complete platform to manage applications, progress tracking, mentor reviews, and internship certifications with ease.</p>
-	                        <a href="aboutus" class="me-2">
+	                        <a href="useraboutus" class="me-2">
 	                            <button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill animated fadeInLeft">Learn More</button>
 	                        </a>
 	                        <a href="userstudentdetail" class="ms-2">
@@ -134,235 +142,209 @@
 
 
 	<!-- Services Start -->
-<div class="container-fluid services py-5 mb-5">
-    <div class="container">
-        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-            <h5 class="text-primary">Our Services</h5>
-            <h1>SmartIntern Solutions For Internship Management</h1>
-        </div>
-        <div class="row g-5 services-inner">
-
-            <!-- Internship Listings -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-briefcase fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Internship Listings</h4>
-                            <p class="mb-4">Companies can post internships, and students can easily explore opportunities matching their skills and interests.</p>
-                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#internshipListingsModal">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mentorship Management -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-user-tie fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Mentorship Management</h4>
-                            <p class="mb-4">Mentors can monitor assigned students, track project progress, and provide guidance through the platform.</p>
-                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#mentorshipManagementModal">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project Allocation -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-tasks fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Project Allocation</h4>
-                            <p class="mb-4">HRs and admins can efficiently assign projects and technologies to students based on their profiles and preferences.</p>
-                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#projectAllocationModal">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Student Profiles -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-users fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Student Profiles</h4>
-                            <p class="mb-4">Students can maintain detailed profiles with personal info, education, skillsets, and internship history for companies to review.</p>
-                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#studentProfilesModal">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Company Collaboration -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-building fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Company Collaboration</h4>
-                            <p class="mb-4">Partner companies can connect with talented interns, post requirements, and manage their internship activities smoothly.</p>
-                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#companyCollaborationModal">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Performance Tracking -->
-            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-                <div class="services-item bg-light">
-                    <div class="p-4 text-center services-content">
-                        <div class="services-content-icon">
-                            <i class="fas fa-chart-line fa-7x mb-4 text-primary"></i>
-                            <h4 class="mb-3">Performance Tracking</h4>
-                            <p class="mb-4">Monitor student performance, project submissions, and mentor feedback to evaluate overall internship outcomes.</p>
-                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#performanceTrackingModal">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- Services End -->
+		<div class="container-fluid services py-5 mb-5">
+		    <div class="container">
+		        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+		            <h5 class="text-primary">Our Services</h5>
+		            <h1>SmartIntern Solutions For Internship Management</h1>
+		        </div>
+		        <div class="row g-5 services-inner">
+		
+		            <!-- Internship Listings -->
+		            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
+		                <div class="services-item bg-light">
+		                    <div class="p-4 text-center services-content">
+		                        <div class="services-content-icon">
+		                            <i class="fas fa-briefcase fa-7x mb-4 text-primary"></i>
+		                            <h4 class="mb-3">Internship Listings</h4>
+		                            <p class="mb-4">Companies can post internships, and students can easily explore opportunities matching their skills and interests.</p>
+		                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#internshipListingsModal">Read More</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		            <!-- Mentorship Management -->
+		            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
+		                <div class="services-item bg-light">
+		                    <div class="p-4 text-center services-content">
+		                        <div class="services-content-icon">
+		                            <i class="fas fa-user-tie fa-7x mb-4 text-primary"></i>
+		                            <h4 class="mb-3">Mentorship Management</h4>
+		                            <p class="mb-4">Mentors can monitor assigned students, track project progress, and provide guidance through the platform.</p>
+		                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#mentorshipManagementModal">Read More</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		            <!-- Project Allocation -->
+		            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+		                <div class="services-item bg-light">
+		                    <div class="p-4 text-center services-content">
+		                        <div class="services-content-icon">
+		                            <i class="fas fa-tasks fa-7x mb-4 text-primary"></i>
+		                            <h4 class="mb-3">Project Allocation</h4>
+		                            <p class="mb-4">HRs and admins can efficiently assign projects and technologies to students based on their profiles and preferences.</p>
+		                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#projectAllocationModal">Read More</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		            <!-- Student Profiles -->
+		            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
+		                <div class="services-item bg-light">
+		                    <div class="p-4 text-center services-content">
+		                        <div class="services-content-icon">
+		                            <i class="fas fa-users fa-7x mb-4 text-primary"></i>
+		                            <h4 class="mb-3">Student Profiles</h4>
+		                            <p class="mb-4">Students can maintain detailed profiles with personal info, education, skillsets, and internship history for companies to review.</p>
+		                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#studentProfilesModal">Read More</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		            <!-- Company Collaboration -->
+		            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
+		                <div class="services-item bg-light">
+		                    <div class="p-4 text-center services-content">
+		                        <div class="services-content-icon">
+		                            <i class="fas fa-building fa-7x mb-4 text-primary"></i>
+		                            <h4 class="mb-3">Company Collaboration</h4>
+		                            <p class="mb-4">Partner companies can connect with talented interns, post requirements, and manage their internship activities smoothly.</p>
+		                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#companyCollaborationModal">Read More</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		            <!-- Performance Tracking -->
+		            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+		                <div class="services-item bg-light">
+		                    <div class="p-4 text-center services-content">
+		                        <div class="services-content-icon">
+		                            <i class="fas fa-chart-line fa-7x mb-4 text-primary"></i>
+		                            <h4 class="mb-3">Performance Tracking</h4>
+		                            <p class="mb-4">Monitor student performance, project submissions, and mentor feedback to evaluate overall internship outcomes.</p>
+		                            <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#performanceTrackingModal">Read More</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		        </div>
+		    </div>
+		</div>
+	<!-- Services End -->
 
 
 	<!-- Internship Start -->
 	<div id="internships-section" class="container-fluid project py-5 mb-5">
-	
-    <div class="container-fluid project py-5 mb-5">
-	    <div class="container">
-	        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-	            <h5 class="text-primary">Our Internships</h5>
-	            <h1>Our Recently Launched Internships</h1>
-	        </div>
-	
-	        <!-- Show this if internshipList is empty -->
-	        <c:if test="${empty availableInternship}">
-	            <p class="text-center text-danger">No internships available at the moment.</p>
-	        </c:if>
-	
-	        <!-- Show this if internshipList has data -->
-	        <c:if test="${not empty availableInternship}">
-	            <div class="row g-5">
-	                <c:forEach items="${availableInternship}" var="avaiIntern">
-	                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-	                        <div class="project-item">
-	                            <div class="project-img">
-	                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
-	                                <div class="project-content">
-	                                    <a href="userinternshipapplications?internshipId=${avaiIntern.internshipId }" class="text-center">
-	                                        <h4 class="text-secondary">${avaiIntern.title}</h4>
-	                                    </a>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </c:forEach>
-	            </div>
-	        </c:if>
-	
-	    </div>
-	</div>
+	    <div class="container-fluid project py-5 mb-5">
+		    <div class="container">
+		        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+		            <h5 class="text-primary">Our Internships</h5>
+		            <h1>Our Recently Launched Internships</h1>
+		        </div>
+		
+		        <!-- Show this if internshipList is empty -->
+		        <c:if test="${empty availableInternship}">
+		            <p class="text-center text-danger">No internships available at the moment.</p>
+		        </c:if>
+		
+		        <!-- Show this if internshipList has data -->
+		        <c:if test="${not empty availableInternship}">
+		            <div class="row g-5">
+		                <c:forEach items="${availableInternship}" var="avaiIntern">
+		                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+		                        <div class="project-item">
+		                            <div class="project-img">
+		                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
+		                                <div class="project-content">
+		                                    <a href="userinternshipapplications?internshipId=${avaiIntern.internshipId }" class="text-center">
+		                                        <%-- <h4 class="text-secondary">${avaiIntern.title}</h4> --%>
+		                                        <p class="m-0 text-white">${avaiIntern.title}</p>
+		                                    </a>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </c:forEach>
+		            </div>
+		        </c:if>
+		
+		    </div>
+		</div>
 	</div>
     <!-- Internship End -->
 
     <!-- Project Start -->
         <div class="container-fluid project py-5 mb-5">
             <div class="container">
-                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px; visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
                     <h5 class="text-primary">Our Project</h5>
                     <h1>Our Recently Completed Projects</h1>
                 </div>
-                <div class="row g-5">
-                    <!-- Project Item Example with Modal Trigger -->
-					<div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-					  <div class="project-item">
-					    <div class="project-img">
-					      <img src="user/img/project-1.jpg" class="img-fluid w-100 rounded" alt="">
-					      <div class="project-content">
-					        <a href="#" class="text-center" data-bs-toggle="modal" data-bs-target="#projectDetailsModal">
-					          <h4 class="text-secondary">Web design</h4>
-					          <p class="m-0 text-white">Web Analysis</p>
-					        </a>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-                        <div class="project-item">
-                            <div class="project-img">
-                                <img src="user/img/project-2.jpg" class="img-fluid w-100 rounded" alt="">
-                                <div class="project-content">
-                                    <a href="#" class="text-center">
-                                        <h4 class="text-secondary">Cyber Security</h4>
-                                        <p class="m-0 text-white">Cyber Security Core</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-                        <div class="project-item">
-                            <div class="project-img">
-                                <img src="user/img/project-3.jpg" class="img-fluid w-100 rounded" alt="">
-                                <div class="project-content">
-                                    <a href="#" class="text-center">
-                                        <h4 class="text-secondary">Mobile Info</h4>
-                                        <p class="m-0 text-white">Upcomming Phone</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
-                        <div class="project-item">
-                            <div class="project-img">
-                                <img src="user/img/project-4.jpg" class="img-fluid w-100 rounded" alt="">
-                                <div class="project-content">
-                                    <a href="#" class="text-center">
-                                        <h4 class="text-secondary">Web Development</h4>
-                                        <p class="m-0 text-white">Web Analysis</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
-                        <div class="project-item">
-                            <div class="project-img">
-                                <img src="user/img/project-5.jpg" class="img-fluid w-100 rounded" alt="">
-                                <div class="project-content">
-                                    <a href="#" class="text-center">
-                                        <h4 class="text-secondary">Digital Marketing</h4>
-                                        <p class="m-0 text-white">Marketing Analysis</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
-                        <div class="project-item">
-                            <div class="project-img">
-                                <img src="user/img/project-6.jpg" class="img-fluid w-100 rounded" alt="">
-                                <div class="project-content">
-                                    <a href="#" class="text-center">
-                                        <h4 class="text-secondary">keyword Research</h4>
-                                        <p class="m-0 text-white">keyword Analysis</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                <!-- Show this if projectList is empty -->
+		        <c:if test="${empty availableProject}">
+		            <p class="text-center text-danger">No projects available at the moment.</p>
+		        </c:if>
+		        
+                <!-- Show this if internshipList has data -->
+		        <c:if test="${not empty availableProject}">
+		            <div class="row g-5">
+		                <c:forEach items="${availableProject}" var="availProj">
+						    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
+						        <div class="project-item">
+						            <div class="project-img">
+						                <img src="user/img/project-1.jpg" class="img-fluid w-100 rounded" alt="">
+						                <div class="project-content">
+						                    <!-- This triggers the modal -->
+						                    <a href="#projectDetailsModal${availProj.projectId}" 
+						                       class="text-center" 
+						                       data-bs-toggle="modal">
+						                        <p class="m-0 text-white">${availProj.title}</p>
+						                    </a>
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+						
+						    <!-- Modal for this project (must be inside the loop!) -->
+						    <div class="modal fade" id="projectDetailsModal${availProj.projectId}" 
+						         tabindex="-1" 
+						         aria-labelledby="projectDetailsModalLabel${availProj.projectId}" 
+						         aria-hidden="true">
+						        <div class="modal-dialog modal-dialog-centered">
+						            <div class="modal-content">
+						                <div class="modal-header bg-primary text-white">
+						                    <h5 class="modal-title" id="projectDetailsModalLabel${availProj.projectId}">
+						                        Project Details
+						                    </h5>
+						                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+						                </div>
+						                <div class="modal-body">
+						                    <h4>${availProj.title}</h4>
+						                    <p>${availProj.description}</p>
+						                    <a href="#" class="btn btn-primary" target="_blank">View on GitHub</a>
+						                </div>
+						                <div class="modal-footer">
+						                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+						</c:forEach>
+
+		            </div>
+		        </c:if>
+	        
             </div>
-        </div>
-    <!-- Project End -->
+        </div>    
+       <!-- Project End -->
 
 	<!-- Team Start -->
 	<div class="container-fluid py-5 mb-5 team">
@@ -594,29 +576,6 @@
 		    </div>
 		</div>
 	
-		<!-- Modals of Projects -->
-			<!-- Project Modal Start -->
-			<div class="modal fade" id="projectDetailsModal" tabindex="-1" aria-labelledby="projectDetailsModalLabel" aria-hidden="true">
-			  <div class="modal-dialog modal-dialog-centered">
-			    <div class="modal-content">
-			      <div class="modal-header bg-primary text-white">
-			        <h5 class="modal-title" id="projectDetailsModalLabel">Project Details</h5>
-			        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-			      </div>
-			      <div class="modal-body">
-			        <h4>Project Title</h4>
-			        <p>Project Description</p>
-			        <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript, React</p>
-			        <p><strong>Challenges Faced:</strong> Lorem ipsum dolor sit amet...</p>
-			        <a href="#" class="btn btn-primary" target="_blank">View on GitHub</a>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			<!-- Project Modal End -->
 
 <!-- Body End -->
 </body>

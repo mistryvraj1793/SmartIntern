@@ -19,7 +19,7 @@ public interface InternshipApplicationRepository extends JpaRepository<Internshi
 	List<Object[]> GetInternAppliedByUser();
 	
 	//for admin see view and edit of internshipApplication by internshipApplicationId
-	@Query(value = "select iapp.*, concat(u.first_name, ' ', u.last_name) as AppledBy, u.role, i.application_dead_line, i.stipend, i.title as Internship_Title, i.duration_weeks, i.location as Internship_Location, i.description, i.requirements, cmp.company_name, cmp.address as Company_Address from internship_applications as iapp join internships i on i.internship_id = iapp.internship_id join company cmp on i.company_id = cmp.company_id join users u on u.user_id = iapp.user_id and iapp.application_id = :applicationId", nativeQuery = true)
+	@Query(value = "select iapp.*, concat(u.first_name, ' ', u.last_name) as AppledBy, u.role, i.application_dead_line, i.stipend, i.title as Internship_Title, i.duration_weeks, i.location as Internship_Location, i.description, i.requirements, cmp.company_name, cmp.address as Company_Address, u.email as AppliedByEmail from internship_applications as iapp join internships i on i.internship_id = iapp.internship_id join company cmp on i.company_id = cmp.company_id join users u on u.user_id = iapp.user_id and iapp.application_id = :applicationId", nativeQuery = true)
 	List<Object[]> GetInternAppliedId(Integer applicationId);
 	
 	//admin Widget and  Dynamic Display in UserBody, UserContactUs as a Fact:

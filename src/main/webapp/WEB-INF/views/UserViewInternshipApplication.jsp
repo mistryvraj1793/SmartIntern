@@ -34,7 +34,7 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 		  <nav>
 		    <ol class="breadcrumb justify-content-center">
 		      <li class="breadcrumb-item"><a href="userdashboard">Home</a></li>
-		      <li class="breadcrumb-item"><a href="userlistinternshipapplications">List Applications</a></li>
+		      <!-- <li class="breadcrumb-item"><a href="userlistinternshipapplications">List Applications</a></li> -->
 		      <li class="breadcrumb-item active">View Application</li>
 		    </ol>
 		  </nav>
@@ -93,11 +93,22 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 		                  </div>
 		                </div>
 		
-		                <div class="row mb-2">
+		                <%-- <div class="row mb-2">
 		                  <div class="col-sm-5 fw-bold">Cover Letter:</div>
 		                  <div class="col-sm-7">${userInternApplication[0][2]}</div>
+		                </div> --%>
+						<div class="row mb-2">
+		                  <div class="col-sm-5 fw-bold">Cover Letter:</div>
+		                  <div class="col-sm-7">
+		                    <c:if test="${not empty internApplication[0][2]}">
+		                      <a href="${internApplication[0][2]}" target="_blank">View Resume</a>
+		                    </c:if>
+		                    <c:if test="${empty internApplication[0][2]}">
+		                      Not Provided
+		                    </c:if>
+		                  </div>
 		                </div>
-		
+		                
 		                <div class="row mb-2">
 		                  <div class="col-sm-5 fw-bold">Payment Reference:</div>
 		                  <div class="col-sm-7">Not Provided</div>

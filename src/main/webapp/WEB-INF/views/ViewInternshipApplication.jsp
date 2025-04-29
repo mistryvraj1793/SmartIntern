@@ -141,8 +141,8 @@
                 </div>
 
                 <div class="row mb-2">
-                  <div class="col-sm-5 fw-bold">Payment ID:</div>
-                  <div class="col-sm-7">${internApplication[0][4]}</div>
+                  <div class="col-sm-5 fw-bold">Applied By Email</div>
+                  <div class="col-sm-7">${internApplication[0][19]}</div>
                 </div>
 
               </div>

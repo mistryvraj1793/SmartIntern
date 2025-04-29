@@ -21,9 +21,6 @@
                 	<div class="navbar-nav ms-auto mx-xl-auto p-0">
                     	<a href="userdashboard" class="nav-item nav-link active text-secondary">Home</a>
                         <a href="useraboutus" class="nav-item nav-link">About</a>
-                        <a href="#" class="nav-item nav-link">Services</a>
-                        <a href="#" class="nav-item nav-link">Projects</a>
-                        <a href="userviewavailableinternships" class="nav-item nav-link">Internships</a>
                         <div class="nav-item dropdown">
                         	<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
                         	<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">

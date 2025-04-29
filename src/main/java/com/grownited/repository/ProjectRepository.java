@@ -25,6 +25,8 @@ public interface ProjectRepository extends JpaRepository<ProjectsEntity, Integer
 	
 	//for admin edit get all company and users details By Id.
 	Optional<ProjectsEntity> findProjectByProjectId(Integer projectId);
-
+	
+	@Query(value = "SELECT * FROM projects WHERE active = 1 or active=true", nativeQuery = true)
+	List<ProjectsEntity> findAllActiveProjects();
 	
 }

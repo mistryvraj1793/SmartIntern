@@ -74,7 +74,7 @@
 									<form class="row g-3 needs-validation" action="saveinternshipapplication" method="post" enctype="multipart/form-data" novalidate>
 										<!-- Resume Section -->
 										<div class="col-6">
-										  <label for="resume" class="form-label">Resume</label>
+										  <label for="resume" class="form-label"><strong>Resume</strong></label>
 										  <c:choose>
 										    <c:when test="${not empty studentDetail.resumePath}">
 										      <a href="${studentDetail.resumePath}" class="btn btn-outline-secondary btn-sm" target="_blank" download>

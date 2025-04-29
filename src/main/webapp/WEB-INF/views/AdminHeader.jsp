@@ -177,9 +177,8 @@
 
         <li class="nav-item dropdown pe-3">
 			<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-			    <span class="profile-icon d-flex align-items-center justify-content-center me-2">
-			        <i class="fa fa-user" aria-hidden="true" style="font-size: 30px; color: #333;"></i>
-			    </span>
+			    <i class="fa fa-user" aria-hidden="true" style="font-size: 25px; color: #333;"></i>
+			    <span class="d-none d-md-block dropdown-toggle ps-2">${sessionScope.user.firstName }</span>
 			</a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">

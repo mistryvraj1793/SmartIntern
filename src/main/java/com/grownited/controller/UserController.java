@@ -10,13 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.InternshipEntity;
+import com.grownited.entity.ProjectsEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.CompanyRepository;
 import com.grownited.repository.CompanyUserRepository;
 import com.grownited.repository.InternshipApplicationRepository;
 import com.grownited.repository.InternshipProjectRepository;
 import com.grownited.repository.InternshipRepository;
+import com.grownited.repository.ProjectRepository;
 import com.grownited.repository.UserRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class UserController {
@@ -26,6 +30,9 @@ public class UserController {
 	
 	@Autowired
 	InternshipRepository repositoryInternship;
+	
+	@Autowired
+	ProjectRepository repositoryProject;
 	
 	@Autowired
 	InternshipProjectRepository repositoryInternshipProject;
@@ -41,12 +48,17 @@ public class UserController {
 	
 	@GetMapping("userdashboard")
 	public String userDashboard(Model model) {
+		//Available Internships Shown in UserBody:
 		List<InternshipEntity> availableInternship = repositoryInternship.findByStatus("OPEN"); // Only show open ones
 		model.addAttribute("availableInternship", availableInternship);
 		
+		//Available Projects Shown in UserBody:
+		List<ProjectsEntity> availableProject = repositoryProject.findAllActiveProjects();
+		model.addAttribute("availableProject", availableProject);
+		
 		//Our Team Section in UserBody:
-		 List<Object[]> companyUserList = repositoryCompanyUser.GetCompanyUser();
-		 model.addAttribute("companyUsers", companyUserList);
+		List<Object[]> companyUserList = repositoryCompanyUser.GetCompanyUser();
+		model.addAttribute("companyUsers", companyUserList);
 		
 		//Dynamic Display in UserBody as a Fact:
 		Integer activeInternships = repositoryInternship.findByStatus("OPEN").size();
@@ -60,7 +72,6 @@ public class UserController {
 		model.addAttribute("totalUsers", totalUsers);
 		return "UserDashboard";
 	}
-	
 	@GetMapping("home")
 	public String home() {
 		return "Home";
@@ -68,7 +79,6 @@ public class UserController {
 	@GetMapping("userviewavailableinternships")
 	public String userViewAvailableInternships(Model model) {
 		List<InternshipEntity> availableInternship = repositoryInternship.findByStatus("OPEN"); // Only show open ones
-		
 		System.out.println(availableInternship);
 		model.addAttribute("availableInternship", availableInternship);
 	
