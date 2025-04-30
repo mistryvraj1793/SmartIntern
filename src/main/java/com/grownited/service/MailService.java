@@ -81,13 +81,15 @@ public class MailService {
 	
 	public void sendPaymentStatusMail(String email, String firstName, Double amount, String last4Digits) {
 	    String subject = "Internship Payment Confirmation";
-	    String body = "Hello " + firstName + ",\n\n"
-	            + "This is to confirm that we have received your payment for the internship.\n"
-	            + "Amount: ₹" + amount + "\n"
-	            + "Card Number (Last 4 Digits): **** **** **** " + last4Digits + "\n\n"
-	            + "Thank you for being a part of SmartIntern!\n\n"
-	            + "Regards,\n"
-	            + "SmartIntern Team";
+	    String body = "Dear " + firstName + ",\n\n"
+	            + "We’re pleased to inform you that your payment for the SmartIntern internship has been successfully received.\n\n"
+	            + "🧾 Payment Details:\n"
+	            + "• Amount Paid: ₹" + amount + "\n"
+	            + "• Card Ending With: **** **** **** " + last4Digits + "\n\n"
+	            + "You’re now officially enrolled and one step closer to an exciting internship journey with us!\n\n"
+	            + "If you have any questions or need further assistance, feel free to reach out to our support team.\n\n"
+	            + "Warm regards,\n"
+	            + "The SmartIntern Team";
 
 	    String from = "mistryvraj1234@gmail.com";
 

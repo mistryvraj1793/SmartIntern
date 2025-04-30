@@ -112,13 +112,13 @@ html {
 #note small {
     position: relative;
     display: inline-block;
-    animation: mymove 5s infinite;
+    animation: mymove 20s infinite;
     animation-timing-function: all;
 }
 
 @keyframes mymove {
-    from {left: -100%;}
-    to {left: 100%;}
+    from {left: 100%;}
+    to {left: -100%;}
 }
 
 /*** Topbar End ***/

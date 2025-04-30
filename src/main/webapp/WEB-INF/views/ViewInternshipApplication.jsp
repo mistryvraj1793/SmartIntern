@@ -125,11 +125,6 @@
                   </div>
                 </div>
 				
-                <%-- <div class="row mb-2">
-                  <div class="col-sm-5 fw-bold">Cover Letter Path:</div>
-                  <div class="col-sm-7">${internApplication[0][2]}</div>
-                </div> --%>
-
                 <div class="row mb-2">
                   <div class="col-sm-5 fw-bold">Applied At:</div>
                   <div class="col-sm-7">${internApplication[0][1]}</div>
@@ -139,7 +134,19 @@
                   <div class="col-sm-5 fw-bold">Application Deadline:</div>
                   <div class="col-sm-7">${internApplication[0][10]}</div>
                 </div>
-
+				
+				<div class="row mb-2">
+		                  <div class="col-sm-5 fw-bold">Payment Reference:</div>
+		                  <div class="col-sm-7">
+		                  	<c:if test="${not empty internApplication[0][20]}">
+		                      ${internApplication[0][20]}
+		                    </c:if>
+		                    <c:if test="${empty internApplication[0][20]}">
+		                      Not Paid / N/A
+		                    </c:if>
+		                  </div>
+		                </div>
+				
                 <div class="row mb-2">
                   <div class="col-sm-5 fw-bold">Applied By Email</div>
                   <div class="col-sm-7">${internApplication[0][19]}</div>

@@ -49,8 +49,8 @@
 			                            </div>
 			
 			                            <div class="col-6">
-			                                <label for="expDate" class="form-label"><strong>Expiry Date</strong></label>
-			                                <input type="text" class="form-control" id="expDate" name="expDate" required>
+			                                <label for="expDate" class="form-label"><strong>Expiry Date</strong> (mmyy)</label>
+			                                <input type="text" class="form-control" id="expDate" name="expDate" maxlength="4" placeholder="MMYY" required>
 			                                <div class="invalid-feedback">Please select expiry date.</div>
 			                            </div>
 			
@@ -59,9 +59,9 @@
 			                                <input type="number" class="form-control" id="amount" name="amount" value="${amount}" readonly>
 			                            </div>
 			
-			                            <input type="hidden" name="userId" value="${user.userId}" />
-			                            <input type="hidden" name="internshipId" value="${internshipById.internshipId}" />
-			
+			                            <%-- <input type="hidden" name="userId" value="${user.userId}" /> --%>
+			                            <%-- <input type="hidden" name="applicationId" value="${internApplication.applicationId}" /> --%>
+										<input type="hidden" name="applicationId" value="${applicationId}" />
 			                            <div class="text-center">
 			                                <button type="submit" class="btn btn-success px-4">Pay Now</button>
 			                            </div>

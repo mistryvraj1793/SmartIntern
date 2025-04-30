@@ -100,10 +100,10 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 						<div class="row mb-2">
 		                  <div class="col-sm-5 fw-bold">Cover Letter:</div>
 		                  <div class="col-sm-7">
-		                    <c:if test="${not empty internApplication[0][2]}">
-		                      <a href="${internApplication[0][2]}" target="_blank">View Resume</a>
+		                    <c:if test="${not empty userInternApplication[0][2]}">
+		                      <a href="${userInternApplication[0][2]}" target="_blank">View Resume</a>
 		                    </c:if>
-		                    <c:if test="${empty internApplication[0][2]}">
+		                    <c:if test="${empty userInternApplication[0][2]}">
 		                      Not Provided
 		                    </c:if>
 		                  </div>
@@ -111,7 +111,14 @@ where prefix="c" allows you to use JSTL tags with <c:> syntax.--%>
 		                
 		                <div class="row mb-2">
 		                  <div class="col-sm-5 fw-bold">Payment Reference:</div>
-		                  <div class="col-sm-7">Not Provided</div>
+		                  <div class="col-sm-7">
+		                  	<c:if test="${not empty userInternApplication[0][15]}">
+		                      ${userInternApplication[0][15]}
+		                    </c:if>
+		                    <c:if test="${empty userInternApplication[0][15]}">
+		                      Not Paid / N/A
+		                    </c:if>
+		                  </div>
 		                </div>
 		
 		                <div class="row mb-2">

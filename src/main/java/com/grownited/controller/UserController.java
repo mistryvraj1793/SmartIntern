@@ -137,7 +137,6 @@ public class UserController {
 		return "UserViewInternshipApplication";
 	}
 	
-	
 	@GetMapping("adminedituser")
 	public String adminEditUser(Integer userId, Model model) {
 		Optional<UserEntity> op = repositoryUser.findById(userId);

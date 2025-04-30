@@ -25,6 +25,8 @@ import com.grownited.repository.StudentDetailRepository;
 import com.grownited.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -99,14 +101,13 @@ public class InternshipApplicationController {
 	                e.printStackTrace();
 	            }
 	        }
-
-	        repositoryInternshipApplication.save(entityInternshipApplication);
+	        InternshipApplicationEntity savedApp = repositoryInternshipApplication.save(entityInternshipApplication);
 	        
-	        return "redirect:/applicationfee";
+	        return "redirect:/applicationfee?applicationId=" + savedApp.getApplicationId();
 	    } else {
 	        return "redirect:/userstudentdetail";
 	    }
-	}
+	}	
 	@GetMapping("adminlistinternshipapplications")
 	public String adminlistInternshipApplications(Model model) {
 		//fetchs the data from table internship_application into controller in list internshipApplicationList

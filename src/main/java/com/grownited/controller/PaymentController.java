@@ -29,9 +29,10 @@ public class PaymentController {
 	
 	
 	@GetMapping("applicationfee")
-	public String applicationFee(Model model) {
+	public String applicationFee(Model model, Integer applicationId) {
 		
 		model.addAttribute("amount", 500.0);
+		model.addAttribute("applicationId", applicationId);
 		return "ApplicationFee";
 	}
 	
@@ -42,11 +43,11 @@ public class PaymentController {
 		//("9G7ERUQ4yt7Q", "7MR382D8Rvvm2qjR", 500.0, ccNum, expDate, user.getEmail()
 		Integer paymentId = servicePayment.chargeCreditCard("9G7ERUQ4yt7Q", "7MR382D8Rvvm2qjR", 500.0, ccNum, expDate, user.getEmail());
 		
+		System.out.println("Fetch PaymentId =>"+paymentId);
 		InternshipApplicationEntity dbApplication = internshipApplicationRepository.findById(applicationId).get();
 		
 		dbApplication.setPaymentId(paymentId);
 		internshipApplicationRepository.save(dbApplication);
-		
 		
 		String last4 = ccNum.substring(ccNum.length() - 4);
 		mailService.sendPaymentStatusMail(user.getEmail(), user.getFirstName(), amount, last4);

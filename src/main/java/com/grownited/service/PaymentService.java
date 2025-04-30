@@ -92,14 +92,14 @@ public class PaymentService {
 //					
 					payment.setAmount(amount);
 					payment.setAuthCode(result.getAuthCode());
-					payment.setCcNum(ccNum);
+					payment.setCcNum(masked);
 					payment.setExpDate(expDate);
 					payment.setTransactionId(result.getTransId());
 					payment.setEmail(email);
 //					
 					paymentRepository.save(payment);
 					Integer paymentId = payment.getPaymentId();
-					
+					System.out.println("Saved PaymentId was: =>"+paymentId);
 					return paymentId;
 				} else {
 					
