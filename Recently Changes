@@ -1,9 +1,0 @@
-21-feb-25-->Bcrypt of application.properties.
-	-->in input password of any form change type to password 
-	-->in Login jsp whenever submit then redirect to authenticate url in which we can match the entered email and password from user to the existing database 
-		->If email or password is incorrect then we redirect to Login jsp page or 
-		->If email and password are correct (i.e;matched) then we redirect to Register jsp page.
-		
-13-march-2025-->In internship table i set the foreign key concept as a companyId.
-				-->but doesn't set the postedBy as a adminId i will set later on while i will appling with query annotation.
-				
