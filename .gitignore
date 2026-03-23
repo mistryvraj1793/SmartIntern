@@ -33,3 +33,6 @@ build/
 .vscode/
 
 bin/
+
+# Local config (DO NOT PUSH)
+application-local.properties
